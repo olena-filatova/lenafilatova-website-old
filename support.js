@@ -157,7 +157,7 @@
     runtime.adoptParsed(rootName, parsed);
     fetch(location.href).then((res) => res.ok ? res.text() : "").then((t) => {
       const raw = t ? parseDcText(t) : null;
-      if (raw?.template) runtime.updateHtml(rootName, raw.template);
+      if (raw?.template && !parsed.template) runtime.updateHtml(rootName, raw.template);
     }).catch(() => {
     });
     const dc = doc.querySelector("x-dc");
