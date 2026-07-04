@@ -27,14 +27,24 @@
   <meta property="og:description" content="Evidence-based women's health after 40 — clear, practical guidance on diabetes, insulin resistance and perimenopause, plus a free newsletter and journal.">
   <!-- Analytics slot: paste your privacy-friendly analytics snippet below (e.g. Cloudflare Web Analytics or Plausible). Example:
        <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"YOUR_TOKEN"}'></script> -->
-  <meta property="og:image" content="images/lena-filatova-womens-health-coach-over-40.jpg">
+  <meta property="og:image" content="/images/lena-filatova-womens-health-coach-over-40.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Lena Filatova — Evidence-based women's health after 40">
   <meta name="twitter:description" content="Nutrition, fitness and calm, practical guidance for women's health after 40.">
-  <meta name="twitter:image" content="images/lena-filatova-womens-health-coach-over-40.jpg">
-  <meta name="ext-resource-dependency" content="images/strength-training-cgm-type-1-diabetes.jpg">
-  <meta name="ext-resource-dependency" content="images/blood-sugar-graph-perimenopause.jpg">
-  <meta name="ext-resource-dependency" content="images/lena-filatova-type-1-diabetes-23-years.jpg">
+  <meta name="twitter:image" content="/images/lena-filatova-womens-health-coach-over-40.jpg">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lenafilatova.co.uk/#organization","name":"Lena Filatova","url":"https://lenafilatova.co.uk/","logo":"https://lenafilatova.co.uk/images/lena-filatova-womens-health-coach-over-40.jpg","sameAs":["https://www.instagram.com/lena.filatova/","https://www.facebook.com/lenafilatovablog","https://www.threads.com/@lena.filatova"]},{"@type":"WebSite","@id":"https://lenafilatova.co.uk/#website","url":"https://lenafilatova.co.uk/","name":"Lena Filatova","inLanguage":"en","publisher":{"@id":"https://lenafilatova.co.uk/#organization"}},{"@type":"Person","@id":"https://lenafilatova.co.uk/#lena","name":"Lena Filatova","url":"https://lenafilatova.co.uk/","image":"https://lenafilatova.co.uk/images/lena-filatova-womens-health-coach-over-40.jpg","description":"Writer and coach on evidence-based women's health after 40 — diabetes, insulin resistance and perimenopause. Living with type 1 diabetes for over two decades.","knowsAbout":["Type 1 diabetes","Perimenopause","Insulin resistance","Women's health after 40","Nutrition"],"sameAs":["https://www.instagram.com/lena.filatova/","https://www.facebook.com/lenafilatovablog","https://www.threads.com/@lena.filatova"]}]}</script>
+  <meta name="ext-resource-dependency" content="/images/strength-training-cgm-type-1-diabetes.jpg">
+  <meta name="ext-resource-dependency" content="/images/blood-sugar-graph-perimenopause.jpg">
+  <meta name="ext-resource-dependency" content="/images/lena-filatova-type-1-diabetes-23-years.jpg">
+  <meta name="ext-resource-dependency" content="/images/type-2-diabetes-research-meal-order.png">
+  <meta name="ext-resource-dependency" content="/images/blood-sugar-perimenopause-metabolism.png">
+  <meta name="ext-resource-dependency" content="/images/collagen-supplements-skin-women-over-40.png">
+  <meta name="ext-resource-dependency" content="/images/perimenopause-weight-gain-myths.png">
+  <meta name="ext-resource-dependency" content="/images/how-to-read-glucose-patterns-diabetes.png">
+  <meta name="ext-resource-dependency" content="/images/protein-for-women-over-40.png">
+  <meta name="ext-resource-dependency" content="/images/glow-up-after-40-nutrition-program.png">
+  <meta name="ext-resource-dependency" content="/images/effortless-meal-plans-women-over-40.png">
+  <meta name="ext-resource-dependency" content="/images/personal-nutrition-coaching-perimenopause.png">
   <style>
     * { box-sizing: border-box; }
     body { margin: 0; }
@@ -101,6 +111,7 @@
       header [style*="font-size: 22px"] { font-size: 17px !important; }
       header [style*="padding: 18px 32px"] { gap: 8px !important; }
     }
+    #cusdis_thread iframe { min-height: 300px; }
   </style>
 </helmet>
 
@@ -187,7 +198,7 @@
         </p>
       </div>
       <div style="aspect-ratio: 4 / 5; border-radius: 20px; overflow: hidden; background: #EDE0EA; box-shadow: 0 26px 60px -24px rgba(51,27,51,0.4);">
-        <img src="images/lena-filatova-womens-health-coach-over-40.jpg" alt="Lena Filatova, women's health and nutrition coach for women over 40" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; display: block;" />
+        <img src="/images/lena-filatova-womens-health-coach-over-40.jpg" alt="Lena Filatova, women's health and nutrition coach for women over 40" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; display: block;" />
       </div>
     </section>
 
@@ -273,7 +284,7 @@
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
           <sc-for list="{{ homeArticles }}" as="a" hint-placeholder-count="3">
             <div onClick="{{ a.onOpen }}" style="cursor: pointer; display: flex; flex-direction: column;">
-              <div style="{{ a.imgStyle }}"></div>
+              <img src="{{ a.img }}" alt="{{ a.title }}" loading="lazy" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 10px; margin-bottom: 18px; display: block;" />
               <span style="font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #B23A63; margin-bottom: 10px;">{{ a.cat }}</span>
               <h3 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-size: 22px; font-weight: 500; line-height: 1.3; text-wrap: pretty;">{{ a.title }}</h3>
               <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.55; color: #7A6675; text-wrap: pretty;">{{ a.excerpt }}</p>
@@ -386,8 +397,8 @@
       </div>
       <p style="margin: 0 0 14px; font-size: 12.5px; color: #9A8896;">{{ pumps.count }} {{ rp.countLabel }}</p>
       <p class="pump-swipe" style="margin: 0 0 12px; font-size: 12.5px; font-weight: 600; color: #B23A63;">{{ rp.pumpSwipe }}</p>
-      <div style="border: 1px solid #EDE0EA; border-radius: 14px; overflow: hidden; background: #FFFFFF;">
-        <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+      <div style="border: 1px solid #EDE0EA; border-radius: 14px; overflow: hidden; background: #FFFFFF; transform: translateZ(0);">
+        <div style="overflow-x: auto;">
         <table style="width: 100%; border-collapse: collapse; font-family: 'Manrope', sans-serif; min-width: 940px;">
           <thead>
             <tr style="background: #331B33;">
@@ -564,13 +575,14 @@
     <h1 style="margin: 0 0 16px; font-family: 'Spectral', serif; font-weight: 500; font-size: 48px; letter-spacing: -0.5px;">{{ c.blog.title }}</h1>
     <p style="margin: 0 0 52px; font-size: 18px; line-height: 1.6; color: #6A5668; max-width: 560px;">{{ c.blog.sub }}</p>
     <div onClick="{{ featured.onOpen }}" style="cursor: pointer; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 44px; align-items: center; margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid #EEE2EC;">
-      <div style="{{ featured.featStyle }}"></div>
+      <img src="{{ featured.img }}" alt="{{ featured.title }}" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; display: block;" />
       <div>
         <span style="display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #FFF; background: #B23A63; padding: 6px 13px; border-radius: 999px; margin-bottom: 18px;">{{ featuredLabel }}</span>
         <div style="font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #B23A63; margin-bottom: 12px;">{{ featured.cat }}</div>
         <h2 style="margin: 0 0 16px; font-family: 'Spectral', serif; font-weight: 500; font-size: 36px; line-height: 1.14; letter-spacing: -0.4px; text-wrap: balance;">{{ featured.title }}</h2>
         <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.6; color: #6A5668; text-wrap: pretty;">{{ featured.excerpt }}</p>
         <span style="font-size: 13px; color: #736070;">{{ featured.meta }}</span>
+        <sc-if value="{{ showStats }}" hint-placeholder-val="{{ false }}">
         <div style="display: flex; align-items: center; gap: 18px; margin-top: 16px;">
           <span onClick="{{ featured.onLike }}" style="display: inline-flex; align-items: center; gap: 7px; cursor: pointer; font-size: 14px; font-weight: 600; color: #7A6675;">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="{{ featured.heartFill }}" stroke="{{ featured.heartColor }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
@@ -581,16 +593,18 @@
             {{ featured.commentsCount }}
           </span>
         </div>
+        </sc-if>
       </div>
     </div>
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 24px;">
       <sc-for list="{{ gridArticles }}" as="a" hint-placeholder-count="5">
         <div onClick="{{ a.onOpen }}" style="cursor: pointer; display: flex; flex-direction: column;">
-          <div style="{{ a.imgStyle }}"></div>
+          <img src="{{ a.img }}" alt="{{ a.title }}" loading="lazy" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 10px; margin-bottom: 18px; display: block;" />
           <span style="font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #B23A63; margin-bottom: 10px;">{{ a.cat }}</span>
           <h3 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-size: 22px; font-weight: 500; line-height: 1.3; text-wrap: pretty;">{{ a.title }}</h3>
           <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.55; color: #7A6675; text-wrap: pretty;">{{ a.excerpt }}</p>
           <span style="font-size: 13px; color: #736070;">{{ a.meta }}</span>
+          <sc-if value="{{ showStats }}" hint-placeholder-val="{{ false }}">
           <div style="display: flex; align-items: center; gap: 16px; margin-top: 12px;">
             <span onClick="{{ a.onLike }}" style="display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-size: 13px; font-weight: 600; color: #7A6675;">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="{{ a.heartFill }}" stroke="{{ a.heartColor }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
@@ -601,6 +615,7 @@
               {{ a.commentsCount }}
             </span>
           </div>
+          </sc-if>
         </div>
       </sc-for>
     </div>
@@ -614,7 +629,14 @@
     <span onClick="{{ goBlog }}" style="cursor: pointer; display: block; margin-bottom: 36px; font-size: 14px; font-weight: 600; color: #7A6675;">← {{ c.backBlog }}</span>
     <span style="display: block; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #B23A63;">{{ art.cat }}</span>
     <h1 style="margin: 14px 0 16px; font-family: 'Spectral', serif; font-weight: 500; font-size: 44px; line-height: 1.15; letter-spacing: -0.5px; text-wrap: balance;">{{ art.title }}</h1>
-    <p style="margin: 0 0 24px; font-size: 14px; color: #736070;">{{ art.meta }}</p>
+    <div style="display: flex; align-items: center; gap: 14px; margin: 0 0 28px; padding-bottom: 16px; border-bottom: 1px solid #EEE2EC;">
+      <p style="margin: 0; font-size: 14px; color: #736070;">{{ art.meta }}</p>
+      <span onClick="{{ shareArticle }}" style="flex: none; display: inline-flex; align-items: center; gap: 8px; margin-left: {{ shareMarginLeft }}; background: #FFFFFF; border: 1px solid #E7DAE4; border-radius: 999px; padding: 8px 16px; cursor: pointer; font-size: 14px; font-weight: 600; color: #4A3A46;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#736070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><path d="M16 6l-4-4-4 4"></path><path d="M12 2v13"></path></svg>
+        {{ shareLabel }}
+      </span>
+    </div>
+    <sc-if value="{{ showStats }}" hint-placeholder-val="{{ false }}">
     <div style="display: flex; align-items: center; gap: 10px; margin: 0 0 32px; padding: 14px 0; border-top: 1px solid #EEE2EC; border-bottom: 1px solid #EEE2EC;">
       <button onClick="{{ art.onLike }}" style="display: inline-flex; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E7DAE4; border-radius: 999px; padding: 8px 15px; cursor: pointer; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; color: #4A3A46;">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="{{ art.heartFill }}" stroke="{{ art.heartColor }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
@@ -624,18 +646,15 @@
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#736070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
         {{ art.commentsCount }}
       </a>
-      <span onClick="{{ shareArticle }}" style="display: inline-flex; align-items: center; gap: 8px; margin-left: auto; background: #FFFFFF; border: 1px solid #E7DAE4; border-radius: 999px; padding: 8px 16px; cursor: pointer; font-size: 14px; font-weight: 600; color: #4A3A46;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#736070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><path d="M16 6l-4-4-4 4"></path><path d="M12 2v13"></path></svg>
-        {{ shareLabel }}
-      </span>
     </div>
-    <div role="img" aria-label="{{ art.imgAlt }}" style="{{ art.imgStyleWide }}"></div>
+    </sc-if>
+    <img src="{{ art.img }}" alt="{{ art.imgAlt }}" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; display: block; margin-top: 4px;" />
     <p style="margin: 32px 0 24px; font-family: 'Spectral', serif; font-style: italic; font-size: 22px; line-height: 1.5; color: #331B33; text-wrap: pretty;">{{ art.lead }}</p>
     <div style="display: flex; flex-direction: column; gap: 22px;">
       <sc-if value="{{ art.hasBlocks }}" hint-placeholder-val="{{ false }}">
         <sc-for list="{{ art.blocks }}" as="b" hint-placeholder-count="6">
           <sc-if value="{{ b.isP }}" hint-placeholder-val="{{ true }}">
-            <p style="margin: 0; font-size: 17px; line-height: 1.78; color: #4A3A46; text-wrap: pretty;">{{ b.text }}</p>
+            <p style="margin: 0; font-size: 17px; line-height: 1.78; color: #4A3A46; text-wrap: pretty;">{{ b.contentEl }}</p>
           </sc-if>
           <sc-if value="{{ b.isH }}" hint-placeholder-val="{{ false }}">
             <h2 style="margin: 24px 0 0; font-family: 'Spectral', serif; font-weight: 500; font-size: 27px; line-height: 1.22; letter-spacing: -0.3px; color: #331B33; text-wrap: balance;">{{ b.text }}</h2>
@@ -672,7 +691,12 @@
                 <div style="padding-left: 18px; border-left: 2px solid #E7C9DA;">
                   <span style="display: block; font-size: 16px; font-weight: 600; color: #331B33; line-height: 1.4; margin-bottom: 7px;">{{ r.claim }}</span>
                   <span style="display: block; font-size: 15px; line-height: 1.65; color: #4A3A46; margin-bottom: 8px; text-wrap: pretty;">{{ r.detail }}</span>
+                  <sc-if value="{{ r.hasUrl }}" hint-placeholder-val="{{ true }}">
                   <a href="{{ r.url }}" target="_blank" rel="noopener noreferrer" style="font-size: 13px; font-weight: 600; color: #B23A63; text-decoration: none;">{{ r.cite }} ↗</a>
+                  </sc-if>
+                  <sc-if value="{{ r.noUrl }}" hint-placeholder-val="{{ false }}">
+                  <span style="font-size: 13px; font-weight: 600; color: #9A8896;">{{ r.cite }}</span>
+                  </sc-if>
                 </div>
               </sc-for>
             </div>
@@ -731,11 +755,12 @@
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 24px;">
           <sc-for list="{{ related }}" as="a" hint-placeholder-count="3">
             <div onClick="{{ a.onOpen }}" style="cursor: pointer; display: flex; flex-direction: column;">
-              <div style="{{ a.imgStyle }}"></div>
+              <img src="{{ a.img }}" alt="{{ a.title }}" loading="lazy" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 10px; margin-bottom: 18px; display: block;" />
               <span style="font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #B23A63; margin-bottom: 10px;">{{ a.cat }}</span>
               <h3 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-size: 22px; font-weight: 500; line-height: 1.3; text-wrap: pretty;">{{ a.title }}</h3>
               <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.55; color: #7A6675; text-wrap: pretty;">{{ a.excerpt }}</p>
               <span style="font-size: 13px; color: #736070;">{{ a.meta }}</span>
+              <sc-if value="{{ showStats }}" hint-placeholder-val="{{ false }}">
               <div style="display: flex; align-items: center; gap: 16px; margin-top: 12px;">
                 <span onClick="{{ a.onLike }}" style="display: inline-flex; align-items: center; gap: 6px; cursor: pointer; font-size: 13px; font-weight: 600; color: #7A6675;">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="{{ a.heartFill }}" stroke="{{ a.heartColor }}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path></svg>
@@ -746,6 +771,7 @@
                   {{ a.commentsCount }}
                 </span>
               </div>
+              </sc-if>
             </div>
           </sc-for>
         </div>
@@ -779,43 +805,19 @@
       </sc-if>
 
       <div id="comments" style="order: -1; margin-top: 24px; padding-top: 56px; border-top: 1px solid #EEE2EC; max-width: 760px;">
-        <h2 style="margin: 0 0 8px; font-family: 'Spectral', serif; font-weight: 500; font-size: 30px;">{{ c.blog.commentsTitle }} · {{ art.commentsCount }}</h2>
+        <h2 style="margin: 0 0 8px; font-family: 'Spectral', serif; font-weight: 500; font-size: 30px;">{{ c.blog.commentsTitle }}</h2>
         <p style="margin: 0 0 10px; font-size: 15.5px; color: #7A6675;">{{ c.blog.commentsSub }}</p>
         <p style="margin: 0 0 32px; font-size: 13px; line-height: 1.5; color: #736070;">{{ c.blog.moderationNote }}</p>
 
-        <sc-if value="{{ notSignedIn }}" hint-placeholder-val="{{ true }}">
-          <div style="background: #FFFFFF; border: 1px solid #EDE0EA; border-radius: 14px; padding: 28px; margin-bottom: 44px;">
-            <h3 style="margin: 0 0 6px; font-family: 'Spectral', serif; font-weight: 500; font-size: 20px;">{{ c.blog.signInTitle }}</h3>
-            <p style="margin: 0 0 20px; font-size: 14.5px; line-height: 1.55; color: #7A6675;">{{ c.blog.signInSub }}</p>
-            <div style="display: flex; flex-direction: column; gap: 10px; max-width: 340px;">
-              <button onClick="{{ signIn }}" style="display: flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid #DDD; border-radius: 999px; padding: 12px 18px; cursor: pointer; font-family: 'Manrope', sans-serif; font-size: 14.5px; font-weight: 600; color: #331B33;">
-                <span style="font-family: 'Spectral', serif; font-weight: 700; color: #4285F4;">G</span>{{ c.blog.signInGoogle }}
-              </button>
-              <button onClick="{{ signIn }}" style="display: flex; align-items: center; gap: 10px; background: #1877F2; border: 1px solid #1877F2; border-radius: 999px; padding: 12px 18px; cursor: pointer; font-family: 'Manrope', sans-serif; font-size: 14.5px; font-weight: 600; color: #FFFFFF;">
-                <span style="font-family: 'Spectral', serif; font-weight: 700;">f</span>{{ c.blog.signInFacebook }}
-              </button>
-              <button onClick="{{ signIn }}" style="display: flex; align-items: center; gap: 10px; background: #FFFFFF; border: 1px solid #DDD; border-radius: 999px; padding: 12px 18px; cursor: pointer; font-family: 'Manrope', sans-serif; font-size: 14.5px; font-weight: 600; color: #331B33;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6A5668" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 5L2 7"></path></svg>{{ c.blog.signInEmail }}
-              </button>
-            </div>
-          </div>
+        <sc-if value="{{ cusdisOn }}" hint-placeholder-val="{{ true }}">
+          <div id="cusdis_thread" style="min-height: 60px;"></div>
         </sc-if>
-
-        <sc-if value="{{ signedIn }}" hint-placeholder-val="{{ false }}">
-          <div style="display: flex; gap: 14px; margin-bottom: 44px;">
-            <div style="flex: none; width: 44px; height: 44px; border-radius: 999px; background: #331B33; display: flex; align-items: center; justify-content: center; color: #F6F0F5;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-            </div>
-            <form onSubmit="{{ noSubmit }}" style="flex: 1; display: flex; flex-direction: column; gap: 12px;">
-              <span style="font-size: 13px; color: #736070;">{{ c.blog.commentAs }} <span style="color: #331B33; font-weight: 600;">{{ c.blog.you }}</span></span>
-              <textarea rows="3" placeholder="{{ c.blog.commentField }}" style="background: #FFFFFF; border: 1px solid #E7DAE4; border-radius: 12px; padding: 13px 15px; font-family: 'Manrope', sans-serif; font-size: 15px; color: #331B33; outline: none; resize: vertical;"></textarea>
-              <button type="submit" style="align-self: flex-start; border: none; background: #B23A63; color: #FFF; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 600; padding: 12px 28px; border-radius: 999px; cursor: pointer;">{{ c.blog.commentBtn }}</button>
-            </form>
-          </div>
+        <sc-if value="{{ cusdisOff }}" hint-placeholder-val="{{ false }}">
+          <div style="background: #FBF3F7; border: 1px dashed #E1C6D6; border-radius: 12px; padding: 20px 22px; font-size: 14px; line-height: 1.55; color: #7A6675;">Comments will appear here once the Cusdis App ID is added in the code. · Коментарі з'являться тут після додавання Cusdis App ID у коді.</div>
         </sc-if>
 
         <div style="display: flex; flex-direction: column; gap: 28px;">
-          <sc-for list="{{ comments }}" as="cm" hint-placeholder-count="3">
+          <sc-for list="{{ comments }}" as="cm" hint-placeholder-count="0">
             <div style="padding-bottom: 24px; border-bottom: 1px solid #EEE2EC;">
               <div style="display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start;">
                 <div style="width: 44px; height: 44px; border-radius: 999px; background: #F3E2EC; display: flex; align-items: center; justify-content: center; font-family: 'Spectral', serif; font-weight: 600; font-size: 17px; color: #B23A63;">{{ cm.initial }}</div>
@@ -921,6 +923,7 @@
           </sc-for>
         </div>
         <p style="margin: 36px 0 0; font-size: 15px; color: #6A5668;">{{ c.contact.orReach }} <a href="https://instagram.com/lena.filatova" target="_blank" style="color: #B23A63; font-weight: 600; text-decoration: none;">@lena.filatova</a></p>
+        <p style="margin: 10px 0 0; font-size: 15px; color: #6A5668;">Email: <a href="mailto:mails@lenafilatova.com" style="color: #B23A63; font-weight: 600; text-decoration: none;">mails@lenafilatova.com</a></p>
       </div>
       <div style="background: #FFFFFF; border: 1px solid #EDE0EA; border-radius: 16px; padding: 28px;">
         <div style="display: flex; gap: 6px; background: #F6F0F5; border: 1px solid #E7DAE4; border-radius: 999px; padding: 4px; margin-bottom: 26px;">
@@ -1011,7 +1014,7 @@
   <div data-screen-label="About">
     <section style="max-width: 1180px; margin: 0 auto; padding: 72px 32px 80px; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center;">
       <div style="aspect-ratio: 4 / 5; border-radius: 8px; overflow: hidden; background: #EDE0EA;">
-        <img src="images/lena-filatova-womens-health-coach-over-40.jpg" alt="Lena Filatova, women's health and nutrition coach for women over 40" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; display: block;" />
+        <img src="/images/lena-filatova-womens-health-coach-over-40.jpg" alt="Lena Filatova, women's health and nutrition coach for women over 40" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; display: block;" />
       </div>
       <div>
         <p style="margin: 0 0 18px; font-size: 13px; font-weight: 600; letter-spacing: 2.5px; color: #B23A63; text-transform: uppercase;">{{ c.about.eyebrow }}</p>
@@ -1194,7 +1197,7 @@
           </sc-for>
         </div>
         <div style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #736070; margin: 24px 0 12px;">{{ c.footer.contactTitle }}</div>
-        <a href="/cdn-cgi/l/email-protection#e19a9ac182cf878e8e958493cf848c80888dc19c9c" style="text-decoration: none; font-size: 14.5px; color: #B23A63; font-weight: 600;">{{ c.footer.email }}</a>
+        <a href="mailto:{{ c.footer.email }}" style="text-decoration: none; font-size: 14.5px; color: #B23A63; font-weight: 600;">{{ c.footer.email }}</a>
       </div>
     </div>
     <div style="max-width: 1180px; margin: 0 auto; padding: 28px 32px 48px; border-top: 1px solid #EEE2EC;">
@@ -1215,9 +1218,34 @@
       </div>
     </div>
   </sc-if></x-dc>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1180,&quot;height&quot;:900}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;shareAlign&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;left&quot;, &quot;right&quot;], &quot;default&quot;: &quot;right&quot;, &quot;tsType&quot;: &quot;'left' | 'right'&quot;, &quot;section&quot;: &quot;Article&quot;, &quot;label&quot;: &quot;Share button alignment&quot;}}">
 const NEWSLETTER_ENDPOINT = "https://script.google.com/macros/s/AKfycbw21p8PuG5jGQ7JXf7j-tX1-OZBeA1p6negAuzi7TmiyPkjEoshxLbtGc6avUVskGiK/exec";
 const BOOKING_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0nzMnvnKmd4nOx0E1T86EQuRdnoBbYmTEXc-FEtQo9fWvhk-cz4eM8PSSvA7K-BxUJb-F9TBEg?gv=true"; // Google Calendar appointment-schedule embed
+
+// ── Comments (Cusdis) ────────────────────────────────────────────────
+// 1. Create a free account at https://cusdis.com  2. Add this website
+// 3. Copy the "App ID" from the dashboard and paste it below (in quotes).
+// Comments switch on automatically once an App ID is present; leave it
+// empty and a placeholder note shows instead. Moderate from the Cusdis
+// dashboard (or the emails it sends) — nothing appears until you approve.
+const CUSDIS_HOST = "https://cusdis.com";
+const CUSDIS_APP_ID = "e52765dd-b0d0-4d55-99a3-c8411f206822";
+// Ukrainian labels for the Cusdis widget (applied when the site is in UA).
+const CUSDIS_UA = {
+  powered_by: "Коментарі на основі Cusdis",
+  post_comment: "Залишити коментар",
+  loading: "Завантаження…",
+  email: "Email (необовʼязково)",
+  nickname: "Ваше імʼя",
+  content_placeholder: "Поділіться думкою або поставте запитання…",
+  reply_placeholder: "Напишіть коментар…",
+  reply_btn: "Відповісти",
+  sending: "Надсилання…",
+  mod_badge: "АВТОР",
+  content_is_required: "Введіть текст коментаря",
+  nickname_is_required: "Введіть імʼя",
+  comment_has_been_sent: "Дякуємо! Ваш коментар надіслано — він зʼявиться після перевірки."
+};
 const PUMPS = [
   {s:"a",d:"Omnipod 5",m:"Insulet",t:"tubeless",aid:true,al:"Omnipod 5 Horizon AID",cgm:"Dexcom G6/G7 · Libre 2+/3+",r:"200 u",rg:["us","eu","uk","au"],cost:"~$0–820/kit"},
   {s:"a",d:"Omnipod DASH",m:"Insulet",t:"tubeless",aid:false,al:"",cgm:"Separate CGM",r:"200 u",rg:["us","eu","uk","au"],cost:"~$0–500/kit"},
@@ -1240,8 +1268,8 @@ const PUMPS = [
   {s:"p",d:"Luna Patch Pump",m:"Luna Health",t:"tubeless",aid:true,al:"Closed loop (night)",cgm:"iCGM",r:"TBC",rg:["us"],cost:"TBC",eta:"TBC"},
   {s:"p",d:"Kaleido 2 + DBLG2",m:"Diabeloop",t:"tubed",aid:true,al:"DBLG2",cgm:"Dexcom G6/G7",r:"200 u",rg:["eu"],cost:"TBC",eta:"End 2026"}
 ];
-const PRODSRC = ["images/glow-up-after-40-nutrition-program.png", "images/effortless-meal-plans-women-over-40.png", "images/personal-nutrition-coaching-perimenopause.png"];
-const BLOGSRC = ["images/type-2-diabetes-research-meal-order.png", "images/blood-sugar-perimenopause-metabolism.png", "images/collagen-supplements-skin-women-over-40.png", "images/perimenopause-weight-gain-myths.png", "images/how-to-read-glucose-patterns-diabetes.png", "images/protein-for-women-over-40.png"];
+const PRODSRC = ["/images/glow-up-after-40-nutrition-program.png", "/images/effortless-meal-plans-women-over-40.png", "/images/personal-nutrition-coaching-perimenopause.png"];
+const BLOGSRC = ["/images/type-2-diabetes-research-meal-order.png", "/images/blood-sugar-perimenopause-metabolism.png", "/images/collagen-supplements-skin-women-over-40.png", "/images/perimenopause-weight-gain-myths.png", "/images/how-to-read-glucose-patterns-diabetes.png", "/images/protein-for-women-over-40.png"];
 
 const CONTENT = {
   en: {
@@ -1494,11 +1522,7 @@ const CONTENT = {
         supp: { badge: "Free sheet · PDF", title: "Supplement cheat-sheet for women 40+", desc: "A one-page reference: what's genuinely worth taking after 40, and what to skip.", cta: "Send me the sheet", reassure: "Free. Educational only — not medical advice." },
         pump: { badge: "Free comparison · Excel", title: "Insulin pump comparison (2026)", desc: "The leading insulin pumps side by side — features, pros and price. Subscribe to download the spreadsheet.", cta: "Send me the comparison", reassure: "Free. Educational only — not medical advice." }
       },
-      comments: [
-        { id: "c1", initial: "M", name: "Maria", date: "2 days ago", likes: 12, text: "This finally explained why my weight changed even though nothing else did. Thank you for writing so clearly.", replies: [ { initial: "L", name: "Lena Filatova", author: true, date: "1 day ago", text: "So glad it helped, Maria — that shift catches almost everyone off guard. You're not doing anything wrong." } ] },
-        { id: "c2", initial: "O", name: "Olena", date: "5 days ago", likes: 8, text: "Reading this, I've finally booked to see my GP. I've wanted to for a long time but kept talking myself out of it — I wasn't sure I wasn't just imagining all the symptoms. Thank you for making me feel less alone.", replies: [] },
-        { id: "c3", initial: "K", name: "Kateryna", date: "1 week ago", likes: 5, text: "Love how calm and practical your writing is — no fear-mongering, just useful steps. More please!", replies: [] }
-      ]
+      comments: []
     },
     reviewsTitle: "Reviews",
     alsoBought: "People who bought this also bought",
@@ -1544,17 +1568,61 @@ const CONTENT = {
         ] }
     ],
     articles: [
-      { cat: "Diabetes", title: "What new research says about type 2 diabetes", excerpt: "Recent findings on remission, meal order and time-restricted eating — and what's actually worth trying.", meta: "26 June 2026 · 6 min read",
-        lead: "Diabetes research moves fast. Here's what the most useful recent findings suggest — without the hype.",
-        body: [
-          "Studies on type 2 remission continue to show that meaningful weight loss, especially in the years soon after diagnosis, can return blood sugar to normal ranges for many people.",
-          "Meal order matters more than we assumed: eating vegetables and protein before carbohydrates leads to noticeably smaller glucose spikes across several trials.",
-          "Time-restricted eating shows promise for insulin sensitivity — but most of the benefit seems to come from eating earlier in the day, not from extreme fasting windows."
+      { cat: "Diabetes", title: "What new research says about type 2 diabetes", excerpt: "Recent findings on remission, meal order, time-restricted eating and sleep — and what's actually worth trying.", meta: "26 June 2026 · 8 min read",
+        lead: "The science of type 2 diabetes is moving faster than the headlines suggest — and some of the most important findings are ones you're unlikely to hear in a ten-minute GP appointment. Here's what recent research actually says, and what's genuinely worth trying.",
+        blocks: [
+          { t: "p", text: "The story told about type 2 diabetes for the past few decades has been fairly consistent: it develops gradually, usually from lifestyle factors, it is progressive, and once you have it, you manage it forever. The conversation tends to centre on what you did to get there, and what medication you will need over time." },
+          { t: "p", text: "That story is being substantially rewritten." },
+          { t: "p", text: "Researchers are now questioning whether type 2 diabetes is even a single condition. Remission data from rigorous clinical trials is challenging the idea that it is permanent. And a growing body of evidence is pointing to tools — some surprisingly simple — that make a meaningful difference to blood glucose, independently of medication." },
+          { t: "p", text: "None of this is a miracle narrative. But it is worth knowing." },
+          { t: "h", text: "Remission is real — and it can last" },
+          { t: "p", text: "[The DiRECT trial](https://www.thelancet.com/journals/landia/article/PIIS2213-8587%2823%2900385-6/fulltext), which ran in GP practices across the UK and Scotland, set out to test whether type 2 diabetes could go into remission through a structured dietary intervention. The results, now at five years, are striking." },
+          { t: "p", text: "Almost half of participants — 46% — achieved remission within the first year. By year two, that figure was 36%. And critically, 26% of those who had reached remission at two years were still in remission at five years, with no diabetes medication." },
+          { t: "p", text: "There was also a halving of serious medical events requiring hospitalisation in the diet intervention group compared to those receiving standard care." },
+          { t: "p", text: "The intervention itself was demanding: an 830-calorie formula diet for twelve weeks to produce significant weight loss, followed by supported reintroduction of ordinary food and ongoing help with weight maintenance. For those who lost more than 10 kg, three-quarters achieved remission at both one and two years." },
+          { t: "p", text: "This does not mean remission is achievable or appropriate for everyone. But it firmly dismantles the assumption that type 2 diabetes is irreversible — and that assumption has, for a long time, quietly removed hope from the conversation." },
+          { t: "h", text: "It may not be one disease" },
+          { t: "p", text: "One of the more significant shifts happening in diabetes research right now is the move away from treating type 2 diabetes as a single condition." },
+          { t: "p", text: "[A 2025 paper in The Lancet Diabetes & Endocrinology](https://www.thelancet.com/journals/landia/article/PIIS2213-8587%2825%2900256-6/abstract) put it plainly: for decades, type 2 diabetes has been managed as a monolithic condition treated via uniform, stepwise algorithms — an approach that increasingly fails to account for its biological heterogeneity." },
+          { t: "p", text: "Four broad subtypes have now been identified: mild age-related diabetes (more common in older adults, with relatively low complication risk); mild obesity-related diabetes (linked to excess weight, with a generally milder metabolic profile); severe insulin-resistant diabetes (a higher risk of kidney disease); and severe insulin-deficient diabetes (closer in some ways to type 1, with a higher risk of eye disease)." },
+          { t: "p", text: "Why does this matter practically? Because it means what works well for one person with a type 2 diagnosis may do very little for another — and it makes the habit of attributing the condition to personal choices even less defensible than it already was." },
+          { t: "p", text: "The direction of travel in research is towards precision medicine: matching treatment and lifestyle strategies to individual biology, rather than everyone following the same protocol." },
+          { t: "h", text: "When you eat may matter as much as what you eat" },
+          { t: "p", text: "Two findings here are worth knowing about." },
+          { t: "p", text: "Meal order. Research from Weill Cornell Medical College and others has consistently found that eating vegetables and protein before carbohydrates significantly reduces the blood sugar spike after a meal. In people with type 2 diabetes, starting with vegetables and protein before carbohydrates reduced post-meal blood sugar peaks by around 54% compared with eating carbohydrates first. One researcher described the magnitude of effect as comparable to what you might expect from a blood glucose medication." },
+          { t: "p", text: "[A longer-term retrospective study following patients for five years](https://pmc.ncbi.nlm.nih.gov/articles/PMC9322906/) found that those using a food-order approach — vegetables and protein first, carbohydrates last — saw their HbA1c improve from 8.5% to 7.6%, while the control group saw no meaningful change." },
+          { t: "p", text: "This costs nothing, requires no prescription, and can be applied at any meal." },
+          { t: "p", text: "Time-restricted eating. [A 2025 meta-analysis of eight randomised controlled trials](https://www.mdpi.com/1422-0067/26/15/7310) found that time-restricted eating — eating within a defined window each day, typically eight to ten hours — significantly reduced fasting glucose and HbA1c, and increased time in range for blood glucose. The improvements were modest but consistent across studies. A separate 2024 randomised controlled trial found HbA1c improved comparably in participants following time-restricted eating and those receiving individualised dietetic guidance." },
+          { t: "p", text: "Neither approach is a replacement for medication, and anyone adjusting their eating pattern significantly should speak with their healthcare team first. But both have meaningful evidence behind them and are worth discussing." },
+          { t: "h", text: "Sleep and blood sugar — especially for women" },
+          { t: "p", text: "This is an area that receives far less attention than it deserves." },
+          { t: "p", text: "[Research from the National Heart, Lung, and Blood Institute](https://www.nhlbi.nih.gov/news/2023/chronic-sleep-deficiency-increases-insulin-resistance-women-especially-postmenopausal) found that chronic insufficient sleep significantly increases insulin resistance in otherwise healthy women — with more pronounced effects in postmenopausal women. The effect was independent of body weight, meaning poor sleep acts on blood sugar through its own pathways, not simply by making people less active or more likely to eat poorly." },
+          { t: "p", text: "Insulin resistance is central to type 2 diabetes risk. And yet sleep quality is rarely addressed in a standard diabetes review." },
+          { t: "p", text: "For women in their forties and fifties — where perimenopause is already disrupting sleep, and oestrogen is affecting insulin sensitivity — this compounds quickly. It is one more reason to treat sleep as a non-negotiable pillar of metabolic health, not something to sort out later." },
+          { t: "h", text: "What the research says" },
+          { t: "refs", items: [
+            { claim: "Remission from type 2 diabetes through diet and weight loss is achievable and can persist for years.", detail: "The five-year DiRECT Extension Study, involving GP practices across the UK, found that 26% of participants who had achieved remission at two years were still in remission at five years without diabetes medication. The longer participants maintained weight loss, the lower their risk of diabetes-related complications.", cite: "The Lancet Diabetes & Endocrinology · Extension study, 2024", url: "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(23)00385-6/fulltext" },
+            { claim: "Type 2 diabetes is not a single disease, and treatment should reflect that.", detail: "A 2025 analysis argued that the field needs to move away from treating type 2 diabetes as one uniform condition, identifying at least four distinct subtypes with different risk profiles, complications and likely responses to treatment.", cite: "The Lancet Diabetes & Endocrinology · Analysis, 2025", url: "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(25)00256-6/abstract" },
+            { claim: "Eating vegetables and protein before carbohydrates substantially reduces post-meal blood sugar.", detail: "Multiple studies, including a five-year retrospective cohort study, have found that consistently starting meals with vegetables and protein rather than carbohydrates leads to significantly lower post-meal glucose peaks and meaningful improvements in HbA1c over time.", cite: "PMC / NCBI · Retrospective cohort study, 2022", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9322906/" },
+            { claim: "Time-restricted eating improves glycaemic control in type 2 diabetes.", detail: "A 2025 systematic review and meta-analysis of eight randomised controlled trials found that time-restricted eating significantly reduced fasting glucose and HbA1c and increased time in range — with consistent results across study populations.", cite: "International Journal of Molecular Sciences (MDPI) · Meta-analysis, 2025", url: "https://www.mdpi.com/1422-0067/26/15/7310" },
+            { claim: "Chronic sleep deficiency increases insulin resistance in women, particularly after menopause.", detail: "An NHLBI-funded study found that insufficient sleep independently impairs insulin sensitivity in women, with stronger effects in postmenopausal women — separate from any changes in body weight.", cite: "NHLBI / NIH · Clinical study", url: "https://www.nhlbi.nih.gov/news/2023/chronic-sleep-deficiency-increases-insulin-resistance-women-especially-postmenopausal" }
+          ] },
+          { t: "links", title: "UK resources worth knowing about", items: [
+            { name: "Diabetes UK — Type 2 diabetes", url: "https://www.diabetes.org.uk/about-diabetes/type-2-diabetes", desc: "Comprehensive, evidence-based information on type 2 diabetes management, remission and lifestyle approaches. They also run a helpline on 0345 123 2399." },
+            { name: "NHS — Type 2 diabetes", url: "https://www.nhs.uk/conditions/type-2-diabetes/", desc: "Covers diagnosis, treatment and the NHS Diabetes Prevention Programme, which offers free structured support for people at high risk." }
+          ] },
+          { t: "h", text: "What to take from this" },
+          { t: "p", text: "Type 2 diabetes research in 2024 and 2025 points in a consistent direction: the condition is more varied, more responsive to change, and less fixed than we were led to believe." },
+          { t: "p", text: "Remission is not guaranteed — but it is possible for some people, and that possibility is grounded in rigorous trial data, not wishful thinking. The biology is more complex than a single narrative about lifestyle, and the tools available — including some very simple ones like meal order — are broader than most people realise." },
+          { t: "p", text: "If you have a type 2 diagnosis, or are managing elevated blood sugar, the research increasingly supports bringing sleep, meal timing and eating sequence into the conversation alongside medication and diet — not as replacements, but as pieces of the same picture." },
+          { t: "p", text: "Every decision about your management should be made with your healthcare team. The goal here is to make sure you walk into those appointments knowing what to ask about." }
         ],
         faq: [
-          { q: "Can type 2 diabetes be reversed?", a: "For many people, yes — studies on remission show that meaningful weight loss, especially in the first few years after diagnosis, can return blood sugar to normal ranges. It's most likely with sustained lifestyle change and support from your diabetes team." },
-          { q: "Does the order you eat food in affect blood sugar?", a: "Yes. Eating vegetables and protein before carbohydrates leads to noticeably smaller glucose spikes in several trials — a simple, free change you can make at any meal." },
-          { q: "Is intermittent fasting good for type 2 diabetes?", a: "Time-restricted eating can improve insulin sensitivity, but most of the benefit comes from eating earlier in the day rather than from long or extreme fasting windows. Speak to your doctor before fasting if you take glucose-lowering medication." }
+          { q: "Can type 2 diabetes go into remission?", a: "Yes, for some people. The five-year DiRECT trial found 46% of participants reached remission in the first year, and 26% of those in remission at two years were still medication-free at five years. It's most likely with substantial, sustained weight loss — especially soon after diagnosis — and support from your diabetes team, though it isn't achievable or right for everyone." },
+          { q: "Does eating order really affect blood sugar?", a: "Yes. Eating vegetables and protein before carbohydrates has been shown to cut the post-meal blood sugar spike by around 54% versus eating carbs first, and one five-year study saw HbA1c fall from 8.5% to 7.6% in people using this order. It costs nothing, needs no prescription, and works at any meal." },
+          { q: "Is time-restricted eating safe for people with type 2 diabetes?", a: "For many people it can help — a 2025 meta-analysis of eight trials found that eating within a set daily window (typically 8–10 hours) modestly lowered fasting glucose and HbA1c and improved time in range. It isn't a replacement for medication, and if you take glucose-lowering drugs, speak to your healthcare team before big changes to when you eat, to avoid hypos." },
+          { q: "Why does sleep affect blood sugar?", a: "Chronic poor sleep raises insulin resistance — the core driver of type 2 diabetes — through its own pathways, independent of body weight. NHLBI research found the effect is stronger in women, and stronger still after menopause, which is why sleep deserves to be treated as a real pillar of blood-sugar management, not an afterthought." },
+          { q: "What does it mean that type 2 diabetes has subtypes?", a: "Researchers increasingly see type 2 diabetes as several conditions rather than one. At least four subtypes have been described — mild age-related, mild obesity-related, severe insulin-resistant and severe insulin-deficient — each with different risks and likely treatment responses. In practice, what works well for one person may do little for another, and care is moving toward matching strategies to individual biology." }
         ] },
       { cat: "Perimenopause & Type 1 Diabetes", title: "Perimenopause & diabetes: what's really happening to your blood sugar",
         seoTitle: "Perimenopause and Type 1 Diabetes: What's Really Happening to Your Blood Sugar",
@@ -1565,7 +1633,7 @@ const CONTENT = {
         blocks: [
           { t: "p", text: "I've been living with type 1 diabetes for 23 years. Around 39–40, I started noticing I was getting more insulin resistant — it was harder to manage my normal food. I usually make a cup of coffee in the morning with soya milk, about 4g of carbs per cup. My blood sugar started climbing to 18 mmol/l — ridiculously high for such a tiny amount of carbs." },
           { t: "p", text: "At the gym I noticed the same pattern: my sugar stayed high throughout training and climbed even more afterwards — partly explained by the nature of resistance training, which can raise blood glucose. But getting it back into range became a real challenge. My body simply wasn't reacting the way it used to." },
-          { t: "img", src: "images/strength-training-cgm-type-1-diabetes.jpg", alt: "Lena Filatova doing a barbell squat with a continuous glucose monitor on her arm", cap: "At the gym, CGM on — where I first noticed resistance training pushing my blood sugar in ways it never used to." },
+          { t: "img", src: "/images/strength-training-cgm-type-1-diabetes.jpg", alt: "Lena Filatova doing a barbell squat with a continuous glucose monitor on her arm", cap: "At the gym, CGM on — where I first noticed resistance training pushing my blood sugar in ways it never used to." },
           { t: "p", text: "I asked my diabetes team at St Barts in London what was happening. Of course I knew I was getting older, but nobody was talking about what that actually looks like in practice. They looked at my readings and said: all good, you're being too hard on yourself. But I knew exactly what it took to reach that “good” — so much more effort than before." },
           { t: "h", text: "The medical gap nobody talks about" },
           { t: "p", text: "On work trips I had to skip meals because I couldn't risk eating something that would push me into very high blood sugars in the middle of a conference. I was starving to stay in range — constantly exhausted and hungry. Any emotion, good or bad, would send my blood sugar shooting up to 17–18 mmol/l, and I'd struggle to bring it back down." },
@@ -1575,7 +1643,7 @@ const CONTENT = {
           { t: "p", text: "I have experience reading research papers and writing health and fitness news, so I decided to start an open conversation for women who are looking for answers, just like me." },
           { t: "h", text: "Why blood sugar gets harder to manage in perimenopause" },
           { t: "p", text: "I recently changed my diabetes team and felt understood immediately — but even they pointed to the lack of research and information on women's health over 40 for those living with diabetes." },
-          { t: "graph", src: "images/blood-sugar-graph-perimenopause.jpg", alt: "Insulin pump screen showing blood sugar rising to 17.7 mmol/l overnight with 7.9 units of insulin on board", cap: "A night from my own pump — blood sugar swinging up to 17.7 mmol/l with 7.9u of insulin still on board. The kind of overnight pattern that got much harder to control in perimenopause." },
+          { t: "graph", src: "/images/blood-sugar-graph-perimenopause.jpg", alt: "Insulin pump screen showing blood sugar rising to 17.7 mmol/l overnight with 7.9 units of insulin on board", cap: "A night from my own pump — blood sugar swinging up to 17.7 mmol/l with 7.9u of insulin still on board. The kind of overnight pattern that got much harder to control in perimenopause." },
           { t: "p", text: "As oestrogen fluctuates and falls, insulin sensitivity drops. The same meals that used to keep your blood sugar steady can push it much higher, and it tends to climb more easily overall. I also noticed a pattern within my own cycles — one month would feel relatively normal and predictable, and the next my body simply wasn't producing as many hormones and I'd be far less sensitive to insulin." },
           { t: "quote", text: "This isn't a failure of your management. It's biology that the medical world is only beginning to take seriously." },
           { t: "h", text: "What can actually help" },
@@ -1596,7 +1664,7 @@ const CONTENT = {
             { claim: "HRT does reduce insulin resistance — and the evidence is growing.", detail: "A 2024 meta-analysis of 17 randomised controlled trials covering more than 29,000 participants (1998–2024), presented at The Menopause Society Annual Meeting, found that hormone therapy significantly reduced insulin resistance in postmenopausal women.", cite: "The Menopause Society Annual Meeting, 2024", url: "https://menopause.org/" },
             { claim: "The field is finally catching up.", detail: "A clinical trial called TIMES (Trajectories in Insulin Sensitivity Across MEnstrual cycleS in Women With Type 1 Diabetes) began recruiting in late 2025. It aims to map exactly how insulin sensitivity changes across the cycle in women with T1D — which will help build the evidence base for perimenopause management too.", cite: "ClinicalTrials.gov — TIMES study", url: "https://clinicaltrials.gov/search?term=TIMES%20insulin%20sensitivity%20menstrual%20type%201%20diabetes" }
           ] },
-          { t: "bio", name: "Lena Filatova", img: "images/lena-filatova-type-1-diabetes-23-years.jpg", alt: "Lena Filatova, women's health writer living with type 1 diabetes", text: "Lena Filatova has lived with type 1 diabetes for 23 years. She writes about women's health, perimenopause and diabetes management at lenafilatova.co.uk." }
+          { t: "bio", name: "Lena Filatova", img: "/images/lena-filatova-type-1-diabetes-23-years.jpg", alt: "Lena Filatova, women's health writer living with type 1 diabetes", text: "Lena Filatova has lived with type 1 diabetes for 23 years. She writes about women's health, perimenopause and diabetes management at lenafilatova.co.uk." }
         ],
         faq: [
           { q: "Does perimenopause affect blood sugar in type 1 diabetes?", a: "Yes. As oestrogen levels fluctuate and decline during perimenopause, insulin sensitivity drops. The same meals and insulin doses that worked before may no longer produce the same results. Women with type 1 diabetes often experience higher blood sugar, more variability between cycles, and greater difficulty recovering from spikes — all without any obvious change in routine." },
@@ -1605,16 +1673,44 @@ const CONTENT = {
           { q: "Why do I gain belly fat in perimenopause even if my weight hasn't changed?", a: "Shifting oestrogen levels change where the body stores fat, often redistributing it towards the abdomen. This can happen even when total weight stays the same — which is why “your weight hasn't changed” isn't a satisfying or complete answer." }
         ] },
       { cat: "Skin & beauty", title: "Do collagen products actually improve your skin?", excerpt: "What the evidence really shows about collagen supplements, creams and the nutrients that support your own.", meta: "14 June 2026 · 5 min read",
-        lead: "Collagen is everywhere right now. Here's what the evidence supports — and what's mostly marketing.",
-        body: [
-          "Collagen creams can't deliver collagen into the deeper layers of skin — the molecules are too large. Their benefit comes mostly from moisturising, not rebuilding.",
-          "Oral collagen peptides have more support: several trials show small improvements in skin elasticity and hydration over 8–12 weeks of daily use.",
-          "Your body builds its own collagen from protein plus vitamin C, zinc and enough sleep. A solid diet does more for your skin than most single products."
+        lead: "Collagen is the scaffold that keeps skin firm and elastic — and from your mid-twenties you make a little less of it each year. Here's what the evidence actually supports, and what's mostly marketing.",
+        blocks: [
+          { t: "p", text: "Collagen is the most abundant protein in the body. It forms the structural scaffold that gives skin its firmness, elasticity and plumpness. From the mid-twenties, the body produces roughly 1% less each year. In perimenopause and beyond, that decline accelerates — falling oestrogen removes one of collagen's key production signals, which is why skin often changes noticeably around that time." },
+          { t: "p", text: "The skincare industry has built a large market around this biology. Whether any specific product can meaningfully slow or reverse that decline depends on how it works — and not all of them do." },
+          { t: "h", text: "Why collagen creams can't rebuild skin" },
+          { t: "p", text: "The collagen molecule is large — around 300,000 daltons. Research into skin permeability has established that [the skin's outer barrier only allows molecules smaller than 500 daltons](https://onlinelibrary.wiley.com/doi/epdf/10.1034/j.1600-0625.2000.009003165.x) to pass through. A collagen cream or serum cannot deliver collagen into the dermis; the physics don't allow it." },
+          { t: "p", text: "What a collagen cream can do is function as a moisturiser. It reduces water loss from the skin's surface, which temporarily plumps fine lines and improves texture. That's useful — but it's the same mechanism as any good humectant or barrier cream. Nothing wrong with them; they are just not doing what the marketing often implies." },
+          { t: "p", text: "If you want to support collagen synthesis in the dermis, the topical ingredients with the strongest evidence are retinoids (derivatives of vitamin A) and vitamin C. [A 2025 systematic review and meta-analysis of clinical trials on tretinoin](https://pmc.ncbi.nlm.nih.gov/articles/PMC12615114/) confirmed that retinoids measurably increase collagen production and improve photodamaged skin — they remain the most evidence-backed topical ingredient for skin ageing. Vitamin C supports the hydroxylase enzymes that form and stabilise collagen — it is a cofactor, not a source, but without enough of it the process stalls." },
+          { t: "h", text: "What the evidence says about collagen supplements" },
+          { t: "p", text: "Oral supplements are a more interesting — and more complicated — story. Hydrolysed collagen peptides, the form found in most powders and capsules, are broken into fragments small enough to be absorbed in the gut. There is reasonable evidence that some of those fragments reach the skin and stimulate fibroblasts, the cells responsible for producing collagen and elastin." },
+          { t: "p", text: "[A 2024 meta-analysis covering 26 randomised controlled trials and 1,721 participants](https://pmc.ncbi.nlm.nih.gov/articles/PMC10773595/) found consistent improvements in skin hydration and elasticity with hydrolysed collagen supplementation. The original landmark trial by [Proksch et al.](https://karger.com/spp/article/27/1/47/295741/Oral-Supplementation-of-Specific-Collagen-Peptides) — 69 women, 8 weeks, 2.5–5g daily — showed statistically significant improvements in skin elasticity, and its findings have held up across subsequent research." },
+          { t: "p", text: "There is, however, an important caveat. [A 2025 meta-analysis in the American Journal of Medicine](https://www.amjmed.com/article/S0002-9343%2825%2900283-9/abstract) examined 23 trials and found that when studies were separated by funding source, industry-funded trials consistently showed significant benefits — while independently-funded trials showed no effect. This doesn't mean the supplements don't work, but it does mean the evidence base deserves more scrutiny than the marketing suggests." },
+          { t: "p", text: "The most honest summary: the effects are plausible, the supplements appear safe, and some trials show real improvements. But the evidence is not as solid as it is often presented, and the question of who funded the research matters more here than in most areas." },
+          { t: "h", text: "The foundations that matter more" },
+          { t: "p", text: "Before spending on supplements, it is worth checking whether the building blocks are in place. Collagen synthesis depends on specific nutrients, and a shortfall in any of them limits what the body can produce." },
+          { t: "p", text: "[Vitamin C](https://www.mdpi.com/2072-6643/9/8/866) is the most critical. The enzymes that form and stabilise collagen cannot work without it — made vivid by the fact that scurvy causes skin breakdown and wound-healing failure. You don't need megadoses; the UK Reference Nutrient Intake is 40mg per day. Good sources include bell peppers, kiwi, citrus fruit and broccoli. [A 2024 randomised trial found that combining collagen with vitamin C](https://pmc.ncbi.nlm.nih.gov/articles/PMC11206740/) improved dermis density and skin texture more than placebo — suggesting the two work better together than either alone." },
+          { t: "p", text: "Zinc supports collagen-producing enzymes and wound repair. Mild deficiency is common, particularly in women eating a predominantly plant-based diet. Rich sources include meat, pumpkin seeds, legumes and wholegrains." },
+          { t: "p", text: "Copper is required for lysyl oxidase, the enzyme that cross-links collagen fibres to give skin its structural strength. Nuts, seeds, shellfish and liver are the richest sources." },
+          { t: "p", text: "Protein is what collagen is made from. The body cannot build it without adequate amino acids — and women in midlife often eat less protein than they need, particularly when reducing overall calories." },
+          { t: "h", text: "A note for perimenopause" },
+          { t: "p", text: "Oestrogen plays a direct role in collagen production. [A 2025 narrative review in the Journal of Cosmetic Dermatology](https://onlinelibrary.wiley.com/doi/10.1111/jocd.70393) — drawing on five decades of research — confirmed that skin collagen content falls at roughly 1–2% per year in the early postmenopausal period, that skin thickness and barrier function decline alongside it, and that this is driven by falling oestrogen rather than age alone. The same review found evidence that HRT can partially restore collagen content, elasticity and hydration in postmenopausal women." },
+          { t: "p", text: "The evidence for HRT's skin benefits is growing, but it remains secondary to the better-established benefits for vasomotor symptoms and bone protection. If you are in or approaching perimenopause and noticing significant changes in skin firmness or texture, it is worth raising the question of hormonal health with your GP or a menopause specialist alongside any conversation about skincare." },
+          { t: "h", text: "What the research says" },
+          { t: "refs", items: [
+            { claim: "Collagen supplements improve skin measures — but funding source matters.", detail: "A 2025 meta-analysis in the American Journal of Medicine reviewed 23 randomised controlled trials with 1,474 participants. Industry-funded studies consistently showed significant improvements in hydration, elasticity and wrinkles. When only independently-funded trials were analysed, no significant effect was found. The authors called for more independent research before firm conclusions can be drawn.", cite: "American Journal of Medicine · Systematic review & meta-analysis, 2025", url: "https://www.amjmed.com/article/S0002-9343(25)00283-9/abstract" },
+            { claim: "The breadth of evidence for oral collagen is growing.", detail: "A 2024 meta-analysis covered 26 randomised controlled trials involving 1,721 participants and found that supplementation with hydrolysed collagen improved skin elasticity and hydration across studies. Effect sizes were modest and trial durations short — but the consistency of direction across such a large evidence base is meaningful.", cite: "PMC · Systematic review & meta-analysis, 2024", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10773595/" },
+            { claim: "The original landmark RCT still holds.", detail: "Proksch et al. (2014) randomised 69 women aged 35–55 to take 2.5g or 5g of collagen peptides daily for eight weeks. Both doses led to statistically significant improvements in skin elasticity compared to placebo. It remains one of the most frequently cited trials in the field, and its findings have been replicated.", cite: "Skin Pharmacology and Physiology · Randomised controlled trial, 2014", url: "https://karger.com/spp/article/27/1/47/295741/Oral-Supplementation-of-Specific-Collagen-Peptides" },
+            { claim: "Collagen molecules are too large to penetrate the skin barrier.", detail: "The \"500 Dalton rule\", established in a foundational pharmacology paper, holds that molecules above approximately 500 daltons cannot pass through the skin's outer barrier. Collagen weighs around 300,000 daltons. This is why topical collagen cannot act as a structural repair agent for the dermis — whatever the packaging suggests.", cite: "Experimental Dermatology · Review, 2000", url: "https://onlinelibrary.wiley.com/doi/epdf/10.1034/j.1600-0625.2000.009003165.x" },
+            { claim: "Retinoids remain the most evidence-backed topical for skin ageing.", detail: "A 2025 systematic review and meta-analysis of randomised controlled trials on tretinoin for photodamaged facial skin confirmed measurable improvements in collagen production, skin texture and fine lines. The mechanism — suppressing collagen-degrading enzymes while stimulating fibroblast activity — is well understood and has been replicated across decades of research.", cite: "PMC · Systematic review & meta-analysis, 2025", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12615114/" },
+            { claim: "Vitamin C is not optional for collagen synthesis.", detail: "A 2017 review in Nutrients described the established biochemistry: vitamin C acts as a cofactor for the hydroxylase enzymes that stabilise collagen's triple-helix structure, and its absence results in defective, unstable collagen. A 2024 RCT found that collagen combined with vitamin C produced greater improvements in dermis density and texture than collagen alone — reinforcing the importance of combining these nutrients.", cite: "Nutrients · Review, 2017", url: "https://www.mdpi.com/2072-6643/9/8/866" },
+            { claim: "Oestrogen loss accelerates skin collagen decline — and HRT can help.", detail: "A 2025 narrative review in the Journal of Cosmetic Dermatology reviewed five decades of research on menopausal skin changes and HRT. It confirmed that collagen falls at 1–2% per year in the early postmenopausal period, that skin barrier function and elasticity decline alongside it, and that hormone replacement therapy can partially restore these measures in postmenopausal women.", cite: "Journal of Cosmetic Dermatology · Narrative review, 2025", url: "https://onlinelibrary.wiley.com/doi/10.1111/jocd.70393" }
+          ] }
         ],
         faq: [
-          { q: "Do collagen supplements actually work?", a: "Oral collagen peptides have reasonable support: several trials show small improvements in skin elasticity and hydration over 8–12 weeks of daily use. Results are modest, not dramatic, and take consistency." },
-          { q: "Do collagen creams work?", a: "Collagen creams can't deliver collagen into the deeper layers of skin — the molecules are too large. Their benefit comes mostly from moisturising, not from rebuilding collagen." },
-          { q: "What foods help your body make collagen?", a: "Your body builds its own collagen from protein plus vitamin C, zinc and enough sleep. A protein-rich, colourful diet does more for your skin than most single products." }
+          { q: "Do collagen supplements actually work?", a: "Possibly — but less clearly than the marketing suggests. Multiple trials show improvements in skin hydration and elasticity, but a 2025 meta-analysis found that independently-funded studies showed no significant effect, while industry-funded ones did. If you want to try them, 2.5–10g of hydrolysed collagen daily is the dose used in most trials. Make sure vitamin C intake is adequate alongside them." },
+          { q: "Can a collagen cream rebuild skin?", a: "No — collagen molecules are far too large to penetrate the skin barrier. Collagen creams work as moisturisers, which is useful, but that is where the mechanism ends. Retinoids and vitamin C serums are the topical ingredients with evidence for actually stimulating collagen production in the dermis." },
+          { q: "What is the most important nutrient for skin collagen?", a: "Vitamin C. Without it, the enzymes that form and cross-link collagen cannot function. Getting enough through food — bell peppers, kiwi, citrus, broccoli — matters more than any supplement. Zinc, copper and adequate protein also play essential roles." },
+          { q: "Does menopause affect collagen?", a: "Yes, significantly. Oestrogen supports collagen synthesis in the skin, and its decline during perimenopause and menopause accelerates collagen loss at roughly 1–2% per year — beyond what age alone would explain. HRT has evidence for partially restoring skin collagen and elasticity. Talk to your GP or a menopause specialist if this is a concern." }
         ] },
       { cat: "Perimenopause", title: "5 myths about perimenopause and weight", excerpt: "Why the scale isn't the whole story — and what actually helps.", meta: "12 June 2026 · 4 min read",
         lead: "The scale isn't the whole story. Here's what actually changes in perimenopause — and what genuinely helps.",
@@ -1949,7 +2045,7 @@ const CONTENT = {
       replyPlaceholder: "Напишіть відповідь…",
       cancel: "Скасувати",
       authorBadge: "Автор",
-      moderationNote: "Коментарі перевіряються перед публікацією. Будьте добрі — це простір підтримки.",
+      moderationNote: "Коментарі перевіряються перед публікацією. Будьте ввічливими — це простір підтримки.",
       signInTitle: "Увійдіть, щоб долучитися до обговорення",
       signInSub: "Ми просимо всіх увійти — це тримає розмову дружньою та без спаму.",
       signInGoogle: "Увійти через Google",
@@ -1962,11 +2058,7 @@ const CONTENT = {
         supp: { badge: "Безкоштовна пам'ятка · PDF", title: "Пам'ятка про добавки для жінок 40+", desc: "Одна сторінка-довідка: що справді варто приймати після 40, а що — ні.", cta: "Надішліть пам'ятку", reassure: "Безкоштовно. Лише інформація — не медична порада." },
         pump: { badge: "Безкоштовне порівняння · Excel", title: "Порівняння інсулінових помп (2026)", desc: "Провідні інсулінові помпи поряд — функції, переваги та ціна. Підпишіться, щоб завантажити таблицю.", cta: "Надішліть порівняння", reassure: "Безкоштовно. Лише інформація — не медична порада." }
       },
-      comments: [
-        { id: "c1", initial: "М", name: "Марія", date: "2 дні тому", likes: 12, text: "Нарешті зрозуміла, чому вага змінилася, хоча більше нічого не мінялось. Дякую за таке зрозуміле пояснення.", replies: [ { initial: "L", name: "Lena Filatova", author: true, date: "1 день тому", text: "Дуже рада, що це допомогло, Маріє — ця зміна застає зненацька. Ви все робите правильно." } ] },
-        { id: "c2", initial: "О", name: "Олена", date: "5 днів тому", likes: 8, text: "Прочитавши це, я нарешті записалася до свого лікаря. Я давно хотіла, але постійно відмовляла себе — не була впевнена, що не вигадую всі ці симптоми. Дякую, що завдяки вам я почуваюся менш самотньою.", replies: [] },
-        { id: "c3", initial: "К", name: "Катерина", date: "тиждень тому", likes: 5, text: "Дуже подобається ваш спокійний і практичний підхід — без залякування, лише корисні кроки. Ще!", replies: [] }
-      ]
+      comments: []
     },
     reviewsTitle: "Відгуки",
     alsoBought: "З цим продуктом також купують",
@@ -2012,17 +2104,61 @@ const CONTENT = {
         ] }
     ],
     articles: [
-      { cat: "Діабет", title: "Що каже нове дослідження про діабет 2 типу", excerpt: "Нові дані про ремісію, порядок їжі та обмежене в часі харчування — і що справді варто спробувати.", meta: "26 червня 2026 · 6 хв читання",
-        lead: "Дослідження діабету рухаються швидко. Ось що підказують найкорисніші нові знахідки — без ажіотажу.",
-        body: [
-          "Дослідження ремісії діабету 2 типу далі показують, що суттєве зниження ваги, особливо в перші роки після діагнозу, може повернути цукор до норми для багатьох людей.",
-          "Порядок їжі важливіший, ніж вважали: якщо їсти овочі та білок перед вуглеводами, стрибок глюкози помітно менший — це підтверджують кілька досліджень.",
-          "Обмежене в часі харчування корисне для чутливості до інсуліну, але більшість користі — від їжі раніше протягом дня, а не від екстремального голодування."
+      { cat: "Діабет", title: "Що каже нове дослідження про діабет 2 типу", excerpt: "Нові дані про ремісію, порядок їжі, обмежене в часі харчування та сон — і що справді варто спробувати.", meta: "26 червня 2026 · 8 хв читання",
+        lead: "Наука про діабет 2 типу рухається швидше, ніж підказують заголовки — і деякі з найважливіших відкриттів навряд чи почуєш на десятихвилинному прийомі в лікаря. Ось що насправді каже сучасне дослідження і що справді варто спробувати.",
+        blocks: [
+          { t: "p", text: "Історія, яку розповідали про діабет 2 типу останні кілька десятиліть, була досить сталою: він розвивається поступово, зазвичай через спосіб життя, він прогресує, і щойно він у вас з'явився — ви керуєте ним усе життя. Розмова зазвичай зводиться до того, що ви зробили, щоб до цього дійти, і які ліки вам знадобляться з часом." },
+          { t: "p", text: "Цю історію суттєво переписують." },
+          { t: "p", text: "Дослідники нині ставлять під сумнів, чи діабет 2 типу взагалі є єдиним захворюванням. Дані про ремісію з ретельних клінічних досліджень спростовують уявлення, що він незворотний. А дедалі більше доказів вказують на інструменти — деякі напрочуд прості — які суттєво впливають на рівень глюкози незалежно від ліків." },
+          { t: "p", text: "Це не історія про диво. Але це варто знати." },
+          { t: "h", text: "Ремісія реальна — і вона може тривати" },
+          { t: "p", text: "[Дослідження DiRECT](https://www.thelancet.com/journals/landia/article/PIIS2213-8587%2823%2900385-6/fulltext), яке проводилося в сімейних практиках по всій Великій Британії та Шотландії, мало на меті перевірити, чи може діабет 2 типу увійти в ремісію завдяки структурованому дієтичному втручанню. Результати, тепер уже за п'ять років, вражають." },
+          { t: "p", text: "Майже половина учасників — 46% — досягли ремісії протягом першого року. До другого року ця цифра становила 36%. І що критично важливо, 26% тих, хто досяг ремісії на другому році, усе ще були в ремісії через п'ять років без жодних ліків від діабету." },
+          { t: "p", text: "Також удвічі зменшилася кількість серйозних медичних подій, що потребували госпіталізації, у групі дієтичного втручання порівняно з тими, хто отримував стандартну допомогу." },
+          { t: "p", text: "Саме втручання було непростим: формульна дієта на 830 калорій протягом дванадцяти тижнів для суттєвого зниження ваги, після чого — поступове повернення до звичайної їжі під супроводом і подальша допомога в утриманні ваги. Серед тих, хто втратив понад 10 кг, три чверті досягли ремісії і на першому, і на другому році." },
+          { t: "p", text: "Це не означає, що ремісія досяжна чи доречна для кожного. Але це остаточно руйнує припущення, що діабет 2 типу незворотний — а це припущення довгий час тихо забирало надію з розмови." },
+          { t: "h", text: "Можливо, це не одна хвороба" },
+          { t: "p", text: "Один із найпомітніших зрушень у дослідженнях діабету саме зараз — це відхід від ставлення до діабету 2 типу як до єдиного захворювання." },
+          { t: "p", text: "[Стаття 2025 року в The Lancet Diabetes & Endocrinology](https://www.thelancet.com/journals/landia/article/PIIS2213-8587%2825%2900256-6/abstract) сформулювала це прямо: десятиліттями діабет 2 типу лікували як монолітне захворювання за єдиними покроковими алгоритмами — підхід, який дедалі гірше враховує його біологічну неоднорідність." },
+          { t: "p", text: "Наразі виділено чотири широкі підтипи: м'який віковий діабет (частіший у старших людей, з відносно низьким ризиком ускладнень); м'який діабет, пов'язаний з ожирінням (пов'язаний із надмірною вагою, з загалом м'якшим метаболічним профілем); тяжкий інсулінорезистентний діабет (вищий ризик захворювання нирок); і тяжкий інсулінодефіцитний діабет (у дечому ближчий до 1 типу, з вищим ризиком захворювань очей)." },
+          { t: "p", text: "Чому це важливо на практиці? Тому що це означає: те, що добре працює для однієї людини з діагнозом 2 типу, може майже нічого не дати іншій — і це робить звичку пояснювати хворобу особистим вибором ще менш виправданою, ніж вона вже була." },
+          { t: "p", text: "Напрям розвитку досліджень — до персоналізованої медицини: узгодження лікування та способу життя з індивідуальною біологією, а не єдиний протокол для всіх." },
+          { t: "h", text: "Коли ви їсте, може важити не менше, ніж що ви їсте" },
+          { t: "p", text: "Тут варто знати про дві знахідки." },
+          { t: "p", text: "Порядок їжі. Дослідження з Weill Cornell Medical College та інших послідовно виявляли, що вживання овочів і білка перед вуглеводами суттєво зменшує стрибок цукру після їжі. У людей із діабетом 2 типу початок їжі з овочів і білка перед вуглеводами знижував пікові значення цукру після їжі приблизно на 54% порівняно з вживанням вуглеводів першими. Один із дослідників описав величину ефекту як зіставну з тим, чого можна очікувати від ліків для зниження глюкози." },
+          { t: "p", text: "[Довше ретроспективне дослідження, що спостерігало за пацієнтами протягом п'яти років](https://pmc.ncbi.nlm.nih.gov/articles/PMC9322906/), виявило: у тих, хто застосовував підхід із порядком їжі — спершу овочі та білок, вуглеводи наостанок — HbA1c покращився з 8,5% до 7,6%, тоді як у контрольній групі суттєвих змін не було." },
+          { t: "p", text: "Це нічого не коштує, не потребує рецепта і працює за будь-якого прийому їжі." },
+          { t: "p", text: "Обмежене в часі харчування. [Метааналіз 2025 року з восьми рандомізованих контрольованих досліджень](https://www.mdpi.com/1422-0067/26/15/7310) виявив, що обмежене в часі харчування — коли їдять у визначеному вікні щодня, зазвичай від восьми до десяти годин — суттєво знижувало глюкозу натще та HbA1c і збільшувало час у цільовому діапазоні глюкози. Покращення були помірними, але послідовними в усіх дослідженнях. Окреме рандомізоване контрольоване дослідження 2024 року виявило, що HbA1c покращувався зіставно в учасників, які дотримувалися обмеженого в часі харчування, і тих, хто отримував індивідуальні рекомендації дієтолога." },
+          { t: "p", text: "Жоден із підходів не замінює ліки, і кожен, хто суттєво змінює режим харчування, спершу має порадитися зі своєю медичною командою. Але обидва мають вагомі докази й варті обговорення." },
+          { t: "h", text: "Сон і цукор у крові — особливо для жінок" },
+          { t: "p", text: "Це сфера, якій приділяють значно менше уваги, ніж вона заслуговує." },
+          { t: "p", text: "[Дослідження Національного інституту серця, легень і крові (NHLBI)](https://www.nhlbi.nih.gov/news/2023/chronic-sleep-deficiency-increases-insulin-resistance-women-especially-postmenopausal) виявило, що хронічний брак сну суттєво підвищує інсулінорезистентність у загалом здорових жінок — з помітнішим ефектом у жінок у постменопаузі. Ефект не залежав від маси тіла, тобто поганий сон впливає на цукор власними шляхами, а не просто через меншу активність чи гірше харчування." },
+          { t: "p", text: "Інсулінорезистентність є центральною для ризику діабету 2 типу. І все ж якість сну рідко розглядають на звичайному огляді з приводу діабету." },
+          { t: "p", text: "Для жінок за сорок і п'ятдесят — коли перименопауза вже порушує сон, а естроген впливає на чутливість до інсуліну — це швидко накопичується. Це ще одна причина ставитися до сну як до незамінної опори метаболічного здоров'я, а не чогось, що можна залагодити згодом." },
+          { t: "h", text: "Що каже дослідження" },
+          { t: "refs", items: [
+            { claim: "Ремісія діабету 2 типу через дієту та зниження ваги досяжна і може тривати роками.", detail: "П'ятирічне продовження дослідження DiRECT за участю сімейних практик у Великій Британії виявило, що 26% учасників, які досягли ремісії на другому році, усе ще були в ремісії через п'ять років без ліків від діабету. Що довше учасники утримували знижену вагу, то нижчим був їхній ризик ускладнень, пов'язаних із діабетом.", cite: "The Lancet Diabetes & Endocrinology · Продовження дослідження, 2024", url: "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(23)00385-6/fulltext" },
+            { claim: "Діабет 2 типу — не єдина хвороба, і лікування має це враховувати.", detail: "Аналіз 2025 року стверджує, що галузі потрібно відійти від ставлення до діабету 2 типу як до однієї однорідної хвороби, виділяючи щонайменше чотири окремі підтипи з різними профілями ризику, ускладненнями та ймовірними реакціями на лікування.", cite: "The Lancet Diabetes & Endocrinology · Аналіз, 2025", url: "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(25)00256-6/abstract" },
+            { claim: "Вживання овочів і білка перед вуглеводами суттєво знижує цукор після їжі.", detail: "Кілька досліджень, зокрема п'ятирічне ретроспективне когортне, виявили, що послідовний початок їжі з овочів і білка замість вуглеводів веде до суттєво нижчих піків глюкози після їжі та відчутного покращення HbA1c з часом.", cite: "PMC / NCBI · Ретроспективне когортне дослідження, 2022", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9322906/" },
+            { claim: "Обмежене в часі харчування покращує контроль глікемії при діабеті 2 типу.", detail: "Систематичний огляд і метааналіз 2025 року з восьми рандомізованих контрольованих досліджень виявив, що обмежене в часі харчування суттєво знижувало глюкозу натще та HbA1c і збільшувало час у цільовому діапазоні — з послідовними результатами в різних групах.", cite: "International Journal of Molecular Sciences (MDPI) · Метааналіз, 2025", url: "https://www.mdpi.com/1422-0067/26/15/7310" },
+            { claim: "Хронічний брак сну підвищує інсулінорезистентність у жінок, особливо після менопаузи.", detail: "Дослідження за підтримки NHLBI виявило, що недостатній сон самостійно погіршує чутливість до інсуліну в жінок, із сильнішим ефектом у жінок у постменопаузі — окремо від будь-яких змін маси тіла.", cite: "NHLBI / NIH · Клінічне дослідження", url: "https://www.nhlbi.nih.gov/news/2023/chronic-sleep-deficiency-increases-insulin-resistance-women-especially-postmenopausal" }
+          ] },
+          { t: "links", title: "Британські ресурси, які варто знати", items: [
+            { name: "Diabetes UK — Діабет 2 типу", url: "https://www.diabetes.org.uk/about-diabetes/type-2-diabetes", desc: "Ґрунтовна, науково обґрунтована інформація про ведення діабету 2 типу, ремісію та підходи способу життя. Також працює гаряча лінія 0345 123 2399." },
+            { name: "NHS — Діабет 2 типу", url: "https://www.nhs.uk/conditions/type-2-diabetes/", desc: "Охоплює діагностику, лікування та Програму запобігання діабету NHS, яка пропонує безкоштовну структуровану підтримку людям із високим ризиком." }
+          ] },
+          { t: "h", text: "Що з цього взяти" },
+          { t: "p", text: "Дослідження діабету 2 типу у 2024 та 2025 роках вказують у послідовному напрямі: ця хвороба різноманітніша, чутливіша до змін і менш незмінна, ніж нас переконували." },
+          { t: "p", text: "Ремісія не гарантована — але вона можлива для деяких людей, і ця можливість спирається на суворі дані досліджень, а не на бажане. Біологія складніша за єдину розповідь про спосіб життя, а доступні інструменти — зокрема деякі дуже прості, як-от порядок їжі — ширші, ніж більшість людей уявляє." },
+          { t: "p", text: "Якщо у вас діагноз 2 типу або ви керуєте підвищеним цукром, дослідження дедалі більше підтримують те, щоб включати сон, час прийому їжі та послідовність їжі в розмову поряд із ліками та дієтою — не як заміну, а як частини однієї картини." },
+          { t: "p", text: "Кожне рішення щодо вашого ведення слід ухвалювати разом із вашою медичною командою. Мета тут — щоб ви заходили на ці прийоми, знаючи, про що запитати." }
         ],
         faq: [
-          { q: "Чи можна повернути діабет 2 типу?", a: "Для багатьох людей — так. Дослідження ремісії показують, що суттєве зниження ваги, особливо в перші роки після діагнозу, може повернути цукор до норми. Найкращі шанси — за стабільної зміни способу життя разом із вашою командою лікарів." },
-          { q: "Чи впливає порядок їжі на цукор у крові?", a: "Так. Якщо їсти овочі та білок перед вуглеводами, стрибок глюкози помітно менший — це підтверджують кілька досліджень. Проста й безкоштовна зміна для будь-якого прийому їжі." },
-          { q: "Чи корисне інтервальне голодування при діабеті 2 типу?", a: "Обмежене в часі харчування може покращити чутливість до інсуліну, але більшість користі — від їжі раніше протягом дня, а не від довгого голодування. Порадьтеся з лікарем, якщо приймаєте ліки для зниження цукру." }
+          { q: "Чи може діабет 2 типу увійти в ремісію?", a: "Так, для деяких людей. П'ятирічне дослідження DiRECT виявило, що 46% учасників досягли ремісії в перший рік, а 26% тих, хто був у ремісії на другому році, усе ще обходилися без ліків через п'ять років. Найімовірніше це за суттєвого стабільного зниження ваги — особливо невдовзі після діагнозу — і за підтримки вашої команди лікарів, хоча це досяжно й доречно не для кожного." },
+          { q: "Чи справді порядок їжі впливає на цукор у крові?", a: "Так. Показано, що вживання овочів і білка перед вуглеводами зменшує стрибок цукру після їжі приблизно на 54% порівняно з вуглеводами першими, а в одному п'ятирічному дослідженні HbA1c знизився з 8,5% до 7,6% у тих, хто дотримувався такого порядку. Це нічого не коштує, не потребує рецепта й працює за будь-якого прийому їжі." },
+          { q: "Чи безпечне обмежене в часі харчування для людей із діабетом 2 типу?", a: "Багатьом воно може допомогти — метааналіз 2025 року з восьми досліджень виявив, що харчування у визначеному щоденному вікні (зазвичай 8–10 годин) помірно знижувало глюкозу натще та HbA1c і покращувало час у діапазоні. Це не заміна лікам, і якщо ви приймаєте засоби для зниження глюкози, порадьтеся з медичною командою перед суттєвими змінами у часі харчування, щоб уникнути гіпоглікемії." },
+          { q: "Чому сон впливає на цукор у крові?", a: "Хронічний поганий сон підвищує інсулінорезистентність — головний чинник діабету 2 типу — власними шляхами, незалежно від маси тіла. Дослідження NHLBI виявило, що ефект сильніший у жінок і ще сильніший після менопаузи, тому сон заслуговує ставлення як до справжньої опори контролю цукру, а не другорядної деталі." },
+          { q: "Що означає, що діабет 2 типу має підтипи?", a: "Дослідники дедалі більше бачать діабет 2 типу як кілька станів, а не один. Описано щонайменше чотири підтипи — м'який віковий, м'який пов'язаний з ожирінням, тяжкий інсулінорезистентний і тяжкий інсулінодефіцитний — кожен із різними ризиками та ймовірними реакціями на лікування. На практиці те, що добре працює для однієї людини, може мало допомогти іншій, а допомога рухається до узгодження стратегій з індивідуальною біологією." }
         ] },
       { cat: "Перименопауза та діабет 1 типу", title: "Перименопауза та діабет: що насправді відбувається з вашим цукром у крові",
         seoTitle: "Перименопауза та діабет 1 типу: що насправді відбувається з вашим цукром у крові",
@@ -2033,7 +2169,7 @@ const CONTENT = {
         blocks: [
           { t: "p", text: "Я живу з діабетом 1 типу вже 23 роки. Приблизно у 39–40 я почала помічати, що стаю більш інсулінорезистентною — звичну їжу стало важче контролювати. Зазвичай зранку я роблю каву на соєвому молоці, це близько 4 г вуглеводів на чашку. Мій цукор почав підніматися до 18 ммоль/л — абсурдно високо для такої крихітної кількості вуглеводів." },
           { t: "p", text: "У залі я помічала той самий патерн: цукор тримався високо протягом тренування й піднімався ще більше після — частково це пояснюється природою силових тренувань, які можуть підвищувати глюкозу. Але повернути його в норму стало справжнім викликом. Моє тіло просто не реагувало так, як раніше." },
-          { t: "img", src: "images/strength-training-cgm-type-1-diabetes.jpg", alt: "Lena Filatova виконує присідання зі штангою, на руці — сенсор безперервного моніторингу глюкози", cap: "У залі, із CGM на руці — саме тут я вперше помітила, що силові тренування піднімають мій цукор так, як ніколи раніше." },
+          { t: "img", src: "/images/strength-training-cgm-type-1-diabetes.jpg", alt: "Lena Filatova виконує присідання зі штангою, на руці — сенсор безперервного моніторингу глюкози", cap: "У залі, із CGM на руці — саме тут я вперше помітила, що силові тренування піднімають мій цукор так, як ніколи раніше." },
           { t: "p", text: "Я запитала свою діабетичну команду в St Barts у Лондоні, що відбувається. Звісно, я знала, що старішаю, але ніхто не говорив, як це виглядає на практиці. Вони подивилися на мої показники й сказали: усе добре, ви занадто суворі до себе. Але я точно знала, чого мені коштувало це «добре» — набагато більше зусиль, ніж раніше." },
           { t: "h", text: "Медична прогалина, про яку ніхто не говорить" },
           { t: "p", text: "У робочих поїздках я мусила пропускати прийоми їжі, бо не могла ризикнути з'їсти щось, що підняло б цукор дуже високо посеред конференції. Я голодувала, щоб триматися в межах — постійно виснажена й голодна. Будь-яка емоція, добра чи погана, підкидала мій цукор до 17–18 ммоль/л, і мені було важко його знизити." },
@@ -2043,7 +2179,7 @@ const CONTENT = {
           { t: "p", text: "Я маю досвід читання наукових статей і написання новин про здоров'я та фітнес, тож вирішила почати відкриту розмову для жінок, які шукають відповіді, як і я." },
           { t: "h", text: "Чому цукор у крові стає важче контролювати під час перименопаузи" },
           { t: "p", text: "Нещодавно я змінила діабетичну команду й одразу відчула, що мене розуміють — але навіть вони вказали на брак досліджень та інформації про жіноче здоров'я після 40 для тих, хто живе з діабетом." },
-          { t: "graph", src: "images/blood-sugar-graph-perimenopause.jpg", alt: "Екран інсулінової помпи показує, як цукор у крові піднімається до 17,7 ммоль/л уночі з 7,9 одиницями інсуліну в дії", cap: "Ніч із моєї власної помпи — цукор злітає до 17,7 ммоль/л, коли ще діють 7,9 од. інсуліну. Саме такий нічний патерн став набагато важче контролювати під час перименопаузи." },
+          { t: "graph", src: "/images/blood-sugar-graph-perimenopause.jpg", alt: "Екран інсулінової помпи показує, як цукор у крові піднімається до 17,7 ммоль/л уночі з 7,9 одиницями інсуліну в дії", cap: "Ніч із моєї власної помпи — цукор злітає до 17,7 ммоль/л, коли ще діють 7,9 од. інсуліну. Саме такий нічний патерн став набагато важче контролювати під час перименопаузи." },
           { t: "p", text: "Коли естроген коливається та падає, чутливість до інсуліну знижується. Ті самі страви, що раніше тримали цукор стабільним, тепер можуть піднімати його значно вище, і він загалом росте легше. Я також помітила закономірність у власних менструальних циклах — один місяць був відносно нормальним і передбачуваним, а наступного моє тіло просто виробляло менше гормонів, і я була значно менш чутлива до інсуліну." },
           { t: "quote", text: "Це не провал вашої компенсації. Це біологія, яку медичний світ лише починає сприймати серйозно." },
           { t: "h", text: "Що справді може допомогти" },
@@ -2064,7 +2200,7 @@ const CONTENT = {
             { claim: "ЗГТ справді знижує інсулінорезистентність — і доказів більшає.", detail: "Метааналіз 2024 року з 17 рандомізованих контрольованих досліджень за участю понад 29 000 осіб (1998–2024), представлений на щорічній зустрічі The Menopause Society, показав, що гормональна терапія суттєво знижує інсулінорезистентність у жінок у постменопаузі.", cite: "Щорічна зустріч The Menopause Society, 2024", url: "https://menopause.org/" },
             { claim: "Галузь нарешті надолужує.", detail: "Клінічне дослідження під назвою TIMES (Trajectories in Insulin Sensitivity Across MEnstrual cycleS in Women With Type 1 Diabetes) розпочало набір наприкінці 2025 року. Воно має на меті точно окреслити, як змінюється чутливість до інсуліну протягом циклу в жінок із T1D — що також допоможе побудувати доказову базу для ведення перименопаузи.", cite: "ClinicalTrials.gov — дослідження TIMES", url: "https://clinicaltrials.gov/search?term=TIMES%20insulin%20sensitivity%20menstrual%20type%201%20diabetes" }
           ] },
-          { t: "bio", name: "Lena Filatova", img: "images/lena-filatova-type-1-diabetes-23-years.jpg", alt: "Lena Filatova, авторка про жіноче здоров'я, що живе з діабетом 1 типу", text: "Lena Filatova живе з діабетом 1 типу вже 23 роки. Вона пише про жіноче здоров'я, перименопаузу та ведення діабету на lenafilatova.co.uk." }
+          { t: "bio", name: "Lena Filatova", img: "/images/lena-filatova-type-1-diabetes-23-years.jpg", alt: "Lena Filatova, авторка про жіноче здоров'я, що живе з діабетом 1 типу", text: "Lena Filatova живе з діабетом 1 типу вже 23 роки. Вона пише про жіноче здоров'я, перименопаузу та ведення діабету на lenafilatova.co.uk." }
         ],
         faq: [
           { q: "Чи впливає перименопауза на цукор у крові при діабеті 1 типу?", a: "Так. Коли рівень естрогену коливається та знижується під час перименопаузи, чутливість до інсуліну падає. Ті самі страви й дози інсуліну, що працювали раніше, можуть більше не давати того самого результату. Жінки з діабетом 1 типу часто помічають вищий цукор, більшу мінливість між циклами й важче відновлення після стрибків — без жодної очевидної зміни в режимі." },
@@ -2073,16 +2209,44 @@ const CONTENT = {
           { q: "Чому я набираю жир на животі під час перименопаузи, навіть якщо вага не змінилася?", a: "Зміни рівня естрогену змінюють те, де тіло зберігає жир, часто перерозподіляючи його до живота. Це може відбуватися навіть коли загальна вага лишається тією самою — тому «ваша вага не змінилася» не є вичерпною відповіддю." }
         ] },
       { cat: "Краса та шкіра", title: "Чи справді колагенові засоби покращують шкіру?", excerpt: "Що насправді показують дослідження про колагенові добавки, креми та поживні речовини для вашого колагену.", meta: "14 червня 2026 · 5 хв читання",
-        lead: "Колаген зараз усюди. Ось що підтверджують докази — і що переважно маркетинг.",
-        body: [
-          "Колагенові креми не можуть доставити колаген у глибші шари шкіри — молекули завеликі. Їхня користь переважно у зволоженні, а не у відновленні.",
-          "Пероральні пептиди колагену мають більше підтримки: кілька досліджень показують невелике покращення пружності та зволоження шкіри за 8–12 тижнів щоденного вживання.",
-          "Ваше тіло будує колаген із білка плюс вітамін C, цинк і достатній сон. Збалансоване харчування дає шкірі більше, ніж більшість окремих засобів."
+        lead: "Колаген — це каркас, що робить шкіру пружною й еластичною, і з середини двадцятих років ви щороку виробляєте його трохи менше. Ось що насправді підтверджують докази, а що переважно маркетинг.",
+        blocks: [
+          { t: "p", text: "Колаген — найпоширеніший білок в організмі. Він утворює структурний каркас, що надає шкірі пружності, еластичності та наповненості. Із середини двадцятих років тіло виробляє приблизно на 1% менше щороку. Під час перименопаузи й після неї цей спад пришвидшується — падіння естрогену прибирає один із ключових сигналів для вироблення колагену, тому шкіра часто помітно змінюється саме в цей період." },
+          { t: "p", text: "Індустрія догляду за шкірою побудувала великий ринок навколо цієї біології. Чи може конкретний засіб суттєво сповільнити або повернути цей спад, залежить від того, як він працює — а працюють не всі." },
+          { t: "h", text: "Чому колагенові креми не можуть відновити шкіру" },
+          { t: "p", text: "Молекула колагену велика — близько 300 000 дальтонів. Дослідження проникності шкіри встановили, що [зовнішній бар'єр шкіри пропускає лише молекули менші за 500 дальтонів](https://onlinelibrary.wiley.com/doi/epdf/10.1034/j.1600-0625.2000.009003165.x). Колагеновий крем чи сироватка не можуть доставити колаген у дерму; фізика цього не дозволяє." },
+          { t: "p", text: "Що колагеновий крем справді може — це працювати як зволожувач. Він зменшує втрату води з поверхні шкіри, що тимчасово розгладжує дрібні зморшки й покращує текстуру. Це корисно — але це той самий механізм, що й у будь-якого хорошого зволожувача чи бар'єрного крему. З ними все гаразд; вони просто не роблять того, що часто обіцяє маркетинг." },
+          { t: "p", text: "Якщо ви хочете підтримати синтез колагену в дермі, топічні інгредієнти з найсильнішими доказами — це ретиноїди (похідні вітаміну A) та вітамін C. [Систематичний огляд і метааналіз клінічних досліджень третиноїну 2025 року](https://pmc.ncbi.nlm.nih.gov/articles/PMC12615114/) підтвердив, що ретиноїди вимірно збільшують вироблення колагену й покращують фотопошкоджену шкіру — вони залишаються найдоказовішим топічним інгредієнтом проти старіння шкіри. Вітамін C підтримує ферменти-гідроксилази, що формують і стабілізують колаген — це кофактор, а не джерело, але без достатньої його кількості процес зупиняється." },
+          { t: "h", text: "Що кажуть докази про колагенові добавки" },
+          { t: "p", text: "Пероральні добавки — цікавіша й складніша історія. Гідролізовані пептиди колагену, форма, що міститься в більшості порошків і капсул, розщеплюються на фрагменти, достатньо малі для всмоктування в кишечнику. Є розумні докази, що деякі з цих фрагментів досягають шкіри й стимулюють фібробласти — клітини, відповідальні за вироблення колагену та еластину." },
+          { t: "p", text: "[Метааналіз 2024 року, що охопив 26 рандомізованих контрольованих досліджень і 1721 учасника](https://pmc.ncbi.nlm.nih.gov/articles/PMC10773595/), виявив послідовне покращення зволоження та еластичності шкіри від приймання гідролізованого колагену. Оригінальне знакове дослідження [Proksch та колег](https://karger.com/spp/article/27/1/47/295741/Oral-Supplementation-of-Specific-Collagen-Peptides) — 69 жінок, 8 тижнів, 2,5–5 г щодня — показало статистично значуще покращення еластичності шкіри, і його висновки підтвердилися в наступних дослідженнях." },
+          { t: "p", text: "Проте є важливе застереження. [Метааналіз 2025 року в American Journal of Medicine](https://www.amjmed.com/article/S0002-9343%2825%2900283-9/abstract) вивчив 23 дослідження й виявив, що коли роботи розділили за джерелом фінансування, дослідження, профінансовані індустрією, послідовно показували значущу користь — тоді як незалежно профінансовані не показали ефекту. Це не означає, що добавки не працюють, але означає, що доказова база заслуговує більшої критичності, ніж підказує маркетинг." },
+          { t: "p", text: "Найчесніший підсумок: ефекти правдоподібні, добавки видаються безпечними, і деякі дослідження показують справжнє покращення. Але докази не такі надійні, як їх часто подають, а питання про те, хто фінансував дослідження, тут важливіше, ніж у більшості сфер." },
+          { t: "h", text: "Основи, що важать більше" },
+          { t: "p", text: "Перш ніж витрачатися на добавки, варто перевірити, чи на місці будівельні блоки. Синтез колагену залежить від певних поживних речовин, і нестача будь-якої з них обмежує те, що тіло здатне виробити." },
+          { t: "p", text: "[Вітамін C](https://www.mdpi.com/2072-6643/9/8/866) — найкритичніший. Ферменти, що формують і стабілізують колаген, не можуть працювати без нього — це яскраво ілюструє те, що цинга спричиняє руйнування шкіри та порушення загоєння ран. Мегадози не потрібні; британська референсна норма споживання — 40 мг на день. Хороші джерела — солодкий перець, ківі, цитрусові та броколі. [Рандомізоване дослідження 2024 року виявило, що поєднання колагену з вітаміном C](https://pmc.ncbi.nlm.nih.gov/articles/PMC11206740/) покращувало щільність дерми й текстуру шкіри краще за плацебо — тобто разом вони працюють краще, ніж кожен окремо." },
+          { t: "p", text: "Цинк підтримує ферменти, що виробляють колаген, і загоєння ран. Легка нестача поширена, особливо в жінок із переважно рослинним харчуванням. Багаті джерела — м'ясо, гарбузове насіння, бобові та цільні злаки." },
+          { t: "p", text: "Мідь потрібна для лізилоксидази — ферменту, що зшиває волокна колагену, надаючи шкірі структурної міцності. Найбагатші джерела — горіхи, насіння, молюски та печінка." },
+          { t: "p", text: "Білок — це те, з чого зроблений колаген. Тіло не може будувати його без достатньої кількості амінокислот — а жінки в середньому віці часто їдять менше білка, ніж потребують, особливо коли скорочують загальну калорійність." },
+          { t: "h", text: "Кілька слів про перименопаузу" },
+          { t: "p", text: "Естроген відіграє пряму роль у виробленні колагену. [Оглядова стаття 2025 року в Journal of Cosmetic Dermatology](https://onlinelibrary.wiley.com/doi/10.1111/jocd.70393) — на основі п'яти десятиліть досліджень — підтвердила, що вміст колагену в шкірі падає приблизно на 1–2% на рік у ранній постменопаузі, що товщина шкіри та бар'єрна функція знижуються разом із ним, і що це спричинено падінням естрогену, а не лише віком. Той самий огляд знайшов докази, що ЗГТ може частково відновити вміст колагену, еластичність і зволоження в жінок у постменопаузі." },
+          { t: "p", text: "Докази користі ЗГТ для шкіри зростають, але вона залишається вторинною щодо краще доведених переваг для вазомоторних симптомів і захисту кісток. Якщо ви в перименопаузі або наближаєтеся до неї й помічаєте суттєві зміни пружності чи текстури шкіри, варто підняти питання гормонального здоров'я з вашим лікарем або фахівцем із менопаузи паралельно з розмовою про догляд за шкірою." },
+          { t: "h", text: "Що каже дослідження" },
+          { t: "refs", items: [
+            { claim: "Колагенові добавки покращують показники шкіри — але джерело фінансування має значення.", detail: "Метааналіз 2025 року в American Journal of Medicine розглянув 23 рандомізовані контрольовані дослідження з 1474 учасниками. Профінансовані індустрією роботи послідовно показували значуще покращення зволоження, еластичності та зморшок. Коли аналізували лише незалежно профінансовані дослідження, значущого ефекту не виявили. Автори закликали до більшої кількості незалежних досліджень, перш ніж робити тверді висновки.", cite: "American Journal of Medicine · Систематичний огляд і метааналіз, 2025", url: "https://www.amjmed.com/article/S0002-9343(25)00283-9/abstract" },
+            { claim: "Обсяг доказів для перорального колагену зростає.", detail: "Метааналіз 2024 року охопив 26 рандомізованих контрольованих досліджень із 1721 учасником і виявив, що приймання гідролізованого колагену покращувало еластичність і зволоження шкіри. Розміри ефекту були помірними, а тривалість досліджень короткою — але послідовність напряму в такій великій доказовій базі має значення.", cite: "PMC · Систематичний огляд і метааналіз, 2024", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10773595/" },
+            { claim: "Оригінальне знакове РКД усе ще актуальне.", detail: "Proksch та колеги (2014) рандомізували 69 жінок віком 35–55 приймати 2,5 г або 5 г пептидів колагену щодня протягом восьми тижнів. Обидві дози привели до статистично значущого покращення еластичності шкіри порівняно з плацебо. Це одне з найчастіше цитованих досліджень у цій галузі, і його висновки відтворювали.", cite: "Skin Pharmacology and Physiology · Рандомізоване контрольоване дослідження, 2014", url: "https://karger.com/spp/article/27/1/47/295741/Oral-Supplementation-of-Specific-Collagen-Peptides" },
+            { claim: "Молекули колагену завеликі, щоб проникнути крізь бар'єр шкіри.", detail: "«Правило 500 дальтонів», встановлене у фундаментальній фармакологічній праці, стверджує, що молекули понад приблизно 500 дальтонів не можуть пройти крізь зовнішній бар'єр шкіри. Колаген важить близько 300 000 дальтонів. Саме тому топічний колаген не може бути засобом структурного відновлення дерми — хоч би що обіцяла упаковка.", cite: "Experimental Dermatology · Огляд, 2000", url: "https://onlinelibrary.wiley.com/doi/epdf/10.1034/j.1600-0625.2000.009003165.x" },
+            { claim: "Ретиноїди залишаються найдоказовішим топічним засобом проти старіння шкіри.", detail: "Систематичний огляд і метааналіз рандомізованих контрольованих досліджень третиноїну для фотопошкодженої шкіри обличчя 2025 року підтвердив вимірне покращення вироблення колагену, текстури шкіри та дрібних зморшок. Механізм — пригнічення ферментів, що руйнують колаген, і водночас стимуляція активності фібробластів — добре вивчений і відтворений протягом десятиліть досліджень.", cite: "PMC · Систематичний огляд і метааналіз, 2025", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12615114/" },
+            { claim: "Вітамін C не є необов'язковим для синтезу колагену.", detail: "Огляд 2017 року в Nutrients описав усталену біохімію: вітамін C діє як кофактор для ферментів-гідроксилаз, що стабілізують потрійну спіраль колагену, а його відсутність призводить до дефектного, нестабільного колагену. РКД 2024 року виявило, що колаген у поєднанні з вітаміном C давав більше покращення щільності дерми й текстури, ніж колаген окремо — що підкреслює важливість поєднання цих речовин.", cite: "Nutrients · Огляд, 2017", url: "https://www.mdpi.com/2072-6643/9/8/866" },
+            { claim: "Втрата естрогену пришвидшує спад колагену шкіри — і ЗГТ може допомогти.", detail: "Оглядова стаття 2025 року в Journal of Cosmetic Dermatology розглянула п'ять десятиліть досліджень змін шкіри в менопаузі та ЗГТ. Вона підтвердила, що колаген падає на 1–2% на рік у ранній постменопаузі, що бар'єрна функція та еластичність шкіри знижуються разом із ним, і що замісна гормональна терапія може частково відновити ці показники в жінок у постменопаузі.", cite: "Journal of Cosmetic Dermatology · Оглядова стаття, 2025", url: "https://onlinelibrary.wiley.com/doi/10.1111/jocd.70393" }
+          ] }
         ],
         faq: [
-          { q: "Чи справді працюють колагенові добавки?", a: "Пероральні пептиди колагену мають непогану підтримку: кілька досліджень показують невелике покращення пружності та зволоження шкіри за 8–12 тижнів щоденного вживання. Ефект помірний, не миттєвий, і потребує послідовності." },
-          { q: "Чи працюють колагенові креми?", a: "Колагенові креми не можуть доставити колаген у глибші шари шкіри — молекули завеликі. Їхня користь переважно у зволоженні, а не у відновленні колагену." },
-          { q: "Які продукти допомагають виробляти колаген?", a: "Ваше тіло будує колаген із білка плюс вітамін C, цинк і достатній сон. Багате на білок і різнобарвне харчування дає шкірі більше, ніж більшість окремих засобів." }
+          { q: "Чи справді працюють колагенові добавки?", a: "Можливо — але менш однозначно, ніж підказує маркетинг. Багато досліджень показують покращення зволоження та еластичності шкіри, але метааналіз 2025 року виявив, що незалежно профінансовані дослідження не показали значущого ефекту, тоді як профінансовані індустрією — показали. Якщо хочете спробувати, 2,5–10 г гідролізованого колагену на день — це доза, що використовувалася в більшості досліджень. Подбайте про достатнє споживання вітаміну C разом із ними." },
+          { q: "Чи може колагеновий крем відновити шкіру?", a: "Ні — молекули колагену надто великі, щоб проникнути крізь бар'єр шкіри. Колагенові креми працюють як зволожувачі, що корисно, але на цьому механізм закінчується. Ретиноїди та сироватки з вітаміном C — це топічні інгредієнти з доказами реальної стимуляції вироблення колагену в дермі." },
+          { q: "Яка поживна речовина найважливіша для колагену шкіри?", a: "Вітамін C. Без нього ферменти, що формують і зшивають колаген, не можуть працювати. Отримувати його достатньо з їжею — солодкий перець, ківі, цитрусові, броколі — важливіше за будь-яку добавку. Цинк, мідь і достатній білок також відіграють важливу роль." },
+          { q: "Чи впливає менопауза на колаген?", a: "Так, суттєво. Естроген підтримує синтез колагену в шкірі, а його зниження під час перименопаузи та менопаузи пришвидшує втрату колагену приблизно на 1–2% на рік — більше, ніж пояснив би лише вік. ЗГТ має докази часткового відновлення колагену й еластичності шкіри. Поговоріть із лікарем або фахівцем із менопаузи, якщо це вас турбує." }
         ] },
       { cat: "Перименопауза", title: "5 міфів про перименопаузу та вагу", excerpt: "Чому вага на терезах — не вся історія, і що справді допомагає.", meta: "12 червня 2026 · 4 хв читання",
         lead: "Вага на терезах — не вся історія. Ось що справді змінюється при перименопаузі і що дійсно допомагає.",
@@ -2190,7 +2354,7 @@ if (typeof window !== "undefined") {
 }
 
 class Component extends DCLogic {
-  state = { lang: "en", page: "home", menuOpen: false, li: 0, pi: 0, ai: 0, liked: {}, nlStatus: "idle", xlStatus: "idle", dlStatus: {}, pumpType: "all", pumpAid: "all", pumpStatus: "all", cart: [], cartOpen: false, signedIn: false, replyingTo: null, cLikes: {}, reported: {}, bookTab: "call", monthOffset: 0, selDate: null, selTime: null, booked: false };
+  state = { lang: "en", page: "home", menuOpen: false, li: 0, pi: 0, ai: 0, liked: {}, nlStatus: "idle", xlStatus: "idle", dlStatus: {}, pumpType: "all", pumpAid: "all", pumpStatus: "all", cart: [], cartOpen: false, signedIn: false, replyingTo: null, cLikes: {}, reported: {}, bookTab: "message", monthOffset: 0, selDate: null, selTime: null, booked: false };
 
   componentDidMount() {
     try {
@@ -2207,10 +2371,54 @@ class Component extends DCLogic {
       window.addEventListener("popstate", this._onHash);
     }
     this.syncSeo();
+    if (typeof window !== "undefined" && CUSDIS_APP_ID) {
+      this._cusdisWatch = setInterval(() => this._maybeCusdis(), 400);
+    }
   }
 
   componentWillUnmount() {
     if (typeof window !== "undefined" && this._onHash) window.removeEventListener("popstate", this._onHash);
+    if (this._cusdisWatch) clearInterval(this._cusdisWatch);
+  }
+
+  _maybeCusdis() {
+    if (!CUSDIS_APP_ID) return;
+    if (this.state.page !== "article") { this._cusdisKey = null; return; }
+    const el = document.getElementById("cusdis_thread");
+    if (!el) return;
+    const key = this.state.lang + "|" + this.state.ai;
+    // Re-render on article change, OR self-heal if React wiped the injected widget.
+    if (key === this._cusdisKey && el.childElementCount > 0) return;
+    this._cusdisKey = key;
+    this._renderCusdis();
+  }
+
+  _renderCusdis() {
+    if (!CUSDIS_APP_ID || typeof window === "undefined") return;
+    if (!document.querySelector("script[data-cusdis]")) {
+      const s = document.createElement("script");
+      s.src = CUSDIS_HOST + "/js/cusdis.es.js";
+      s.async = true; s.defer = true; s.setAttribute("data-cusdis", "1");
+      document.body.appendChild(s);
+    }
+    const attempt = (n) => {
+      const el = document.getElementById("cusdis_thread");
+      if (!el) return;
+      if (!window.CUSDIS || !window.CUSDIS.initial) { if (n < 60) setTimeout(() => attempt(n + 1), 150); return; }
+      const lang = this.state.lang === "ua" ? "ua" : "en";
+      const pageId = (lang === "ua" ? "ua/" : "") + (ARTSLUG[this.state.ai] || "home");
+      const pageUrl = this._articleUrl();
+      const pageTitle = ((CONTENT[lang].articles[this.state.ai] || {}).title) || "Blog";
+      el.innerHTML = "";
+      el.setAttribute("data-host", CUSDIS_HOST);
+      el.setAttribute("data-app-id", CUSDIS_APP_ID);
+      el.setAttribute("data-page-id", pageId);
+      el.setAttribute("data-page-url", pageUrl);
+      el.setAttribute("data-page-title", pageTitle);
+      try { window.CUSDIS_LOCALE = (lang === "ua") ? CUSDIS_UA : {}; } catch (e) {}
+      try { window.CUSDIS.initial(); } catch (e) {}
+    };
+    attempt(0);
   }
 
   _relPath() {
@@ -2246,7 +2454,7 @@ class Component extends DCLogic {
     if (typeof document === "undefined" || !document.head) return;
     const DEF_TITLE = "Lena Filatova — Evidence-based women's health after 40";
     const DEF_DESC = "Evidence-based women's health after 40 — clear, practical guidance on diabetes, insulin resistance and perimenopause, plus a free newsletter and journal from Lena Filatova.";
-    const DEF_IMG = "images/lena-filatova-womens-health-coach-over-40.jpg";
+    const DEF_IMG = "/images/lena-filatova-womens-health-coach-over-40.jpg";
     const set = (sel, val) => { const el = document.head.querySelector(sel); if (el) el.setAttribute("content", val); };
     const canonUrl = this.state.page === "article" ? this._articleUrl() : (SITE_ORIGIN + this._relPath());
     let canon = document.head.querySelector('link[rel="canonical"]');
@@ -2520,6 +2728,7 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
     const likedMap = this.state.liked || {};
     const allArticles = c.articles.map((a, i) => ({
       ...a,
+      img: BLOGSRC[i],
       imgStyle: blogImg(BLOGSRC[i]),
       likes: LIKES[i] + (likedMap[i] ? 1 : 0),
       commentsCount: CMTS[i],
@@ -2551,8 +2760,21 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
     const resKey = ARTRES[this.state.ai] || "glow";
     const bodyArr = c.articles[this.state.ai].body || [];
     const rawBlocks = c.articles[this.state.ai].blocks;
+    const parseInline = (t) => {
+      if (!t || t.indexOf("](") < 0) return t;
+      const parts = []; let last = 0, k = 0; const re = /\[([^\]]+)\]\(([^)]+)\)/g; let m;
+      while ((m = re.exec(t))) {
+        if (m.index > last) parts.push(t.slice(last, m.index));
+        parts.push(React.createElement("a", { key: "il" + (k++), href: m[2], target: "_blank", rel: "noopener noreferrer", style: { color: "#B23A63", fontWeight: 600, textDecoration: "underline", textUnderlineOffset: "2px" } }, m[1]));
+        last = m.index + m[0].length;
+      }
+      if (last < t.length) parts.push(t.slice(last));
+      return parts;
+    };
     const blocks = rawBlocks ? rawBlocks.map(b => ({
       ...b,
+      contentEl: b.t === "p" ? parseInline(b.text) : b.text,
+      items: b.t === "refs" ? b.items.map(r => ({ ...r, hasUrl: !!r.url, noUrl: !r.url })) : b.items,
       isH: b.t === "h", isP: b.t === "p", isQuote: b.t === "quote",
       isImg: b.t === "img", isLinks: b.t === "links", isRefs: b.t === "refs", isBio: b.t === "bio", isGraph: b.t === "graph"
     })) : [];
@@ -2603,6 +2825,7 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
 
     return {
       c,
+      showStats: false, // Hidden until real traffic — flip to true to bring back like/comment counts on blog
       navItems: c.nav.map((label, i) => ({ label, page: NAVPAGES[i], onClick: () => this.go(NAVPAGES[i]) })).filter(x => x.page !== "shop"),
       footerCategories: c.footer.categories.map(label => ({ label, onClick: () => this.go("blog") })),
       footerLegal: c.legal.map((d, i) => ({ label: d.nav, onClick: () => this.goLegal(i) })),
@@ -2643,8 +2866,11 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
         isReported: !!(this.state.reported || {})[cm.id],
         notReported: !(this.state.reported || {})[cm.id],
         hasReplies: (cm.replies || []).length > 0,
-        replies: (cm.replies || []).map(rp => ({ ...rp, notAuthor: !rp.author, avatarEl: rp.author ? React.createElement("img", { src: "images/lena-filatova-type-1-diabetes-23-years.jpg", alt: rp.name, loading: "lazy", style: { width: "38px", height: "38px", borderRadius: "999px", objectFit: "cover", objectPosition: "50% 16%", display: "block" } }) : null }))
+        replies: (cm.replies || []).map(rp => ({ ...rp, notAuthor: !rp.author, avatarEl: rp.author ? React.createElement("img", { src: "/images/lena-filatova-type-1-diabetes-23-years.jpg", alt: rp.name, loading: "lazy", style: { width: "38px", height: "38px", borderRadius: "999px", objectFit: "cover", objectPosition: "50% 16%", display: "block" } }) : null }))
       })),
+      commentsListCount: c.blog.comments.length,
+      cusdisOn: !!CUSDIS_APP_ID,
+      cusdisOff: !CUSDIS_APP_ID,
       signedIn: this.state.signedIn,
       notSignedIn: !this.state.signedIn,
       signIn: () => this.signIn(),
@@ -2655,15 +2881,15 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       prod,
       art,
       steps: c.contact.steps,
-      isBookCall: (this.state.bookTab || "call") === "call",
-      isBookMessage: this.state.bookTab === "message",
+      isBookCall: (this.state.bookTab || "message") === "call",
+      isBookMessage: (this.state.bookTab || "message") === "message",
       bookEmbed: !!BOOKING_URL,
       bookingUrl: BOOKING_URL,
       mockPicker: !BOOKING_URL && !this.state.booked,
       setTabCall: () => this.setBookTab("call"),
       setTabMessage: () => this.setBookTab("message"),
-      tabCallStyle: { ...segBase, ...((this.state.bookTab || "call") === "call" ? { background: "#331B33", color: "#FFF" } : { background: "transparent", color: "#7A6675" }) },
-      tabMessageStyle: { ...segBase, ...(this.state.bookTab === "message" ? { background: "#331B33", color: "#FFF" } : { background: "transparent", color: "#7A6675" }) },
+      tabCallStyle: { ...segBase, ...((this.state.bookTab || "message") === "call" ? { background: "#331B33", color: "#FFF" } : { background: "transparent", color: "#7A6675" }) },
+      tabMessageStyle: { ...segBase, ...((this.state.bookTab || "message") === "message" ? { background: "#331B33", color: "#FFF" } : { background: "transparent", color: "#7A6675" }) },
       calMonthLabel: c.contact.months[now.getMonth()] + " " + now.getFullYear(),
       upcomingDays,
       timeSlots,
@@ -2696,6 +2922,7 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       goHome: () => this.go("home"),
       shareArticle: () => this.shareArticle(),
       shareLabel: this.state.shareCopied ? c.shareCopiedMsg : c.share,
+      shareMarginLeft: (this.props.shareAlign || "right") === "left" ? "12px" : "auto",
       goShop: () => this.go("shop"),
       goResources: () => this.go("resources"),
       goBlog: () => this.go("blog"),
