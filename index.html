@@ -120,17 +120,19 @@
         <button onClick="{{ toggleMenu }}" class="mobile-only" aria-label="Menu" style="align-items: center; justify-content: center; width: 40px; height: 40px; background: #FFFFFF; border: 1px solid #E7DAE4; border-radius: 999px; cursor: pointer; color: #331B33;">
           <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
+        <sc-if value="{{ showShop }}" hint-placeholder-val="{{ false }}">
         <button onClick="{{ toggleCart }}" style="position: relative; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: #FFFFFF; border: 1px solid #E7DAE4; border-radius: 999px; cursor: pointer; color: #331B33;">
           <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
           <sc-if value="{{ hasCart }}" hint-placeholder-val="{{ false }}">
             <span style="position: absolute; top: -5px; right: -5px; min-width: 19px; height: 19px; padding: 0 5px; background: #B23A63; color: #FFF; border-radius: 999px; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center;">{{ cartCount }}</span>
           </sc-if>
         </button>
+        </sc-if>
         <div style="display: flex; align-items: center; gap: 8px; background: #FFFFFF; border: 1px solid #E7DAE4; border-radius: 999px; padding: 3px;">
           <button onClick="{{ setEn }}" style="{{ enBtn }}">EN</button>
           <button onClick="{{ setUa }}" style="{{ uaBtn }}">UA</button>
         </div>
-        <button onClick="{{ goHome }}" class="header-subscribe" style="border: none; cursor: pointer; background: #B23A63; color: #FFF; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; padding: 10px 20px; border-radius: 999px; white-space: nowrap;">{{ c.subscribe }}</button>
+        <button onClick="{{ goSubscribe }}" class="header-subscribe" style="border: none; cursor: pointer; background: #B23A63; color: #FFF; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; padding: 10px 20px; border-radius: 999px; white-space: nowrap;">{{ c.subscribe }}</button>
       </div>
     </div>
   </header>
@@ -150,7 +152,7 @@
           <span onClick="{{ item.onClick }}" style="cursor: pointer; padding: 15px 4px; border-bottom: 1px solid #E7DAE4; font-family: 'Spectral', serif; font-size: 21px; color: #331B33;">{{ item.label }}</span>
         </sc-for>
       </div>
-      <button onClick="{{ goContactMenu }}" style="margin-top: 28px; border: none; cursor: pointer; background: #B23A63; color: #FFF; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 600; padding: 15px 24px; border-radius: 999px;">{{ c.subscribe }}</button>
+      <button onClick="{{ goSubscribe }}" style="margin-top: 28px; border: none; cursor: pointer; background: #B23A63; color: #FFF; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 600; padding: 15px 24px; border-radius: 999px;">{{ c.subscribe }}</button>
     </div>
   </div>
   </sc-if>
@@ -164,7 +166,7 @@
         <h1 style="margin: 0 0 24px; font-family: 'Spectral', serif; font-weight: 500; font-size: 58px; line-height: 1.08; letter-spacing: -0.5px; text-wrap: balance;">{{ c.heroTitle }}</h1>
         <p style="margin: 0 0 36px; font-size: 18px; line-height: 1.65; color: #6A5668; max-width: 480px; text-wrap: pretty;">{{ c.heroBody }}</p>
         <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-          <button onClick="{{ goShop }}" style="border: none; cursor: pointer; background: #B23A63; color: #FFF; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 600; padding: 15px 28px; border-radius: 999px;">{{ c.heroCta1 }}</button>
+          <button onClick="{{ goSubscribe }}" style="border: none; cursor: pointer; background: #B23A63; color: #FFF; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 600; padding: 15px 28px; border-radius: 999px;">{{ c.heroCta1 }}</button>
           <button onClick="{{ goBlog }}" style="cursor: pointer; background: transparent; color: #331B33; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 600; padding: 15px 26px; border-radius: 999px; border: 1px solid #D8C6D4;">{{ c.heroCta2 }}</button>
         </div>
         <p style="margin: 22px 0 0; font-size: 13.5px; font-weight: 600; color: #736070; display: flex; align-items: center; gap: 9px;">
@@ -194,6 +196,7 @@
       </div>
     </section>
 
+    <sc-if value="{{ showShop }}" hint-placeholder-val="{{ false }}">
     <section style="max-width: 1180px; margin: 0 auto; padding: 84px 32px;">
       <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 44px; flex-wrap: wrap;">
         <div>
@@ -224,7 +227,9 @@
         </sc-for>
       </div>
     </section>
+    </sc-if>
 
+    <sc-if value="{{ showTestimonials }}" hint-placeholder-val="{{ false }}">
     <section style="background: #331B33;">
       <div style="max-width: 1180px; margin: 0 auto; padding: 84px 32px;">
         <h2 style="margin: 0 0 8px; font-family: 'Spectral', serif; font-weight: 500; font-size: 40px; color: #F6F0F5; letter-spacing: -0.4px;">{{ c.testimonialsTitle }}</h2>
@@ -246,6 +251,7 @@
         </div>
       </div>
     </section>
+    </sc-if>
 
     <section style="background: #FFFFFF; border-top: 1px solid #EEE2EC; border-bottom: 1px solid #EEE2EC;">
       <div style="max-width: 1180px; margin: 0 auto; padding: 84px 32px;">
@@ -277,28 +283,36 @@
       </div>
     </section>
 
-    <section style="max-width: 1180px; margin: 0 auto; padding: 84px 32px;">
-      <div style="background: #331B33; border-radius: 16px; padding: 64px 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
-        <div>
-          <h2 style="margin: 0 0 14px; font-family: 'Spectral', serif; font-weight: 500; font-size: 36px; color: #F6F0F5; letter-spacing: -0.3px;">{{ c.nlTitle }}</h2>
-          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #CBB5C6; max-width: 420px;">{{ c.nlBody }}</p>
+    <section id="subscribe" style="max-width: 1180px; margin: 0 auto; padding: 84px 32px; scroll-margin-top: 90px;">
+      <div style="background: #331B33; border-radius: 20px; padding: 56px; display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 52px; align-items: start;">
+        <div style="position: sticky; top: 40px;">
+          <h2 style="margin: 0 0 16px; font-family: 'Spectral', serif; font-weight: 500; font-size: 33px; color: #F6F0F5; letter-spacing: -0.3px; line-height: 1.18;">{{ c.nlTitle }}</h2>
+          <p style="margin: 0; font-size: 15.5px; line-height: 1.65; color: #CBB5C6;">{{ c.nlBody }}</p>
         </div>
         <div>
           <sc-if value="{{ nlNotDone }}" hint-placeholder-val="{{ true }}">
-            <form onSubmit="{{ subscribeNewsletter }}" style="display: flex; gap: 12px; flex-wrap: wrap;">
-              <input type="email" required placeholder="{{ c.nlEmail }}" style="flex: 1; min-width: 200px; background: #46304A; border: 1px solid #563E58; color: #F6F0F5; font-family: 'Manrope', sans-serif; font-size: 15px; padding: 15px 18px; border-radius: 999px; outline: none;" />
-              <button type="submit" style="border: none; background: #B23A63; color: #FFF; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 600; padding: 15px 28px; border-radius: 999px; cursor: pointer; white-space: nowrap;">{{ c.nlBtn }}</button>
+            <form onSubmit="{{ subscribeNewsletter }}" style="display: flex; flex-direction: column; gap: 16px;">
+              <input type="email" required placeholder="{{ c.nlEmail }}" style="background: #46304A; border: 1px solid #563E58; color: #F6F0F5; font-family: 'Manrope', sans-serif; font-size: 15px; padding: 14px 18px; border-radius: 12px; outline: none;" />
+              <label onClick="{{ toggleConsent }}" style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+                <span style="{{ consentBoxStyle }}">
+                  <sc-if value="{{ nlConsentChecked }}" hint-placeholder-val="{{ false }}">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+                  </sc-if>
+                </span>
+                <span style="font-size: 12.5px; line-height: 1.5; color: #B79EB2;">{{ c.nlConsent }}</span>
+              </label>
+              <button type="submit" style="border: none; background: #B23A63; color: #FFF; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 600; padding: 15px 28px; border-radius: 999px; cursor: pointer; align-self: flex-start;">{{ c.nlBtn }}</button>
             </form>
-            <sc-if value="{{ nlError }}" hint-placeholder-val="{{ false }}">
-              <p style="margin: 12px 2px 0; font-size: 13.5px; color: #F0B8C9;">{{ c.nlError }}</p>
+            <sc-if value="{{ nlErrorMsg }}" hint-placeholder-val="{{ false }}">
+              <p style="margin: 12px 2px 0; font-size: 13px; color: #F0B8C9;">{{ nlErrorMsg }}</p>
             </sc-if>
           </sc-if>
           <sc-if value="{{ nlDone }}" hint-placeholder-val="{{ false }}">
-            <div style="display: flex; align-items: center; gap: 12px; background: #46304A; border: 1px solid #6E4A6F; border-radius: 14px; padding: 18px 20px;">
-              <div style="flex: none; width: 32px; height: 32px; border-radius: 999px; background: #2F8F5B; display: flex; align-items: center; justify-content: center;">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+            <div style="display: flex; align-items: flex-start; gap: 14px; background: #46304A; border: 1px solid #6E4A6F; border-radius: 16px; padding: 22px 24px;">
+              <div style="flex: none; width: 34px; height: 34px; border-radius: 999px; background: #2F8F5B; display: flex; align-items: center; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
               </div>
-              <span style="font-size: 15px; line-height: 1.45; color: #F6F0F5;">{{ c.nlSuccess }}</span>
+              <span style="font-size: 15px; line-height: 1.5; color: #F6F0F5;">{{ c.nlSuccess }}</span>
             </div>
           </sc-if>
         </div>
@@ -435,6 +449,7 @@
       </div>
     </div>
 
+    <sc-if value="{{ showDownloads }}" hint-placeholder-val="{{ false }}">
     <div style="margin-top: 64px; padding-top: 56px; border-top: 1px solid #EEE2EC;">
       <h2 style="margin: 0 0 8px; font-family: 'Spectral', serif; font-weight: 500; font-size: 30px; letter-spacing: -0.3px;">{{ rp.downloadsTitle }}</h2>
       <p style="margin: 0 0 32px; font-size: 16px; color: #7A6675;">{{ rp.downloadsSub }}</p>
@@ -459,6 +474,7 @@
         </sc-for>
       </div>
     </div>
+    </sc-if>
   </div>
   </sc-if>
 
@@ -603,9 +619,9 @@
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#736070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
         {{ art.commentsCount }}
       </a>
-      <span style="display: inline-flex; align-items: center; gap: 8px; margin-left: auto; background: #FFFFFF; border: 1px solid #E7DAE4; border-radius: 999px; padding: 8px 16px; cursor: pointer; font-size: 14px; font-weight: 600; color: #4A3A46;">
+      <span onClick="{{ shareArticle }}" style="display: inline-flex; align-items: center; gap: 8px; margin-left: auto; background: #FFFFFF; border: 1px solid #E7DAE4; border-radius: 999px; padding: 8px 16px; cursor: pointer; font-size: 14px; font-weight: 600; color: #4A3A46;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#736070" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"></path><path d="M16 6l-4-4-4 4"></path><path d="M12 2v13"></path></svg>
-        {{ c.share }}
+        {{ shareLabel }}
       </span>
     </div>
     <div role="img" aria-label="{{ art.imgAlt }}" style="{{ art.imgStyleWide }}"></div>
@@ -730,6 +746,7 @@
         </div>
       </div>
 
+      <sc-if value="{{ showShop }}" hint-placeholder-val="{{ false }}">
       <div style="margin-top: 72px; padding-top: 56px; border-top: 1px solid #EEE2EC;">
         <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 36px; flex-wrap: wrap;">
           <div>
@@ -754,6 +771,7 @@
           </sc-for>
         </div>
       </div>
+      </sc-if>
 
       <div id="comments" style="order: -1; margin-top: 24px; padding-top: 56px; border-top: 1px solid #EEE2EC; max-width: 760px;">
         <h2 style="margin: 0 0 8px; font-family: 'Spectral', serif; font-weight: 500; font-size: 30px;">{{ c.blog.commentsTitle }} · {{ art.commentsCount }}</h2>
@@ -878,7 +896,11 @@
   <div data-screen-label="Contact" style="max-width: 1180px; margin: 0 auto; padding: 72px 32px 96px;">
     <p style="margin: 0 0 12px; font-size: 13px; font-weight: 600; letter-spacing: 2.5px; color: #B23A63; text-transform: uppercase;">{{ c.contact.eyebrow }}</p>
     <h1 style="margin: 0 0 16px; font-family: 'Spectral', serif; font-weight: 500; font-size: 48px; letter-spacing: -0.5px;">{{ c.contact.title }}</h1>
-    <p style="margin: 0 0 56px; font-size: 18px; line-height: 1.6; color: #6A5668; max-width: 580px;">{{ c.contact.intro }}</p>
+    <p style="margin: 0 0 22px; font-size: 18px; line-height: 1.6; color: #6A5668; max-width: 580px;">{{ c.contact.intro }}</p>
+    <div style="display: flex; gap: 12px; align-items: flex-start; max-width: 620px; background: #FBF4F8; border: 1px solid #EAD7E4; border-radius: 12px; padding: 15px 18px; margin: 0 0 52px;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B23A63" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 1px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+      <p style="margin: 0; font-size: 13.5px; line-height: 1.55; color: #6A5668; text-wrap: pretty;">{{ c.contact.disclaimer }}</p>
+    </div>
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;">
       <div>
         <h3 style="margin: 0 0 28px; font-family: 'Spectral', serif; font-weight: 500; font-size: 26px;">{{ c.contact.stepsTitle }}</h3>
@@ -948,18 +970,31 @@
         </sc-if>
 
         <sc-if value="{{ isBookMessage }}" hint-placeholder-val="{{ false }}">
-          <form onSubmit="{{ noSubmit }}" style="display: flex; flex-direction: column; gap: 18px;">
+          <sc-if value="{{ msgNotDone }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ sendMessage }}" style="display: flex; flex-direction: column; gap: 18px;">
             <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 600; color: #331B33;">{{ c.contact.fName }}
-              <input type="text" style="background: #F6F0F5; border: 1px solid #E7DAE4; border-radius: 10px; padding: 13px 15px; font-family: 'Manrope', sans-serif; font-size: 15px; color: #331B33; outline: none;" />
+              <input type="text" name="name" required style="background: #F6F0F5; border: 1px solid #E7DAE4; border-radius: 10px; padding: 13px 15px; font-family: 'Manrope', sans-serif; font-size: 15px; color: #331B33; outline: none;" />
             </label>
             <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 600; color: #331B33;">{{ c.contact.fEmail }}
-              <input type="email" style="background: #F6F0F5; border: 1px solid #E7DAE4; border-radius: 10px; padding: 13px 15px; font-family: 'Manrope', sans-serif; font-size: 15px; color: #331B33; outline: none;" />
+              <input type="email" name="email" required style="background: #F6F0F5; border: 1px solid #E7DAE4; border-radius: 10px; padding: 13px 15px; font-family: 'Manrope', sans-serif; font-size: 15px; color: #331B33; outline: none;" />
             </label>
             <label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; font-weight: 600; color: #331B33;">{{ c.contact.fMsg }}
-              <textarea rows="5" style="background: #F6F0F5; border: 1px solid #E7DAE4; border-radius: 10px; padding: 13px 15px; font-family: 'Manrope', sans-serif; font-size: 15px; color: #331B33; outline: none; resize: vertical;"></textarea>
+              <textarea name="message" required rows="5" style="background: #F6F0F5; border: 1px solid #E7DAE4; border-radius: 10px; padding: 13px 15px; font-family: 'Manrope', sans-serif; font-size: 15px; color: #331B33; outline: none; resize: vertical;"></textarea>
             </label>
             <button type="submit" style="margin-top: 6px; border: none; background: #B23A63; color: #FFF; font-family: 'Manrope', sans-serif; font-size: 15px; font-weight: 600; padding: 15px; border-radius: 999px; cursor: pointer;">{{ c.contact.fBtn }}</button>
           </form>
+          <sc-if value="{{ msgError }}" hint-placeholder-val="{{ false }}">
+            <p style="margin: 12px 2px 0; font-size: 13px; color: #B23A63;">{{ c.contact.fError }}</p>
+          </sc-if>
+          </sc-if>
+          <sc-if value="{{ msgDone }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; align-items: flex-start; gap: 12px; background: #F0F7F2; border: 1px solid #C4E2CE; border-radius: 14px; padding: 20px 22px;">
+              <div style="flex: none; width: 30px; height: 30px; border-radius: 999px; background: #2F8F5B; display: flex; align-items: center; justify-content: center;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg>
+              </div>
+              <span style="font-size: 15px; line-height: 1.5; color: #2A5D3E;">{{ c.contact.fSuccess }}</span>
+            </div>
+          </sc-if>
         </sc-if>
       </div>
     </div>
@@ -982,11 +1017,11 @@
 
     <section style="background: #FFFFFF; border-top: 1px solid #EEE2EC; border-bottom: 1px solid #EEE2EC;">
       <div style="max-width: 760px; margin: 0 auto; padding: 72px 32px; display: flex; flex-direction: column; gap: 22px;">
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px 36px; padding-bottom: 36px; margin-bottom: 14px; border-bottom: 1px solid #EEE2EC;">
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px 48px; padding-bottom: 40px; margin-bottom: 14px; border-bottom: 1px solid #EEE2EC;">
           <sc-for list="{{ credentials }}" as="cr" hint-placeholder-count="4">
-            <div style="display: flex; gap: 14px; align-items: baseline;">
-              <span style="flex: none; font-family: 'Spectral', serif; font-size: 30px; font-weight: 600; color: #B23A63; line-height: 1;">{{ cr.n }}</span>
-              <span style="font-size: 14.5px; line-height: 1.45; color: #6A5668;">{{ cr.t }}</span>
+            <div style="display: flex; flex-direction: column; gap: 7px;">
+              <span style="font-family: 'Spectral', serif; font-size: 32px; font-weight: 600; color: #B23A63; line-height: 1.05; letter-spacing: -0.3px;">{{ cr.n }}</span>
+              <span style="font-size: 14.5px; line-height: 1.5; color: #6A5668; text-wrap: pretty;">{{ cr.t }}</span>
             </div>
           </sc-for>
         </div>
@@ -1154,7 +1189,7 @@
           </sc-for>
         </div>
         <div style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #736070; margin: 24px 0 12px;">{{ c.footer.contactTitle }}</div>
-        <a href="/cdn-cgi/l/email-protection#c3b8b8e3a0eda5acacb7a6b1eda6aea2aaafe3bebe" style="text-decoration: none; font-size: 14.5px; color: #B23A63; font-weight: 600;">{{ c.footer.email }}</a>
+        <a href="/cdn-cgi/l/email-protection#e09b9bc083ce868f8f948592ce858d81898cc09d9d" style="text-decoration: none; font-size: 14.5px; color: #B23A63; font-weight: 600;">{{ c.footer.email }}</a>
       </div>
     </div>
     <div style="max-width: 1180px; margin: 0 auto; padding: 28px 32px 48px; border-top: 1px solid #EEE2EC;">
@@ -1165,9 +1200,18 @@
 
 </div>
 
-<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#B23A63"/><text x="50" y="64" font-family="Georgia, serif" font-style="italic" font-size="34" fill="#F6F0F5" text-anchor="middle">lf</text></svg></template></x-dc>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#B23A63"/><text x="50" y="64" font-family="Georgia, serif" font-style="italic" font-size="34" fill="#F6F0F5" text-anchor="middle">lf</text></svg></template>
+  <sc-if value="{{ showCookie }}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 9999; max-width: 720px; margin: 0 auto; background: #331B33; color: #F6F0F5; border-radius: 14px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; box-shadow: 0 12px 40px rgba(51,27,51,0.28);">
+      <span style="flex: 1; min-width: 220px; font-family: 'Manrope', sans-serif; font-size: 13.5px; line-height: 1.5; color: #E7D6E3;">{{ c.cookieText }}</span>
+      <div style="display: flex; gap: 10px;">
+        <button onClick="{{ declineCookie }}" style="border: 1px solid #6E4A6F; background: transparent; color: #F6F0F5; font-family: 'Manrope', sans-serif; font-size: 13.5px; font-weight: 600; padding: 9px 18px; border-radius: 999px; cursor: pointer;">{{ c.cookieDecline }}</button>
+        <button onClick="{{ acceptCookie }}" style="border: none; background: #B23A63; color: #FFF; font-family: 'Manrope', sans-serif; font-size: 13.5px; font-weight: 600; padding: 9px 20px; border-radius: 999px; cursor: pointer;">{{ c.cookieAccept }}</button>
+      </div>
+    </div>
+  </sc-if></x-dc>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1180,&quot;height&quot;:900}}">
-const NEWSLETTER_ENDPOINT = ""; // paste your free Google Apps Script /exec URL here to collect real sign-ups
+const NEWSLETTER_ENDPOINT = "https://script.google.com/macros/s/AKfycbx23xu2-z_ntYs_Li8TYlDNeP5Xw600NQ03zyn5G4Q2KwcBcb1M4fk__3D9NBhSmi4/exec";
 const BOOKING_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0nzMnvnKmd4nOx0E1T86EQuRdnoBbYmTEXc-FEtQo9fWvhk-cz4eM8PSSvA7K-BxUJb-F9TBEg?gv=true"; // Google Calendar appointment-schedule embed
 const PUMPS = [
   {s:"a",d:"Omnipod 5",m:"Insulet",t:"tubeless",aid:true,al:"Omnipod 5 Horizon AID",cgm:"Dexcom G6/G7 · Libre 2+/3+",r:"200 u",rg:["us","eu","uk","au"],cost:"~$0–820/kit"},
@@ -1202,8 +1246,8 @@ const CONTENT = {
       eyebrow: "Free resources",
       title: "Tools & guides",
       intro: "Practical, evidence-based resources to support women's health after 40 — free to use, no strings.",
-      pumpTitle: "Insulin pump comparison (2026)",
-      pumpSub: "Every major insulin pump, side by side — available now and in the pipeline. Filter by type, closed-loop and status. Free to browse.",
+      pumpTitle: "AID (Automated Insulin Delivery) system comparison (2026)",
+      pumpSub: "Every major Automated Insulin Delivery (AID) system and insulin pump, side by side — available now and in the pipeline. AID pairs a pump with a CGM to adjust insulin automatically. Filter by type, AID (closed-loop) and status. Free to browse.",
       colDevice: "Device", colType: "Type", colAid: "AID system", colCgm: "CGM", colReservoir: "Reservoir", colAvail: "Availability", colCost: "Approx. cost",
       fltStatus: "Status", fltType: "Type", fltAid: "AID",
       fAll: "All", fAvail: "Available now", fPipeline: "Pipeline", fTubeless: "Tubeless", fTubed: "Tubed", fClosed: "Closed loop", fOpen: "Open loop",
@@ -1219,6 +1263,7 @@ const CONTENT = {
     featuredLabel: "Featured",
     readMore: "Read article",
     share: "Share",
+    shareCopiedMsg: "Link copied!",
     backShop: "Back to shop",
     backBlog: "Back to blog",
     whatsInside: "What's inside",
@@ -1228,6 +1273,9 @@ const CONTENT = {
     copyright: "Lena Filatova",
     disclaimer: "The information on this site is for educational purposes only and is not medical advice. When in doubt, please consult your healthcare provider.",
     subscribe: "Subscribe",
+    cookieText: "This site uses cookies to keep it working and to understand how it's used.",
+    cookieAccept: "Accept",
+    cookieDecline: "Decline",
     footer: {
       tagline: "Evidence-based women's health after 40 — nutrition, fitness and calm, practical guidance.",
       followTitle: "Follow",
@@ -1356,10 +1404,10 @@ const CONTENT = {
     ],
     eyebrow: "Women's health after 40",
     heroTitle: "Feel strong through every change.",
-    heroBody: "Clear, evidence-based information for women 40+ living with diabetes or insulin resistance, and perimenopause — the overlap almost no one explains. My mission is to help you restore your energy and confidence, and to offer practical solutions for living a full life when your health isn't at its best. I write from lived experience, not as a doctor — this is education, never medical advice.",
-    heroCta1: "Browse digital products",
+    heroBody: "Clear, evidence-based information for women 40+ living with diabetes or insulin resistance, and perimenopause — the overlap almost no one explains. My mission is to help you restore your energy and confidence, and to offer practical solutions for a full life.",
+    heroCta1: "Join the newsletter",
     heroCta2: "Read the blog",
-    heroTrust: "Living with type 1 diabetes since 2003 · Founder of dia.school",
+    heroTrust: "Living with type 1 diabetes since 2003 · Founder of the online School of Diabetes and the Gymbile fitness app",
     pillarsTitle: "What I help with",
     pillarsSub: "Where hormones, blood sugar and midlife meet — explained clearly, in one place.",
     pillarsDisclaimer: "*The information on this website is not medical advice — please consult your doctor if you have any doubts or further questions.",
@@ -1383,11 +1431,20 @@ const CONTENT = {
       { text: "The batch-prep templates gave my weeknights back. Cook once, eat well all week — it genuinely changed my routine.", name: "Halyna M.", meta: "Meals with Minimum Effort", initial: "H" }
     ],
     nlTitle: "Join the newsletter",
-    nlBody: "Weekly, science-backed notes on perimenopause, blood sugar and women's health after 40 — the overlap almost no one else writes about. No noise, no fads.",
+    nlBody: "Occasional, science-backed notes on diabetes, perimenopause and women's health after 40 — the overlap almost no one explains. No noise, no fads, unsubscribe anytime.",
+    nlPick: "Pick your topics — each one comes with a free download:",
+    nlGroups: [
+      { key: "t1d", label: "Type 1 diabetes & insulin pumps", freebie: "Free: Insulin pump comparison (Excel)" },
+      { key: "peri", label: "Perimenopause & hormones", freebie: "Free: Supplement cheat-sheet (PDF)" },
+      { key: "menu", label: "Meals & meal planning", freebie: "Free: 3-day effortless menu (PDF)" }
+    ],
     nlEmail: "Your email",
+    nlConsent: "I agree to receive emails and accept the Privacy Policy. I can unsubscribe at any time.",
     nlBtn: "Subscribe",
-    nlSuccess: "You're on the list — welcome. Watch your inbox for the next issue.",
+    nlSuccess: "Almost there! Check your inbox and click the confirmation link to complete your subscription.",
     nlError: "Please enter a valid email address.",
+    nlNeedGroup: "Please choose at least one topic.",
+    nlNeedConsent: "Please tick the box to agree before subscribing.",
     dlSuccess: "Sent — check your inbox for the download.",
     shop: {
       eyebrow: "Shop",
@@ -1592,6 +1649,7 @@ const CONTENT = {
       eyebrow: "Coaching & contact",
       title: "Work with me",
       intro: "Tell me where you are and what you'd like to change. I'll reply with how I can help and the best next step for you.",
+      disclaimer: "Coaching is a wellness and educational service — not a medical service, diagnosis or treatment. Please consult your healthcare provider for medical advice.",
       stepsTitle: "How coaching works",
       orReach: "Or reach me on Instagram",
       tabCall: "Book a free call",
@@ -1611,6 +1669,8 @@ const CONTENT = {
       fEmail: "Email",
       fMsg: "What would you like help with?",
       fBtn: "Send message",
+      fSuccess: "Thank you — your message has been sent. I'll reply to your email soon.",
+      fError: "Please enter your name, a valid email and a message.",
       steps: [
         { n: "1", t: "Apply", b: "Send a short message about your goals and where you're starting." },
         { n: "2", t: "Intro call", b: "We map your situation, routine and what's realistic for you." },
@@ -1651,8 +1711,8 @@ const CONTENT = {
       eyebrow: "Безкоштовні ресурси",
       title: "Інструменти та гайди",
       intro: "Практичні, науково обґрунтовані ресурси для жіночого здоров'я після 40 — безкоштовно, без умов.",
-      pumpTitle: "Порівняння інсулінових помп (2026)",
-      pumpSub: "Усі основні інсулінові помпи поряд — доступні зараз і в розробці. Фільтруйте за типом, замкненим контуром і статусом. Читайте безкоштовно.",
+      pumpTitle: "Порівняння систем AID (автоматична подача інсуліну) (2026)",
+      pumpSub: "Усі основні системи автоматичної подачі інсуліну (AID) та інсулінові помпи поряд — доступні зараз і в розробці. AID поєднує помпу із CGM, щоб автоматично керувати подачею інсуліну. Фільтруйте за типом, AID (замкнений контур) і статусом. Читайте безкоштовно.",
       colDevice: "Пристрій", colType: "Тип", colAid: "Система AID", colCgm: "CGM", colReservoir: "Резервуар", colAvail: "Доступність", colCost: "Орієнт. ціна",
       fltStatus: "Статус", fltType: "Тип", fltAid: "AID",
       fAll: "Усі", fAvail: "Доступні", fPipeline: "У розробці", fTubeless: "Без трубок", fTubed: "З трубкою", fClosed: "Замкнений контур", fOpen: "Відкритий контур",
@@ -1668,6 +1728,7 @@ const CONTENT = {
     featuredLabel: "Рекомендоване",
     readMore: "Читати",
     share: "Поділитися",
+    shareCopiedMsg: "Посилання скопійовано!",
     backShop: "Назад до магазину",
     backBlog: "Назад до блогу",
     whatsInside: "Що всередині",
@@ -1677,6 +1738,9 @@ const CONTENT = {
     copyright: "Lena Filatova",
     disclaimer: "Інформація на цьому сайті має лише освітній характер і не є медичною порадою. За наявності сумнівів, будь ласка, зверніться до свого лікаря.",
     subscribe: "Підписатися",
+    cookieText: "Цей сайт використовує файли cookie, щоб працювати та розуміти, як ним користуються.",
+    cookieAccept: "Прийняти",
+    cookieDecline: "Відхилити",
     footer: {
       tagline: "Науково обґрунтоване жіноче здоров'я після 40 — харчування, фітнес і спокійні, практичні поради.",
       followTitle: "Соцмережі",
@@ -1806,7 +1870,7 @@ const CONTENT = {
     eyebrow: "Жіноче здоров'я після 40",
     heroTitle: "Почувайтесь сильною на кожному етапі життя",
     heroBody: "Зрозуміла, науково обґрунтована інформація для жінок 40+, які живуть із діабетом або інсулінорезистентністю та перименопаузою — перетин, який майже ніхто не пояснює. Моя місія — допомогти вам повернути енергію та впевненість і дати практичні рішення для повноцінного життя.",
-    heroCta1: "Переглянути продукти",
+    heroCta1: "Підписатися на розсилку",
     heroCta2: "Читати блог",
     heroTrust: "Живу з діабетом 1 типу з 2003 · Засновниця Школи Діабету онлайн та фітнес-додатку Gymbile",
     pillarsTitle: "Чим я допомагаю",
@@ -1831,11 +1895,20 @@ const CONTENT = {
       { text: "Спокійно, зрозуміло і без моралізаторства. Лена дала план, який я справді могла підтримувати — без модних дієт і провини.", name: "Оксана Т.", meta: "Персональний коучинг", initial: "О" },
       { text: "Шаблони заготовок повернули мені вечори. Приготувати раз — харчуватися корисно цілий тиждень.", name: "Галина М.", meta: "Меню без зайвих зусиль", initial: "Г" }
     ],
+    nlPick: "Оберіть теми — до кожної додається безкоштовний файл:",
+    nlGroups: [
+      { key: "t1d", label: "Діабет 1 типу та інсулінові помпи", freebie: "Безкоштовно: порівняння помп (Excel)" },
+      { key: "peri", label: "Перименопауза та гормони", freebie: "Безкоштовно: шпаргалка з добавок (PDF)" },
+      { key: "menu", label: "Харчування та меню", freebie: "Безкоштовно: меню на 3 дні (PDF)" }
+    ],
+    nlConsent: "Погоджуюся отримувати листи та приймаю Політику конфіденційності. Відписатися можна будь-коли.",
+    nlNeedGroup: "Оберіть, будь ласка, хоча б одну тему.",
+    nlNeedConsent: "Позначте, будь ласка, згоду перед підпискою.",
     nlTitle: "Підпишіться на розсилку",
-    nlBody: "Щотижневі науково обґрунтовані нотатки про перименопаузу, цукор у крові та жіноче здоров'я після 40 — поєднання, про яке майже ніхто не пише. Без шуму.",
+    nlBody: "Час від часу — науково обґрунтовані нотатки про діабет, перименопаузу та жіноче здоров'я після 40. Без спаму й модних дієт, відписатися можна будь-коли.",
     nlEmail: "Ваш email",
     nlBtn: "Підписатися",
-    nlSuccess: "Ви у списку — вітаємо! Незабаром надійде наступний випуск.",
+    nlSuccess: "Майже готово! Перевірте пошту й натисніть посилання для підтвердження, щоб завершити підписку.",
     nlError: "Введіть, будь ласка, коректну електронну адресу.",
     dlSuccess: "Надіслано — перевірте пошту, лист із файлом уже там.",
     shop: {
@@ -2041,6 +2114,7 @@ const CONTENT = {
       eyebrow: "Коучинг і контакти",
       title: "Працюймо разом",
       intro: "Розкажіть, де ви зараз і що хочете змінити. Я відповім, чим можу допомогти та який найкращий наступний крок для вас.",
+      disclaimer: "Коучинг — це велнес- та освітня послуга, а не медична послуга, діагностика чи лікування. З питань здоров'я, будь ласка, звертайтеся до свого лікаря.",
       stepsTitle: "Як працює коучинг",
       orReach: "Або напишіть мені в Instagram",
       tabCall: "Записатися на дзвінок",
@@ -2060,6 +2134,8 @@ const CONTENT = {
       fEmail: "Email",
       fMsg: "З чим вам потрібна допомога?",
       fBtn: "Надіслати",
+      fSuccess: "Дякую — ваше повідомлення надіслано. Я незабаром відповім на ваш email.",
+      fError: "Вкажіть ім'я, коректний email та повідомлення.",
       steps: [
         { n: "1", t: "Заявка", b: "Надішліть коротке повідомлення про ваші цілі та відправну точку." },
         { n: "2", t: "Вступний дзвінок", b: "Разом визначаємо ситуацію, режим і що реально для вас." },
@@ -2096,6 +2172,11 @@ const CONTENT = {
 };
 
 const NAVPAGES = ["blog", "resources", "shop", "about", "contact"];
+const ARTSLUG = ["type-2-diabetes-research", "perimenopause-diabetes-blood-sugar", "collagen-and-skin", "perimenopause-weight-myths", "reading-glucose-patterns", "protein-for-women-over-40"];
+const SITE_ORIGIN = "https://lenafilatova.co.uk";
+if (typeof window !== "undefined") {
+  window.__LF_ARTICLES = { en: CONTENT.en.articles, ua: CONTENT.ua.articles, slugs: ARTSLUG, origin: SITE_ORIGIN, blogSrc: BLOGSRC };
+}
 
 class Component extends DCLogic {
   state = { lang: "en", page: "home", menuOpen: false, li: 0, pi: 0, ai: 0, liked: {}, nlStatus: "idle", xlStatus: "idle", dlStatus: {}, pumpType: "all", pumpAid: "all", pumpStatus: "all", cart: [], cartOpen: false, signedIn: false, replyingTo: null, cLikes: {}, reported: {}, bookTab: "call", monthOffset: 0, selDate: null, selTime: null, booked: false };
@@ -2106,8 +2187,48 @@ class Component extends DCLogic {
       if (l === "en" || l === "ua") this.setState({ lang: l });
       const cr = JSON.parse(localStorage.getItem("lf_cart") || "[]");
       if (Array.isArray(cr)) this.setState({ cart: cr });
+      const ck = localStorage.getItem("lf_cookie");
+      if (ck) this.setState({ cookieChoice: ck });
     } catch (e) {}
+    this._applyHash();
+    if (typeof window !== "undefined") {
+      this._onHash = () => this._applyHash();
+      window.addEventListener("hashchange", this._onHash);
+    }
     this.syncSeo();
+  }
+
+  componentWillUnmount() {
+    if (typeof window !== "undefined" && this._onHash) window.removeEventListener("hashchange", this._onHash);
+  }
+
+  _relPath() {
+    const st = this.state;
+    if (st.page === "article") return "/blog/" + (ARTSLUG[st.ai] || "");
+    if (st.page === "blog") return "/blog";
+    if (st.page === "product") return "/shop/" + st.pi;
+    if (st.page === "home") return "/";
+    if (["shop", "resources", "about", "contact"].indexOf(st.page) >= 0) return "/" + st.page;
+    return "/";
+  }
+
+  _applyHash() {
+    if (typeof location === "undefined") return;
+    const parts = (location.hash || "").replace(/^#\/?/, "").split("/").filter(Boolean);
+    if (!parts.length) { this.setState({ page: "home" }); return; }
+    if (parts[0] === "blog") {
+      if (parts[1]) { const i = ARTSLUG.indexOf(parts[1]); if (i >= 0) { this.setState({ page: "article", ai: i }); return; } }
+      this.setState({ page: "blog" }); return;
+    }
+    if (parts[0] === "shop" && parts[1]) { const pi = parseInt(parts[1], 10); this.setState({ page: "product", pi: isNaN(pi) ? 0 : pi }); return; }
+    if (["shop", "resources", "about", "contact"].indexOf(parts[0]) >= 0) { this.setState({ page: parts[0] }); return; }
+    this.setState({ page: "home" });
+  }
+
+  _syncHash() {
+    if (typeof location === "undefined" || typeof history === "undefined") return;
+    const h = "#" + this._relPath();
+    if (location.hash !== h) history.replaceState(null, "", h);
   }
 
   syncSeo() {
@@ -2116,6 +2237,13 @@ class Component extends DCLogic {
     const DEF_DESC = "Nutrition, fitness and calm, practical guidance for women's health after 40 — digital guides, courses and wellness coaching from Lena Filatova.";
     const DEF_IMG = "images/lena-filatova-womens-health-coach-over-40.jpg";
     const set = (sel, val) => { const el = document.head.querySelector(sel); if (el) el.setAttribute("content", val); };
+    const canonUrl = this.state.page === "article" ? this._articleUrl() : (SITE_ORIGIN + "/#" + this._relPath());
+    let canon = document.head.querySelector('link[rel="canonical"]');
+    if (!canon) { canon = document.createElement("link"); canon.setAttribute("rel", "canonical"); document.head.appendChild(canon); }
+    canon.setAttribute("href", canonUrl);
+    let ogUrl = document.head.querySelector('meta[property="og:url"]');
+    if (!ogUrl) { ogUrl = document.createElement("meta"); ogUrl.setAttribute("property", "og:url"); document.head.appendChild(ogUrl); }
+    ogUrl.setAttribute("content", canonUrl);
     let ld = document.getElementById("lf-jsonld");
     if (this.state.page === "article") {
       const lang = this.state.lang === "ua" ? "ua" : "en";
@@ -2136,6 +2264,7 @@ class Component extends DCLogic {
       const graph = [{
         "@type": "Article", "headline": a.title, "description": a.excerpt,
         "articleSection": a.cat, "inLanguage": lang === "ua" ? "uk" : "en", "image": img,
+        "mainEntityOfPage": canonUrl,
         "author": { "@type": "Person", "name": "Lena Filatova" },
         "publisher": { "@type": "Organization", "name": "Lena Filatova" }
       }];
@@ -2165,28 +2294,55 @@ class Component extends DCLogic {
       const s = JSON.stringify(this.state.cart || []);
       if (s !== this._savedCart) { this._savedCart = s; localStorage.setItem("lf_cart", s); }
     } catch (e) {}
-    const seoKey = this.state.page + "|" + this.state.ai + "|" + this.state.lang;
-    if (seoKey !== this._seoKey) { this._seoKey = seoKey; this.syncSeo(); }
+    const seoKey = this.state.page + "|" + this.state.ai + "|" + this.state.lang + "|" + this.state.pi;
+    if (seoKey !== this._seoKey) { this._seoKey = seoKey; this.syncSeo(); this._syncHash(); }
   }
 
-  _subscribe(e, source, setStatus) {
+  _subscribe(e, source, setStatus, opts) {
     e.preventDefault();
+    opts = opts || {};
     const input = e.target.querySelector('input[type="email"]');
     const email = ((input && input.value) || "").trim();
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { setStatus("error"); return; }
     setStatus("loading");
     const finish = () => setStatus("done");
+    const rec = { email: email, lang: this.state.lang, source: source, groups: (opts.groups || []).join(","), consent: opts.consent ? "yes" : "", at: new Date().toISOString() };
     if (NEWSLETTER_ENDPOINT) {
-      fetch(NEWSLETTER_ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" }, body: "email=" + encodeURIComponent(email) + "&lang=" + encodeURIComponent(this.state.lang) + "&source=" + encodeURIComponent(source) }).then(finish).catch(finish);
+      const body = Object.keys(rec).map(k => k + "=" + encodeURIComponent(rec[k])).join("&");
+      fetch(NEWSLETTER_ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" }, body: body }).then(finish).catch(finish);
     } else {
-      try { const arr = JSON.parse(localStorage.getItem("lf_subscribers") || "[]"); if (!arr.some(s => s.email === email && s.source === source)) arr.push({ email: email, lang: this.state.lang, source: source, at: new Date().toISOString() }); localStorage.setItem("lf_subscribers", JSON.stringify(arr)); } catch (err) {}
+      try { const arr = JSON.parse(localStorage.getItem("lf_subscribers") || "[]"); arr.push(rec); localStorage.setItem("lf_subscribers", JSON.stringify(arr)); } catch (err) {}
       setTimeout(finish, 450);
     }
   }
 
-  subscribeNewsletter(e) { this._subscribe(e, "newsletter", v => this.setState({ nlStatus: v })); }
-  subscribeExcel(e) { this._subscribe(e, "pump-excel", v => this.setState({ xlStatus: v })); }
-  subscribeDownload(e, source) { this._subscribe(e, source, v => this.setState(s => ({ dlStatus: { ...(s.dlStatus || {}), [source]: v } }))); }
+  toggleNlGroup(key) { this.setState(s => ({ nlSel: { ...(s.nlSel || {}), [key]: !((s.nlSel || {})[key]) }, nlStatus: s.nlStatus === "needgroup" ? null : s.nlStatus })); }
+  toggleNlConsent() { this.setState(s => ({ nlConsentOk: !s.nlConsentOk, nlStatus: s.nlStatus === "needconsent" ? null : s.nlStatus })); }
+
+  subscribeNewsletter(e) {
+    e.preventDefault();
+    if (!this.state.nlConsentOk) { this.setState({ nlStatus: "needconsent" }); return; }
+    this._subscribe(e, "newsletter", v => this.setState({ nlStatus: v }), { consent: true });
+  }
+  acceptCookie() { try { localStorage.setItem("lf_cookie", "accepted"); } catch (e) {} this.setState({ cookieChoice: "accepted" }); }
+  declineCookie() { try { localStorage.setItem("lf_cookie", "declined"); } catch (e) {} this.setState({ cookieChoice: "declined" }); }
+
+  sendMessage(e) {
+    e.preventDefault();
+    const f = e.target;
+    const val = (sel) => { const el = f.querySelector(sel); return ((el && el.value) || "").trim(); };
+    const name = val('[name="name"]'), email = val('[name="email"]'), message = val('[name="message"]');
+    if (!name || !message || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { this.setState({ msgStatus: "error" }); return; }
+    this.setState({ msgStatus: "loading" });
+    const finish = () => this.setState({ msgStatus: "done" });
+    if (NEWSLETTER_ENDPOINT) {
+      const body = "type=message&name=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email) + "&message=" + encodeURIComponent(message) + "&lang=" + encodeURIComponent(this.state.lang);
+      fetch(NEWSLETTER_ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" }, body: body }).then(finish).catch(finish);
+    } else { setTimeout(finish, 450); }
+  }
+
+  subscribeExcel(e) { this._subscribe(e, "pump-excel", v => this.setState({ xlStatus: v }), { groups: ["t1d"], consent: true }); }
+  subscribeDownload(e, source) { const g = source === "glow-guide" ? ["peri"] : ["peri"]; this._subscribe(e, source, v => this.setState(s => ({ dlStatus: { ...(s.dlStatus || {}), [source]: v } })), { groups: g, consent: true }); }
 
   pumpData(lang, c) {
     const rp = c.resourcesPage;
@@ -2217,6 +2373,34 @@ class Component extends DCLogic {
       typePills: [mk("pumpType", "all", rp.fAll), mk("pumpType", "tubeless", rp.fTubeless), mk("pumpType", "tubed", rp.fTubed)],
       aidPills: [mk("pumpAid", "all", rp.fAll), mk("pumpAid", "yes", rp.fClosed), mk("pumpAid", "no", rp.fOpen)]
     };
+  }
+
+  _articleUrl() {
+    const slug = ARTSLUG[this.state.ai] || "";
+    return this.state.lang === "ua" ? (SITE_ORIGIN + "/ua/blog/" + slug + "/") : (SITE_ORIGIN + "/blog/" + slug + "/");
+  }
+
+  shareArticle() {
+    const url = this._articleUrl();
+    const lang = this.state.lang === "ua" ? "ua" : "en";
+    const a = (CONTENT[lang].articles[this.state.ai] || {});
+    const flash = () => { this.setState({ shareCopied: true }); setTimeout(() => this.setState({ shareCopied: false }), 2200); };
+    if (typeof navigator !== "undefined" && navigator.share) {
+      navigator.share({ title: a.title || "", url: url }).catch(() => {});
+    } else if (typeof navigator !== "undefined" && navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(flash).catch(() => {});
+    } else { flash(); }
+  }
+
+  goSubscribe() {
+    this.setState({ page: "home", menuOpen: false });
+    const scroll = (smooth) => {
+      if (typeof document === "undefined" || typeof window === "undefined") return;
+      const el = document.getElementById("subscribe");
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 20, behavior: smooth ? "smooth" : "auto" });
+    };
+    setTimeout(() => scroll(true), 170);
+    setTimeout(() => scroll(false), 700);
   }
 
   go(page) {
@@ -2408,7 +2592,7 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
 
     return {
       c,
-      navItems: c.nav.map((label, i) => ({ label, onClick: () => this.go(NAVPAGES[i]) })),
+      navItems: c.nav.map((label, i) => ({ label, page: NAVPAGES[i], onClick: () => this.go(NAVPAGES[i]) })).filter(x => x.page !== "shop"),
       footerCategories: c.footer.categories.map(label => ({ label, onClick: () => this.go("blog") })),
       footerLegal: c.legal.map((d, i) => ({ label: d.nav, onClick: () => this.goLegal(i) })),
       legalMeta: c.legalMeta,
@@ -2474,6 +2658,9 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       credentials: c.about.credentials,
       isHome: page === "home",
       isShop: page === "shop",
+      showShop: false,
+      showDownloads: false,
+      showTestimonials: false,
       isResources: page === "resources",
       rp: c.resourcesPage,
       pumps: this.pumpData(lang, c),
@@ -2484,11 +2671,14 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       isContact: page === "contact",
       isAbout: page === "about",
       goHome: () => this.go("home"),
+      shareArticle: () => this.shareArticle(),
+      shareLabel: this.state.shareCopied ? c.shareCopiedMsg : c.share,
       goShop: () => this.go("shop"),
       goResources: () => this.go("resources"),
       goBlog: () => this.go("blog"),
       goContact: () => this.go("contact"),
       goContactMenu: () => this.go("contact"),
+      goSubscribe: () => this.goSubscribe(),
       menuOpen: !!this.state.menuOpen,
       toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
       closeMenu: () => this.setState({ menuOpen: false }),
@@ -2507,6 +2697,13 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       enBtn: { ...base, ...(lang === "en" ? active : idle) },
       uaBtn: { ...base, ...(lang === "ua" ? active : idle) },
       noSubmit: (e) => e.preventDefault(),
+      sendMessage: (e) => this.sendMessage(e),
+      msgDone: this.state.msgStatus === "done",
+      msgNotDone: this.state.msgStatus !== "done",
+      msgError: this.state.msgStatus === "error",
+      showCookie: !this.state.cookieChoice,
+      acceptCookie: () => this.acceptCookie(),
+      declineCookie: () => this.declineCookie(),
       subscribeNewsletter: (e) => this.subscribeNewsletter(e),
       subscribeExcel: (e) => this.subscribeExcel(e),
       xlDone: this.state.xlStatus === "done",
@@ -2514,7 +2711,19 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       xlError: this.state.xlStatus === "error",
       nlDone: this.state.nlStatus === "done",
       nlNotDone: this.state.nlStatus !== "done",
-      nlError: this.state.nlStatus === "error"
+      nlGroupsList: (c.nlGroups || []).map(g => {
+        const checked = !!((this.state.nlSel || {})[g.key]);
+        return {
+          key: g.key, label: g.label, freebie: g.freebie, checked: checked,
+          onToggle: () => this.toggleNlGroup(g.key),
+          cardStyle: "display: flex; align-items: center; gap: 12px; padding: 12px 15px; border-radius: 12px; cursor: pointer; border: 1.5px solid " + (checked ? "#C9527D" : "#54395A") + "; background: " + (checked ? "#4A2E4C" : "#3A2440") + ";",
+          boxStyle: "flex: none; width: 20px; height: 20px; border-radius: 6px; display: flex; align-items: center; justify-content: center; border: 1.5px solid " + (checked ? "#C9527D" : "#6E5670") + "; background: " + (checked ? "#B23A63" : "transparent") + ";"
+        };
+      }),
+      nlConsentChecked: !!this.state.nlConsentOk,
+      toggleConsent: () => this.toggleNlConsent(),
+      consentBoxStyle: "flex: none; width: 19px; height: 19px; margin-top: 1px; border-radius: 5px; display: flex; align-items: center; justify-content: center; border: 1.5px solid " + (this.state.nlConsentOk ? "#C9527D" : "#6E5670") + "; background: " + (this.state.nlConsentOk ? "#B23A63" : "transparent") + ";",
+      nlErrorMsg: this.state.nlStatus === "error" ? c.nlError : (this.state.nlStatus === "needgroup" ? c.nlNeedGroup : (this.state.nlStatus === "needconsent" ? c.nlNeedConsent : null))
     };
   }
 }
