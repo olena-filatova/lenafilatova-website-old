@@ -373,7 +373,7 @@
     <p style="margin: 0 0 12px; font-size: 13px; font-weight: 600; letter-spacing: 2.5px; color: #B23A63; text-transform: uppercase;">{{ rp.eyebrow }}</p>
     <h1 style="margin: 0 0 16px; font-family: 'Spectral', serif; font-weight: 500; font-size: 48px; letter-spacing: -0.5px;">{{ rp.title }}</h1>
     <p style="margin: 0 0 52px; font-size: 18px; line-height: 1.6; color: #6A5668; max-width: 600px;">{{ rp.intro }}</p>
-    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px;">
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px;">
       <sc-for list="{{ resourceCards }}" as="rc" hint-placeholder-count="2">
         <div onClick="{{ rc.onOpen }}" style="cursor: pointer; display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #EDE0EA; border-radius: 16px; overflow: hidden; box-shadow: 0 1px 3px rgba(51,27,51,0.04);">
           <div style="height: 128px; background: {{ rc.bandBg }}; display: flex; align-items: flex-end; padding: 20px 26px;">
@@ -399,6 +399,19 @@
         <iframe src="https://helsico.vercel.app" title="Metabolic food calculator" loading="lazy" style="display: block; width: 100%; height: 860px; border: 0;"></iframe>
       </div>
       <p style="margin: 14px 2px 0; font-size: 13.5px; color: #7A6675;"><a href="https://helsico.vercel.app" target="_blank" rel="noopener" style="color: #B23A63; font-weight: 600; text-decoration: none;">{{ rp.calcOpenNew }} →</a></p>
+      <p style="margin: 12px 2px 0; font-size: 12.5px; line-height: 1.5; color: #9A8896;">{{ rp.calcDisclaimer }}</p>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isResCarb }}" hint-placeholder-val="{{ false }}">
+    <span onClick="{{ backResources }}" style="cursor: pointer; display: inline-block; margin-bottom: 28px; font-size: 14px; font-weight: 600; color: #7A6675;">← {{ rp.backLabel }}</span>
+    <div style="margin-bottom: 8px;">
+      <h1 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-weight: 500; font-size: 40px; letter-spacing: -0.4px;">{{ rp.carbTitle }}</h1>
+      <p style="margin: 0 0 26px; font-size: 17px; line-height: 1.55; color: #6A5668; max-width: 640px;">{{ rp.carbSub }}</p>
+      <div style="border: 1px solid #EDE0EA; border-radius: 16px; overflow: hidden; background: #FFFFFF; box-shadow: 0 1px 3px rgba(51,27,51,0.04);">
+        <iframe id="carb-gi-frame" src="{{ carbSrc }}" title="Carbohydrate and glycaemic index table" loading="lazy" style="display: block; width: 100%; height: 900px; border: 0;"></iframe>
+      </div>
+      <p style="margin: 12px 2px 0; font-size: 12.5px; line-height: 1.5; color: #9A8896;">{{ rp.carbDisclaimer }}</p>
     </div>
     </sc-if>
 
@@ -632,7 +645,12 @@
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px 24px;">
       <sc-for list="{{ gridArticles }}" as="a" hint-placeholder-count="5">
         <div onClick="{{ a.onOpen }}" style="cursor: pointer; display: flex; flex-direction: column;">
-          <img src="{{ a.img }}" alt="{{ a.title }}" loading="lazy" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 10px; margin-bottom: 18px; display: block;" />
+          <div style="position: relative; margin-bottom: 18px;">
+            <img src="{{ a.img }}" alt="{{ a.title }}" loading="lazy" style="width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 10px; display: block;" />
+            <sc-if value="{{ a.comingSoon }}" hint-placeholder-val="{{ false }}">
+              <span style="position: absolute; top: 10px; left: 10px; font-size: 10.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #FFFFFF; background: #B23A63; padding: 4px 10px; border-radius: 999px;">{{ c.comingSoonBadge }}</span>
+            </sc-if>
+          </div>
           <span style="font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #B23A63; margin-bottom: 10px;">{{ a.cat }}</span>
           <h3 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-size: 22px; font-weight: 500; line-height: 1.3; text-wrap: pretty;">{{ a.title }}</h3>
           <p style="margin: 0 0 14px; font-size: 14.5px; line-height: 1.55; color: #7A6675; text-wrap: pretty;">{{ a.excerpt }}</p>
@@ -682,6 +700,12 @@
     </div>
     </sc-if>
     <img src="{{ art.img }}" alt="{{ art.imgAlt }}" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; display: block; margin-top: 4px;" />
+    <sc-if value="{{ art.comingSoon }}" hint-placeholder-val="{{ false }}">
+      <div style="margin: 24px 0 0; background: #FBF3F7; border: 1px solid #EAD3E1; border-radius: 12px; padding: 16px 20px; display: flex; align-items: center; gap: 13px; flex-wrap: wrap;">
+        <span style="flex: none; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #FFFFFF; background: #B23A63; padding: 5px 12px; border-radius: 999px;">{{ c.comingSoonBadge }}</span>
+        <span style="flex: 1; min-width: 220px; font-size: 14.5px; line-height: 1.5; color: #6A5668;">{{ c.comingSoonNote }}</span>
+      </div>
+    </sc-if>
     <p style="margin: 32px 0 24px; font-family: 'Spectral', serif; font-style: italic; font-size: 22px; line-height: 1.5; color: #331B33; text-wrap: pretty;">{{ art.lead }}</p>
     <div style="display: flex; flex-direction: column; gap: 22px;">
       <sc-if value="{{ art.hasBlocks }}" hint-placeholder-val="{{ false }}">
@@ -706,6 +730,26 @@
               <img src="{{ b.src }}" alt="{{ b.alt }}" loading="lazy" style="width: 100%; height: auto; border-radius: 14px; display: block; border: 1px solid #EFDDE9;" />
               <figcaption style="margin-top: 12px; font-size: 13.5px; line-height: 1.5; color: #7A6675; text-align: center; font-style: italic;">{{ b.cap }}</figcaption>
             </figure>
+          </sc-if>
+          <sc-if value="{{ b.isTable }}" hint-placeholder-val="{{ false }}">
+            <div style="border: 1px solid #EDE0EA; border-radius: 12px; overflow: hidden; margin: 6px 0;">
+              <div style="overflow-x: auto;">
+                <table style="width: 100%; border-collapse: collapse; font-family: 'Manrope', sans-serif; font-size: 14.5px;">
+                  <thead>
+                    <tr style="background: #331B33;">
+                      <sc-for list="{{ b.head }}" as="hd" hint-placeholder-count="3"><th style="text-align: left; padding: 11px 15px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.4px; color: #E8D6E3; white-space: nowrap;">{{ hd }}</th></sc-for>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <sc-for list="{{ b.rows }}" as="row" hint-placeholder-count="4">
+                      <tr style="border-bottom: 1px solid #F0E5EE;">
+                        <sc-for list="{{ row }}" as="cell" hint-placeholder-count="3"><td style="padding: 11px 15px; color: #4A3A46; line-height: 1.5; vertical-align: top;">{{ cell }}</td></sc-for>
+                      </tr>
+                    </sc-for>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </sc-if>
           <sc-if value="{{ b.isLinks }}" hint-placeholder-val="{{ false }}">
             <div style="background: #FBF3F7; border: 1px solid #EAD3E1; border-radius: 14px; padding: 24px 26px; display: flex; flex-direction: column; gap: 16px; margin: 6px 0;">
@@ -956,7 +1000,7 @@
           </sc-for>
         </div>
         <p style="margin: 36px 0 0; font-size: 15px; color: #6A5668;">{{ c.contact.orReach }} <a href="https://instagram.com/lena.filatova" target="_blank" style="color: #B23A63; font-weight: 600; text-decoration: none;">@lena.filatova</a></p>
-        <p style="margin: 10px 0 0; font-size: 15px; color: #6A5668;">Email: <a href="/cdn-cgi/l/email-protection#472a262e2b34072b222926212e2b26332831266924282a" style="color: #B23A63; font-weight: 600; text-decoration: none;"><span class="__cf_email__" data-cfemail="96fbf7fffae5d6faf3f8f7f0fffaf7e2f9e0f7b8f5f9fb">[email&#160;protected]</span></a></p>
+        <p style="margin: 10px 0 0; font-size: 15px; color: #6A5668;">Email: <a href="/cdn-cgi/l/email-protection#315c50585d42715d545f5057585d50455e47501f525e5c" style="color: #B23A63; font-weight: 600; text-decoration: none;"><span class="__cf_email__" data-cfemail="09646860657a49656c67686f6065687d667f68276a6664">[email&#160;protected]</span></a></p>
       </div>
       <div style="background: #FFFFFF; border: 1px solid #EDE0EA; border-radius: 16px; padding: 28px;">
         <div style="display: flex; gap: 6px; background: #F6F0F5; border: 1px solid #E7DAE4; border-radius: 999px; padding: 4px; margin-bottom: 26px;">
@@ -1230,7 +1274,7 @@
           </sc-for>
         </div>
         <div style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #736070; margin: 24px 0 12px;">{{ c.footer.contactTitle }}</div>
-        <a href="/cdn-cgi/l/email-protection#166d6d36753870797962736438737b777f7a366b6b" style="text-decoration: none; font-size: 14.5px; color: #B23A63; font-weight: 600;">{{ c.footer.email }}</a>
+        <a href="/cdn-cgi/l/email-protection#186363387b367e77776c7d6a367d75797174386565" style="text-decoration: none; font-size: 14.5px; color: #B23A63; font-weight: 600;">{{ c.footer.email }}</a>
       </div>
     </div>
     <div style="max-width: 1180px; margin: 0 auto; padding: 28px 32px 48px; border-top: 1px solid #EEE2EC;">
@@ -1319,7 +1363,15 @@ const CONTENT = {
       calcKicker: "Food & blood sugar",
       calcCardDesc: "See how any food is likely to affect your blood sugar — glycaemic load, carbs and protein. Built for Type 1, insulin resistance and PMOS (previously PCOS).",
       calcCardCta: "Open the calculator",
+      carbTag: "Interactive table",
+      carbKicker: "Carbs & GI",
+      carbTitle: "Carbohydrate & glycaemic index table",
+      carbSub: "Over 200 everyday foods — carbs per 100g and glycaemic index (GI) — including Ukrainian and British staples. Filter by category, GI level or cuisine, search, and sort. Free to use.",
+      carbCardDesc: "200+ foods with carbs per 100g and glycaemic index — Ukrainian and British staples included. Filter, search and sort to see how each food is likely to affect blood sugar.",
+      carbCardCta: "Open the table",
+      carbDisclaimer: "GI values come from published databases and are estimates — they vary with ripeness, cooking method and individual response. For general information only, not medical advice. Please consult your diabetes care team.",
       calcOpenNew: "Not loading? Open the calculator in a new tab",
+      calcDisclaimer: "This calculator is for general information only — it is not a medical tool and does not give medical advice. Please consult your doctor or diabetes care team with any questions about your health.",
       pumpTag: "Comparison",
       pumpKicker: "Pumps & AID systems",
       pumpCardDesc: "Every major insulin pump and Automated Insulin Delivery system side by side — available now and in the pipeline. Filter by type, AID and status.",
@@ -1345,6 +1397,8 @@ const CONTENT = {
     shareCopiedMsg: "Link copied!",
     backShop: "Back to shop",
     backBlog: "Back to blog",
+    comingSoonBadge: "Coming soon",
+    comingSoonNote: "I'm still writing this one — the full guide will be here shortly. Thanks for your patience.",
     whatsInside: "What's inside",
     format: "Format",
     articleCtaText: "Want a plan built around your life?",
@@ -1808,7 +1862,7 @@ const CONTENT = {
           { q: "How do I lose weight during perimenopause?", a: "Calories still matter, but they work better alongside the things that address the hormonal environment: enough protein to protect muscle, resistance training two to three times a week, better sleep and genuinely managing stress. For some women, HRT makes a meaningful difference to fat redistribution, which is worth discussing with a specialist who understands both hormonal health and your broader health picture." },
           { q: "Does muscle really matter for perimenopause weight?", a: "More than almost anything else. Muscle is metabolically active, raising resting metabolic rate and improving how your body handles glucose, and perimenopause accelerates its loss if you're not actively working against that with resistance training and enough protein. Building and preserving muscle is one of the most consequential things you can do for your body composition, energy and long-term metabolic health through this transition and beyond." }
         ] },
-      { cat: "Diabetes", title: "How to read your glucose patterns", excerpt: "A simple framework for making sense of your daily numbers.", meta: "3 June 2026 · 5 min read",
+      { cat: "Diabetes", title: "How to read your glucose patterns", comingSoon: true, excerpt: "A simple framework for making sense of your daily numbers.", meta: "3 June 2026 · 5 min read",
         lead: "A simple framework for making sense of your daily numbers — without obsessing over every reading.",
         body: [
           "Your glucose responds to food, movement, sleep and stress. Looking at patterns over several days tells you far more than any single number.",
@@ -1820,17 +1874,74 @@ const CONTENT = {
           { q: "How do I lower a glucose spike after meals?", a: "Pair carbohydrates with protein, fat and fibre to flatten the spike, and take a short walk after eating — one of the most reliable ways to steady your levels." },
           { q: "Should I change my routine over one high reading?", a: "No. A single high number rarely means much on its own. Watch how you react to specific meals across several days before adjusting anything." }
         ] },
-      { cat: "Nutrition", title: "Protein for women over 40: how much?", excerpt: "Practical targets for muscle, energy and a steady appetite.", meta: "28 May 2026 · 4 min read",
-        lead: "Practical protein targets for muscle, energy and a steady appetite — without weighing every meal.",
-        body: [
-          "Most women over 40 eat too little protein to protect muscle. A useful starting point is roughly 1.6 g per kg of body weight, spread across the day.",
-          "Aim for a clear protein source at every meal. It keeps you fuller for longer, supports recovery and makes blood sugar easier to manage.",
-          "You don't need supplements to hit your target — whole foods work well. Use a shake only if it genuinely makes consistency easier for you."
+      { cat: "Nutrition", title: "Protein for women over 40: how much do you actually need?",
+        seoTitle: "Protein for Women Over 40: How Much Do You Actually Need?",
+        excerpt: "Why the official 0.8g/kg guideline falls short after 40 — and the protein targets that actually protect muscle, energy and blood sugar.",
+        metaDesc: "How much protein do women over 40 really need? Evidence-based targets, why needs rise in perimenopause, practical ways to hit them, and what to know if you're managing blood sugar.",
+        meta: "4 July 2026 · 8 min read",
+        lead: "Getting enough protein after 40 is one of the most consistent things I hear women struggle with — and one of the things that made the biggest difference to my own energy and blood sugar stability. Here's what the evidence says, and what works in practice.",
+        blocks: [
+          { t: "p", text: "Please always consult your healthcare professional before changing your diet." },
+          { t: "p", text: "A few years ago, I started noticing I was losing muscle and feeling tired more easily, even though I was still training consistently. My blood sugar had already become harder to manage as my hormones shifted — [that battle I've written about before](/blog/perimenopause-diabetes-blood-sugar/) — but I also started wondering whether I was simply not eating enough protein." },
+          { t: "p", text: "The honest answer was: no, I wasn't. I'd look at my plate and think it looked balanced, but when I actually tracked my intake I was hitting maybe 60–70g on a good day. For a woman my size, in my 40s, that's not enough." },
+          { t: "p", text: "The thing that helped me understand this wasn't another generic article about eating more chicken. It was realising that my body, at this stage of life, handles protein differently — and needs considerably more of it than the official guidelines suggest." },
+          { t: "p", text: "As a busy mum, getting whole-food protein into every meal — especially breakfast — isn't always realistic. I used to travel regularly for work, and the choice of food on a work trip can be genuinely limited. I've learned to keep a good protein powder mixed with flaxseeds in my bag, and add a scoop to water or a smoothie when I need something quick that won't send my blood sugar in the wrong direction." },
+          { t: "p", text: "One thing I figured out the hard way: I try not to mix protein powder with regular dairy milk — it raises my blood sugar faster than I'd like. I use unsweetened almond, coconut or soya milk instead, and the difference is noticeable. If you're managing blood sugar alongside your nutrition, this kind of detail matters." },
+          { t: "h", text: "Why your protein needs change after 40" },
+          { t: "p", text: "Something changes biologically in your 40s — particularly if you're in perimenopause — that affects how your muscles respond to the protein you eat." },
+          { t: "p", text: "As oestrogen declines, your body becomes less efficient at using dietary protein to build and repair muscle. [A 2018 review in Current Opinion in Clinical Nutrition and Metabolic Care](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4997405/) described this as anabolic resistance: the blunted muscle protein synthesis response that older adults experience after eating protein. Older women may see up to a 40% smaller increase in muscle protein synthesis than younger women, even eating identical amounts of protein. I felt it directly — my muscles had become less responsive, even though I was eating and training the same." },
+          { t: "p", text: "Alongside this, age-related muscle loss — known as sarcopenia — accelerates from around 40 onwards and compounds further at menopause. [A 2023 systematic review in BMC Women's Health](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10647115/) confirmed that menopausal women are at significantly elevated risk of sarcopenia, and found that increased dietary protein combined with resistance exercise was among the most effective interventions for preventing it. Muscle isn't just about strength or aesthetics — it plays a direct role in how your body handles blood glucose, your metabolic rate and your bone density." },
+          { t: "p", text: "The good news is that protein intake is one of the most powerful levers you have to slow this process — and it's something you can act on today." },
+          { t: "h", text: "So how much protein do women over 40 actually need?" },
+          { t: "p", text: "The UK and US official recommendation — 0.8g of protein per kg of body weight per day — was set to prevent deficiency in the general adult population. It was never designed as a target for women navigating perimenopause, maintaining muscle, or managing blood sugar." },
+          { t: "p", text: "[A 2025 study in Frontiers in Nutrition](https://pmc.ncbi.nlm.nih.gov/articles/PMC12104658/) found that women in the highest quintile of protein intake lost approximately 40% less lean muscle mass over three years than those in the lowest. Taken alongside the broader evidence, most nutrition researchers now place the practical target for women over 40 at 1.2–1.6g per kg of body weight per day as a baseline, rising to 1.6–2.0g/kg if you're strength training regularly." },
+          { t: "p", text: "[Dr Stacy Sims](https://www.drstacysims.com/newsletters/articles/posts/optimal-protein-intake-for-women) goes further, recommending 2.0–2.3g/kg for women in perimenopause and menopause, specifically to counteract anabolic resistance:" },
+          { t: "quote", text: "As we age, our bodies become more resistant to the muscle-building effects of protein and exercise, requiring higher doses of both." },
+          { t: "p", text: "In practice, that looks like this:" },
+          { t: "table", head: ["Your weight", "Minimum (1.2g/kg)", "Active (1.6g/kg)", "Perimenopause (2.0g/kg)"], rows: [["55 kg", "66 g/day", "88 g/day", "110 g/day"], ["65 kg", "78 g/day", "104 g/day", "130 g/day"], ["75 kg", "90 g/day", "120 g/day", "150 g/day"], ["85 kg", "102 g/day", "136 g/day", "170 g/day"]] },
+          { t: "p", text: "If these numbers feel daunting compared to what you currently eat, start with the minimum for your weight and build from there. Even a modest increase tends to make a noticeable difference to energy, appetite regulation and body composition over a few weeks. And do check with your doctor first — a sudden jump in protein isn't right for everyone." },
+          { t: "h", text: "How to actually eat more protein" },
+          { t: "p", text: "The most useful shift is to plan meals around protein first, then add everything else around it. Most of us were taught to think of a meal with protein as one component; reversing that habit makes a real difference." },
+          { t: "p", text: "Distribution matters as much as the total. [A study on postmenopausal women](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4042233/) found that consistent protein intake across meals was the primary driver of muscle protein anabolism — more than precise timing around workouts. Research consistently shows the body stimulates muscle protein synthesis most effectively when each meal provides roughly 25–40g of protein. Eating 120g at dinner is far less effective than spreading it across three meals. Front-loading protein at breakfast, where most women eat the least, is one of the most practical changes you can make." },
+          { t: "p", text: "Some simple swaps that help: Greek yoghurt instead of regular yoghurt (nearly double the protein), eggs or smoked salmon at breakfast instead of cereal, cottage cheese as a snack, lentils or edamame added to salads, tinned fish in a wrap at lunch. None of these require cooking from scratch or meal-prepping at the weekend." },
+          { t: "p", text: "A day that hits roughly 130g might look like this:" },
+          { t: "table", head: ["Meal", "Example", "Protein"], rows: [["Breakfast", "2 scrambled eggs + 150g Greek yoghurt with berries + protein hot chocolate", "~30g"], ["Lunch", "Chicken salad — 150g chicken breast, mixed leaves, avocado, olive oil", "~45g"], ["Snack", "Protein shake (whey isolate) with unsweetened almond milk + chia seeds", "~25g"], ["Dinner", "Baked salmon fillet (140g) with roasted veg and a small portion of quinoa", "~35g"], ["Total", "", "~135g"]] },
+          { t: "h", text: "A note on protein shakes" },
+          { t: "p", text: "Whole food first, always. But protein powder is a practical tool, not a shortcut. When travel, time or limited food options make hitting your protein target through food alone unrealistic, a good-quality shake is a genuinely useful bridge." },
+          { t: "p", text: "If you're managing blood sugar, the type of shake and what you mix it with matters. Research on leucine — the branched-chain amino acid most responsible for triggering muscle protein synthesis — shows it's the key variable in how effectively a protein source supports muscle." },
+          { t: "p", text: "[A guide published by Healthline](https://www.healthline.com/nutrition/10-high-leucine-foods) lists whey isolate among the highest leucine sources available, at roughly 2.7g per scoop. It's also low in lactose and carbohydrate, which is relevant if you're watching your glucose response. For a dairy-free alternative, a pea and rice protein blend provides the most complete amino acid profile of the plant-based options." },
+          { t: "p", text: "From my own experience: mixing protein powder with regular dairy milk causes a faster blood sugar rise than mixing with water or unsweetened plant milk (apart from oat and rice milk, of course). The lactose and carbohydrate add up. If your glucose goes higher than expected after a shake, that's a simple variable worth checking. Adding a tablespoon of nut butter, ground flaxseed or chia seeds also slows absorption and keeps you full considerably longer." },
+          { t: "p", text: "One thing to watch: collagen is often marketed alongside protein powders, but — as [Diatribe's guide on protein for blood sugar management](https://diatribe.org/diet-and-nutrition/best-proteins-blood-sugar-management) and the broader sports-nutrition literature note — collagen is not a complete protein. It's missing tryptophan and low in leucine. It has other potential uses, but it can't replace a proper protein supplement for muscle support." },
+          { t: "h", text: "Signs you may not be getting enough" },
+          { t: "p", text: "Loss of muscle tone even with your weight unchanged. Slower recovery after exercise. Persistent fatigue that sleep doesn't fix. Stronger cravings for sugar or carbohydrates. Thinning hair or brittle nails. These can all be signs that protein intake is too low." },
+          { t: "p", text: "Protein is also one of the most satiating macronutrients, as described in [the American Diabetes Association's guidance on protein](https://diabetesfoodhub.org/blog/lets-talk-about-protein-people-diabetes). If you find it hard to feel satisfied after meals, or you're reaching for sweet things an hour later, increasing protein is often more effective than trying to manage those cravings through willpower alone." },
+          { t: "h", text: "Trusted resources worth knowing about" },
+          { t: "p", text: "If you want to go deeper, these are the sources I'd recommend:" },
+          { t: "links", title: "Evidence-based places to start", items: [
+            { name: "British Nutrition Foundation — Nutrition and Menopause", url: "https://www.nutrition.org.uk/nutrition-for/women/menopause/", desc: "One of the most credible UK nutrition bodies. Their menopause page covers protein alongside other key nutrients — solid official backing for UK readers." },
+            { name: "British Dietetic Association — Addressing Sarcopenia", url: "https://www.bda.uk.com/resource/addressing-sarcopenia.html", desc: "The UK professional body for registered dietitians, on protein's role in preventing and managing age-related muscle loss." },
+            { name: "Dr Stacy Sims — Optimal Protein Intake for Women", url: "https://www.drstacysims.com/newsletters/articles/posts/optimal-protein-intake-for-women", desc: "The most thorough, female-specific breakdown of protein needs across the lifespan, from an exercise physiologist focused on female physiology." },
+            { name: "Stanford Lifestyle Medicine — Protein Needs for Adults 50+", url: "https://lifestylemedicine.stanford.edu/protein-needs-for-adults-50/", desc: "A concise, evidence-based overview of why protein needs increase with age — useful to share with a sceptical GP." },
+            { name: "Momentous — Protein After 40: How Much Women Really Need", url: "https://www.livemomentous.com/blogs/all/protein-for-women-over-40", desc: "A detailed, well-referenced guide by registered dietitian Tyler Roof, with practical meal examples." },
+            { name: "Diatribe — Best Proteins for Blood Sugar Management", url: "https://diatribe.org/diet-and-nutrition/best-proteins-blood-sugar-management", desc: "Focused on people managing blood sugar — which protein sources and combinations work best." },
+            { name: "American Diabetes Association — Let's Talk About Protein", url: "https://diabetesfoodhub.org/blog/lets-talk-about-protein-people-diabetes", desc: "How protein affects blood glucose for people with diabetes, including what to watch for." }
+          ] },
+          { t: "h", text: "What the research says" },
+          { t: "refs", items: [
+            { claim: "Women in the highest quintile of protein intake lost 40% less lean muscle mass over three years.", detail: "A 2025 study in Frontiers in Nutrition examined protein intake and muscle composition in older women with sarcopenia. Those eating the most protein retained significantly more lean mass than those eating the least — one of the clearest recent demonstrations of how much protein intake matters for muscle preservation.", cite: "Frontiers in Nutrition · Prospective study, 2025", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12104658/" },
+            { claim: "Older women can build up to 40% less muscle from the same protein dose — a phenomenon called anabolic resistance.", detail: "A 2018 review in Current Opinion in Clinical Nutrition and Metabolic Care established this finding. It explains why eating the same amount of protein as you did in your 30s is no longer enough: your muscles have become less responsive, so a higher dose is needed to achieve the same protective effect — and the difference compounds with age.", cite: "Current Opinion in Clinical Nutrition and Metabolic Care · Review, 2018", url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4997405/" },
+            { claim: "Increased protein intake, combined with resistance exercise, is among the most effective ways to prevent sarcopenia in menopausal women.", detail: "A systematic review and meta-analysis of randomised controlled trials in BMC Women's Health (2023) examined non-pharmacological approaches to preventing sarcopenia in menopausal women. Dietary protein interventions were consistently among the most effective — particularly when paired with strength training.", cite: "BMC Women's Health · Systematic review and meta-analysis, 2023", url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10647115/" },
+            { claim: "Adequate protein is associated with significantly better physical performance in post-menopausal women aged 60–90.", detail: "An analysis of post-menopausal women found that those with adequate dietary protein intake had substantially better grip strength, walking speed and overall physical performance scores. The association held after adjusting for age, BMI and physical activity levels.", cite: "PMC · Observational analysis", url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4433492/" },
+            { claim: "Consistent daily protein across meals drives muscle anabolism more than precise timing around workouts.", detail: "A randomised controlled trial in postmenopausal women on a weight-loss programme found that while some trends around post-exercise timing appeared, total daily protein distributed across meals was the most important variable for muscle protein synthesis rates.", cite: "PMC · Randomised controlled trial", url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4042233/" }
+          ] },
+          { t: "bio", name: "Lena Filatova", img: "/images/lena-filatova-womens-health-writer.jpg", alt: "Lena Filatova, women's health writer living with type 1 diabetes", text: "Lena Filatova has lived with type 1 diabetes for 23 years. She writes about women's health, perimenopause, nutrition and diabetes management at lenafilatova.co.uk." }
         ],
         faq: [
-          { q: "How much protein do women over 40 need?", a: "A useful starting point is roughly 1.6 g of protein per kg of body weight, spread across the day. Most women over 40 eat too little to protect muscle, so this is where many see the biggest difference." },
-          { q: "Do I need protein powder or supplements?", a: "No — whole foods work well and should come first. Use a shake only if it genuinely makes hitting your target easier and more consistent." },
-          { q: "When should I eat protein during the day?", a: "Aim for a clear protein source at every meal. Spreading intake keeps you fuller for longer, supports recovery and makes blood sugar easier to manage." }
+          { q: "Can I get enough protein on a plant-based diet?", a: "Yes — but it takes more intention. Plant proteins tend to be lower in leucine and some are incomplete. Eating a wide variety of legumes, grains, nuts and seeds across the day covers the gaps, and a pea and rice protein blend is the most complete plant-based supplement option." },
+          { q: "Does eating more protein make women bulky?", a: "No. Building visible muscle requires very specific resistance training and usually a calorie surplus. Adequate protein helps you preserve the muscle you already have — which generally results in a leaner, more defined look over time, not bulk." },
+          { q: "Is a higher protein intake safe?", a: "For healthy adults with normal kidney function, intakes up to 2–2.5g/kg/day are well tolerated and not associated with kidney damage. The concern applies specifically to people with pre-existing kidney disease — if that's you, speak with your doctor before significantly increasing your intake. Drinking plenty of water alongside a higher-protein diet is always sensible." },
+          { q: "Does protein affect blood sugar?", a: "Protein has a much smaller effect on blood glucose than carbohydrates, and it helps slow digestion — which can actually improve blood sugar stability. For people with type 1 diabetes, large amounts of protein without fat can cause a gradual, delayed glucose rise, so monitoring your individual response is sensible." },
+          { q: "What should I look for in a protein powder?", a: "Third-party testing (NSF Certified for Sport or Informed Sport are reliable markers), minimal added sugar (under 3g per serving), and whey isolate or a pea/rice blend as the primary ingredient. Avoid anything labelled primarily as collagen protein — it isn't a complete protein and won't support muscle synthesis the way a proper protein supplement does." }
         ] }
     ],
     contact: {
@@ -1906,7 +2017,15 @@ const CONTENT = {
       calcKicker: "Їжа та цукор у крові",
       calcCardDesc: "Подивіться, як конкретна їжа впливає на рівень цукру — глікемічне навантаження, вуглеводи та білок. Для діабету 1 типу, інсулінорезистентності та ПМОС (раніше СПКЯ).",
       calcCardCta: "Відкрити калькулятор",
+      carbTag: "Інтерактивна таблиця",
+      carbKicker: "Вуглеводи та ГІ",
+      carbTitle: "Таблиця вуглеводів і глікемічного індексу",
+      carbSub: "Понад 200 щоденних продуктів — вуглеводи на 100 г і глікемічний індекс (ГІ), зокрема українські та британські страви. Фільтруйте за категорією, рівнем ГІ чи кухнею, шукайте й сортуйте. Безкоштовно.",
+      carbCardDesc: "Понад 200 продуктів із вуглеводами на 100 г і глікемічним індексом — з українськими та британськими стравами. Фільтруйте, шукайте й сортуйте, щоб побачити ймовірний вплив на цукор.",
+      carbCardCta: "Відкрити таблицю",
+      carbDisclaimer: "Значення ГІ взято з опублікованих баз даних і є приблизними — вони залежать від стиглості, способу приготування та індивідуальної реакції. Лише для загальної інформації, не медична порада. Звертайтеся до своєї команди з догляду за діабетом.",
       calcOpenNew: "Не завантажується? Відкрийте калькулятор у новій вкладці",
+      calcDisclaimer: "Цей калькулятор надано лише для загальної інформації — це не медичний інструмент і він не надає медичних порад. З будь-якими питаннями щодо здоров'я звертайтеся до свого лікаря або команди з догляду за діабетом.",
       pumpTag: "Порівняння",
       pumpKicker: "Помпи та системи AID",
       pumpCardDesc: "Усі основні інсулінові помпи та системи автоматичної подачі інсуліну поряд — доступні зараз і в розробці. Фільтри за типом, AID і статусом.",
@@ -1932,6 +2051,8 @@ const CONTENT = {
     shareCopiedMsg: "Посилання скопійовано!",
     backShop: "Назад до магазину",
     backBlog: "Назад до блогу",
+    comingSoonBadge: "Незабаром",
+    comingSoonNote: "Я ще працюю над цією статтею — повний гайд зʼявиться тут найближчим часом. Дякую за терпіння.",
     whatsInside: "Що всередині",
     format: "Формат",
     articleCtaText: "Хочете план під ваше життя?",
@@ -2395,7 +2516,7 @@ const CONTENT = {
           { q: "Як схуднути під час перименопаузи?", a: "Калорії досі мають значення, але вони краще працюють поряд із тим, що впливає на гормональне середовище: достатньо білка, щоб зберегти мʼязи, силові тренування двічі-тричі на тиждень, кращий сон і справжнє керування стресом. Для деяких жінок ЗГТ помітно впливає на перерозподіл жиру, що варто обговорити з фахівцем, який розуміється і на гормональному здоровʼї, і на вашій ширшій картині здоровʼя." },
           { q: "Чи справді мʼязи важливі для ваги при перименопаузі?", a: "Більше, ніж майже будь-що інше. Мʼязи метаболічно активні: вони підвищують метаболізм спокою й покращують те, як тіло справляється з глюкозою, а перименопауза пришвидшує їх втрату, якщо ви активно не протидієте цьому силовими й достатнім білком. Побудова й збереження мʼязів — одна з найважливіших речей, які ви можете зробити для складу тіла, енергії та довгострокового метаболічного здоровʼя протягом цього переходу й після нього." }
         ] },
-      { cat: "Діабет", title: "Як читати свої рівні глюкози", excerpt: "Проста система, щоб зрозуміти свої щоденні показники.", meta: "3 червня 2026 · 5 хв читання",
+      { cat: "Діабет", title: "Як читати свої рівні глюкози", comingSoon: true, excerpt: "Проста система, щоб зрозуміти свої щоденні показники.", meta: "3 червня 2026 · 5 хв читання",
         lead: "Проста система, щоб зрозуміти свої щоденні показники — без одержимості кожним значенням.",
         body: [
           "Глюкоза реагує на їжу, рух, сон і стрес. Патерни за кілька днів кажуть значно більше, ніж будь-яке окреме значення.",
@@ -2407,17 +2528,74 @@ const CONTENT = {
           { q: "Як зменшити стрибок глюкози після їжі?", a: "Поєднуйте вуглеводи з білком, жиром і клітковиною, щоб згладити стрибок, і йдіть на коротку прогулянку після їжі — один із найнадійніших способів стабілізувати рівень." },
           { q: "Чи варто змінювати режим через одне високе значення?", a: "Ні. Окреме високе число саме по собі рідко щось означає. Спостерігайте за реакцією на конкретні страви кілька днів, перш ніж щось змінювати." }
         ] },
-      { cat: "Харчування", title: "Білок для жінок після 40: скільки?", excerpt: "Практичні орієнтири для м'язів, енергії та апетиту.", meta: "28 травня 2026 · 4 хв читання",
-        lead: "Практичні орієнтири для білка — заради м'язів, енергії та стабільного апетиту, без зважування кожної страви.",
-        body: [
-          "Більшість жінок після 40 їдять замало білка, щоб зберегти м'язи. Хороший старт — приблизно 1,6 г на кг ваги, розподілені протягом дня.",
-          "Прагніть чіткого джерела білка у кожному прийомі їжі. Це довше тримає ситість, підтримує відновлення та полегшує контроль цукру.",
-          "Добавки не обов'язкові — цільні продукти працюють добре. Використовуйте протеїн, лише якщо це справді полегшує послідовність."
+      { cat: "Харчування", title: "Білок для жінок після 40: скільки насправді потрібно?",
+        seoTitle: "Білок для жінок після 40: скільки насправді потрібно?",
+        excerpt: "Чому офіційна норма 0,8 г/кг замала після 40 — і які орієнтири білка справді захищають м'язи, енергію та цукор у крові.",
+        metaDesc: "Скільки білка насправді потрібно жінкам після 40? Науково обґрунтовані орієнтири, чому потреба зростає в перименопаузі, практичні способи їх досягти та що знати, якщо ви контролюєте цукор.",
+        meta: "4 липня 2026 · 8 хв читання",
+        lead: "Отримати достатньо білка після 40 — одне з найчастіших питань, з якими стикаються жінки, і одна з тих речей, що найбільше вплинули на мою енергію та стабільність цукру в крові. Ось що каже наука і що працює на практиці.",
+        blocks: [
+          { t: "p", text: "Будь ласка, завжди консультуйтеся зі своїм лікарем, перш ніж змінювати раціон." },
+          { t: "p", text: "Кілька років тому я почала помічати, що втрачаю м'язи і швидше втомлююся, хоча тренувалася так само регулярно. Мій цукор у крові вже став важче контролювати через гормональні зміни — [про цю боротьбу я вже писала](/ua/blog/perimenopause-diabetes-blood-sugar/) — але я також почала замислюватися, чи не їм я просто замало білка." },
+          { t: "p", text: "Чесна відповідь: так, замало. Я дивилася на свою тарілку й думала, що вона збалансована, але коли справді порахувала, виходило щонайбільше 60–70 г у вдалий день. Для жінки мого розміру, за сорок, цього недостатньо." },
+          { t: "p", text: "Те, що допомогло мені це зрозуміти, — не чергова загальна стаття про «їжте більше курки». Це усвідомлення, що моє тіло на цьому етапі життя інакше поводиться з білком — і потребує його значно більше, ніж радять офіційні норми." },
+          { t: "p", text: "Як зайнята мама, я не завжди можу покласти цільне джерело білка в кожен прийом їжі — особливо на сніданок. Раніше я регулярно їздила у робочі відрядження, а вибір їжі в дорозі буває справді обмеженим. Я навчилася тримати в сумці якісний протеїновий порошок, змішаний із насінням льону, і додаю ложку у воду чи смузі, коли треба щось швидке, що не підніме цукор." },
+          { t: "p", text: "Одне, що я зрозуміла на власному досвіді: я намагаюся не змішувати протеїновий порошок зі звичайним коров'ячим молоком — воно піднімає мій цукор швидше, ніж хотілося б. Замість нього використовую несолодке мигдалеве, кокосове чи соєве молоко, і різниця помітна. Якщо ви контролюєте цукор разом із харчуванням, така деталь має значення." },
+          { t: "h", text: "Чому потреба в білку змінюється після 40" },
+          { t: "p", text: "Щось змінюється біологічно у ваші сорок — особливо під час перименопаузи — і це впливає на те, як м'язи реагують на з'їдений білок." },
+          { t: "p", text: "Зі зниженням естрогену тіло гірше використовує харчовий білок для побудови та відновлення м'язів. [Огляд 2018 року в Current Opinion in Clinical Nutrition and Metabolic Care](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4997405/) назвав це анаболічною резистентністю: приглушеною реакцією синтезу м'язового білка, яку люди старшого віку мають після вживання білка. Жінки старшого віку можуть мати до 40% меншого приросту синтезу м'язового білка, ніж молодші, навіть з'їдаючи однакову кількість білка. Я відчула це напряму — мої м'язи стали менш чутливими, хоча я їла й тренувалася так само." },
+          { t: "p", text: "Поряд із цим вікова втрата м'язів — саркопенія — прискорюється приблизно з 40 років і ще більше посилюється в менопаузі. [Систематичний огляд 2023 року в BMC Women's Health](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10647115/) підтвердив, що жінки в менопаузі мають значно підвищений ризик саркопенії, і що збільшення білка в раціоні разом із силовими вправами — один із найефективніших способів її запобігти. М'язи — це не лише про силу чи естетику: вони напряму впливають на те, як тіло керує глюкозою, на метаболізм і щільність кісток." },
+          { t: "p", text: "Хороша новина в тому, що споживання білка — один із найпотужніших важелів, щоб уповільнити цей процес. І діяти можна вже сьогодні." },
+          { t: "h", text: "То скільки білка насправді потрібно жінкам після 40?" },
+          { t: "p", text: "Офіційна норма у Великій Британії та США — 0,8 г білка на кг ваги на добу — була встановлена, щоб запобігти дефіциту в загальної дорослої популяції. Її ніколи не задумували як орієнтир для жінок у перименопаузі, для збереження м'язів чи контролю цукру." },
+          { t: "p", text: "[Дослідження 2025 року в Frontiers in Nutrition](https://pmc.ncbi.nlm.nih.gov/articles/PMC12104658/) виявило, що жінки з найвищого квінтиля споживання білка втратили приблизно на 40% менше м'язової маси за три роки, ніж ті, хто їв найменше. З огляду на ширшу доказову базу більшість дослідників харчування нині ставлять практичний орієнтир для жінок після 40 на рівні 1,2–1,6 г на кг ваги на добу як базовий, зростаючи до 1,6–2,0 г/кг, якщо ви регулярно тренуєтеся силовими." },
+          { t: "p", text: "[Д-р Стейсі Сімс](https://www.drstacysims.com/newsletters/articles/posts/optimal-protein-intake-for-women) йде далі, рекомендуючи 2,0–2,3 г/кг для жінок у перименопаузі та менопаузі, саме щоб протидіяти анаболічній резистентності:" },
+          { t: "quote", text: "З віком наше тіло стає більш стійким до м'язобудівного ефекту білка й вправ, тож потрібні вищі дози обох." },
+          { t: "p", text: "На практиці це виглядає так:" },
+          { t: "table", head: ["Ваша вага", "Мінімум (1,2 г/кг)", "Активним (1,6 г/кг)", "Перименопауза (2,0 г/кг)"], rows: [["55 кг", "66 г/день", "88 г/день", "110 г/день"], ["65 кг", "78 г/день", "104 г/день", "130 г/день"], ["75 кг", "90 г/день", "120 г/день", "150 г/день"], ["85 кг", "102 г/день", "136 г/день", "170 г/день"]] },
+          { t: "p", text: "Якщо ці цифри здаються лякаючими порівняно з тим, що ви їсте зараз, почніть із мінімуму для своєї ваги й нарощуйте поступово. Навіть помірне збільшення зазвичай дає помітну різницю в енергії, регуляції апетиту та композиції тіла за кілька тижнів. І спершу порадьтеся з лікарем — різке збільшення білка підходить не всім." },
+          { t: "h", text: "Як насправді їсти більше білка" },
+          { t: "p", text: "Найкорисніша зміна — планувати страви навколо білка, а вже потім додавати решту. Більшість із нас звикли думати про страву, де білок — лише один складник. Змінити цю звичку — справді помічно." },
+          { t: "p", text: "Розподіл важливий не менше за загальну кількість. [Дослідження за участю жінок у постменопаузі](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4042233/) показало, що саме рівномірне споживання білка протягом дня було головним драйвером анаболізму м'язового білка — важливішим за точний час навколо тренувань. Дослідження стабільно показують, що тіло найкраще стимулює синтез м'язового білка, коли кожен прийом їжі дає приблизно 25–40 г білка. З'їсти 120 г за вечерею значно менш ефективно, ніж розподілити на три прийоми. Додати білок на сніданок, де жінки зазвичай їдять його найменше, — одна з найпрактичніших змін." },
+          { t: "p", text: "Кілька простих замін, що допомагають: грецький йогурт замість звичайного (майже вдвічі більше білка), яйця чи слабосолений лосось на сніданок замість пластівців, кисломолочний сир (cottage cheese) як перекус, сочевиця чи едамаме в салати, консервована риба у рапі на обід. Жодне з цього не потребує готування з нуля чи заготовок на вихідних." },
+          { t: "p", text: "День, що дає приблизно 130 г, може виглядати так:" },
+          { t: "table", head: ["Прийом їжі", "Приклад", "Білок"], rows: [["Сніданок", "2 яйця-бовтанки + 150 г грецького йогурту з ягодами + протеїновий гарячий шоколад", "~30 г"], ["Обід", "Салат з куркою — 150 г курячої грудки, мікс салату, авокадо, оливкова олія", "~45 г"], ["Перекус", "Протеїновий шейк (ізолят сироватки) на несолодкому мигдалевому молоці + чіа", "~25 г"], ["Вечеря", "Запечене філе лосося (140 г) з печеними овочами та невеликою порцією кіноа", "~35 г"], ["Разом", "", "~135 г"]] },
+          { t: "h", text: "Кілька слів про протеїнові шейки" },
+          { t: "p", text: "Цільна їжа — завжди на першому місці. Але протеїновий порошок — це практичний інструмент, а не скорочення шляху. Коли відрядження, брак часу чи обмежений вибір їжі роблять досягнення норми білка лише з їжі нереалістичним, якісний шейк — справді корисний місток." },
+          { t: "p", text: "Якщо ви контролюєте цукор, тип шейка і те, з чим ви його змішуєте, має значення. Дослідження лейцину — амінокислоти з розгалуженим ланцюгом, що найбільше запускає синтез м'язового білка, — показують, що саме він є ключовою змінною в тому, наскільки ефективно джерело білка підтримує м'язи." },
+          { t: "p", text: "[Гайд від Healthline](https://www.healthline.com/nutrition/10-high-leucine-foods) називає ізолят сироватки одним із найбагатших джерел лейцину — приблизно 2,7 г на порцію. Він також низький за лактозою й вуглеводами, що важливо, якщо ви стежите за глюкозною реакцією. Для безмолочної альтернативи суміш горохового й рисового білка дає найповніший амінокислотний профіль серед рослинних варіантів." },
+          { t: "p", text: "З власного досвіду: змішування протеїнового порошку зі звичайним коров'ячим молоком дає швидший підйом цукру, ніж із водою чи несолодким рослинним молоком (крім вівсяного та рисового, звісно). Лактоза й вуглеводи додаються. Якщо ваша глюкоза після шейка вища за очікувану, це проста змінна, яку варто перевірити. Додавання ложки горіхової пасти, меленого льону чи чіа також уповільнює всмоктування й довше тримає ситість." },
+          { t: "p", text: "На що звернути увагу: колаген часто продають поряд із протеїновими порошками, але — як зазначають [гайд Diatribe про білок для контролю цукру](https://diatribe.org/diet-and-nutrition/best-proteins-blood-sugar-management) і ширша спортивно-нутриціологічна література — колаген не є повноцінним білком. Йому бракує триптофану, і він низький за лейцином. Він має інше застосування, але не може замінити повноцінну білкову добавку для підтримки м'язів." },
+          { t: "h", text: "Ознаки, що вам може бракувати білка" },
+          { t: "p", text: "Втрата м'язового тонусу навіть за незмінної ваги. Повільніше відновлення після навантажень. Стійка втома, яку не знімає сон. Сильніша тяга до солодкого чи вуглеводів. Тонше волосся або ламкі нігті. Усе це може бути ознаками, що білка замало." },
+          { t: "p", text: "Білок також один із найситніших макронутрієнтів, як описано в [настанові Американської діабетичної асоціації про білок](https://diabetesfoodhub.org/blog/lets-talk-about-protein-people-diabetes). Якщо вам важко почуватися ситою після їжі або ви тягнетеся до солодкого за годину, збільшення білка часто ефективніше, ніж боротьба з тягою лише силою волі." },
+          { t: "h", text: "Надійні ресурси, які варто знати" },
+          { t: "p", text: "Якщо хочете заглибитися, ось джерела, які я б порадила:" },
+          { t: "links", title: "Науково обґрунтовані джерела, з яких варто почати", items: [
+            { name: "British Nutrition Foundation — харчування та менопауза", url: "https://www.nutrition.org.uk/nutrition-for/women/menopause/", desc: "Один із найавторитетніших нутриціологічних органів Великої Британії. Сторінка про менопаузу охоплює білок поряд з іншими ключовими нутрієнтами — надійна офіційна опора для читачок із Великої Британії." },
+            { name: "British Dietetic Association — про саркопенію", url: "https://www.bda.uk.com/resource/addressing-sarcopenia.html", desc: "Британський професійний орган дієтологів — про роль білка в запобіганні та керуванні віковою втратою м'язів." },
+            { name: "Д-р Стейсі Сімс — Optimal Protein Intake for Women", url: "https://www.drstacysims.com/newsletters/articles/posts/optimal-protein-intake-for-women", desc: "Найдетальніший, специфічний для жінок розбір потреби в білку впродовж життя від фізіологині, яка присвятила кар'єру жіночій фізіології." },
+            { name: "Stanford Lifestyle Medicine — Protein Needs for Adults 50+", url: "https://lifestylemedicine.stanford.edu/protein-needs-for-adults-50/", desc: "Стислий, науково обґрунтований огляд, чому потреба в білку зростає з віком — зручно показати скептичному лікарю." },
+            { name: "Momentous — Protein After 40: How Much Women Really Need", url: "https://www.livemomentous.com/blogs/all/protein-for-women-over-40", desc: "Детальний гайд із посиланнями від дієтологині Тайлер Руф, із практичними прикладами страв." },
+            { name: "Diatribe — Best Proteins for Blood Sugar Management", url: "https://diatribe.org/diet-and-nutrition/best-proteins-blood-sugar-management", desc: "Орієнтований на тих, хто контролює цукор — які джерела білка й поєднання працюють найкраще." },
+            { name: "American Diabetes Association — Let's Talk About Protein", url: "https://diabetesfoodhub.org/blog/lets-talk-about-protein-people-diabetes", desc: "Як білок впливає на глюкозу в людей з діабетом і на що звертати увагу." }
+          ] },
+          { t: "h", text: "Що каже дослідження" },
+          { t: "refs", items: [
+            { claim: "Жінки з найвищого квінтиля споживання білка втратили на 40% менше м'язової маси за три роки.", detail: "Дослідження 2025 року в Frontiers in Nutrition вивчало споживання білка й композицію м'язів у жінок старшого віку із саркопенією. Ті, хто їв найбільше білка, зберегли значно більше м'язової маси, ніж ті, хто їв найменше, — одна з найяскравіших нещодавніх демонстрацій того, наскільки білок важливий для збереження м'язів.", cite: "Frontiers in Nutrition · Проспективне дослідження, 2025", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12104658/" },
+            { claim: "Жінки старшого віку можуть будувати до 40% менше м'язів із тієї ж дози білка — це явище називають анаболічною резистентністю.", detail: "Огляд 2018 року в Current Opinion in Clinical Nutrition and Metabolic Care обґрунтував цей висновок. Він пояснює, чому їсти стільки ж білка, скільки у свої тридцять, уже недостатньо: м'язи стали менш чутливими, тож потрібна вища доза для того самого захисного ефекту — і різниця зростає з віком.", cite: "Current Opinion in Clinical Nutrition and Metabolic Care · Огляд, 2018", url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4997405/" },
+            { claim: "Збільшення білка в раціоні разом із силовими вправами — один із найефективніших способів запобігти саркопенії в жінок у менопаузі.", detail: "Систематичний огляд і метааналіз рандомізованих контрольованих досліджень у BMC Women's Health (2023) розглянув нефармакологічні підходи до запобігання саркопенії в жінок у менопаузі. Білкові втручання стабільно були серед найефективніших — особливо в поєднанні із силовими тренуваннями.", cite: "BMC Women's Health · Систематичний огляд і метааналіз, 2023", url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10647115/" },
+            { claim: "Достатній білок пов'язаний зі значно кращою фізичною працездатністю в жінок у постменопаузі 60–90 років.", detail: "Аналіз жінок у постменопаузі показав, що ті, хто споживав достатньо білка, мали суттєво кращу силу хвату, швидкість ходьби та загальні показники фізичної працездатності. Зв'язок зберігався після поправки на вік, ІМТ і рівень фізичної активності.", cite: "PMC · Обсерваційний аналіз", url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4433492/" },
+            { claim: "Стабільне щоденне споживання білка протягом дня керує анаболізмом м'язів більше, ніж точний час навколо тренувань.", detail: "Рандомізоване контрольоване дослідження жінок у постменопаузі на програмі схуднення показало, що хоча деякі тенденції щодо часу після вправ і спостерігалися, саме загальний добовий білок, розподілений по прийомах їжі, був найважливішою змінною для швидкості синтезу м'язового білка.", cite: "PMC · Рандомізоване контрольоване дослідження", url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4042233/" }
+          ] },
+          { t: "bio", name: "Lena Filatova", img: "/images/lena-filatova-womens-health-writer.jpg", alt: "Lena Filatova, авторка про жіноче здоров'я, що живе з діабетом 1 типу", text: "Lena Filatova живе з діабетом 1 типу вже 23 роки. Вона пише про жіноче здоров'я, перименопаузу, харчування та контроль діабету на lenafilatova.co.uk." }
         ],
         faq: [
-          { q: "Скільки білка потрібно жінкам після 40?", a: "Хороший старт — приблизно 1,6 г білка на кг ваги, розподілені протягом дня. Більшість жінок після 40 їдять замало, щоб зберегти м'язи, тож саме тут багато хто бачить найбільшу різницю." },
-          { q: "Чи потрібен протеїновий порошок або добавки?", a: "Ні — цільні продукти працюють добре й мають бути на першому місці. Використовуйте протеїн, лише якщо це справді полегшує досягнення вашої норми." },
-          { q: "Коли краще їсти білок протягом дня?", a: "Прагніть чіткого джерела білка у кожному прийомі їжі. Рівномірний розподіл довше тримає ситість, підтримує відновлення та полегшує контроль цукру." }
+          { q: "Чи можна отримати достатньо білка на рослинній дієті?", a: "Так — але це потребує більше уваги. Рослинні білки зазвичай нижчі за лейцином, а деякі неповноцінні. Різноманіття бобових, злаків, горіхів і насіння протягом дня закриває прогалини, а суміш горохового й рисового білка — найповніший рослинний варіант добавки." },
+          { q: "Чи роблять жінок «масивними» більше білка?", a: "Ні. Побудова помітних м'язів потребує дуже специфічних силових тренувань і зазвичай надлишку калорій. Достатній білок допомагає зберегти вже наявні м'язи — що з часом дає радше стрункіший, підтягнутіший вигляд, а не масивність." },
+          { q: "Чи безпечно споживати більше білка?", a: "Для здорових дорослих із нормальною функцією нирок споживання до 2–2,5 г/кг на добу добре переноситься й не пов'язане з ушкодженням нирок. Застереження стосується саме людей із наявними захворюваннями нирок — якщо це ваш випадок, порадьтеся з лікарем, перш ніж суттєво збільшувати білок. Пити достатньо води разом із високобілковим раціоном завжди розумно." },
+          { q: "Чи впливає білок на цукор у крові?", a: "Білок значно менше впливає на глюкозу, ніж вуглеводи, і допомагає сповільнити травлення — що насправді може покращити стабільність цукру. У людей із діабетом 1 типу велика кількість білка без жиру може спричинити поступовий відтермінований підйом глюкози, тож відстежувати власну реакцію розумно." },
+          { q: "На що звертати увагу в протеїновому порошку?", a: "Тестування третьою стороною (NSF Certified for Sport або Informed Sport — надійні маркери), мінімум доданого цукру (менше 3 г на порцію) та ізолят сироватки або суміш гороху/рису як основний інгредієнт. Уникайте всього, що позначене насамперед як колагеновий білок — це не повноцінний білок і він не підтримає синтез м'язів так, як належна білкова добавка." }
         ] }
     ],
     contact: {
@@ -2506,6 +2684,10 @@ class Component extends DCLogic {
       window.addEventListener("popstate", this._onHash);
     }
     this.syncSeo();
+    if (typeof window !== "undefined") {
+      this._carbH = (e) => { if (e && e.data && e.data.type === "carbgi-height") { const f = document.getElementById("carb-gi-frame"); if (f && e.data.height) f.style.height = (e.data.height + 2) + "px"; } };
+      window.addEventListener("message", this._carbH);
+    }
     if (typeof window !== "undefined" && CUSDIS_APP_ID) {
       this._cusdisWatch = setInterval(() => this._maybeCusdis(), 400);
     }
@@ -2513,6 +2695,7 @@ class Component extends DCLogic {
 
   componentWillUnmount() {
     if (typeof window !== "undefined" && this._onHash) window.removeEventListener("popstate", this._onHash);
+    if (typeof window !== "undefined" && this._carbH) window.removeEventListener("message", this._carbH);
     if (this._cusdisWatch) clearInterval(this._cusdisWatch);
   }
 
@@ -2562,7 +2745,7 @@ class Component extends DCLogic {
     if (st.page === "blog") return "/blog";
     if (st.page === "product") return "/shop/" + st.pi;
     if (st.page === "home") return "/";
-    if (st.page === "resources") return st.resSub ? ("/resources/" + (st.resSub === "calc" ? "food-calculator" : "aid-comparison")) : "/resources";
+    if (st.page === "resources") return st.resSub ? ("/resources/" + (st.resSub === "calc" ? "food-calculator" : st.resSub === "pump" ? "aid-comparison" : "carb-gi-table")) : "/resources";
     if (["shop", "about", "contact"].indexOf(st.page) >= 0) return "/" + st.page;
     return "/";
   }
@@ -2576,7 +2759,7 @@ class Component extends DCLogic {
       this.setState({ page: "blog" }); return;
     }
     if (parts[0] === "shop" && parts[1]) { const pi = parseInt(parts[1], 10); this.setState({ page: "product", pi: isNaN(pi) ? 0 : pi }); return; }
-    if (parts[0] === "resources") { const m = { "food-calculator": "calc", "aid-comparison": "pump" }; this.setState({ page: "resources", resSub: parts[1] ? (m[parts[1]] || null) : null }); return; }
+    if (parts[0] === "resources") { const m = { "food-calculator": "calc", "aid-comparison": "pump", "carb-gi-table": "carbs" }; this.setState({ page: "resources", resSub: parts[1] ? (m[parts[1]] || null) : null }); return; }
     if (["shop", "about", "contact"].indexOf(parts[0]) >= 0) { this.setState({ page: parts[0] }); return; }
     this.setState({ page: "home" });
   }
@@ -2921,7 +3104,7 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       contentEl: b.t === "p" ? parseInline(b.text) : b.text,
       items: b.t === "refs" ? b.items.map(r => ({ ...r, hasUrl: !!r.url, noUrl: !r.url })) : b.items,
       isH: b.t === "h", isP: b.t === "p", isQuote: b.t === "quote",
-      isImg: b.t === "img", isLinks: b.t === "links", isRefs: b.t === "refs", isBio: b.t === "bio", isGraph: b.t === "graph"
+      isImg: b.t === "img", isLinks: b.t === "links", isRefs: b.t === "refs", isBio: b.t === "bio", isGraph: b.t === "graph", isTable: b.t === "table"
     })) : [];
     const art = { ...allArticles[this.state.ai], imgStyleWide: { aspectRatio: "16 / 9", borderRadius: "12px", backgroundImage: `url("${BLOGSRC[this.state.ai]}")`, backgroundSize: "cover", backgroundPosition: "center" }, resource: c.blog.resources[resKey], bodyHead: bodyArr.slice(0, 2), bodyTail: bodyArr.slice(2), imgAlt: c.articles[this.state.ai].title, faq: c.articles[this.state.ai].faq || [], hasFaq: !!(c.articles[this.state.ai].faq && c.articles[this.state.ai].faq.length), blocks, hasBlocks: blocks.length > 0, hasLegacy: !(rawBlocks && rawBlocks.length) };
 
@@ -3059,11 +3242,14 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       isResLanding: page === "resources" && !this.state.resSub,
       isResCalc: page === "resources" && this.state.resSub === "calc",
       isResPump: page === "resources" && this.state.resSub === "pump",
+      isResCarb: page === "resources" && this.state.resSub === "carbs",
       resourceCards: [
         { tag: c.resourcesPage.calcTag, kicker: c.resourcesPage.calcKicker, title: c.resourcesPage.calcTitle, desc: c.resourcesPage.calcCardDesc, cta: c.resourcesPage.calcCardCta, bandBg: "#EAF4EC", bandFg: "#2F6B4A", onOpen: () => { this.setState({ page: "resources", resSub: "calc", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
-        { tag: c.resourcesPage.pumpTag, kicker: c.resourcesPage.pumpKicker, title: c.resourcesPage.pumpTitle, desc: c.resourcesPage.pumpCardDesc, cta: c.resourcesPage.pumpCardCta, bandBg: "#F5EAF1", bandFg: "#8A2F5B", onOpen: () => { this.setState({ page: "resources", resSub: "pump", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } }
+        { tag: c.resourcesPage.pumpTag, kicker: c.resourcesPage.pumpKicker, title: c.resourcesPage.pumpTitle, desc: c.resourcesPage.pumpCardDesc, cta: c.resourcesPage.pumpCardCta, bandBg: "#F5EAF1", bandFg: "#8A2F5B", onOpen: () => { this.setState({ page: "resources", resSub: "pump", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
+        { tag: c.resourcesPage.carbTag, kicker: c.resourcesPage.carbKicker, title: c.resourcesPage.carbTitle, desc: c.resourcesPage.carbCardDesc, cta: c.resourcesPage.carbCardCta, bandBg: "#EAF0F6", bandFg: "#2A5B7A", onOpen: () => { this.setState({ page: "resources", resSub: "carbs", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } }
       ],
       rp: c.resourcesPage,
+      carbSrc: (lang === "ua" ? "carb-gi-table-ua.html" : "carb-gi-table.html"),
       pumps: this.pumpData(lang, c),
       downloadCards: [c.blog.resources.glow, c.blog.resources.supp].map((r, i) => { const src = i === 0 ? "glow-guide" : "supplement-sheet"; const stt = (this.state.dlStatus || {})[src]; return { ...r, source: src, done: stt === "done", notDone: stt !== "done", error: stt === "error", onSubmit: (ev) => this.subscribeDownload(ev, src) }; }),
       isProduct: page === "product",
