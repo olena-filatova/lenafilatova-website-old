@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -366,15 +366,47 @@
   </sc-if>
 
   <!-- ============================= RESOURCES ============================= -->
-  <sc-if value="{{ isResources }}" hint-placeholder-val="{{ false }}">
+  <sc-if value="{{ isResArea }}" hint-placeholder-val="{{ false }}">
   <div data-screen-label="Resources" style="max-width: 1180px; margin: 0 auto; padding: 72px 32px 96px;">
+
+    <sc-if value="{{ isResLanding }}" hint-placeholder-val="{{ true }}">
     <p style="margin: 0 0 12px; font-size: 13px; font-weight: 600; letter-spacing: 2.5px; color: #B23A63; text-transform: uppercase;">{{ rp.eyebrow }}</p>
     <h1 style="margin: 0 0 16px; font-family: 'Spectral', serif; font-weight: 500; font-size: 48px; letter-spacing: -0.5px;">{{ rp.title }}</h1>
-    <p style="margin: 0 0 56px; font-size: 18px; line-height: 1.6; color: #6A5668; max-width: 600px;">{{ rp.intro }}</p>
+    <p style="margin: 0 0 52px; font-size: 18px; line-height: 1.6; color: #6A5668; max-width: 600px;">{{ rp.intro }}</p>
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px;">
+      <sc-for list="{{ resourceCards }}" as="rc" hint-placeholder-count="2">
+        <div onClick="{{ rc.onOpen }}" style="cursor: pointer; display: flex; flex-direction: column; background: #FFFFFF; border: 1px solid #EDE0EA; border-radius: 16px; overflow: hidden; box-shadow: 0 1px 3px rgba(51,27,51,0.04);">
+          <div style="height: 128px; background: {{ rc.bandBg }}; display: flex; align-items: flex-end; padding: 20px 26px;">
+            <span style="font-family: 'Spectral', serif; font-size: 20px; font-weight: 500; letter-spacing: -0.2px; color: {{ rc.bandFg }};">{{ rc.kicker }}</span>
+          </div>
+          <div style="padding: 26px; display: flex; flex-direction: column; flex: 1;">
+            <span style="font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #B23A63; margin-bottom: 12px;">{{ rc.tag }}</span>
+            <h2 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-weight: 500; font-size: 25px; line-height: 1.2; letter-spacing: -0.3px; text-wrap: pretty;">{{ rc.title }}</h2>
+            <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.55; color: #6A5668; flex: 1; text-wrap: pretty;">{{ rc.desc }}</p>
+            <span style="font-size: 14px; font-weight: 600; color: #B23A63;">{{ rc.cta }} →</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    </sc-if>
 
+    <sc-if value="{{ isResCalc }}" hint-placeholder-val="{{ false }}">
+    <span onClick="{{ backResources }}" style="cursor: pointer; display: inline-block; margin-bottom: 28px; font-size: 14px; font-weight: 600; color: #7A6675;">← {{ rp.backLabel }}</span>
+    <div style="margin-bottom: 8px;">
+      <h1 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-weight: 500; font-size: 40px; letter-spacing: -0.4px;">{{ rp.calcTitle }}</h1>
+      <p style="margin: 0 0 26px; font-size: 17px; line-height: 1.55; color: #6A5668; max-width: 640px;">{{ rp.calcSub }}</p>
+      <div style="border: 1px solid #EDE0EA; border-radius: 16px; overflow: hidden; background: #FFFFFF; box-shadow: 0 1px 3px rgba(51,27,51,0.04);">
+        <iframe src="https://helsico.vercel.app" title="Metabolic food calculator" loading="lazy" style="display: block; width: 100%; height: 860px; border: 0;"></iframe>
+      </div>
+      <p style="margin: 14px 2px 0; font-size: 13.5px; color: #7A6675;"><a href="https://helsico.vercel.app" target="_blank" rel="noopener" style="color: #B23A63; font-weight: 600; text-decoration: none;">{{ rp.calcOpenNew }} →</a></p>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isResPump }}" hint-placeholder-val="{{ false }}">
+    <span onClick="{{ backResources }}" style="cursor: pointer; display: inline-block; margin-bottom: 28px; font-size: 14px; font-weight: 600; color: #7A6675;">← {{ rp.backLabel }}</span>
     <div style="margin-bottom: 24px;">
-      <h2 style="margin: 0 0 8px; font-family: 'Spectral', serif; font-weight: 500; font-size: 30px; letter-spacing: -0.3px;">{{ rp.pumpTitle }}</h2>
-      <p style="margin: 0 0 24px; font-size: 16px; line-height: 1.55; color: #7A6675; max-width: 640px;">{{ rp.pumpSub }}</p>
+      <h1 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-weight: 500; font-size: 40px; letter-spacing: -0.4px;">{{ rp.pumpTitle }}</h1>
+      <p style="margin: 0 0 24px; font-size: 17px; line-height: 1.55; color: #6A5668; max-width: 640px;">{{ rp.pumpSub }}</p>
       <div style="display: flex; gap: 22px; align-items: center; flex-wrap: wrap; margin-bottom: 14px;">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #9A8896;">{{ rp.fltStatus }}</span>
@@ -464,6 +496,7 @@
         </div>
       </div>
     </div>
+    </sc-if>
 
     <sc-if value="{{ showDownloads }}" hint-placeholder-val="{{ false }}">
     <div style="margin-top: 64px; padding-top: 56px; border-top: 1px solid #EEE2EC;">
@@ -923,7 +956,7 @@
           </sc-for>
         </div>
         <p style="margin: 36px 0 0; font-size: 15px; color: #6A5668;">{{ c.contact.orReach }} <a href="https://instagram.com/lena.filatova" target="_blank" style="color: #B23A63; font-weight: 600; text-decoration: none;">@lena.filatova</a></p>
-        <p style="margin: 10px 0 0; font-size: 15px; color: #6A5668;">Email: <a href="mailto:mails@lenafilatova.com" style="color: #B23A63; font-weight: 600; text-decoration: none;">mails@lenafilatova.com</a></p>
+        <p style="margin: 10px 0 0; font-size: 15px; color: #6A5668;">Email: <a href="/cdn-cgi/l/email-protection#472a262e2b34072b222926212e2b26332831266924282a" style="color: #B23A63; font-weight: 600; text-decoration: none;"><span class="__cf_email__" data-cfemail="96fbf7fffae5d6faf3f8f7f0fffaf7e2f9e0f7b8f5f9fb">[email&#160;protected]</span></a></p>
       </div>
       <div style="background: #FFFFFF; border: 1px solid #EDE0EA; border-radius: 16px; padding: 28px;">
         <div style="display: flex; gap: 6px; background: #F6F0F5; border: 1px solid #E7DAE4; border-radius: 999px; padding: 4px; margin-bottom: 26px;">
@@ -1197,7 +1230,7 @@
           </sc-for>
         </div>
         <div style="font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #736070; margin: 24px 0 12px;">{{ c.footer.contactTitle }}</div>
-        <a href="mailto:{{ c.footer.email }}" style="text-decoration: none; font-size: 14.5px; color: #B23A63; font-weight: 600;">{{ c.footer.email }}</a>
+        <a href="/cdn-cgi/l/email-protection#166d6d36753870797962736438737b777f7a366b6b" style="text-decoration: none; font-size: 14.5px; color: #B23A63; font-weight: 600;">{{ c.footer.email }}</a>
       </div>
     </div>
     <div style="max-width: 1180px; margin: 0 auto; padding: 28px 32px 48px; border-top: 1px solid #EEE2EC;">
@@ -1218,7 +1251,7 @@
       </div>
     </div>
   </sc-if></x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;shareAlign&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;left&quot;, &quot;right&quot;], &quot;default&quot;: &quot;right&quot;, &quot;tsType&quot;: &quot;'left' | 'right'&quot;, &quot;section&quot;: &quot;Article&quot;, &quot;label&quot;: &quot;Share button alignment&quot;}}">
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script data-props="{&quot;shareAlign&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;left&quot;, &quot;right&quot;], &quot;default&quot;: &quot;right&quot;, &quot;tsType&quot;: &quot;'left' | 'right'&quot;, &quot;section&quot;: &quot;Article&quot;, &quot;label&quot;: &quot;Share button alignment&quot;}}">
 const NEWSLETTER_ENDPOINT = "https://script.google.com/macros/s/AKfycbw21p8PuG5jGQ7JXf7j-tX1-OZBeA1p6negAuzi7TmiyPkjEoshxLbtGc6avUVskGiK/exec";
 const BOOKING_URL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0nzMnvnKmd4nOx0E1T86EQuRdnoBbYmTEXc-FEtQo9fWvhk-cz4eM8PSSvA7K-BxUJb-F9TBEg?gv=true"; // Google Calendar appointment-schedule embed
 
@@ -1279,6 +1312,18 @@ const CONTENT = {
       eyebrow: "Free resources",
       title: "Tools & guides",
       intro: "Practical, evidence-based resources to support women's health after 40 — free to use, no strings.",
+      calcTitle: "Metabolic food calculator",
+      calcSub: "See how any food is likely to affect your blood sugar — glycaemic load, carbs, protein and more. Built for Type 1 diabetes, insulin resistance and PMOS (previously PCOS). Search a food and calculate; no sign-up needed.",
+      backLabel: "All resources",
+      calcTag: "Interactive tool",
+      calcKicker: "Food & blood sugar",
+      calcCardDesc: "See how any food is likely to affect your blood sugar — glycaemic load, carbs and protein. Built for Type 1, insulin resistance and PMOS (previously PCOS).",
+      calcCardCta: "Open the calculator",
+      calcOpenNew: "Not loading? Open the calculator in a new tab",
+      pumpTag: "Comparison",
+      pumpKicker: "Pumps & AID systems",
+      pumpCardDesc: "Every major insulin pump and Automated Insulin Delivery system side by side — available now and in the pipeline. Filter by type, AID and status.",
+      pumpCardCta: "Open the comparison",
       pumpTitle: "AID (Automated Insulin Delivery) system comparison (2026)",
       pumpSub: "Every major Automated Insulin Delivery (AID) system and insulin pump, side by side — available now and in the pipeline. AID pairs a pump with a CGM to adjust insulin automatically. Filter by type, AID (closed-loop) and status. Free to browse.",
       colDevice: "Device", colType: "Type", colAid: "AID system", colCgm: "CGM", colReservoir: "Reservoir", colAvail: "Availability", colCost: "Approx. cost",
@@ -1598,7 +1643,7 @@ const CONTENT = {
           { t: "p", text: "This is an area that receives far less attention than it deserves." },
           { t: "p", text: "[Research from the National Heart, Lung, and Blood Institute](https://www.nhlbi.nih.gov/news/2023/chronic-sleep-deficiency-increases-insulin-resistance-women-especially-postmenopausal) found that chronic insufficient sleep significantly increases insulin resistance in otherwise healthy women — with more pronounced effects in postmenopausal women. The effect was independent of body weight, meaning poor sleep acts on blood sugar through its own pathways, not simply by making people less active or more likely to eat poorly." },
           { t: "p", text: "Insulin resistance is central to type 2 diabetes risk. And yet sleep quality is rarely addressed in a standard diabetes review." },
-          { t: "p", text: "For women in their forties and fifties — where perimenopause is already disrupting sleep, and oestrogen is affecting insulin sensitivity — this compounds quickly. It is one more reason to treat sleep as a non-negotiable pillar of metabolic health, not something to sort out later." },
+          { t: "p", text: "For women in their forties and fifties — where [perimenopause is already disrupting sleep](/blog/perimenopause-diabetes-blood-sugar/), and oestrogen is affecting insulin sensitivity — this compounds quickly. It is one more reason to treat sleep as a non-negotiable pillar of metabolic health, not something to sort out later." },
           { t: "h", text: "What the research says" },
           { t: "refs", items: [
             { claim: "Remission from type 2 diabetes through diet and weight loss is achievable and can persist for years.", detail: "The five-year DiRECT Extension Study, involving GP practices across the UK, found that 26% of participants who had achieved remission at two years were still in remission at five years without diabetes medication. The longer participants maintained weight loss, the lower their risk of diabetes-related complications.", cite: "The Lancet Diabetes & Endocrinology · Extension study, 2024", url: "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(23)00385-6/fulltext" },
@@ -1628,7 +1673,7 @@ const CONTENT = {
         seoTitle: "Perimenopause and Type 1 Diabetes: What's Really Happening to Your Blood Sugar",
         excerpt: "Living with T1D for 23 years, I noticed everything changing in my early 40s — and no one warned me. Here's what perimenopause really does to your blood sugar, and what actually helped.",
         metaDesc: "Living with T1D for 23 years, I noticed everything changing in my early 40s — and no one warned me. Here's what perimenopause really does to your blood sugar, and what actually helped.",
-        meta: "By Lena Filatova · 8 min read",
+        meta: "20 June 2026 · 8 min read",
         lead: "Blood sugar can get harder to manage in perimenopause — and almost no one warns you. Here's what's really happening, and what genuinely helped me.",
         blocks: [
           { t: "p", text: "I've been living with type 1 diabetes for 23 years. Around 39–40, I started noticing I was getting more insulin resistant — it was harder to manage my normal food. I usually make a cup of coffee in the morning with soya milk, about 4g of carbs per cup. My blood sugar started climbing to 18 mmol/l — ridiculously high for such a tiny amount of carbs." },
@@ -1637,7 +1682,7 @@ const CONTENT = {
           { t: "p", text: "I asked my diabetes team at St Barts in London what was happening. Of course I knew I was getting older, but nobody was talking about what that actually looks like in practice. They looked at my readings and said: all good, you're being too hard on yourself. But I knew exactly what it took to reach that “good” — so much more effort than before." },
           { t: "h", text: "The medical gap nobody talks about" },
           { t: "p", text: "On work trips I had to skip meals because I couldn't risk eating something that would push me into very high blood sugars in the middle of a conference. I was starving to stay in range — constantly exhausted and hungry. Any emotion, good or bad, would send my blood sugar shooting up to 17–18 mmol/l, and I'd struggle to bring it back down." },
-          { t: "p", text: "At my next appointment I tried to raise this with my endocrinologist, but he said they don't have any training on women's health in this period of life. Because I still had regular periods, he told me I wasn't in perimenopause and didn't need anything fixing. When I brought up gaining belly fat, he said my weight was the same as last year — nothing to worry about." },
+          { t: "p", text: "At my next appointment I tried to raise this with my endocrinologist, but he said they don't have any training on women's health in this period of life. Because I still had regular periods, he told me I wasn't in perimenopause and didn't need anything fixing. When I brought up [gaining belly fat](/blog/perimenopause-weight-myths/), he said my weight was the same as last year — nothing to worry about." },
           { t: "quote", text: "I was left fighting alone." },
           { t: "p", text: "Getting HRT prescribed was its own battle. My GP wasn't convinced that hormones affect insulin sensitivity — something so fundamental I assumed any provider would know it, given that all hormones affect each other. I'm grateful for the specialists who listened and prescribed HRT even though I still had regular cycles and no hot flushes. It changed everything. I got back a few years in my management — things were still a little harder and less predictable than before, but nowhere near as hard." },
           { t: "p", text: "I have experience reading research papers and writing health and fitness news, so I decided to start an open conversation for women who are looking for answers, just like me." },
@@ -1712,17 +1757,56 @@ const CONTENT = {
           { q: "What is the most important nutrient for skin collagen?", a: "Vitamin C. Without it, the enzymes that form and cross-link collagen cannot function. Getting enough through food — bell peppers, kiwi, citrus, broccoli — matters more than any supplement. Zinc, copper and adequate protein also play essential roles." },
           { q: "Does menopause affect collagen?", a: "Yes, significantly. Oestrogen supports collagen synthesis in the skin, and its decline during perimenopause and menopause accelerates collagen loss at roughly 1–2% per year — beyond what age alone would explain. HRT has evidence for partially restoring skin collagen and elasticity. Talk to your GP or a menopause specialist if this is a concern." }
         ] },
-      { cat: "Perimenopause", title: "5 myths about perimenopause and weight", excerpt: "Why the scale isn't the whole story — and what actually helps.", meta: "12 June 2026 · 4 min read",
+      { cat: "Perimenopause", title: "5 myths about perimenopause and weight",
+        seoTitle: "5 Myths About Perimenopause and Weight — What Actually Changes",
+        excerpt: "Why the scale isn't the whole story — and what actually helps.",
+        metaDesc: "The scale isn't the whole story in perimenopause. Five myths about weight — from visceral fat and cortisol to muscle loss — and what the evidence says actually helps.",
+        meta: "12 June 2026 · 8 min read",
         lead: "The scale isn't the whole story. Here's what actually changes in perimenopause — and what genuinely helps.",
-        body: [
-          "Weight in perimenopause is shaped by shifting hormones, sleep and stress — not calories alone. Understanding that changes how you respond to it.",
-          "Muscle matters more than the number on the scale. Protecting and building it keeps your metabolism steady and your energy higher through the day.",
-          "Small, consistent habits beat restriction every time. The women who feel best focus on protein, movement and sleep — not on eating less and less."
+        blocks: [
+          { t: "p", text: "When my endocrinologist told me my weight was the same as last year and it was perfectly fine, he meant it as reassurance, but I found it frustrating." },
+          { t: "p", text: "My dresses still fit, just differently. The belly fat I had never carried in my life, even after childbirth, was suddenly there, and nothing I tried was shifting it: not the under-desk treadmill I bought so I could keep moving through the working day, not the regular strength training sessions, not the months of being stricter with myself than I had ever been. If anything, the fat kept growing. I was exhausted and hungry and my body was quietly doing its own thing regardless." },
+          { t: "p", text: "Nobody connected this to perimenopause. My endocrinologist pointed to the scale. My GP didn't mention hormones. I was told I was fine, which left me to figure out on my own that the rules I had been following — eat less, move more, be disciplined enough — had stopped applying. Something more fundamental had shifted underneath them, and I was the last to know." },
+          { t: "p", text: "Here are five myths I wish I'd seen through much earlier." },
+          { t: "h", text: "Myth 1: \u201CIf my weight hasn't changed, I'm fine\u201D" },
+          { t: "p", text: "My endocrinologist was quite certain of this one, and he wasn't being careless so much as working from a framework that simply doesn't account for what actually happens to women's bodies during perimenopause." },
+          { t: "p", text: "Total weight and body composition are not the same thing. During the menopause transition, fat redistributes, often significantly, without the overall number on the scale changing at all. The fat that oestrogen had been directing to the hips, thighs and buttocks for decades starts migrating inward instead, accumulating around the organs rather than under the skin. Visceral fat, the kind that wraps around the liver, pancreas and intestines, increases from around 5–8% of total body fat before the transition to 15–20% after it." },
+          { t: "p", text: "This matters metabolically. Visceral fat isn't the same as the soft subcutaneous fat you can pinch; it's biologically active in ways that drive insulin resistance and low-grade inflammation, and none of that registers on a scale." },
+          { t: "p", text: "If your clothes are fitting differently around the middle while your weight looks fine on paper, you are not imagining it and you are not being irrational about a number. Your body is redistributing, and the scale is simply the wrong tool for measuring it." },
+          { t: "h", text: "Myth 2: \u201CI just need to eat less\u201D" },
+          { t: "p", text: "I spent a long time believing this one, and it sent me in completely the wrong direction." },
+          { t: "p", text: "Calories still matter, but reducing them doesn't address where your body chooses to store or release fat, and in perimenopause that's being directed increasingly by hormones rather than by what you ate for dinner. Oestrogen has a direct role in fat distribution through receptor signalling in adipose tissue, and while it's present in meaningful amounts it keeps fat in the subcutaneous compartment: hips, thighs, buttocks. As it declines, that signal weakens and fat begins accumulating abdominally instead, and reducing calories doesn't change that mechanism." },
+          { t: "p", text: "Sleep makes all of this considerably harder. Progesterone, which falls alongside oestrogen during perimenopause, has natural calming effects and supports sleep. When it drops, sleep disruption becomes very common, and poor sleep shifts ghrelin and leptin (the hormones that regulate hunger and fullness) in exactly the wrong directions. You're hungrier than you used to be, you feel full less reliably, and you're trying to sustain restriction through all of it." },
+          { t: "p", text: "There were many nights when I couldn't fall asleep because of intense hunger. I would fight myself until 4am because I didn't want to add blood sugar issues on top of [everything with my diabetes](/blog/perimenopause-diabetes-blood-sugar/), but eventually, to get at least a couple of hours of sleep, I had to go and eat something." },
+          { t: "p", text: "This nighttime hunger softened significantly after I started HRT, which confirmed for me personally that it wasn't something I could simply control through willpower." },
+          { t: "h", text: "Myth 3: \u201CMore exercise will fix it\u201D" },
+          { t: "p", text: "I have real personal investment in correcting this one, because I made exactly this mistake and it cost me months." },
+          { t: "p", text: "My instinct when nothing was working was to add more: more walking, more time on the treadmill, more cardio and dancing in addition to my strength training. What I didn't understand then is that sustained exercise without adequate recovery raises cortisol, which in a body already managing perimenopausal hormonal shifts and disrupted sleep specifically promotes abdominal fat storage. Your body interprets chronic overexertion as a signal to hold on to energy reserves, and adding more exhausting exercise to an already stressed system doesn't compensate for the hormonal picture; it adds to it." },
+          { t: "p", text: "The shift that made a real difference was moving away from more cardio and towards strength training. Building and preserving muscle improves glucose handling, raises resting metabolic rate and protects bone density, all of which matter considerably more as oestrogen declines. Moving differently and recovering properly makes far more difference than simply moving more." },
+          { t: "h", text: "Myth 4: \u201CIt's just ageing — there's nothing to do about it\u201D" },
+          { t: "p", text: "Age is part of this picture, but it's not the whole picture, and the distinction matters because hormonal factors are addressable in ways that ageing in isolation isn't." },
+          { t: "p", text: "The specific changes of perimenopause, including visceral fat accumulation, muscle loss and declining insulin sensitivity, are driven meaningfully by falling oestrogen and progesterone, not simply by the passing of years." },
+          { t: "p", text: "That means there are levers, and it's worth knowing what they are. HRT is one of them: research shows [it can partially reverse visceral fat accumulation](https://pmc.ncbi.nlm.nih.gov/articles/PMC9258798/) and improve metabolic markers, and if you're noticing fat redistribution or finding it increasingly difficult to manage your weight despite consistent habits, it's a conversation worth having with a specialist who understands hormonal health properly. This is a decision for you and your doctor, not a recommendation from me, but the option exists and is too often not raised until much later than it could be." },
+          { t: "h", text: "Myth 5: \u201CBeing strict enough will eventually work\u201D" },
+          { t: "p", text: "This one cost me the most, because the more it didn't work, the harder I pushed, and the harder I pushed, the worse things got, and I had no framework to understand why." },
+          { t: "p", text: "Chronic caloric restriction is a physiological stressor, and so is exhausting exercise without adequate recovery. Research shows both can raise cortisol, and cortisol in a body already navigating perimenopausal hormonal changes specifically promotes abdominal fat storage — visceral fat tissue has a higher density of cortisol receptors than subcutaneous fat, which is part of why chronic stress tends to settle precisely where you least want it. The harder you restrict, the more you train through exhaustion, the more your body interprets this as a threat and holds on to the very fat you're trying to lose. I was doing everything I could, things were getting worse, and at the time I genuinely didn't know that was possible." },
+          { t: "p", text: "What actually moved things was getting enough sleep, managing stress rather than pushing through it, shifting from more cardio to strength training, and [eating enough protein](/blog/protein-for-women-over-40/) at every meal to protect what muscle I had. None of these felt like doing more (the sleep and stress work in particular felt like doing considerably less), but they addressed what was actually driving the changes in my body, rather than fighting against it while the real cause went unaddressed." },
+          { t: "p", text: "Adequate protein, resistance training, sleep quality and stress reduction are all available regardless of HRT, and each targets specific mechanisms rather than functioning as general lifestyle advice. That said, it's worth working through any significant dietary changes with your doctor rather than adopting something restrictive on your own — strict ketogenic diets, for instance, are increasingly popular, but very low carbohydrate intake can affect thyroid function and amplify cortisol responses, both of which are already under pressure during perimenopause, and the evidence for [keto specifically outperforming a balanced, protein-forward diet](https://www.medicalnewstoday.com/articles/keto-and-menopause) in this context simply isn't there." },
+          { t: "h", text: "What the research says" },
+          { t: "refs", items: [
+            { claim: "Visceral fat increases significantly during perimenopause — even when overall weight is unchanged.", detail: "A 2026 study in the Journal of Clinical Medicine found that across all BMI categories, postmenopausal women had significantly higher visceral fat and lower skeletal muscle mass than premenopausal women — even where total body weight was similar. The shift toward central adiposity is consistent and measurable regardless of calorie intake.", cite: "Journal of Clinical Medicine · Cross-sectional study, 2026", url: "https://www.mdpi.com/2077-0383/15/2/740" },
+            { claim: "Oestrogen controls fat distribution through direct receptor signalling in adipose tissue.", detail: "A review in Frontiers in Endocrinology (2022) mapped how oestrogen and its receptors in fat tissue regulate fat metabolism and storage — favouring subcutaneous over visceral fat. As oestrogen falls, the mechanism directing fat to hips and thighs is lost, and visceral accumulation increases. This is a direct biological mechanism, not a consequence of eating more.", cite: "Frontiers in Endocrinology · Review, 2022", url: "https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2022.921504/full" },
+            { claim: "Muscle loss in perimenopause is real — and resistance training is the most evidence-supported response.", detail: "A 2026 review in the Journal of Cachexia, Sarcopenia and Muscle documented reductions of around −2.5% in skeletal muscle mass in perimenopausal women and −5.7% in postmenopausal women versus premenopausal women, with the transition years marking the steepest decline. Resistance training and adequate protein intake are the two most evidence-supported interventions.", cite: "Journal of Cachexia, Sarcopenia and Muscle · Review, 2026", url: "https://onlinelibrary.wiley.com/doi/10.1002/jcsm.70232" },
+            { claim: "Low-calorie dieting is a physiological stressor that raises cortisol.", detail: "A 2010 study in Psychosomatic Medicine found that low-calorie dieting increases cortisol output — a stress response that, sustained over time, works against the very fat loss it is meant to achieve.", cite: "Psychosomatic Medicine · 2010", url: "https://pubmed.ncbi.nlm.nih.gov/20368473/" },
+            { claim: "Cortisol acts preferentially on visceral fat — which is why chronic stress settles at the middle.", detail: "Reviews of glucocorticoid action show that cortisol acts preferentially on visceral adipose tissue, which carries a higher density of cortisol receptors than subcutaneous fat, driving central fat accumulation under chronic physiological stress.", cite: "Glucocorticoids & visceral adiposity · Review", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11907100/" },
+            { claim: "Resistance training leads non-pharmacological approaches for preserving muscle in menopausal women.", detail: "A 2023 systematic review and meta-analysis of 27 randomised controlled trials in BMC Women's Health found that exercise — and resistance training in particular — was the most effective non-pharmacological approach for preserving muscle mass and strength through the menopausal transition.", cite: "BMC Women's Health · Systematic review & meta-analysis, 2023", url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10647115/" }
+          ] },
+          { t: "bio", name: "Lena Filatova", img: "/images/lena-filatova-womens-health-writer.jpg", alt: "Lena Filatova, women's health writer living with type 1 diabetes", text: "Lena Filatova has lived with type 1 diabetes for 23 years. She writes about women's health, perimenopause and long-term wellbeing at lenafilatova.co.uk." }
         ],
         faq: [
-          { q: "Why am I gaining weight in perimenopause?", a: "Weight in perimenopause is shaped by shifting hormones, sleep and stress — not calories alone. That's why the same habits can produce different results than they did in your thirties." },
-          { q: "How do I lose weight during perimenopause?", a: "Focus on building and protecting muscle, eating enough protein, and prioritising sleep and stress. Small, consistent habits beat restriction, which tends to backfire during this stage." },
-          { q: "Does muscle really matter for perimenopause weight?", a: "Yes — muscle matters more than the number on the scale. Protecting and building it keeps your metabolism steady and your energy higher through the day." }
+          { q: "Why am I gaining weight in perimenopause?", a: "For many women the bigger shift isn't weight gain but fat redistribution: fat moving from the hips and thighs toward the abdomen as oestrogen declines, with visceral fat increasing even when the scale hasn't moved. Sleep disruption, muscle loss and elevated cortisol from chronic stress or restriction all compound this. It's a hormonal picture more than a calorie one, and it's worth treating it as such." },
+          { q: "How do I lose weight during perimenopause?", a: "Calories still matter, but they work better alongside the things that address the hormonal environment: enough protein to protect muscle, resistance training two to three times a week, better sleep and genuinely managing stress. For some women, HRT makes a meaningful difference to fat redistribution, which is worth discussing with a specialist who understands both hormonal health and your broader health picture." },
+          { q: "Does muscle really matter for perimenopause weight?", a: "More than almost anything else. Muscle is metabolically active, raising resting metabolic rate and improving how your body handles glucose, and perimenopause accelerates its loss if you're not actively working against that with resistance training and enough protein. Building and preserving muscle is one of the most consequential things you can do for your body composition, energy and long-term metabolic health through this transition and beyond." }
         ] },
       { cat: "Diabetes", title: "How to read your glucose patterns", excerpt: "A simple framework for making sense of your daily numbers.", meta: "3 June 2026 · 5 min read",
         lead: "A simple framework for making sense of your daily numbers — without obsessing over every reading.",
@@ -1815,6 +1899,18 @@ const CONTENT = {
       eyebrow: "Безкоштовні ресурси",
       title: "Інструменти та гайди",
       intro: "Практичні, науково обґрунтовані ресурси для жіночого здоров'я після 40 — безкоштовно, без умов.",
+      calcTitle: "Калькулятор впливу їжі на метаболізм",
+      calcSub: "Дізнайтеся, як конкретна їжа впливає на рівень цукру в крові — глікемічне навантаження, вуглеводи, білок тощо. Створено для діабету 1 типу, інсулінорезистентності та ПМОС (раніше СПКЯ). Знайдіть продукт і порахуйте; реєстрація не потрібна.",
+      backLabel: "Усі ресурси",
+      calcTag: "Інтерактивний інструмент",
+      calcKicker: "Їжа та цукор у крові",
+      calcCardDesc: "Подивіться, як конкретна їжа впливає на рівень цукру — глікемічне навантаження, вуглеводи та білок. Для діабету 1 типу, інсулінорезистентності та ПМОС (раніше СПКЯ).",
+      calcCardCta: "Відкрити калькулятор",
+      calcOpenNew: "Не завантажується? Відкрийте калькулятор у новій вкладці",
+      pumpTag: "Порівняння",
+      pumpKicker: "Помпи та системи AID",
+      pumpCardDesc: "Усі основні інсулінові помпи та системи автоматичної подачі інсуліну поряд — доступні зараз і в розробці. Фільтри за типом, AID і статусом.",
+      pumpCardCta: "Відкрити порівняння",
       pumpTitle: "Порівняння систем AID (автоматична подача інсуліну) (2026)",
       pumpSub: "Усі основні системи автоматичної подачі інсуліну (AID) та інсулінові помпи поряд — доступні зараз і в розробці. AID поєднує помпу із CGM, щоб автоматично керувати подачею інсуліну. Фільтруйте за типом, AID (замкнений контур) і статусом. Читайте безкоштовно.",
       colDevice: "Пристрій", colType: "Тип", colAid: "Система AID", colCgm: "CGM", colReservoir: "Резервуар", colAvail: "Доступність", colCost: "Орієнт. ціна",
@@ -2134,7 +2230,7 @@ const CONTENT = {
           { t: "p", text: "Це сфера, якій приділяють значно менше уваги, ніж вона заслуговує." },
           { t: "p", text: "[Дослідження Національного інституту серця, легень і крові (NHLBI)](https://www.nhlbi.nih.gov/news/2023/chronic-sleep-deficiency-increases-insulin-resistance-women-especially-postmenopausal) виявило, що хронічний брак сну суттєво підвищує інсулінорезистентність у загалом здорових жінок — з помітнішим ефектом у жінок у постменопаузі. Ефект не залежав від маси тіла, тобто поганий сон впливає на цукор власними шляхами, а не просто через меншу активність чи гірше харчування." },
           { t: "p", text: "Інсулінорезистентність є центральною для ризику діабету 2 типу. І все ж якість сну рідко розглядають на звичайному огляді з приводу діабету." },
-          { t: "p", text: "Для жінок за сорок і п'ятдесят — коли перименопауза вже порушує сон, а естроген впливає на чутливість до інсуліну — це швидко накопичується. Це ще одна причина ставитися до сну як до незамінної опори метаболічного здоров'я, а не чогось, що можна залагодити згодом." },
+          { t: "p", text: "Для жінок за сорок і п'ятдесят — коли [перименопауза вже порушує сон](/ua/blog/perimenopause-diabetes-blood-sugar/), а естроген впливає на чутливість до інсуліну — це швидко накопичується. Це ще одна причина ставитися до сну як до незамінної опори метаболічного здоров'я, а не чогось, що можна залагодити згодом." },
           { t: "h", text: "Що каже дослідження" },
           { t: "refs", items: [
             { claim: "Ремісія діабету 2 типу через дієту та зниження ваги досяжна і може тривати роками.", detail: "П'ятирічне продовження дослідження DiRECT за участю сімейних практик у Великій Британії виявило, що 26% учасників, які досягли ремісії на другому році, усе ще були в ремісії через п'ять років без ліків від діабету. Що довше учасники утримували знижену вагу, то нижчим був їхній ризик ускладнень, пов'язаних із діабетом.", cite: "The Lancet Diabetes & Endocrinology · Продовження дослідження, 2024", url: "https://www.thelancet.com/journals/landia/article/PIIS2213-8587(23)00385-6/fulltext" },
@@ -2164,7 +2260,7 @@ const CONTENT = {
         seoTitle: "Перименопауза та діабет 1 типу: що насправді відбувається з вашим цукром у крові",
         excerpt: "23 роки живу з діабетом 1 типу, і на початку своїх 40 я помітила, що все змінюється — а мене ніхто не попередив. Ось що перименопауза насправді робить із цукром у крові й що мені справді допомогло.",
         metaDesc: "23 роки живу з діабетом 1 типу, і на початку своїх 40 я помітила, що все змінюється — а мене ніхто не попередив. Ось що перименопауза насправді робить із цукром у крові й що мені справді допомогло.",
-        meta: "Автор: Lena Filatova · 8 хв читання",
+        meta: "20 червня 2026 · 8 хв читання",
         lead: "Під час перименопаузи цукор у крові може стати важче контролювати — і майже ніхто про це не попереджає. Ось що відбувається насправді і що справді допомогло мені.",
         blocks: [
           { t: "p", text: "Я живу з діабетом 1 типу вже 23 роки. Приблизно у 39–40 я почала помічати, що стаю більш інсулінорезистентною — звичну їжу стало важче контролювати. Зазвичай зранку я роблю каву на соєвому молоці, це близько 4 г вуглеводів на чашку. Мій цукор почав підніматися до 18 ммоль/л — абсурдно високо для такої крихітної кількості вуглеводів." },
@@ -2173,7 +2269,7 @@ const CONTENT = {
           { t: "p", text: "Я запитала свою діабетичну команду в St Barts у Лондоні, що відбувається. Звісно, я знала, що старішаю, але ніхто не говорив, як це виглядає на практиці. Вони подивилися на мої показники й сказали: усе добре, ви занадто суворі до себе. Але я точно знала, чого мені коштувало це «добре» — набагато більше зусиль, ніж раніше." },
           { t: "h", text: "Медична прогалина, про яку ніхто не говорить" },
           { t: "p", text: "У робочих поїздках я мусила пропускати прийоми їжі, бо не могла ризикнути з'їсти щось, що підняло б цукор дуже високо посеред конференції. Я голодувала, щоб триматися в межах — постійно виснажена й голодна. Будь-яка емоція, добра чи погана, підкидала мій цукор до 17–18 ммоль/л, і мені було важко його знизити." },
-          { t: "p", text: "На наступному прийомі я спробувала підняти це питання з ендокринологом, але він сказав, що вони не мають підготовки з жіночого здоров'я у цей період життя. Оскільки в мене ще були регулярні цикли, він сказав, що я не в перименопаузі й нічого лікувати не треба. Коли я згадала про набір жиру на животі, він відповів, що моя вага така сама, як торік — нема про що хвилюватися." },
+          { t: "p", text: "На наступному прийомі я спробувала підняти це питання з ендокринологом, але він сказав, що вони не мають підготовки з жіночого здоров'я у цей період життя. Оскільки в мене ще були регулярні цикли, він сказав, що я не в перименопаузі й нічого лікувати не треба. Коли я згадала про [набір жиру на животі](/ua/blog/perimenopause-weight-myths/), він відповів, що моя вага така сама, як торік — нема про що хвилюватися." },
           { t: "quote", text: "Я залишилася сам на сам зі своєю боротьбою." },
           { t: "p", text: "Отримати призначення ЗГТ було окремою битвою. Мій сімейний лікар не був переконаний, що гормони впливають на чутливість до інсуліну — щось настільки фундаментальне, що я вважала, це знає будь-який медик, адже всі гормони впливають одне на одного. Я вдячна спеціалістам, які прислухалися і призначили ЗГТ, попри регулярні цикли й відсутність приливів. Це змінило все. Я повернулась на кілька років назад — було все ще менш передбачувано, ніж раніше, але й близько не так важко." },
           { t: "p", text: "Я маю досвід читання наукових статей і написання новин про здоров'я та фітнес, тож вирішила почати відкриту розмову для жінок, які шукають відповіді, як і я." },
@@ -2248,17 +2344,56 @@ const CONTENT = {
           { q: "Яка поживна речовина найважливіша для колагену шкіри?", a: "Вітамін C. Без нього ферменти, що формують і зшивають колаген, не можуть працювати. Отримувати його достатньо з їжею — солодкий перець, ківі, цитрусові, броколі — важливіше за будь-яку добавку. Цинк, мідь і достатній білок також відіграють важливу роль." },
           { q: "Чи впливає менопауза на колаген?", a: "Так, суттєво. Естроген підтримує синтез колагену в шкірі, а його зниження під час перименопаузи та менопаузи пришвидшує втрату колагену приблизно на 1–2% на рік — більше, ніж пояснив би лише вік. ЗГТ має докази часткового відновлення колагену й еластичності шкіри. Поговоріть із лікарем або фахівцем із менопаузи, якщо це вас турбує." }
         ] },
-      { cat: "Перименопауза", title: "5 міфів про перименопаузу та вагу", excerpt: "Чому вага на терезах — не вся історія, і що справді допомагає.", meta: "12 червня 2026 · 4 хв читання",
+      { cat: "Перименопауза", title: "5 міфів про перименопаузу та вагу",
+        seoTitle: "5 міфів про перименопаузу та вагу — що насправді змінюється",
+        excerpt: "Чому вага на терезах — не вся історія, і що справді допомагає.",
+        metaDesc: "Вага на терезах — не вся історія при перименопаузі. П'ять міфів про вагу — від вісцерального жиру й кортизолу до втрати м'язів — і що каже наука про те, що справді допомагає.",
+        meta: "12 червня 2026 · 8 хв читання",
         lead: "Вага на терезах — не вся історія. Ось що справді змінюється при перименопаузі і що дійсно допомагає.",
-        body: [
-          "Вага при перименопаузі залежить від гормонів, сну та стресу — не лише від калорій. Розуміння цього змінює вашу реакцію.",
-          "М'язи важливіші за цифру на терезах. Їх збереження та розвиток підтримують стабільний метаболізм і вищу енергію протягом дня.",
-          "Маленькі послідовні звички завжди перемагають обмеження. Жінки, які почуваються найкраще, зосереджуються на білку, русі та сні."
+        blocks: [
+          { t: "p", text: "Коли мій ендокринолог сказав, що моя вага така сама, як торік, і це цілком нормально, він мав на увазі заспокоєння, але мене це радше дратувало." },
+          { t: "p", text: "Мої сукні все ще сідали, просто інакше. Жир на животі, якого я не мала ніколи в житті, навіть після пологів, раптом зʼявився, і ніщо з того, що я пробувала, його не зрушувало: ні бігова доріжка під столом, яку я купила, щоб рухатися протягом робочого дня, ні регулярні силові тренування, ні місяці, коли я була суворішою до себе, ніж будь-коли. Якщо вже на те, жир лише зростав. Я була виснажена й голодна, а моє тіло тихо робило своє, попри все." },
+          { t: "p", text: "Ніхто не повʼязав це з перименопаузою. Мій ендокринолог указував на терези. Мій сімейний лікар не згадав про гормони. Мені казали, що я в нормі, і це залишило мене самій зʼясовувати, що правила, яких я дотримувалася — їж менше, рухайся більше, будь достатньо дисциплінованою — перестали працювати. Щось фундаментальніше змістилося під ними, а я дізналася про це остання." },
+          { t: "p", text: "Ось пʼять міфів, які я хотіла б розвіяти набагато раніше." },
+          { t: "h", text: "Міф 1: «Якщо моя вага не змінилася, я в нормі»" },
+          { t: "p", text: "Мій ендокринолог був цілком певний цього, і він не був недбалим — просто працював у межах підходу, який просто не враховує того, що насправді відбувається з тілом жінки під час перименопаузи." },
+          { t: "p", text: "Загальна вага та склад тіла — це не одне й те саме. Під час менопаузального переходу жир перерозподіляється, часто суттєво, при цьому загальна цифра на терезах може взагалі не змінитися. Жир, який естроген десятиліттями спрямовував на стегна, сідниці й задню поверхню ніг, починає мігрувати всередину, накопичуючись навколо органів, а не під шкірою. Вісцеральний жир, той, що огортає печінку, підшлункову й кишечник, зростає приблизно з 5–8% загального жиру тіла до переходу до 15–20% після нього." },
+          { t: "p", text: "Це має метаболічне значення. Вісцеральний жир — не те саме, що мʼякий підшкірний жир, який можна вщипнути; він біологічно активний у спосіб, що спричиняє інсулінорезистентність і хронічне запалення низького ступеня, і нічого з цього терези не показують." },
+          { t: "p", text: "Якщо ваш одяг інакше сідає в талії, тоді як вага на папері виглядає нормальною, ви цього не вигадуєте й не поводитеся ірраціонально через цифру. Ваше тіло перерозподіляється, а терези — просто хибний інструмент для його вимірювання." },
+          { t: "h", text: "Міф 2: «Мені просто треба їсти менше»" },
+          { t: "p", text: "Я довго вірила в це, і це повело мене зовсім у хибному напрямі." },
+          { t: "p", text: "Калорії досі мають значення, але їх скорочення не впливає на те, де тіло вирішує зберігати чи вивільняти жир, а в перименопаузі це дедалі більше визначають гормони, а не те, що ви зʼїли на вечерю. Естроген має пряму роль у розподілі жиру через рецепторну сигналізацію в жировій тканині, і поки його достатньо, він утримує жир у підшкірному відділі: стегна, сідниці. Коли він знижується, цей сигнал слабшає, і жир починає накопичуватися в ділянці живота, а скорочення калорій цього механізму не змінює." },
+          { t: "p", text: "Сон робить усе це значно важчим. Прогестерон, що падає разом з естрогеном під час перименопаузи, має природний заспокійливий ефект і підтримує сон. Коли він знижується, порушення сну стають дуже поширеними, а поганий сон зсуває грелін і лептин (гормони, що регулюють голод і насичення) саме в хибному напрямі. Ви голодніші, ніж раніше, насичення відчуваєте менш надійно, і водночас намагаєтеся утримувати обмеження." },
+          { t: "p", text: "Було багато ночей, коли я не могла заснути через сильний голод. Я боролася із собою до 4-ї ранку, бо не хотіла додавати проблеми з цукром у крові до [всього, що вже було з моїм діабетом](/ua/blog/perimenopause-diabetes-blood-sugar/), але зрештою, щоб поспати бодай кілька годин, мусила встати й щось зʼїсти." },
+          { t: "p", text: "Цей нічний голод значно послабшав після того, як я почала ЗГТ, і це особисто підтвердило мені, що це не те, що можна просто контролювати силою волі." },
+          { t: "h", text: "Міф 3: «Більше вправ це виправить»" },
+          { t: "p", text: "Я маю особисту причину виправити цей міф, бо зробила саме цю помилку, і вона коштувала мені місяців." },
+          { t: "p", text: "Моїм інстинктом, коли ніщо не працювало, було додати більше: більше ходьби, більше часу на доріжці, більше кардіо й танців на додачу до силових. Чого я тоді не розуміла — це що тривалі навантаження без належного відновлення підвищують кортизол, який у тілі, що вже справляється з гормональними зрушеннями перименопаузи й порушеним сном, саме сприяє накопиченню жиру на животі. Тіло тлумачить хронічне перенапруження як сигнал утримувати запаси енергії, і додавання ще більше виснажливих вправ до й так перевантаженої системи не компенсує гормональної картини; воно її доповнює." },
+          { t: "p", text: "Зміна, що дала справжню різницю, — це відхід від більшого кардіо до силових тренувань. Побудова й збереження мʼязів покращують оброблення глюкози, підвищують метаболізм спокою й захищають щільність кісток — усе це важить значно більше в міру зниження естрогену. Рухатися інакше й відновлюватися належно дає набагато більше, ніж просто рухатися більше." },
+          { t: "h", text: "Міф 4: «Це просто вік — з цим нічого не вдієш»" },
+          { t: "p", text: "Вік — частина цієї картини, але не вся картина, і ця відмінність важлива, бо гормональні чинники піддаються корекції в спосіб, у який вік сам по собі — ні." },
+          { t: "p", text: "Специфічні зміни перименопаузи, зокрема накопичення вісцерального жиру, втрата мʼязів і зниження чутливості до інсуліну, суттєво зумовлені падінням естрогену й прогестерону, а не просто плином років." },
+          { t: "p", text: "Це означає, що важелі є, і варто знати, які саме. ЗГТ — один із них: дослідження показують, що вона може [частково повернути назад накопичення вісцерального жиру](https://pmc.ncbi.nlm.nih.gov/articles/PMC9258798/) й покращити метаболічні показники, і якщо ви помічаєте перерозподіл жиру або дедалі важче керуєте вагою попри послідовні звички, це розмова, яку варто мати з фахівцем, що добре розуміється на гормональному здоровʼї. Це рішення для вас і вашого лікаря, а не порада від мене, але цей варіант існує й надто часто не порушується аж до значно пізнішого часу, ніж міг би." },
+          { t: "h", text: "Міф 5: «Достатня суворість зрештою спрацює»" },
+          { t: "p", text: "Цей міф коштував мені найдорожче, бо що більше це не працювало, то сильніше я тиснула, а що сильніше тиснула, то гіршало, і я не мала жодних рамок, щоб зрозуміти чому." },
+          { t: "p", text: "Хронічне обмеження калорій — це фізіологічний стресор, як і виснажливі вправи без належного відновлення. Дослідження показують, що обидва можуть підвищувати кортизол, а кортизол у тілі, що вже проходить гормональні зміни перименопаузи, саме сприяє накопиченню жиру на животі — вісцеральна жирова тканина має вищу щільність кортизолових рецепторів, ніж підшкірна, і це частково пояснює, чому хронічний стрес осідає саме там, де ви найменше цього хочете. Що суворіше ви обмежуєте, що більше тренуєтеся через виснаження, то більше тіло сприймає це як загрозу й утримує саме той жир, який ви намагаєтеся втратити. Я робила все, що могла, ставало дедалі гірше, і тоді я справді не знала, що таке можливо." },
+          { t: "p", text: "Що справді зрушило справу — це достатній сон, керування стресом замість продавлювання крізь нього, перехід від більшого кардіо до силових і [достатньо білка](/ua/blog/protein-for-women-over-40/) на кожен прийом їжі, щоб зберегти мʼязи, які я мала. Ніщо з цього не відчувалося як «робити більше» (сон і робота зі стресом, зокрема, відчувалися радше як робити значно менше), але воно впливало на те, що насправді керувало змінами в моєму тілі, а не боролося з ним, поки справжня причина лишалася непочутою." },
+          { t: "p", text: "Достатній білок, силові тренування, якість сну й зниження стресу доступні незалежно від ЗГТ, і кожне з них націлене на конкретні механізми, а не є загальною порадою щодо способу життя. При цьому будь-які суттєві зміни в харчуванні варто проходити разом із лікарем, а не братися за щось обмежувальне самотужки — суворі кетогенні дієти, наприклад, дедалі популярніші, але дуже низьке споживання вуглеводів може впливати на функцію щитоподібної залози й посилювати кортизолову відповідь, а обидва й так під тиском під час перименопаузи, і доказів того, що саме [кето перевершує збалансоване харчування з достатнім білком](https://www.medicalnewstoday.com/articles/keto-and-menopause) у цьому контексті, просто немає." },
+          { t: "h", text: "Що каже дослідження" },
+          { t: "refs", items: [
+            { claim: "Вісцеральний жир суттєво зростає під час перименопаузи — навіть коли загальна вага не змінюється.", detail: "Дослідження 2026 року в Journal of Clinical Medicine виявило, що в усіх категоріях ІМТ жінки в постменопаузі мали суттєво більше вісцерального жиру й менше скелетної мʼязової маси, ніж у пременопаузі — навіть за схожої загальної ваги. Зсув до центрального ожиріння послідовний і вимірний незалежно від споживання калорій.", cite: "Journal of Clinical Medicine · Крос-секційне дослідження, 2026", url: "https://www.mdpi.com/2077-0383/15/2/740" },
+            { claim: "Естроген контролює розподіл жиру через пряму рецепторну сигналізацію в жировій тканині.", detail: "Огляд у Frontiers in Endocrinology (2022) описав, як естроген і його рецептори в жировій тканині регулюють метаболізм і зберігання жиру — на користь підшкірного, а не вісцерального. Коли естроген падає, механізм, що спрямовує жир на стегна, втрачається, і вісцеральне накопичення зростає. Це прямий біологічний механізм, а не наслідок того, що ви більше їсте.", cite: "Frontiers in Endocrinology · Огляд, 2022", url: "https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2022.921504/full" },
+            { claim: "Втрата мʼязів у перименопаузі реальна — а силові тренування мають найбільше доказів.", detail: "Огляд 2026 року в Journal of Cachexia, Sarcopenia and Muscle задокументував зниження скелетної мʼязової маси приблизно на −2,5% у жінок у перименопаузі та −5,7% у постменопаузі порівняно з пременопаузою, при цьому роки переходу — період найкрутішого спаду. Силові тренування й достатнє споживання білка — дві інтервенції з найбільшою доказовою базою.", cite: "Journal of Cachexia, Sarcopenia and Muscle · Огляд, 2026", url: "https://onlinelibrary.wiley.com/doi/10.1002/jcsm.70232" },
+            { claim: "Низькокалорійні дієти — це фізіологічний стресор, який підвищує кортизол.", detail: "Дослідження 2010 року в Psychosomatic Medicine виявило, що низькокалорійні дієти підвищують вихід кортизолу — стресову відповідь, яка з часом працює проти тієї самої втрати жиру, заради якої її запускають.", cite: "Psychosomatic Medicine · 2010", url: "https://pubmed.ncbi.nlm.nih.gov/20368473/" },
+            { claim: "Кортизол діє переважно на вісцеральний жир — тому хронічний стрес осідає саме на талії.", detail: "Огляди дії глюкокортикоїдів показують, що кортизол діє переважно на вісцеральну жирову тканину, яка має вищу щільність кортизолових рецепторів, ніж підшкірна, сприяючи центральному накопиченню жиру за хронічного фізіологічного стресу.", cite: "Глюкокортикоїди та вісцеральне ожиріння · Огляд", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11907100/" },
+            { claim: "Силові тренування очолюють нефармакологічні підходи до збереження мʼязів у жінок у менопаузі.", detail: "Систематичний огляд і метааналіз 27 рандомізованих контрольованих досліджень 2023 року в BMC Women's Health виявив, що вправи — і силові зокрема — були найефективнішим нефармакологічним підходом до збереження мʼязової маси й сили під час менопаузального переходу.", cite: "BMC Women's Health · Систематичний огляд і метааналіз, 2023", url: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10647115/" }
+          ] },
+          { t: "bio", name: "Lena Filatova", img: "/images/lena-filatova-womens-health-writer.jpg", alt: "Lena Filatova, авторка про жіноче здоров'я, що живе з діабетом 1 типу", text: "Lena Filatova живе з діабетом 1 типу вже 23 роки. Вона пише про жіноче здоров'я, перименопаузу та довгострокове благополуччя на lenafilatova.co.uk." }
         ],
         faq: [
-          { q: "Чому я набираю вагу під час перименопаузи?", a: "Вага при перименопаузі залежить від гормонів, сну та стресу — не лише від калорій. Тому ті самі звички можуть давати інший результат, ніж у тридцять." },
-          { q: "Як схуднути під час перименопаузи?", a: "Зосередьтеся на збереженні та розвитку м'язів, достатньому білку, сні й керуванні стресом. Маленькі послідовні звички перемагають жорсткі обмеження, які зазвичай дають зворотний ефект." },
-          { q: "Чи справді м'язи важливі для ваги при перименопаузі?", a: "Так — м'язи важливіші за цифру на терезах. Їх збереження та розвиток підтримують стабільний метаболізм і вищу енергію протягом дня." }
+          { q: "Чому я набираю вагу під час перименопаузи?", a: "Для багатьох жінок більший зсув — це не набір ваги, а перерозподіл жиру: жир переходить зі стегон до живота в міру зниження естрогену, і вісцеральний жир зростає, навіть коли терези не рухаються. Порушення сну, втрата мʼязів і підвищений кортизол через хронічний стрес чи обмеження — усе це посилює процес. Це радше гормональна картина, ніж калорійна, і варто ставитися до неї саме так." },
+          { q: "Як схуднути під час перименопаузи?", a: "Калорії досі мають значення, але вони краще працюють поряд із тим, що впливає на гормональне середовище: достатньо білка, щоб зберегти мʼязи, силові тренування двічі-тричі на тиждень, кращий сон і справжнє керування стресом. Для деяких жінок ЗГТ помітно впливає на перерозподіл жиру, що варто обговорити з фахівцем, який розуміється і на гормональному здоровʼї, і на вашій ширшій картині здоровʼя." },
+          { q: "Чи справді мʼязи важливі для ваги при перименопаузі?", a: "Більше, ніж майже будь-що інше. Мʼязи метаболічно активні: вони підвищують метаболізм спокою й покращують те, як тіло справляється з глюкозою, а перименопауза пришвидшує їх втрату, якщо ви активно не протидієте цьому силовими й достатнім білком. Побудова й збереження мʼязів — одна з найважливіших речей, які ви можете зробити для складу тіла, енергії та довгострокового метаболічного здоровʼя протягом цього переходу й після нього." }
         ] },
       { cat: "Діабет", title: "Як читати свої рівні глюкози", excerpt: "Проста система, щоб зрозуміти свої щоденні показники.", meta: "3 червня 2026 · 5 хв читання",
         lead: "Проста система, щоб зрозуміти свої щоденні показники — без одержимості кожним значенням.",
@@ -2427,7 +2562,8 @@ class Component extends DCLogic {
     if (st.page === "blog") return "/blog";
     if (st.page === "product") return "/shop/" + st.pi;
     if (st.page === "home") return "/";
-    if (["shop", "resources", "about", "contact"].indexOf(st.page) >= 0) return "/" + st.page;
+    if (st.page === "resources") return st.resSub ? ("/resources/" + (st.resSub === "calc" ? "food-calculator" : "aid-comparison")) : "/resources";
+    if (["shop", "about", "contact"].indexOf(st.page) >= 0) return "/" + st.page;
     return "/";
   }
 
@@ -2440,7 +2576,8 @@ class Component extends DCLogic {
       this.setState({ page: "blog" }); return;
     }
     if (parts[0] === "shop" && parts[1]) { const pi = parseInt(parts[1], 10); this.setState({ page: "product", pi: isNaN(pi) ? 0 : pi }); return; }
-    if (["shop", "resources", "about", "contact"].indexOf(parts[0]) >= 0) { this.setState({ page: parts[0] }); return; }
+    if (parts[0] === "resources") { const m = { "food-calculator": "calc", "aid-comparison": "pump" }; this.setState({ page: "resources", resSub: parts[1] ? (m[parts[1]] || null) : null }); return; }
+    if (["shop", "about", "contact"].indexOf(parts[0]) >= 0) { this.setState({ page: parts[0] }); return; }
     this.setState({ page: "home" });
   }
 
@@ -2513,7 +2650,7 @@ class Component extends DCLogic {
       const s = JSON.stringify(this.state.cart || []);
       if (s !== this._savedCart) { this._savedCart = s; localStorage.setItem("lf_cart", s); }
     } catch (e) {}
-    const seoKey = this.state.page + "|" + this.state.ai + "|" + this.state.lang + "|" + this.state.pi;
+    const seoKey = this.state.page + "|" + this.state.ai + "|" + this.state.lang + "|" + this.state.pi + "|" + this.state.resSub;
     if (seoKey !== this._seoKey) { this._seoKey = seoKey; this.syncSeo(); this._syncHash(); }
   }
 
@@ -2765,7 +2902,15 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       const parts = []; let last = 0, k = 0; const re = /\[([^\]]+)\]\(([^)]+)\)/g; let m;
       while ((m = re.exec(t))) {
         if (m.index > last) parts.push(t.slice(last, m.index));
-        parts.push(React.createElement("a", { key: "il" + (k++), href: m[2], target: "_blank", rel: "noopener noreferrer", style: { color: "#B23A63", fontWeight: 600, textDecoration: "underline", textUnderlineOffset: "2px" } }, m[1]));
+        const href = m[2];
+        const linkStyle = { color: "#B23A63", fontWeight: 600, textDecoration: "underline", textUnderlineOffset: "2px" };
+        if (href.charAt(0) === "/") {
+          const seg = href.split("/").filter(Boolean).pop();
+          const idx = ARTSLUG.indexOf(seg);
+          parts.push(React.createElement("a", { key: "il" + (k++), href: href, onClick: (e) => { e.preventDefault(); if (idx >= 0) { this.setState({ page: "article", ai: idx }); window.scrollTo(0, 0); } }, style: linkStyle }, m[1]));
+        } else {
+          parts.push(React.createElement("a", { key: "il" + (k++), href: href, target: "_blank", rel: "noopener noreferrer", style: linkStyle }, m[1]));
+        }
         last = m.index + m[0].length;
       }
       if (last < t.length) parts.push(t.slice(last));
@@ -2910,7 +3055,14 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       showShop: false,
       showDownloads: false,
       showTestimonials: false,
-      isResources: page === "resources",
+      isResArea: page === "resources",
+      isResLanding: page === "resources" && !this.state.resSub,
+      isResCalc: page === "resources" && this.state.resSub === "calc",
+      isResPump: page === "resources" && this.state.resSub === "pump",
+      resourceCards: [
+        { tag: c.resourcesPage.calcTag, kicker: c.resourcesPage.calcKicker, title: c.resourcesPage.calcTitle, desc: c.resourcesPage.calcCardDesc, cta: c.resourcesPage.calcCardCta, bandBg: "#EAF4EC", bandFg: "#2F6B4A", onOpen: () => { this.setState({ page: "resources", resSub: "calc", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
+        { tag: c.resourcesPage.pumpTag, kicker: c.resourcesPage.pumpKicker, title: c.resourcesPage.pumpTitle, desc: c.resourcesPage.pumpCardDesc, cta: c.resourcesPage.pumpCardCta, bandBg: "#F5EAF1", bandFg: "#8A2F5B", onOpen: () => { this.setState({ page: "resources", resSub: "pump", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } }
+      ],
       rp: c.resourcesPage,
       pumps: this.pumpData(lang, c),
       downloadCards: [c.blog.resources.glow, c.blog.resources.supp].map((r, i) => { const src = i === 0 ? "glow-guide" : "supplement-sheet"; const stt = (this.state.dlStatus || {})[src]; return { ...r, source: src, done: stt === "done", notDone: stt !== "done", error: stt === "error", onSubmit: (ev) => this.subscribeDownload(ev, src) }; }),
@@ -2924,7 +3076,8 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       shareLabel: this.state.shareCopied ? c.shareCopiedMsg : c.share,
       shareMarginLeft: (this.props.shareAlign || "right") === "left" ? "12px" : "auto",
       goShop: () => this.go("shop"),
-      goResources: () => this.go("resources"),
+      goResources: () => { this.setState({ resSub: null }); this.go("resources"); },
+      backResources: () => { this.setState({ resSub: null }); if (typeof window !== "undefined") window.scrollTo(0, 0); },
       goBlog: () => this.go("blog"),
       goContact: () => this.go("contact"),
       goContactMenu: () => this.go("contact"),
