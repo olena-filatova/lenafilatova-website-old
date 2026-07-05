@@ -194,7 +194,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.15rem;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
@@ -236,7 +236,8 @@ h1 {
 
 /* ── Table ─────────────────────────────────────────── */
 .table-scroll {
-  overflow-x: auto;
+  overflow: auto;
+  max-height: 720px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
@@ -248,8 +249,11 @@ table {
 }
 
 thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
   background: var(--hover);
-  padding: 0.65rem 1rem;
+  padding: 0.85rem 1rem;
   text-align: left;
   font-size: 0.75rem;
   font-weight: 700;
@@ -257,6 +261,7 @@ thead th {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   border-bottom: 1.5px solid var(--border);
+  box-shadow: inset 0 -1.5px 0 var(--border);
   white-space: nowrap;
   cursor: pointer;
   user-select: none;
@@ -278,7 +283,7 @@ tbody tr:last-child { border-bottom: none; }
 tbody tr:hover { background: var(--hover); }
 
 td {
-  padding: 0.6rem 1rem;
+  padding: 0.72rem 1rem;
   font-size: 0.88rem;
   vertical-align: middle;
 }
