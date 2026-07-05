@@ -263,11 +263,30 @@
   .btn-sum-print { background: #F3F4F6; color: #374151; border: 1.5px solid #D1D5DB; }
   .btn-sum-print:hover { background: #E5E7EB; }
 
+  /* Subscribe + email-summary */
+  .sub-form { margin-top: 14px; border-top: 1px solid var(--green-line); padding-top: 13px; }
+  .sub-hint { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 9px; }
+  .sub-email {
+    width: 100%; font-family: inherit; font-size: 14px; padding: 11px 12px;
+    border: 1.5px solid var(--green-line); border-radius: 9px; margin-bottom: 8px; color: var(--ink); background: #fff;
+  }
+  .sub-email:focus { outline: none; border-color: var(--green); }
+  .sub-consent { display: flex; gap: 8px; align-items: flex-start; font-size: 11.5px; color: var(--muted); line-height: 1.45; margin-bottom: 10px; cursor: pointer; }
+  .sub-consent input { margin-top: 2px; flex: 0 0 auto; accent-color: var(--pink); }
+  .btn-sub-email {
+    width: 100%; background: var(--pink); color: #fff; border: none; border-radius: 9px;
+    padding: 12px 14px; font-family: inherit; font-size: 14px; font-weight: 700; cursor: pointer; transition: background 0.2s;
+  }
+  .btn-sub-email:hover { background: #8f2b4e; }
+  .sub-status { font-size: 12px; margin-top: 8px; line-height: 1.45; }
+  .sub-status.ok { color: var(--green-dark); font-weight: 600; }
+  .sub-status.err { color: #b52b2b; font-weight: 600; }
+
   @media (max-width: 480px) { .cover-title { font-size: 26px; } }
 
   @media print {
     .header, .progress-bar, .footer, .btn-restart, .btn-continue,
-    .summary-btns, .btn-summary-toggle, .nav, .back { display: none !important; }
+    .summary-btns, .btn-summary-toggle, .sub-form, .nav, .back { display: none !important; }
     .card { box-shadow: none; border: 1px solid #ccc; }
     .summary-textarea { min-height: unset; border: none; padding: 0; font-size: 11px; }
     #summaryPanel { display: block !important; }
@@ -422,9 +441,9 @@ STR.en = {
     ],
     chips: ["🌅 Dawn phenomenon", "🍞 Post-meal spike", "😰 Stress response", "💉 Injection-site issue", "🍷 Alcohol & overnight lows"],
     bullets: [
-      "Quick and private — nothing you enter is saved or sent anywhere",
+      "Private — your answers stay on your device and are never sent anywhere",
       "Covers food, insulin, hormones, illness, stress, sleep, exercise and more",
-      "Ends with a summary you can copy, print or email to your diabetes nurse"
+      "Ends with a summary you can copy, print or have emailed to yourself"
     ],
     startBtn: "Start the investigation →",
     note: "Takes about a minute · Works on your phone · For education only — not medical advice"
@@ -1219,9 +1238,9 @@ STR.ua = {
     ],
     chips: ["🌅 Феномен ранкової зорі", "🍞 Стрибок після їжі", "😰 Реакція на стрес", "💉 Проблема з місцем ін'єкції", "🍷 Алкоголь і нічні гіпо"],
     bullets: [
-      "Швидко та приватно — нічого з введеного не зберігається й нікуди не надсилається",
+      "Приватно — ваші відповіді залишаються на вашому пристрої й нікуди не надсилаються",
       "Охоплює їжу, інсулін, гормони, хворобу, стрес, сон, фізичне навантаження та інше",
-      "Наприкінці — підсумок, який можна скопіювати, роздрукувати чи надіслати діабетичній медсестрі"
+      "Наприкінці — підсумок, який можна скопіювати, роздрукувати чи надіслати собі на пошту"
     ],
     startBtn: "Почати дослідження →",
     note: "Займає близько хвилини · Працює на телефоні · Лише для навчання — не медична порада"
@@ -2022,8 +2041,16 @@ const UI = {
     decline: "I do not agree",
     summaryToggle: "📋 View & share your session summary",
     summaryHide: "▲ Hide summary",
-    summaryHint: "A record of your answers and this finding — copy or email it to your diabetes nurse or doctor.",
-    email: "📧 Email", copy: "📋 Copy", print: "🖨️ Print", copied: "✓ Copied!", copyFail: "Copy failed — select manually",
+    summaryHint: "A record of your answers and this finding — copy it, print it, or have it emailed to yourself to share with your diabetes nurse or doctor.",
+    copy: "📋 Copy", print: "🖨️ Print", copied: "✓ Copied!", copyFail: "Copy failed — select manually",
+    subHint: "Want a copy? Add your email and I'll open a ready-to-send message with your summary — and send you occasional science-backed notes on diabetes and women's health after 40. Free, unsubscribe anytime.",
+    subEmailPlaceholder: "your@email.com",
+    subConsent: "I agree to receive emails and accept the Privacy Policy. I can unsubscribe at any time.",
+    subBtn: "📧 Email me my summary",
+    subBusy: "Subscribing…",
+    subDone: "You're subscribed ✓ Opening your email with the summary…",
+    subErrEmail: "Please enter a valid email address.",
+    subErrConsent: "Please tick the box to continue.",
     urgency: { low: "Low urgency", medium: "Act soon", high: "Act today", critical: "Emergency" },
     cat: { food:"Food", insulin:"Insulin", medication:"Medication", illness:"Illness", lifestyle:"Lifestyle", hormones:"Hormones", exercise:"Exercise", equipment:"Equipment", environment:"Environment", physiology:"Physiology", emergency:"Emergency", medical:"Medical", unknown:"Unknown" },
     locale: 'en-GB',
@@ -2052,8 +2079,16 @@ const UI = {
     decline: "Я не погоджуюся",
     summaryToggle: "📋 Переглянути та поділитися підсумком",
     summaryHide: "▲ Сховати підсумок",
-    summaryHint: "Запис ваших відповідей і цього висновку — скопіюйте чи надішліть діабетичній медсестрі або лікарю.",
-    email: "📧 Ел. пошта", copy: "📋 Копіювати", print: "🖨️ Друк", copied: "✓ Скопійовано!", copyFail: "Не вдалося — виділіть вручну",
+    summaryHint: "Запис ваших відповідей і цього висновку — скопіюйте, роздрукуйте чи надішліть собі на пошту, щоб поділитися з діабетичною медсестрою або лікарем.",
+    copy: "📋 Копіювати", print: "🖨️ Друк", copied: "✓ Скопійовано!", copyFail: "Не вдалося — виділіть вручну",
+    subHint: "Хочете копію? Додайте email — і я відкрию готовий лист із вашим підсумком, а також надсилатиму зрідка науково обґрунтовані нотатки про діабет і жіноче здоров'я після 40. Безкоштовно, відписатися будь-коли.",
+    subEmailPlaceholder: "your@email.com",
+    subConsent: "Я погоджуюся отримувати листи та приймаю Політику конфіденційності. Я можу відписатися будь-коли.",
+    subBtn: "📧 Надіслати мені підсумок",
+    subBusy: "Підписуємо…",
+    subDone: "Ви підписані ✓ Відкриваємо ваш лист із підсумком…",
+    subErrEmail: "Введіть, будь ласка, дійсну електронну адресу.",
+    subErrConsent: "Позначте, будь ласка, поле, щоб продовжити.",
     urgency: { low: "Низька терміновість", medium: "Дійте скоро", high: "Дійте сьогодні", critical: "Невідкладно" },
     cat: { food:"Їжа", insulin:"Інсулін", medication:"Ліки", illness:"Хвороба", lifestyle:"Спосіб життя", hormones:"Гормони", exercise:"Навантаження", equipment:"Обладнання", environment:"Довкілля", physiology:"Фізіологія", emergency:"Невідкладно", medical:"Медичне", unknown:"Невідомо" },
     locale: 'uk-UA',
@@ -2188,10 +2223,16 @@ function renderResult(node) {
           <p class="summary-hint">${escHtml(U.summaryHint)}</p>
           <textarea id="summaryText" class="summary-textarea" readonly></textarea>
           <div class="summary-btns">
-            <button class="btn-sum btn-sum-email" onclick="emailSummary()">${escHtml(U.email)}</button>
             <button id="copyBtn" class="btn-sum btn-sum-copy" onclick="copySummary()">${escHtml(U.copy)}</button>
             <button class="btn-sum btn-sum-print" onclick="window.print()">${escHtml(U.print)}</button>
           </div>
+          <form class="sub-form" onsubmit="subscribeSummary(event)">
+            <p class="sub-hint">${escHtml(U.subHint)}</p>
+            <input type="email" class="sub-email" placeholder="${escHtml(U.subEmailPlaceholder)}" autocomplete="email" />
+            <label class="sub-consent"><input type="checkbox" class="sub-consent-box" /> <span>${escHtml(U.subConsent)}</span></label>
+            <button type="submit" class="btn-sub-email">${escHtml(U.subBtn)}</button>
+            <div class="sub-status" id="subStatus"></div>
+          </form>
         </div>
       </div>
       <button class="btn-restart" onclick="restart()">${escHtml(U.restart)}</button>
@@ -2254,10 +2295,36 @@ function toggleSummary() {
   postHeight();
 }
 
-function emailSummary() {
+// Newsletter capture — same Google Apps Script endpoint the main site posts to.
+const NEWSLETTER_ENDPOINT = "https://script.google.com/macros/s/AKfycbw21p8PuG5jGQ7JXf7j-tX1-OZBeA1p6negAuzi7TmiyPkjEoshxLbtGc6avUVskGiK/exec";
+const SUB_GROUPS = "t1d";
+
+function openSummaryMail(to) {
   const subject = encodeURIComponent(U.emailSubject + ' — ' + new Date().toLocaleDateString(U.locale));
   const body = encodeURIComponent(getSummaryText());
-  window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
+  window.location.href = 'mailto:' + encodeURIComponent(to) + '?subject=' + subject + '&body=' + body;
+}
+
+// Subscribe the visitor to the newsletter, then open a ready-to-send email of their
+// summary addressed to themselves. Only the email they type is sent to the endpoint —
+// their answers stay on-device and travel only via their own mail client.
+function subscribeSummary(e) {
+  e.preventDefault();
+  const form = e.target;
+  const email = ((form.querySelector('.sub-email') || {}).value || '').trim();
+  const consent = !!(form.querySelector('.sub-consent-box') || {}).checked;
+  const status = form.querySelector('.sub-status');
+  const setStatus = (msg, cls) => { if (status) { status.textContent = msg; status.className = 'sub-status' + (cls ? ' ' + cls : ''); } postHeight(); };
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { setStatus(U.subErrEmail, 'err'); return; }
+  if (!consent) { setStatus(U.subErrConsent, 'err'); return; }
+  setStatus(U.subBusy, '');
+  const rec = { email: email, lang: LANG, source: 'blood-sugar-investigator', groups: SUB_GROUPS, consent: 'yes', at: new Date().toISOString() };
+  try {
+    const body = Object.keys(rec).map(k => k + '=' + encodeURIComponent(rec[k])).join('&');
+    fetch(NEWSLETTER_ENDPOINT, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' }, body: body });
+  } catch (err) {}
+  setStatus(U.subDone, 'ok');
+  openSummaryMail(email);   // synchronous — stays within the user gesture
 }
 
 function copySummary() {
