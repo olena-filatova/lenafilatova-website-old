@@ -27,6 +27,8 @@
   <meta property="og:description" content="Evidence-based women's health after 40 — clear, practical guidance on diabetes, insulin resistance and perimenopause, plus a free newsletter and journal.">
   <!-- Analytics slot: paste your privacy-friendly analytics snippet below (e.g. Cloudflare Web Analytics or Plausible). Example:
        <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"YOUR_TOKEN"}'></script> -->
+  <!-- Metabolic Food Calculator: inline widget. Mounts into <div data-metabolic-calculator></div> wherever it appears. -->
+  <script defer src="https://helsico.vercel.app/widget.js"></script>
   <meta property="og:image" content="/images/lena-filatova-womens-health-coach-over-40.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Lena Filatova — Evidence-based women's health after 40">
@@ -396,7 +398,7 @@
       <h1 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-weight: 500; font-size: 40px; letter-spacing: -0.4px;">{{ rp.calcTitle }}</h1>
       <p style="margin: 0 0 26px; font-size: 17px; line-height: 1.55; color: #6A5668; max-width: 640px;">{{ rp.calcSub }}</p>
       <div style="border: 1px solid #EDE0EA; border-radius: 16px; overflow: hidden; background: #FFFFFF; box-shadow: 0 1px 3px rgba(51,27,51,0.04);">
-        <iframe src="https://helsico.vercel.app" title="Metabolic food calculator" loading="lazy" style="display: block; width: 100%; height: 860px; border: 0;"></iframe>
+        <div data-metabolic-calculator></div>
       </div>
       <p style="margin: 14px 2px 0; font-size: 13.5px; color: #7A6675;"><a href="https://helsico.vercel.app" target="_blank" rel="noopener" style="color: #B23A63; font-weight: 600; text-decoration: none;">{{ rp.calcOpenNew }} →</a></p>
       <p style="margin: 12px 2px 0; font-size: 12.5px; line-height: 1.5; color: #9A8896;">{{ rp.calcDisclaimer }}</p>
