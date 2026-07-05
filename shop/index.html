@@ -3370,7 +3370,7 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       rp: c.resourcesPage,
       a2hs: c.a2hs,
       saveToHome: () => this.saveToHome(),
-      carbSrc: (lang === "ua" ? "carb-gi-table-ua.html" : "carb-gi-table.html"),
+      carbSrc: (lang === "ua" ? "/carb-gi-table-ua.html" : "/carb-gi-table.html"),
       pumps: this.pumpData(lang, c),
       downloadCards: [c.blog.resources.glow, c.blog.resources.supp].map((r, i) => { const src = i === 0 ? "glow-guide" : "supplement-sheet"; const stt = (this.state.dlStatus || {})[src]; return { ...r, source: src, done: stt === "done", notDone: stt !== "done", error: stt === "error", onSubmit: (ev) => this.subscribeDownload(ev, src) }; }),
       isProduct: page === "product",
