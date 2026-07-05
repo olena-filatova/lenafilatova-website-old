@@ -22,6 +22,14 @@
   <title>Lena Filatova — Evidence-based women's health after 40</title>
   <meta name="description" content="Evidence-based women's health after 40 — clear, practical guidance on diabetes, insulin resistance and perimenopause, plus a free newsletter and journal from Lena Filatova.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='20' cy='20' r='20' fill='%23B23A63'/%3E%3Ctext x='20' y='27' font-family='Georgia,serif' font-style='italic' font-size='20' fill='%23F6F0F5' text-anchor='middle'%3Elf%3C/text%3E%3C/svg%3E">
+  <!-- Add to Home Screen (PWA) -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#B23A63">
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Lena Filatova">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Lena Filatova — Evidence-based women's health after 40">
   <meta property="og:description" content="Evidence-based women's health after 40 — clear, practical guidance on diabetes, insulin resistance and perimenopause, plus a free newsletter and journal.">
@@ -402,7 +410,8 @@
     <span onClick="{{ backResources }}" style="cursor: pointer; display: inline-block; margin-bottom: 28px; font-size: 14px; font-weight: 600; color: #7A6675;">← {{ rp.backLabel }}</span>
     <div style="margin-bottom: 8px;">
       <h1 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-weight: 500; font-size: 40px; letter-spacing: -0.4px;">{{ rp.calcTitle }}</h1>
-      <p style="margin: 0 0 26px; font-size: 17px; line-height: 1.55; color: #6A5668; max-width: 640px;">{{ rp.calcSub }}</p>
+      <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; color: #6A5668; max-width: 640px;">{{ rp.calcSub }}</p>
+      <div style="margin: 0 0 26px;"><button onClick="{{ saveToHome }}" style="display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid #E1C6D6; background: #FFFFFF; color: #B23A63; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 999px; cursor: pointer;">{{ a2hs.button }}</button></div>
       <div style="border: 1px solid #EDE0EA; border-radius: 16px; overflow: hidden; background: #FFFFFF; box-shadow: 0 1px 3px rgba(51,27,51,0.04);">
         <div data-metabolic-calculator></div>
       </div>
@@ -415,7 +424,8 @@
     <span onClick="{{ backResources }}" style="cursor: pointer; display: inline-block; margin-bottom: 28px; font-size: 14px; font-weight: 600; color: #7A6675;">← {{ rp.backLabel }}</span>
     <div style="margin-bottom: 8px;">
       <h1 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-weight: 500; font-size: 40px; letter-spacing: -0.4px;">{{ rp.carbTitle }}</h1>
-      <p style="margin: 0 0 26px; font-size: 17px; line-height: 1.55; color: #6A5668; max-width: 640px;">{{ rp.carbSub }}</p>
+      <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; color: #6A5668; max-width: 640px;">{{ rp.carbSub }}</p>
+      <div style="margin: 0 0 26px;"><button onClick="{{ saveToHome }}" style="display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid #E1C6D6; background: #FFFFFF; color: #B23A63; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 999px; cursor: pointer;">{{ a2hs.button }}</button></div>
       <div style="border: 1px solid #EDE0EA; border-radius: 16px; overflow: hidden; background: #FFFFFF; box-shadow: 0 1px 3px rgba(51,27,51,0.04);">
         <iframe id="carb-gi-frame" src="{{ carbSrc }}" title="Carbohydrate and glycaemic index table" loading="lazy" style="display: block; width: 100%; height: 900px; border: 0;"></iframe>
       </div>
@@ -427,7 +437,8 @@
     <span onClick="{{ backResources }}" style="cursor: pointer; display: inline-block; margin-bottom: 28px; font-size: 14px; font-weight: 600; color: #7A6675;">← {{ rp.backLabel }}</span>
     <div style="margin-bottom: 24px;">
       <h1 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-weight: 500; font-size: 40px; letter-spacing: -0.4px;">{{ rp.pumpTitle }}</h1>
-      <p style="margin: 0 0 24px; font-size: 17px; line-height: 1.55; color: #6A5668; max-width: 640px;">{{ rp.pumpSub }}</p>
+      <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; color: #6A5668; max-width: 640px;">{{ rp.pumpSub }}</p>
+      <div style="margin: 0 0 24px;"><button onClick="{{ saveToHome }}" style="display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid #E1C6D6; background: #FFFFFF; color: #B23A63; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 999px; cursor: pointer;">{{ a2hs.button }}</button></div>
       <div style="display: flex; gap: 22px; align-items: center; flex-wrap: wrap; margin-bottom: 14px;">
         <div style="display: flex; align-items: center; gap: 8px;">
           <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #9A8896;">{{ rp.fltStatus }}</span>
@@ -1403,6 +1414,18 @@ const CONTENT = {
     readMore: "Read article",
     share: "Share",
     shareCopiedMsg: "Link copied!",
+    a2hs: {
+      button: "📌 Save to Home Screen",
+      title: "Save this to your Home Screen",
+      intro: "Add this page to your phone's Home Screen so you can open it any time with a single tap — no need to search for it again.",
+      iosTitle: "On iPhone or iPad (Safari)",
+      iosSteps: ["Tap the Share button (the square with an arrow) at the bottom of the screen.", "Scroll down and tap “Add to Home Screen”.", "Tap “Add” in the top corner — done!"],
+      androidTitle: "On Android (Chrome)",
+      androidSteps: ["Tap the ⋮ menu in the top-right corner.", "Tap “Add to Home screen” (or “Install app”).", "Tap “Add” — done!"],
+      desktopTitle: "On a computer",
+      desktopSteps: ["Look for the install icon on the right of the address bar, or open the browser menu and choose “Install” or “Create shortcut”.", "You can also press Ctrl + D (Cmd + D on Mac) to bookmark this page."],
+      close: "Got it"
+    },
     backShop: "Back to shop",
     backBlog: "Back to blog",
     comingSoonBadge: "Coming soon",
@@ -2057,6 +2080,18 @@ const CONTENT = {
     readMore: "Читати",
     share: "Поділитися",
     shareCopiedMsg: "Посилання скопійовано!",
+    a2hs: {
+      button: "📌 Зберегти на головний екран",
+      title: "Збережіть це на головний екран",
+      intro: "Додайте цю сторінку на головний екран телефона, щоб відкривати її будь-коли одним дотиком — не доведеться шукати знову.",
+      iosTitle: "На iPhone або iPad (Safari)",
+      iosSteps: ["Натисніть кнопку «Поділитися» (квадрат зі стрілкою) внизу екрана.", "Прогорніть униз і натисніть «На початковий екран» (Add to Home Screen).", "Натисніть «Додати» у верхньому куті — готово!"],
+      androidTitle: "На Android (Chrome)",
+      androidSteps: ["Натисніть меню ⋮ у верхньому правому куті.", "Виберіть «Додати на головний екран» (або «Встановити застосунок»).", "Натисніть «Додати» — готово!"],
+      desktopTitle: "На комп’ютері",
+      desktopSteps: ["Знайдіть значок встановлення праворуч в адресному рядку або відкрийте меню браузера й виберіть «Встановити» чи «Створити ярлик».", "Також можна натиснути Ctrl + D (Cmd + D на Mac), щоб додати сторінку в закладки."],
+      close: "Зрозуміло"
+    },
     backShop: "Назад до магазину",
     backBlog: "Назад до блогу",
     comingSoonBadge: "Незабаром",
@@ -2939,6 +2974,48 @@ class Component extends DCLogic {
     } else { flash(); }
   }
 
+  saveToHome() {
+    if (typeof document === "undefined") return;
+    const lang = this.state.lang === "ua" ? "ua" : "en";
+    const t = (CONTENT[lang] && CONTENT[lang].a2hs) || CONTENT.en.a2hs;
+    const ua = (typeof navigator !== "undefined" && navigator.userAgent) ? navigator.userAgent : "";
+    const isIOS = /iphone|ipad|ipod/i.test(ua) || (typeof navigator !== "undefined" && navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    const isAndroid = /android/i.test(ua);
+    const block = isIOS ? { title: t.iosTitle, steps: t.iosSteps }
+                : isAndroid ? { title: t.androidTitle, steps: t.androidSteps }
+                : { title: t.desktopTitle, steps: t.desktopSteps };
+
+    const prev = document.getElementById("lf-a2hs");
+    if (prev) prev.remove();
+
+    const wrap = document.createElement("div");
+    wrap.id = "lf-a2hs";
+    wrap.setAttribute("role", "dialog");
+    wrap.setAttribute("aria-modal", "true");
+    wrap.style.cssText = "position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(51,27,51,0.55);font-family:'Manrope',sans-serif;";
+
+    const stepsHtml = block.steps.map((s, i) =>
+      '<li style="margin:0 0 11px;padding-left:36px;position:relative;font-size:14.5px;line-height:1.5;color:#4A3A46;"><span style="position:absolute;left:0;top:-1px;width:25px;height:25px;border-radius:999px;background:#F5EAF1;color:#B23A63;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;">' + (i + 1) + '</span>' + s + '</li>'
+    ).join("");
+
+    wrap.innerHTML =
+      '<div style="position:relative;background:#FFFFFF;border-radius:20px;max-width:430px;width:100%;max-height:88vh;overflow:auto;box-shadow:0 20px 60px rgba(51,27,51,0.3);padding:30px 26px 26px;">' +
+        '<button id="lf-a2hs-x" aria-label="Close" style="position:absolute;top:14px;right:14px;width:32px;height:32px;border:none;background:#F6F0F5;color:#7A6675;border-radius:999px;font-size:18px;line-height:1;cursor:pointer;">×</button>' +
+        '<img src="/images/apple-touch-icon.png" alt="" width="56" height="56" style="width:56px;height:56px;border-radius:14px;display:block;margin:0 0 16px;box-shadow:0 2px 8px rgba(51,27,51,0.14);">' +
+        '<h2 style="margin:0 0 8px;font-family:\'Spectral\',serif;font-weight:500;font-size:23px;letter-spacing:-0.2px;color:#331B33;">' + t.title + '</h2>' +
+        '<p style="margin:0 0 22px;font-size:14.5px;line-height:1.55;color:#6A5668;">' + t.intro + '</p>' +
+        '<p style="margin:0 0 13px;font-size:12px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;color:#B23A63;">' + block.title + '</p>' +
+        '<ol style="list-style:none;margin:0;padding:0;">' + stepsHtml + '</ol>' +
+        '<button id="lf-a2hs-ok" style="display:block;width:100%;margin-top:20px;border:none;background:#B23A63;color:#FFF;font-family:inherit;font-size:14.5px;font-weight:600;padding:12px 18px;border-radius:999px;cursor:pointer;">' + t.close + '</button>' +
+      '</div>';
+
+    const close = () => { const el = document.getElementById("lf-a2hs"); if (el) el.remove(); };
+    wrap.addEventListener("click", (e) => { if (e.target === wrap) close(); });
+    document.body.appendChild(wrap);
+    const x = document.getElementById("lf-a2hs-x"); if (x) x.addEventListener("click", close);
+    const ok = document.getElementById("lf-a2hs-ok"); if (ok) ok.addEventListener("click", close);
+  }
+
   goSubscribe() {
     this.setState({ page: "home", menuOpen: false });
     const scroll = (smooth) => {
@@ -3257,6 +3334,8 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
         { tag: c.resourcesPage.carbTag, kicker: c.resourcesPage.carbKicker, title: c.resourcesPage.carbTitle, desc: c.resourcesPage.carbCardDesc, cta: c.resourcesPage.carbCardCta, bandBg: "#EAF0F6", bandFg: "#2A5B7A", onOpen: () => { this.setState({ page: "resources", resSub: "carbs", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } }
       ],
       rp: c.resourcesPage,
+      a2hs: c.a2hs,
+      saveToHome: () => this.saveToHome(),
       carbSrc: (lang === "ua" ? "carb-gi-table-ua.html" : "carb-gi-table.html"),
       pumps: this.pumpData(lang, c),
       downloadCards: [c.blog.resources.glow, c.blog.resources.supp].map((r, i) => { const src = i === 0 ? "glow-guide" : "supplement-sheet"; const stt = (this.state.dlStatus || {})[src]; return { ...r, source: src, done: stt === "done", notDone: stt !== "done", error: stt === "error", onSubmit: (ev) => this.subscribeDownload(ev, src) }; }),
