@@ -61,6 +61,8 @@
        <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"YOUR_TOKEN"}'></script> -->
   <!-- Metabolic Food Calculator: inline widget. Mounts into <div data-metabolic-calculator></div> wherever it appears. -->
   <script defer src="https://calculator.lenafilatova.co.uk/widget.js"></script>
+  <!-- Exercise Calculator: inline widget. Mounts into <div data-exercise-calculator></div> wherever it appears. -->
+  <script defer src="https://calculator.lenafilatova.co.uk/exercise-widget.js"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lenafilatova.co.uk/#organization","name":"Lena Filatova","url":"https://lenafilatova.co.uk/","logo":"https://lenafilatova.co.uk/images/lena-filatova-womens-health-coach-over-40.jpg","sameAs":["https://www.instagram.com/lena.filatova/","https://www.facebook.com/lenafilatovablog","https://www.threads.com/@lena.filatova"]},{"@type":"WebSite","@id":"https://lenafilatova.co.uk/#website","url":"https://lenafilatova.co.uk/","name":"Lena Filatova","inLanguage":"en","publisher":{"@id":"https://lenafilatova.co.uk/#organization"}},{"@type":"Person","@id":"https://lenafilatova.co.uk/#lena","name":"Lena Filatova","url":"https://lenafilatova.co.uk/","image":"https://lenafilatova.co.uk/images/lena-filatova-womens-health-coach-over-40.jpg","description":"Writer and coach on evidence-based women's health after 40 — diabetes, insulin resistance and perimenopause. Living with type 1 diabetes for over two decades.","knowsAbout":["Type 1 diabetes","Perimenopause","Insulin resistance","Women's health after 40","Nutrition"],"sameAs":["https://www.instagram.com/lena.filatova/","https://www.facebook.com/lenafilatovablog","https://www.threads.com/@lena.filatova"]}]}</script>
   <link rel="preload" as="image" href="/images/lena-filatova-womens-health-coach-over-40.jpg" fetchpriority="high">
   <style>
@@ -428,6 +430,20 @@
     </div>
     </sc-if>
 
+    <sc-if value="{{ isResExer }}" hint-placeholder-val="{{ false }}">
+    <span onClick="{{ backResources }}" style="cursor: pointer; display: inline-block; margin-bottom: 28px; font-size: 14px; font-weight: 600; color: #7A6675;">← {{ rp.backLabel }}</span>
+    <div style="margin-bottom: 8px;">
+      <h1 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-weight: 500; font-size: 40px; letter-spacing: -0.4px;">{{ rp.exerTitle }}</h1>
+      <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; color: #6A5668; max-width: 640px;">{{ rp.exerSub }}</p>
+      <div style="margin: 0 0 26px;"><button onClick="{{ saveToHome }}" style="display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid #E1C6D6; background: #FFFFFF; color: #B23A63; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 999px; cursor: pointer;">{{ a2hs.button }}</button></div>
+      <div style="border: 1px solid #EDE0EA; border-radius: 16px; overflow: hidden; background: #FFFFFF; box-shadow: 0 1px 3px rgba(51,27,51,0.04);">
+        <div data-exercise-calculator></div>
+      </div>
+      <p style="margin: 14px 2px 0; font-size: 13.5px; color: #7A6675;"><a href="https://calculator.lenafilatova.co.uk" target="_blank" rel="noopener" style="color: #B23A63; font-weight: 600; text-decoration: none;">{{ rp.exerOpenNew }} →</a></p>
+      <p style="margin: 12px 2px 0; font-size: 12.5px; line-height: 1.5; color: #9A8896;">{{ rp.exerDisclaimer }}</p>
+    </div>
+    </sc-if>
+
     <sc-if value="{{ isResCarb }}" hint-placeholder-val="{{ false }}">
     <span onClick="{{ backResources }}" style="cursor: pointer; display: inline-block; margin-bottom: 28px; font-size: 14px; font-weight: 600; color: #7A6675;">← {{ rp.backLabel }}</span>
     <div style="margin-bottom: 8px;">
@@ -438,6 +454,32 @@
         <iframe id="carb-gi-frame" src="{{ carbSrc }}" title="Carbohydrate and glycaemic index table" loading="lazy" style="display: block; width: 100%; height: 900px; border: 0;"></iframe>
       </div>
       <p style="margin: 12px 2px 0; font-size: 12.5px; line-height: 1.5; color: #9A8896;">{{ rp.carbDisclaimer }}</p>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isResCgm }}" hint-placeholder-val="{{ false }}">
+    <span onClick="{{ backResources }}" style="cursor: pointer; display: inline-block; margin-bottom: 28px; font-size: 14px; font-weight: 600; color: #7A6675;">← {{ rp.backLabel }}</span>
+    <div style="margin-bottom: 8px;">
+      <h1 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-weight: 500; font-size: 40px; letter-spacing: -0.4px;">{{ rp.cgmTitle }}</h1>
+      <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; color: #6A5668; max-width: 640px;">{{ rp.cgmSub }}</p>
+      <div style="margin: 0 0 26px;"><button onClick="{{ saveToHome }}" style="display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid #E1C6D6; background: #FFFFFF; color: #B23A63; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 999px; cursor: pointer;">{{ a2hs.button }}</button></div>
+      <div style="border: 1px solid #EDE0EA; border-radius: 16px; overflow: hidden; background: #FFFFFF; box-shadow: 0 1px 3px rgba(51,27,51,0.04);">
+        <iframe id="cgm-frame" src="{{ cgmSrc }}" title="CGM sensor comparison table" loading="lazy" style="display: block; width: 100%; height: 1100px; border: 0;"></iframe>
+      </div>
+      <p style="margin: 12px 2px 0; font-size: 12.5px; line-height: 1.5; color: #9A8896;">{{ rp.cgmDisclaimer }}</p>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isResBsi }}" hint-placeholder-val="{{ false }}">
+    <span onClick="{{ backResources }}" style="cursor: pointer; display: inline-block; margin-bottom: 28px; font-size: 14px; font-weight: 600; color: #7A6675;">← {{ rp.backLabel }}</span>
+    <div style="margin-bottom: 8px;">
+      <h1 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-weight: 500; font-size: 40px; letter-spacing: -0.4px;">{{ rp.bsiTitle }}</h1>
+      <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; color: #6A5668; max-width: 640px;">{{ rp.bsiSub }}</p>
+      <div style="margin: 0 0 26px;"><button onClick="{{ saveToHome }}" style="display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid #E1C6D6; background: #FFFFFF; color: #B23A63; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 999px; cursor: pointer;">{{ a2hs.button }}</button></div>
+      <div style="border: 1px solid #EDE0EA; border-radius: 16px; overflow: hidden; background: #F1F8F3; box-shadow: 0 1px 3px rgba(51,27,51,0.04);">
+        <iframe id="bsi-frame" src="{{ bsiSrc }}" title="Blood Sugar Investigator" loading="lazy" style="display: block; width: 100%; height: 900px; border: 0;"></iframe>
+      </div>
+      <p style="margin: 12px 2px 0; font-size: 12.5px; line-height: 1.5; color: #9A8896;">{{ rp.bsiDisclaimer }}</p>
     </div>
     </sc-if>
 
@@ -468,24 +510,85 @@
         </div>
       </div>
       <p style="margin: 0 0 14px; font-size: 12.5px; color: #9A8896;">{{ pumps.count }} {{ rp.countLabel }}</p>
+      <sc-if value="{{ pumps.hasSel }}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 0 0 14px; padding: 12px 16px; background: #FBF3F7; border: 1px solid #EAD3E1; border-radius: 12px;">
+          <span style="font-size: 13.5px; font-weight: 700; color: #331B33;">{{ pumps.selLabel }}</span>
+          <sc-if value="{{ pumps.atCap }}" hint-placeholder-val="{{ false }}"><span style="font-size: 12px; color: #9A8896;">{{ rp.pumpCapHint }}</span></sc-if>
+          <div style="display: flex; align-items: center; gap: 8px; margin-left: auto;">
+            <sc-if value="{{ pumps.notEnough }}" hint-placeholder-val="{{ false }}"><span style="font-size: 12.5px; color: #9A8896;">{{ rp.pumpCompareHint }}</span></sc-if>
+            <sc-if value="{{ pumps.canCompare }}" hint-placeholder-val="{{ false }}"><button onClick="{{ pumps.onCompare }}" style="border: none; background: #B23A63; color: #FFF; font-family: 'Manrope', sans-serif; font-size: 13.5px; font-weight: 600; padding: 9px 18px; border-radius: 999px; cursor: pointer; white-space: nowrap;">{{ rp.pumpCompareCta }}</button></sc-if>
+            <button onClick="{{ pumps.onClear }}" style="border: 1px solid #E1C6D6; background: #FFF; color: #B23A63; font-family: 'Manrope', sans-serif; font-size: 13.5px; font-weight: 600; padding: 9px 16px; border-radius: 999px; cursor: pointer;">{{ rp.pumpClear }}</button>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ pumps.compareOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="margin: 0 0 20px; border: 1px solid #EAD3E1; border-radius: 16px; overflow: hidden; background: #FFFFFF;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 18px; background: #FBF3F7; border-bottom: 1px solid #EAD3E1;">
+            <span style="font-family: 'Spectral', serif; font-size: 19px; font-weight: 600; color: #331B33;">{{ rp.pumpCompareTitle }}</span>
+            <button onClick="{{ pumps.onCloseCompare }}" style="border: 1px solid #E1C6D6; background: #FFF; color: #7A6675; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; padding: 7px 15px; border-radius: 999px; cursor: pointer; white-space: nowrap;">{{ rp.pumpCompareClose }} ✕</button>
+          </div>
+          <div style="overflow: auto; -webkit-overflow-scrolling: touch;">
+            <table style="width: 100%; border-collapse: collapse; font-family: 'Manrope', sans-serif;">
+              <thead>
+                <tr>
+                  <th style="position: sticky; left: 0; z-index: 2; background: #331B33; min-width: 148px;"></th>
+                  <sc-for list="{{ pumps.cmpDevices }}" as="cd" hint-placeholder-count="2">
+                    <th style="text-align: left; padding: 13px 16px; background: #331B33; min-width: 190px; vertical-align: bottom;"><div style="font-family: 'Spectral', serif; font-size: 15px; font-weight: 600; color: #FFFFFF; line-height: 1.2;">{{ cd.device }}</div><div style="font-size: 11.5px; color: #C9A9C0; margin-top: 2px;">{{ cd.maker }}</div></th>
+                  </sc-for>
+                </tr>
+              </thead>
+              <tbody>
+                <sc-for list="{{ pumps.cmpRows }}" as="row" hint-placeholder-count="7">
+                  <tr style="border-bottom: 1px solid #F0E5EE;">
+                    <td style="position: sticky; left: 0; z-index: 1; background: #FBFAFC; padding: 12px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #8A6E86; border-right: 1px solid #EDE0EA; white-space: nowrap;">{{ row.label }}</td>
+                    <sc-for list="{{ row.cells }}" as="cell" hint-placeholder-count="2">
+                      <td style="padding: 12px 16px; font-size: 13px; color: #4A3A46; vertical-align: top;">{{ cell.v }}</td>
+                    </sc-for>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+          <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; padding: 18px 20px; background: #FBF3F7; border-top: 1px solid #EAD3E1;">
+            <div style="flex: 1; min-width: 240px;">
+              <span style="display: block; font-size: 15px; font-weight: 600; color: #331B33;">{{ rp.pumpCompareEmailTitle }}</span>
+              <span style="display: block; font-size: 13px; color: #7A6675;">{{ rp.pumpCompareEmailSub }}</span>
+            </div>
+            <div>
+              <sc-if value="{{ pcNotDone }}" hint-placeholder-val="{{ true }}">
+                <form onSubmit="{{ subscribePumpCompare }}" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                  <input type="email" required placeholder="{{ c.blog.resourceEmail }}" style="min-width: 190px; background: #FFFFFF; border: 1px solid #E1C6D6; border-radius: 999px; padding: 11px 18px; font-family: 'Manrope', sans-serif; font-size: 14.5px; color: #331B33; outline: none;" />
+                  <button type="submit" style="border: none; background: #B23A63; color: #FFF; font-family: 'Manrope', sans-serif; font-size: 14.5px; font-weight: 600; padding: 11px 22px; border-radius: 999px; cursor: pointer; white-space: nowrap;">{{ rp.pumpCompareEmailCta }}</button>
+                </form>
+                <sc-if value="{{ pcError }}" hint-placeholder-val="{{ false }}"><p style="margin: 8px 2px 0; font-size: 12.5px; color: #B23A63;">{{ c.nlError }}</p></sc-if>
+              </sc-if>
+              <sc-if value="{{ pcDone }}" hint-placeholder-val="{{ false }}">
+                <span style="display: inline-flex; align-items: center; gap: 9px; font-size: 14px; font-weight: 600; color: #2F7A52;"><span style="flex: none; width: 22px; height: 22px; border-radius: 999px; background: #2F7A52; color: #FFFFFF; font-size: 13px; display: inline-flex; align-items: center; justify-content: center;">✓</span>{{ rp.pumpSuccess }}</span>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+      </sc-if>
       <p class="pump-swipe" style="margin: 0 0 12px; font-size: 12.5px; font-weight: 600; color: #B23A63;">{{ rp.pumpSwipe }}</p>
       <div style="border: 1px solid #EDE0EA; border-radius: 14px; overflow: hidden; background: #FFFFFF; transform: translateZ(0);">
-        <div style="overflow-x: auto;">
+        <div style="overflow: auto; max-height: 640px; -webkit-overflow-scrolling: touch;">
         <table style="width: 100%; border-collapse: collapse; font-family: 'Manrope', sans-serif; min-width: 940px;">
           <thead>
             <tr style="background: #331B33;">
-              <th style="text-align: left; padding: 13px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #E8D6E3; white-space: nowrap;">{{ rp.colDevice }}</th>
-              <th style="text-align: left; padding: 13px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #E8D6E3; white-space: nowrap;">{{ rp.colType }}</th>
-              <th style="text-align: left; padding: 13px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #E8D6E3; white-space: nowrap;">{{ rp.colAid }}</th>
-              <th style="text-align: left; padding: 13px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #E8D6E3; white-space: nowrap;">{{ rp.colCgm }}</th>
-              <th style="text-align: left; padding: 13px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #E8D6E3; white-space: nowrap;">{{ rp.colReservoir }}</th>
-              <th style="text-align: left; padding: 13px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #E8D6E3; white-space: nowrap;">{{ rp.colAvail }}</th>
-              <th style="text-align: left; padding: 13px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #E8D6E3; white-space: nowrap;">{{ rp.colCost }}</th>
+              <th style="text-align: center; padding: 13px 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #E8D6E3; white-space: nowrap; position: sticky; top: 0; z-index: 2; background: #331B33;">{{ rp.colPick }}</th>
+              <th style="text-align: left; padding: 13px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #E8D6E3; white-space: nowrap; position: sticky; top: 0; z-index: 2; background: #331B33;">{{ rp.colDevice }}</th>
+              <th style="text-align: left; padding: 13px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #E8D6E3; white-space: nowrap; position: sticky; top: 0; z-index: 2; background: #331B33;">{{ rp.colType }}</th>
+              <th style="text-align: left; padding: 13px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #E8D6E3; white-space: nowrap; position: sticky; top: 0; z-index: 2; background: #331B33;">{{ rp.colAid }}</th>
+              <th style="text-align: left; padding: 13px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #E8D6E3; white-space: nowrap; position: sticky; top: 0; z-index: 2; background: #331B33;">{{ rp.colCgm }}</th>
+              <th style="text-align: left; padding: 13px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #E8D6E3; white-space: nowrap; position: sticky; top: 0; z-index: 2; background: #331B33;">{{ rp.colReservoir }}</th>
+              <th style="text-align: left; padding: 13px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #E8D6E3; white-space: nowrap; position: sticky; top: 0; z-index: 2; background: #331B33;">{{ rp.colAvail }}</th>
+              <th style="text-align: left; padding: 13px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #E8D6E3; white-space: nowrap; position: sticky; top: 0; z-index: 2; background: #331B33;">{{ rp.colCost }}</th>
             </tr>
           </thead>
           <tbody>
             <sc-for list="{{ pumps.avail }}" as="pm" hint-placeholder-count="6">
               <tr style="border-bottom: 1px solid #F0E5EE;">
+                <td style="padding: 14px 10px; vertical-align: top; text-align: center;"><span onClick="{{ pm.onToggle }}" style="{{ pm.selBoxStyle }}"><sc-if value="{{ pm.selected }}" hint-placeholder-val="{{ false }}">✓</sc-if></span></td>
                 <td style="padding: 14px 16px; vertical-align: top;"><div style="font-family: 'Spectral', serif; font-size: 15.5px; font-weight: 600; color: #331B33; white-space: nowrap;">{{ pm.device }}</div><div style="font-size: 11.5px; color: #9A8896; margin-top: 1px;">{{ pm.maker }}</div></td>
                 <td style="padding: 14px 16px; vertical-align: top;"><span style="{{ pm.typeStyle }}">{{ pm.typeLabel }}</span></td>
                 <td style="padding: 14px 16px; vertical-align: top;"><sc-if value="{{ pm.aidYes }}" hint-placeholder-val="{{ true }}"><span style="display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; font-weight: 600; color: #2F7A52;"><span style="width: 15px; height: 15px; border-radius: 999px; background: #2F7A52; color: #FFFFFF; font-size: 10px; display: inline-flex; align-items: center; justify-content: center;">✓</span>{{ pm.aidText }}</span></sc-if><sc-if value="{{ pm.aidNo }}" hint-placeholder-val="{{ false }}"><span style="font-size: 12.5px; color: #9A8896;">{{ pm.aidText }}</span></sc-if></td>
@@ -496,10 +599,11 @@
               </tr>
             </sc-for>
             <sc-if value="{{ pumps.hasPipe }}" hint-placeholder-val="{{ false }}">
-              <tr><td colspan="7" style="padding: 9px 16px; background: #F6F0F5; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #8A6E86; border-top: 1px solid #EAD3E1;">{{ rp.pipelineHeader }}</td></tr>
+              <tr><td colspan="8" style="padding: 9px 16px; background: #F6F0F5; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #8A6E86; border-top: 1px solid #EAD3E1;">{{ rp.pipelineHeader }}</td></tr>
             </sc-if>
             <sc-for list="{{ pumps.pipe }}" as="pm" hint-placeholder-count="0">
               <tr style="border-bottom: 1px solid #F0E5EE; background: #FCFAFC;">
+                <td style="padding: 14px 10px; vertical-align: top; text-align: center;"><span onClick="{{ pm.onToggle }}" style="{{ pm.selBoxStyle }}"><sc-if value="{{ pm.selected }}" hint-placeholder-val="{{ false }}">✓</sc-if></span></td>
                 <td style="padding: 14px 16px; vertical-align: top;"><div style="font-family: 'Spectral', serif; font-size: 15.5px; font-weight: 600; color: #331B33; white-space: nowrap;">{{ pm.device }}</div><div style="font-size: 11.5px; color: #9A8896; margin-top: 1px;">{{ pm.maker }}</div><sc-if value="{{ pm.hasEta }}" hint-placeholder-val="{{ false }}"><div style="display: inline-block; margin-top: 5px; padding: 2px 8px; border-radius: 999px; background: #FBF0D8; color: #9A6A18; font-size: 10.5px; font-weight: 700; white-space: nowrap;">⏳ {{ pm.eta }}</div></sc-if></td>
                 <td style="padding: 14px 16px; vertical-align: top;"><span style="{{ pm.typeStyle }}">{{ pm.typeLabel }}</span></td>
                 <td style="padding: 14px 16px; vertical-align: top;"><sc-if value="{{ pm.aidYes }}" hint-placeholder-val="{{ true }}"><span style="display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; font-weight: 600; color: #2F7A52;"><span style="width: 15px; height: 15px; border-radius: 999px; background: #2F7A52; color: #FFFFFF; font-size: 10px; display: inline-flex; align-items: center; justify-content: center;">✓</span>{{ pm.aidText }}</span></sc-if><sc-if value="{{ pm.aidNo }}" hint-placeholder-val="{{ false }}"><span style="font-size: 12.5px; color: #9A8896;">{{ pm.aidText }}</span></sc-if></td>
@@ -1390,12 +1494,34 @@ const CONTENT = {
       calcKicker: "Food & blood sugar",
       calcCardDesc: "See how any food is likely to affect your blood sugar — glycaemic load, carbs and protein. Built for Type 1, insulin resistance and PMOS (previously PCOS).",
       calcCardCta: "Open the calculator",
+      exerTag: "Interactive tool",
+      exerKicker: "Exercise & blood sugar",
+      exerTitle: "Exercise & blood sugar calculator",
+      exerSub: "See how different types of movement are likely to affect your blood sugar — cardio, strength, walking and more. Built for Type 1 diabetes, insulin resistance and PMOS (previously PCOS). No sign-up needed.",
+      exerCardDesc: "See how cardio, strength and everyday movement are likely to affect your blood sugar. Built for Type 1, insulin resistance and PMOS (previously PCOS).",
+      exerCardCta: "Open the calculator",
+      exerOpenNew: "Not loading? Open the calculator in a new tab",
+      exerDisclaimer: "This calculator is for general information only — it is not a medical tool and does not give medical advice. Please consult your doctor or diabetes care team with any questions about your health.",
       carbTag: "Interactive table",
       carbKicker: "Carbs & GI",
       carbTitle: "Carbohydrate & glycaemic index table",
       carbSub: "Over 200 everyday foods — carbs per 100g and glycaemic index (GI) — including Ukrainian and British staples. Filter by category, GI level or cuisine, search, and sort. Free to use.",
       carbCardDesc: "200+ foods with carbs per 100g and glycaemic index — Ukrainian and British staples included. Filter, search and sort to see how each food is likely to affect blood sugar.",
       carbCardCta: "Open the table",
+      cgmTag: "Comparison",
+      cgmKicker: "CGM sensors",
+      cgmTitle: "CGM sensor comparison (2026)",
+      cgmSub: "Every major continuous glucose monitor (CGM) sensor, side by side — available now and in the pipeline. Compare wear time, warm-up, calibration, alerts, iCGM status and which AID systems each one works with. Filter by status, type, brand or calibration, search and sort. Free to browse.",
+      cgmCardDesc: "Every major continuous glucose monitor side by side — Abbott, Dexcom, Medtronic and more. Compare wear time, calibration, alerts and AID compatibility.",
+      cgmCardCta: "Open the comparison",
+      cgmDisclaimer: "Educational comparison only — not medical advice or an endorsement. Cost is approximate and varies by country, insurance and funding status. Availability and pipeline timelines change with regulatory approval. Please discuss your CGM choice with your diabetes care team.",
+      bsiTag: "Interactive",
+      bsiKicker: "Troubleshooter",
+      bsiTitle: "Blood Sugar Investigator",
+      bsiSub: "Blood sugar too high or too low and not sure why? This free step-by-step tool walks you through 40+ possible causes — food, insulin, hormones, illness, stress, sleep, exercise and more — one simple question at a time, then gives clear next steps and a summary you can share with your diabetes team.",
+      bsiCardDesc: "A guided troubleshooter for an unexpected high or low. Answer simple questions and get the most likely cause, what to do, and a summary to share with your diabetes team.",
+      bsiCardCta: "Start the investigation",
+      bsiDisclaimer: "Educational tool only — not medical advice, a diagnosis, or a substitute for your diabetes team. It cannot account for your full medical history or medications. Never change your treatment based on this tool alone. If you feel seriously unwell, seek medical help immediately.",
       carbDisclaimer: "GI values come from published databases and are estimates — they vary with ripeness, cooking method and individual response. For general information only, not medical advice. Please consult your diabetes care team.",
       calcOpenNew: "Not loading? Open the calculator in a new tab",
       calcDisclaimer: "This calculator is for general information only — it is not a medical tool and does not give medical advice. Please consult your doctor or diabetes care team with any questions about your health.",
@@ -1405,7 +1531,10 @@ const CONTENT = {
       pumpCardCta: "Open the comparison",
       pumpTitle: "AID (Automated Insulin Delivery) system comparison (2026)",
       pumpSub: "Every major Automated Insulin Delivery (AID) system and insulin pump, side by side — available now and in the pipeline. AID pairs a pump with a CGM to adjust insulin automatically. Filter by type, AID (closed-loop) and status. Free to browse.",
-      colDevice: "Device", colType: "Type", colAid: "AID system", colCgm: "CGM", colReservoir: "Reservoir", colAvail: "Availability", colCost: "Approx. cost",
+      colDevice: "Device", colType: "Type", colAid: "AID system", colCgm: "CGM", colReservoir: "Reservoir", colAvail: "Availability", colCost: "Approx. cost", colStatus: "Status",
+      colPick: "Pick", pumpSelected: "selected", pumpCompareCta: "Compare selected", pumpClear: "Clear", pumpCompareHint: "Tick one more to compare", pumpCapHint: "Up to 4 at a time",
+      pumpCompareTitle: "Your side-by-side", pumpCompareClose: "Close",
+      pumpCompareEmailTitle: "Email me this comparison", pumpCompareEmailSub: "Get this side-by-side plus the full 2026 spreadsheet — handy to keep or take to your next appointment.", pumpCompareEmailCta: "Email me this comparison",
       fltStatus: "Status", fltType: "Type", fltAid: "AID",
       fAll: "All", fAvail: "Available now", fPipeline: "Pipeline", fTubeless: "Tubeless", fTubed: "Tubed", fClosed: "Closed loop", fOpen: "Open loop",
       pipelineHeader: "Pipeline — coming 2026–2027", openLoopLabel: "Open loop", countLabel: "devices", noResults: "No devices match these filters. Try clearing one.",
@@ -1457,7 +1586,7 @@ const CONTENT = {
       categoriesTitle: "Categories",
       legalTitle: "Legal",
       contactTitle: "Contact",
-      email: "mails@lenafilatova.com",
+      email: "lena@lenafilatova.co.uk",
       socials: [
         { label: "Instagram", href: "https://instagram.com/lena.filatova" },
         { label: "Facebook", href: "#" },
@@ -1471,7 +1600,7 @@ const CONTENT = {
     legalMeta: {
       eyebrow: "Legal",
       updated: "Last updated 2 July 2026",
-      note: "These policies are provided in good faith and reviewed periodically. If anything here is unclear, email mails@lenafilatova.com and we'll be glad to help."
+      note: "These policies are provided in good faith and reviewed periodically. If anything here is unclear, email lena@lenafilatova.co.uk and we'll be glad to help."
     },
     legal: [
       {
@@ -1480,7 +1609,7 @@ const CONTENT = {
         sections: [
           { p: [
             "This Privacy Policy explains how Selfound Ltd (\"we\", \"us\", \"our\") collects, uses and protects your personal data when you visit this website, buy a digital product, or book coaching. We are the data controller responsible for your personal data.",
-            "Selfound Ltd is registered in England and Wales (Company No. 16450921), with a registered address at Unit 82a James Carter Road, Mildenhall, Bury St. Edmunds, England, IP28 7DE. For any privacy question or request, contact mails@lenafilatova.com."
+            "Selfound Ltd is registered in England and Wales (Company No. 16450921), with a registered address at Unit 82a James Carter Road, Mildenhall, Bury St. Edmunds, England, IP28 7DE. For any privacy question or request, contact lena@lenafilatova.co.uk."
           ]},
           { h: "What we collect", p: ["We only collect what we need to run the service:"], ul: [
             "Contact and account details — your name, email address and any details you provide when you create an account or get in touch.",
@@ -1505,7 +1634,7 @@ const CONTENT = {
           ]},
           { h: "International transfers", p: ["Some of our providers are based outside the UK and EEA. Where your data is transferred internationally, we rely on appropriate safeguards such as the UK International Data Transfer Agreement or the EU Standard Contractual Clauses."] },
           { h: "How long we keep it", p: ["We keep order and transaction records for as long as required by law (generally six years for UK tax purposes). Account data is kept until you ask us to delete it, and marketing data until you unsubscribe."] },
-          { h: "Your rights", p: ["Under UK data protection law you have the right to access, correct, delete, restrict or object to our use of your data, to data portability, and to withdraw consent at any time. To exercise any of these, email mails@lenafilatova.com. You also have the right to complain to the Information Commissioner's Office (ICO) at ico.org.uk."] },
+          { h: "Your rights", p: ["Under UK data protection law you have the right to access, correct, delete, restrict or object to our use of your data, to data portability, and to withdraw consent at any time. To exercise any of these, email lena@lenafilatova.co.uk. You also have the right to complain to the Information Commissioner's Office (ICO) at ico.org.uk."] },
           { h: "Children", p: ["This website and our products are intended for adults. We do not knowingly collect data from anyone under 18."] },
           { h: "Changes to this policy", p: ["We may update this policy from time to time. The date at the top shows when it was last revised."] }
         ]
@@ -1531,7 +1660,7 @@ const CONTENT = {
         title: "Terms & Conditions",
         sections: [
           { p: ["These Terms govern your use of this website and the purchase of digital products and coaching services from Selfound Ltd. By using the site or placing an order, you agree to these Terms."] },
-          { h: "About us", p: ["Selfound Ltd is registered in England and Wales (Company No. 16450921), registered address Unit 82a James Carter Road, Mildenhall, Bury St. Edmunds, England, IP28 7DE. You can reach us at mails@lenafilatova.com."] },
+          { h: "About us", p: ["Selfound Ltd is registered in England and Wales (Company No. 16450921), registered address Unit 82a James Carter Road, Mildenhall, Bury St. Edmunds, England, IP28 7DE. You can reach us at lena@lenafilatova.co.uk."] },
           { h: "Nature of our content — not medical advice", p: ["Our content, digital guides and coaching are educational and for general wellness only. They are not medical advice, diagnosis or treatment, and are not a substitute for care from a qualified healthcare professional. Always consult your doctor before making changes to your diet, exercise or health routine, and never disregard professional medical advice because of something you read or hear here."] },
           { h: "Digital products", p: ["When you buy a digital guide or course, we grant you a personal, non-transferable licence to use it for your own individual use. You may not copy, resell, share, publish or redistribute it. All content and intellectual property remain owned by us or our licensors."] },
           { h: "Coaching services", p: ["Wellness coaching is provided on a general, non-clinical basis. Sessions are booked in advance and delivered as described at the time of booking. You are responsible for the information you provide and for any decisions you make. We do not guarantee any particular results or outcomes."] },
@@ -1554,7 +1683,7 @@ const CONTENT = {
           { h: "Digital guides and courses", p: ["Because digital products are delivered instantly, there is an important exception. If you have not yet downloaded or accessed the product, you are entitled to a full refund within the 14-day window. Once you download or start accessing a digital product, your statutory right to cancel ends — but if something is wrong, please contact us and we will make it right. We may also offer a refund at our discretion."] },
           { h: "Wellness coaching", p: ["You can reschedule or cancel a coaching session for a full refund or credit if you give us at least 48 hours' notice. Cancellations with less than 48 hours' notice, or missed sessions, are non-refundable. If we ever need to cancel a session, we will reschedule it or refund you in full."] },
           { h: "Faulty or misdescribed items", p: ["If a product is faulty, not as described, or does not work as it should, you are entitled to a repair, replacement or refund under the Consumer Rights Act 2015."] },
-          { h: "How to request a refund", p: ["Email mails@lenafilatova.com with your order details and the reason for your request. We aim to respond within 5 working days."] },
+          { h: "How to request a refund", p: ["Email lena@lenafilatova.co.uk with your order details and the reason for your request. We aim to respond within 5 working days."] },
           { h: "How refunds are paid", p: ["Approved refunds are made to your original payment method and are normally processed within 14 days of us agreeing to the refund."] }
         ]
       },
@@ -1572,7 +1701,7 @@ const CONTENT = {
           ]},
           { h: "Known limitations", p: ["Some older content or third-party features, such as embedded media or advertising, may not yet be fully accessible. We are continually improving and welcome your feedback."] },
           { h: "Alternative formats", p: ["If you need any content in a different format, or you are having difficulty using the site, let us know and we will do our best to help."] },
-          { h: "Contact us", p: ["Email mails@lenafilatova.com with any accessibility feedback or requests."] }
+          { h: "Contact us", p: ["Email lena@lenafilatova.co.uk with any accessibility feedback or requests."] }
         ]
       }
     ],
@@ -2056,12 +2185,34 @@ const CONTENT = {
       calcKicker: "Їжа та цукор у крові",
       calcCardDesc: "Подивіться, як конкретна їжа впливає на рівень цукру — глікемічне навантаження, вуглеводи та білок. Для діабету 1 типу, інсулінорезистентності та ПМОС (раніше СПКЯ).",
       calcCardCta: "Відкрити калькулятор",
+      exerTag: "Інтерактивний інструмент",
+      exerKicker: "Активність та цукор у крові",
+      exerTitle: "Калькулятор впливу фізичних навантажень на цукор",
+      exerSub: "Дізнайтеся, як різні види руху впливають на рівень цукру в крові — кардіо, силові, ходьба тощо. Створено для діабету 1 типу, інсулінорезистентності та ПМОС (раніше СПКЯ). Реєстрація не потрібна.",
+      exerCardDesc: "Подивіться, як кардіо, силові та щоденний рух впливають на рівень цукру. Для діабету 1 типу, інсулінорезистентності та ПМОС (раніше СПКЯ).",
+      exerCardCta: "Відкрити калькулятор",
+      exerOpenNew: "Не завантажується? Відкрийте калькулятор у новій вкладці",
+      exerDisclaimer: "Цей калькулятор надано лише для загальної інформації — це не медичний інструмент і він не надає медичних порад. З будь-якими питаннями щодо здоров'я звертайтеся до свого лікаря або команди з догляду за діабетом.",
       carbTag: "Інтерактивна таблиця",
       carbKicker: "Вуглеводи та ГІ",
       carbTitle: "Таблиця вуглеводів і глікемічного індексу",
       carbSub: "Понад 200 щоденних продуктів — вуглеводи на 100 г і глікемічний індекс (ГІ), зокрема українські та британські страви. Фільтруйте за категорією, рівнем ГІ чи кухнею, шукайте й сортуйте. Безкоштовно.",
       carbCardDesc: "Понад 200 продуктів із вуглеводами на 100 г і глікемічним індексом — з українськими та британськими стравами. Фільтруйте, шукайте й сортуйте, щоб побачити ймовірний вплив на цукор.",
       carbCardCta: "Відкрити таблицю",
+      cgmTag: "Порівняння",
+      cgmKicker: "Сенсори CGM",
+      cgmTitle: "Порівняння CGM-сенсорів (2026)",
+      cgmSub: "Усі основні сенсори безперервного моніторингу глюкози (CGM) поряд — доступні зараз і в розробці. Порівняйте час носіння, розігрів, калібрування, сповіщення, статус iCGM і те, з якими системами AID працює кожен. Фільтруйте за статусом, типом, брендом чи калібруванням, шукайте та сортуйте. Читайте безкоштовно.",
+      cgmCardDesc: "Усі основні монітори глюкози безперервної дії поряд — Abbott, Dexcom, Medtronic та інші. Порівняйте час носіння, калібрування, сповіщення й сумісність з AID.",
+      cgmCardCta: "Відкрити порівняння",
+      cgmDisclaimer: "Лише освітнє порівняння — не медична порада та не рекомендація. Ціна орієнтовна й залежить від країни, страховки та статусу фінансування. Доступність і терміни для продуктів у розробці змінюються з регуляторним схваленням. Будь ласка, обговоріть вибір CGM зі своєю діабетичною командою.",
+      bsiTag: "Інтерактивний",
+      bsiKicker: "Помічник",
+      bsiTitle: "Дослідник цукру в крові",
+      bsiSub: "Цукор надто високий чи низький, а причина незрозуміла? Цей безкоштовний покроковий інструмент проведе вас через 40+ можливих причин — їжа, інсулін, гормони, хвороба, стрес, сон, навантаження та інше — по одному простому запитанню за раз, а потім дасть чіткі кроки й підсумок, яким можна поділитися з діабетичною командою.",
+      bsiCardDesc: "Покроковий помічник для несподіваного підйому чи гіпо. Дайте відповіді на прості запитання й отримайте найімовірнішу причину, що робити, і підсумок для діабетичної команди.",
+      bsiCardCta: "Почати дослідження",
+      bsiDisclaimer: "Лише освітній інструмент — не медична порада, не діагноз і не заміна вашій діабетичній команді. Він не може врахувати вашу повну історію хвороби чи ліки. Ніколи не змінюйте лікування, спираючись лише на цей інструмент. Якщо почуваєтеся серйозно погано, негайно зверніться по медичну допомогу.",
       carbDisclaimer: "Значення ГІ взято з опублікованих баз даних і є приблизними — вони залежать від стиглості, способу приготування та індивідуальної реакції. Лише для загальної інформації, не медична порада. Звертайтеся до своєї команди з догляду за діабетом.",
       calcOpenNew: "Не завантажується? Відкрийте калькулятор у новій вкладці",
       calcDisclaimer: "Цей калькулятор надано лише для загальної інформації — це не медичний інструмент і він не надає медичних порад. З будь-якими питаннями щодо здоров'я звертайтеся до свого лікаря або команди з догляду за діабетом.",
@@ -2071,7 +2222,10 @@ const CONTENT = {
       pumpCardCta: "Відкрити порівняння",
       pumpTitle: "Порівняння систем AID (автоматична подача інсуліну) (2026)",
       pumpSub: "Усі основні системи автоматичної подачі інсуліну (AID) та інсулінові помпи поряд — доступні зараз і в розробці. AID поєднує помпу із CGM, щоб автоматично керувати подачею інсуліну. Фільтруйте за типом, AID (замкнений контур) і статусом. Читайте безкоштовно.",
-      colDevice: "Пристрій", colType: "Тип", colAid: "Система AID", colCgm: "CGM", colReservoir: "Резервуар", colAvail: "Доступність", colCost: "Орієнт. ціна",
+      colDevice: "Пристрій", colType: "Тип", colAid: "Система AID", colCgm: "CGM", colReservoir: "Резервуар", colAvail: "Доступність", colCost: "Орієнт. ціна", colStatus: "Статус",
+      colPick: "Вибір", pumpSelected: "вибрано", pumpCompareCta: "Порівняти вибране", pumpClear: "Очистити", pumpCompareHint: "Позначте ще один для порівняння", pumpCapHint: "До 4 одночасно",
+      pumpCompareTitle: "Ваше порівняння", pumpCompareClose: "Закрити",
+      pumpCompareEmailTitle: "Надішліть мені це порівняння", pumpCompareEmailSub: "Отримайте це порівняння та повну таблицю на 2026 рік — зручно зберегти чи взяти на прийом до лікаря.", pumpCompareEmailCta: "Надіслати мені це порівняння",
       fltStatus: "Статус", fltType: "Тип", fltAid: "AID",
       fAll: "Усі", fAvail: "Доступні", fPipeline: "У розробці", fTubeless: "Без трубок", fTubed: "З трубкою", fClosed: "Замкнений контур", fOpen: "Відкритий контур",
       pipelineHeader: "У розробці — 2026–2027", openLoopLabel: "Відкритий контур", countLabel: "пристроїв", noResults: "Немає пристроїв за цими фільтрами. Спробуйте зняти один.",
@@ -2123,7 +2277,7 @@ const CONTENT = {
       categoriesTitle: "Категорії",
       legalTitle: "Правова інформація",
       contactTitle: "Контакти",
-      email: "mails@lenafilatova.com",
+      email: "lena@lenafilatova.co.uk",
       socials: [
         { label: "Instagram", href: "https://instagram.com/lena.filatova" },
         { label: "Facebook", href: "#" },
@@ -2137,7 +2291,7 @@ const CONTENT = {
     legalMeta: {
       eyebrow: "Правова інформація",
       updated: "Останнє оновлення: 2 липня 2026 р.",
-      note: "Ці політики надаються сумлінно й періодично переглядаються. Якщо щось незрозуміло, напишіть на mails@lenafilatova.com — ми з радістю допоможемо."
+      note: "Ці політики надаються сумлінно й періодично переглядаються. Якщо щось незрозуміло, напишіть на lena@lenafilatova.co.uk — ми з радістю допоможемо."
     },
     legal: [
       {
@@ -2146,7 +2300,7 @@ const CONTENT = {
         sections: [
           { p: [
             "Ця Політика конфіденційності пояснює, як Selfound Ltd («ми», «нас», «наш») збирає, використовує та захищає ваші персональні дані, коли ви відвідуєте цей вебсайт, купуєте цифровий продукт або бронюєте коучинг. Ми є контролером даних, відповідальним за ваші персональні дані.",
-            "Selfound Ltd зареєстрована в Англії та Уельсі (реєстраційний номер 16450921), юридична адреса: Unit 82a James Carter Road, Mildenhall, Bury St. Edmunds, England, IP28 7DE. З будь-яких питань щодо конфіденційності звертайтеся на mails@lenafilatova.com."
+            "Selfound Ltd зареєстрована в Англії та Уельсі (реєстраційний номер 16450921), юридична адреса: Unit 82a James Carter Road, Mildenhall, Bury St. Edmunds, England, IP28 7DE. З будь-яких питань щодо конфіденційності звертайтеся на lena@lenafilatova.co.uk."
           ]},
           { h: "Які дані ми збираємо", p: ["Ми збираємо лише те, що необхідно для роботи сервісу:"], ul: [
             "Контактні та облікові дані — ваше ім'я, електронна адреса та відомості, які ви надаєте під час створення облікового запису чи звернення до нас.",
@@ -2171,7 +2325,7 @@ const CONTENT = {
           ]},
           { h: "Міжнародна передача даних", p: ["Деякі наші постачальники розташовані за межами Великої Британії та ЄЕЗ. У разі міжнародної передачі ваших даних ми покладаємося на належні гарантії, як-от Британську угоду про міжнародну передачу даних або Стандартні договірні положення ЄС."] },
           { h: "Скільки ми зберігаємо дані", p: ["Ми зберігаємо записи про замовлення та транзакції протягом строку, передбаченого законом (зазвичай шість років для податкових цілей у Великій Британії). Дані облікового запису зберігаються до вашого запиту про видалення, а маркетингові дані — до відписки."] },
-          { h: "Ваші права", p: ["Згідно із законодавством Великої Британії про захист даних ви маєте право на доступ, виправлення, видалення, обмеження чи заперечення проти використання ваших даних, на перенесення даних, а також право відкликати згоду будь-коли. Щоб скористатися будь-яким із цих прав, напишіть на mails@lenafilatova.com. Ви також маєте право подати скаргу до Служби комісара з інформації (ICO) на ico.org.uk."] },
+          { h: "Ваші права", p: ["Згідно із законодавством Великої Британії про захист даних ви маєте право на доступ, виправлення, видалення, обмеження чи заперечення проти використання ваших даних, на перенесення даних, а також право відкликати згоду будь-коли. Щоб скористатися будь-яким із цих прав, напишіть на lena@lenafilatova.co.uk. Ви також маєте право подати скаргу до Служби комісара з інформації (ICO) на ico.org.uk."] },
           { h: "Діти", p: ["Цей вебсайт і наші продукти призначені для дорослих. Ми свідомо не збираємо дані від осіб віком до 18 років."] },
           { h: "Зміни до політики", p: ["Ми можемо час від часу оновлювати цю політику. Дата вгорі показує, коли її востаннє переглядали."] }
         ]
@@ -2197,7 +2351,7 @@ const CONTENT = {
         title: "Умови використання",
         sections: [
           { p: ["Ці Умови регулюють використання цього вебсайту та придбання цифрових продуктів і коучингових послуг у Selfound Ltd. Користуючись сайтом або оформлюючи замовлення, ви погоджуєтеся з цими Умовами."] },
-          { h: "Про нас", p: ["Selfound Ltd зареєстрована в Англії та Уельсі (реєстраційний номер 16450921), юридична адреса: Unit 82a James Carter Road, Mildenhall, Bury St. Edmunds, England, IP28 7DE. Зв'язатися з нами можна на mails@lenafilatova.com."] },
+          { h: "Про нас", p: ["Selfound Ltd зареєстрована в Англії та Уельсі (реєстраційний номер 16450921), юридична адреса: Unit 82a James Carter Road, Mildenhall, Bury St. Edmunds, England, IP28 7DE. Зв'язатися з нами можна на lena@lenafilatova.co.uk."] },
           { h: "Характер контенту — це не медична порада", p: ["Наш контент, цифрові посібники та коучинг мають освітній і загальний велнес-характер. Це не медична порада, діагностика чи лікування і не заміна допомоги кваліфікованого медичного фахівця. Завжди консультуйтеся з лікарем перед зміною харчування, фізичної активності чи режиму здоров'я і ніколи не нехтуйте професійною медичною порадою через щось прочитане чи почуте тут."] },
           { h: "Цифрові продукти", p: ["Купуючи цифровий посібник або курс, ви отримуєте персональну ліцензію без права передачі для власного індивідуального використання. Ви не можете копіювати, перепродавати, поширювати, публікувати чи розповсюджувати його. Весь контент та інтелектуальна власність залишаються власністю нас або наших ліцензіарів."] },
           { h: "Коучингові послуги", p: ["Велнес-коучинг надається на загальній, неклінічній основі. Сесії бронюються заздалегідь і проводяться так, як описано під час бронювання. Ви відповідаєте за надану інформацію та власні рішення. Ми не гарантуємо жодних конкретних результатів."] },
@@ -2220,7 +2374,7 @@ const CONTENT = {
           { h: "Цифрові посібники та курси", p: ["Оскільки цифрові продукти доставляються миттєво, є важливий виняток. Якщо ви ще не завантажили й не отримали доступ до продукту, ви маєте право на повне повернення коштів протягом 14 днів. Щойно ви завантажуєте або починаєте користуватися цифровим продуктом, ваше законне право на скасування припиняється — але якщо щось не так, зверніться до нас, і ми все виправимо. Ми також можемо повернути кошти на власний розсуд."] },
           { h: "Велнес-коучинг", p: ["Ви можете перенести або скасувати коучингову сесію з повним поверненням коштів чи кредитом, якщо повідомите нас щонайменше за 48 годин. Скасування менш ніж за 48 годин або пропущені сесії не підлягають поверненню. Якщо нам колись доведеться скасувати сесію, ми перенесемо її або повернемо кошти повністю."] },
           { h: "Несправні товари чи невідповідність опису", p: ["Якщо продукт несправний, не відповідає опису чи не працює належним чином, ви маєте право на ремонт, заміну чи повернення коштів згідно із Законом про права споживачів 2015 року."] },
-          { h: "Як запросити повернення", p: ["Напишіть на mails@lenafilatova.com із деталями замовлення та причиною запиту. Ми прагнемо відповісти протягом 5 робочих днів."] },
+          { h: "Як запросити повернення", p: ["Напишіть на lena@lenafilatova.co.uk із деталями замовлення та причиною запиту. Ми прагнемо відповісти протягом 5 робочих днів."] },
           { h: "Як виплачується повернення", p: ["Схвалені повернення здійснюються на ваш початковий спосіб оплати й зазвичай обробляються протягом 14 днів після нашої згоди на повернення."] }
         ]
       },
@@ -2238,7 +2392,7 @@ const CONTENT = {
           ]},
           { h: "Відомі обмеження", p: ["Деякий старіший контент або сторонні функції, як-от вбудовані медіа чи реклама, можуть бути ще не повністю доступними. Ми постійно вдосконалюємося й будемо раді вашому відгуку."] },
           { h: "Альтернативні формати", p: ["Якщо вам потрібен контент в іншому форматі або у вас виникають труднощі з користуванням сайтом, повідомте нас, і ми зробимо все можливе, щоб допомогти."] },
-          { h: "Зв'язок з нами", p: ["Пишіть на mails@lenafilatova.com із будь-якими відгуками чи запитами щодо доступності."] }
+          { h: "Зв'язок з нами", p: ["Пишіть на lena@lenafilatova.co.uk із будь-якими відгуками чи запитами щодо доступності."] }
         ]
       }
     ],
@@ -2718,7 +2872,7 @@ if (typeof window !== "undefined") {
 }
 
 class Component extends DCLogic {
-  state = { lang: "en", page: "home", menuOpen: false, li: 0, pi: 0, ai: 0, liked: {}, nlStatus: "idle", xlStatus: "idle", dlStatus: {}, pumpType: "all", pumpAid: "all", pumpStatus: "all", cart: [], cartOpen: false, signedIn: false, replyingTo: null, cLikes: {}, reported: {}, bookTab: "message", monthOffset: 0, selDate: null, selTime: null, booked: false };
+  state = { lang: "en", page: "home", menuOpen: false, li: 0, pi: 0, ai: 0, liked: {}, nlStatus: "idle", xlStatus: "idle", dlStatus: {}, pumpType: "all", pumpAid: "all", pumpStatus: "all", pumpSel: {}, pumpCompareOpen: false, pcStatus: "idle", cart: [], cartOpen: false, signedIn: false, replyingTo: null, cLikes: {}, reported: {}, bookTab: "message", monthOffset: 0, selDate: null, selTime: null, booked: false };
 
   componentDidMount() {
     try {
@@ -2736,7 +2890,7 @@ class Component extends DCLogic {
     }
     this.syncSeo();
     if (typeof window !== "undefined") {
-      this._carbH = (e) => { if (e && e.data && e.data.type === "carbgi-height") { const f = document.getElementById("carb-gi-frame"); if (f && e.data.height) f.style.height = (e.data.height + 2) + "px"; } };
+      this._carbH = (e) => { if (!e || !e.data) return; if (e.data.type === "carbgi-height") { const f = document.getElementById("carb-gi-frame"); if (f && e.data.height) f.style.height = (e.data.height + 2) + "px"; } else if (e.data.type === "cgm-height") { const f = document.getElementById("cgm-frame"); if (f && e.data.height) f.style.height = (e.data.height + 2) + "px"; } else if (e.data.type === "bsi-height") { const f = document.getElementById("bsi-frame"); if (f && e.data.height) f.style.height = (e.data.height + 2) + "px"; } };
       window.addEventListener("message", this._carbH);
     }
     if (typeof window !== "undefined" && CUSDIS_APP_ID) {
@@ -2796,7 +2950,7 @@ class Component extends DCLogic {
     if (st.page === "blog") return "/blog";
     if (st.page === "product") return "/shop/" + st.pi;
     if (st.page === "home") return "/";
-    if (st.page === "resources") return st.resSub ? ("/resources/" + (st.resSub === "calc" ? "food-calculator" : st.resSub === "pump" ? "aid-comparison" : "carb-gi-table")) : "/resources";
+    if (st.page === "resources") return st.resSub ? ("/resources/" + (st.resSub === "calc" ? "food-calculator" : st.resSub === "exer" ? "exercise-calculator" : st.resSub === "pump" ? "aid-comparison" : st.resSub === "cgm" ? "cgm-comparison" : st.resSub === "bsi" ? "blood-sugar-investigator" : "carb-gi-table")) : "/resources";
     if (["shop", "about", "contact"].indexOf(st.page) >= 0) return "/" + st.page;
     return "/";
   }
@@ -2810,7 +2964,7 @@ class Component extends DCLogic {
       this.setState({ page: "blog" }); return;
     }
     if (parts[0] === "shop" && parts[1]) { const pi = parseInt(parts[1], 10); this.setState({ page: "product", pi: isNaN(pi) ? 0 : pi }); return; }
-    if (parts[0] === "resources") { const m = { "food-calculator": "calc", "aid-comparison": "pump", "carb-gi-table": "carbs" }; this.setState({ page: "resources", resSub: parts[1] ? (m[parts[1]] || null) : null }); return; }
+    if (parts[0] === "resources") { const m = { "food-calculator": "calc", "exercise-calculator": "exer", "aid-comparison": "pump", "cgm-comparison": "cgm", "blood-sugar-investigator": "bsi", "carb-gi-table": "carbs" }; this.setState({ page: "resources", resSub: parts[1] ? (m[parts[1]] || null) : null }); return; }
     if (["shop", "about", "contact"].indexOf(parts[0]) >= 0) { this.setState({ page: parts[0] }); return; }
     this.setState({ page: "home" });
   }
@@ -2889,6 +3043,7 @@ class Component extends DCLogic {
       } else if (pg === "resources" && c.resourcesPage) {
         const rp = c.resourcesPage, sub = this.state.resSub;
         if (sub === "calc") { t = rp.calcTitle + " — " + brand; desc = rp.calcCardDesc || rp.intro || DEF_DESC; }
+        else if (sub === "exer") { t = rp.exerTitle + " — " + brand; desc = rp.exerCardDesc || rp.intro || DEF_DESC; }
         else if (sub === "pump") { t = rp.pumpTitle + " — " + brand; desc = rp.pumpCardDesc || rp.intro || DEF_DESC; }
         else if (sub === "carbs") { t = rp.carbTitle + " — " + brand; desc = rp.carbCardDesc || rp.intro || DEF_DESC; }
         else { t = rp.title + " — " + brand; desc = rp.intro || DEF_DESC; }
@@ -2923,6 +3078,7 @@ class Component extends DCLogic {
     setStatus("loading");
     const finish = () => setStatus("done");
     const rec = { email: email, lang: this.state.lang, source: source, groups: (opts.groups || []).join(","), consent: opts.consent ? "yes" : "", at: new Date().toISOString() };
+    if (opts.extra) Object.assign(rec, opts.extra);
     if (NEWSLETTER_ENDPOINT) {
       const body = Object.keys(rec).map(k => k + "=" + encodeURIComponent(rec[k])).join("&");
       fetch(NEWSLETTER_ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" }, body: body }).then(finish).catch(finish);
@@ -2959,12 +3115,22 @@ class Component extends DCLogic {
 
   subscribeExcel(e) { this._subscribe(e, "pump-excel", v => this.setState({ xlStatus: v }), { groups: ["t1d"], consent: true }); }
   subscribeDownload(e, source) { const g = source === "glow-guide" ? ["peri"] : ["peri"]; this._subscribe(e, source, v => this.setState(s => ({ dlStatus: { ...(s.dlStatus || {}), [source]: v } })), { groups: g, consent: true }); }
+  togglePumpSel(d) { this.setState(s => { const cur = { ...(s.pumpSel || {}) }; if (cur[d]) { delete cur[d]; } else { if (Object.keys(cur).length >= 4) return { pumpSel: cur }; cur[d] = true; } return { pumpSel: cur }; }); }
+  openPumpCompare() { this.setState({ pumpCompareOpen: true }); }
+  closePumpCompare() { this.setState({ pumpCompareOpen: false }); }
+  clearPumpSel() { this.setState({ pumpSel: {}, pumpCompareOpen: false, pcStatus: "idle" }); }
+  subscribePumpCompare(e) { const names = Object.keys(this.state.pumpSel || {}).join(" | "); this._subscribe(e, "pump-compare", v => this.setState({ pcStatus: v }), { groups: ["t1d"], consent: true, extra: { compare: names } }); }
 
   pumpData(lang, c) {
     const rp = c.resourcesPage;
     const TW = lang === "ua" ? { tubeless: "Без трубок", tubed: "З трубкою" } : { tubeless: "Tubeless", tubed: "Tubed" };
     const FLAG = { us: { bg: "#EEF3FB", fg: "#2A5B9E", l: "US" }, eu: { bg: "#ECF5EF", fg: "#2F7A52", l: "EU" }, uk: { bg: "#F5EDF6", fg: "#8A4A93", l: "UK" }, au: { bg: "#FCF1E9", fg: "#B26A34", l: "AU" } };
     const st = this.state;
+    const sel = st.pumpSel || {};
+    const selectedPumps = PUMPS.filter(p => sel[p.d]);
+    const selCount = selectedPumps.length;
+    const atCap = selCount >= 4;
+    const selBoxStyle = (on, disabled) => "flex: none; width: 20px; height: 20px; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: #FFFFFF; cursor: " + (disabled ? "not-allowed" : "pointer") + "; border: 1.5px solid " + (on ? "#B23A63" : (disabled ? "#EADFE7" : "#D8C6D2")) + "; background: " + (on ? "#B23A63" : (disabled ? "#F7F1F5" : "#FFFFFF")) + ";";
     const pass = p => (st.pumpType === "all" || p.t === st.pumpType) && (st.pumpAid === "all" || (st.pumpAid === "yes" ? p.aid : !p.aid)) && (st.pumpStatus === "all" || p.s === st.pumpStatus);
     const flagStyle = f => ({ display: "inline-flex", alignItems: "center", padding: "2px 7px", borderRadius: "5px", fontSize: "10.5px", fontWeight: 700, letterSpacing: "0.3px", background: f.bg, color: f.fg });
     const typeStyle = t => t === "tubeless"
@@ -2972,6 +3138,7 @@ class Component extends DCLogic {
       : { display: "inline-block", padding: "3px 10px", borderRadius: "999px", fontSize: "11.5px", fontWeight: 600, background: "#F3E9F0", color: "#8A3A5E", whiteSpace: "nowrap" };
     const map = p => ({
       device: p.d, maker: p.m, isPipe: p.s === "p", eta: p.eta || "", hasEta: !!p.eta,
+      selected: !!sel[p.d], onToggle: () => this.togglePumpSel(p.d), selBoxStyle: selBoxStyle(!!sel[p.d], atCap && !sel[p.d]),
       typeLabel: TW[p.t], typeStyle: typeStyle(p.t),
       aidYes: p.aid, aidNo: !p.aid, aidText: p.aid ? p.al : rp.openLoopLabel,
       cgm: p.cgm, reservoir: p.r, cost: p.cost,
@@ -2983,8 +3150,25 @@ class Component extends DCLogic {
     const pillBase = { padding: "6px 13px", borderRadius: "999px", border: "1px solid #E7DAE4", background: "#FFFFFF", fontFamily: "'Manrope', sans-serif", fontSize: "12.5px", fontWeight: 600, color: "#7A6675", cursor: "pointer", whiteSpace: "nowrap" };
     const pillActive = { ...pillBase, background: "#B23A63", borderColor: "#B23A63", color: "#FFFFFF" };
     const mk = (g, v, label) => ({ label, onClick: () => this.setState({ [g]: v }), style: st[g] === v ? pillActive : pillBase });
+    const availStr = p => p.rg.map(code => FLAG[code].l).join(" · ");
+    const statusStr = p => p.s === "p" ? (rp.fPipeline + (p.eta ? " · " + p.eta : "")) : rp.fAvail;
+    const cellsOf = fn => selectedPumps.map(p => ({ v: fn(p) }));
+    const cmpDevices = selectedPumps.map(p => ({ device: p.d, maker: p.m, isPipe: p.s === "p" }));
+    const cmpRows = [
+      { label: rp.colType, cells: cellsOf(p => TW[p.t]) },
+      { label: rp.colAid, cells: cellsOf(p => p.aid ? p.al : rp.openLoopLabel) },
+      { label: rp.colCgm, cells: cellsOf(p => p.cgm) },
+      { label: rp.colReservoir, cells: cellsOf(p => p.r) },
+      { label: rp.colAvail, cells: cellsOf(availStr) },
+      { label: rp.colStatus, cells: cellsOf(statusStr) },
+      { label: rp.colCost, cells: cellsOf(p => p.cost) }
+    ];
     return {
       avail, pipe, hasAvail: avail.length > 0, hasPipe: pipe.length > 0, noResults: filtered.length === 0, count: filtered.length,
+      hasSel: selCount > 0, selCount: selCount, canCompare: selCount >= 2, notEnough: selCount === 1, atCap: atCap,
+      selLabel: selCount + " " + rp.pumpSelected,
+      onCompare: () => this.openPumpCompare(), onClear: () => this.clearPumpSel(), onCloseCompare: () => this.closePumpCompare(),
+      compareOpen: !!st.pumpCompareOpen && selCount >= 2, cmpDevices: cmpDevices, cmpRows: cmpRows,
       statusPills: [mk("pumpStatus", "all", rp.fAll), mk("pumpStatus", "a", rp.fAvail), mk("pumpStatus", "p", rp.fPipeline)],
       typePills: [mk("pumpType", "all", rp.fAll), mk("pumpType", "tubeless", rp.fTubeless), mk("pumpType", "tubed", rp.fTubed)],
       aidPills: [mk("pumpAid", "all", rp.fAll), mk("pumpAid", "yes", rp.fClosed), mk("pumpAid", "no", rp.fOpen)]
@@ -3360,17 +3544,25 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       isResArea: page === "resources",
       isResLanding: page === "resources" && !this.state.resSub,
       isResCalc: page === "resources" && this.state.resSub === "calc",
+      isResExer: page === "resources" && this.state.resSub === "exer",
       isResPump: page === "resources" && this.state.resSub === "pump",
       isResCarb: page === "resources" && this.state.resSub === "carbs",
+      isResCgm: page === "resources" && this.state.resSub === "cgm",
+      isResBsi: page === "resources" && this.state.resSub === "bsi",
       resourceCards: [
         { tag: c.resourcesPage.calcTag, kicker: c.resourcesPage.calcKicker, title: c.resourcesPage.calcTitle, desc: c.resourcesPage.calcCardDesc, cta: c.resourcesPage.calcCardCta, bandBg: "#EAF4EC", bandFg: "#2F6B4A", onOpen: () => { this.setState({ page: "resources", resSub: "calc", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
+        { tag: c.resourcesPage.exerTag, kicker: c.resourcesPage.exerKicker, title: c.resourcesPage.exerTitle, desc: c.resourcesPage.exerCardDesc, cta: c.resourcesPage.exerCardCta, bandBg: "#FBEEE1", bandFg: "#9A5B22", onOpen: () => { this.setState({ page: "resources", resSub: "exer", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
         { tag: c.resourcesPage.pumpTag, kicker: c.resourcesPage.pumpKicker, title: c.resourcesPage.pumpTitle, desc: c.resourcesPage.pumpCardDesc, cta: c.resourcesPage.pumpCardCta, bandBg: "#F5EAF1", bandFg: "#8A2F5B", onOpen: () => { this.setState({ page: "resources", resSub: "pump", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
+        { tag: c.resourcesPage.cgmTag, kicker: c.resourcesPage.cgmKicker, title: c.resourcesPage.cgmTitle, desc: c.resourcesPage.cgmCardDesc, cta: c.resourcesPage.cgmCardCta, bandBg: "#E4F1F0", bandFg: "#1F6B66", onOpen: () => { this.setState({ page: "resources", resSub: "cgm", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
+        { tag: c.resourcesPage.bsiTag, kicker: c.resourcesPage.bsiKicker, title: c.resourcesPage.bsiTitle, desc: c.resourcesPage.bsiCardDesc, cta: c.resourcesPage.bsiCardCta, bandBg: "#FBF0F4", bandFg: "#B23A63", onOpen: () => { this.setState({ page: "resources", resSub: "bsi", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
         { tag: c.resourcesPage.carbTag, kicker: c.resourcesPage.carbKicker, title: c.resourcesPage.carbTitle, desc: c.resourcesPage.carbCardDesc, cta: c.resourcesPage.carbCardCta, bandBg: "#EAF0F6", bandFg: "#2A5B7A", onOpen: () => { this.setState({ page: "resources", resSub: "carbs", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } }
       ],
       rp: c.resourcesPage,
       a2hs: c.a2hs,
       saveToHome: () => this.saveToHome(),
       carbSrc: (lang === "ua" ? "/carb-gi-table-ua.html" : "/carb-gi-table.html"),
+      cgmSrc: (lang === "ua" ? "/cgm-comparison-ua.html" : "/cgm-comparison.html"),
+      bsiSrc: (lang === "ua" ? "/blood-sugar-investigator-ua.html" : "/blood-sugar-investigator.html"),
       pumps: this.pumpData(lang, c),
       downloadCards: [c.blog.resources.glow, c.blog.resources.supp].map((r, i) => { const src = i === 0 ? "glow-guide" : "supplement-sheet"; const stt = (this.state.dlStatus || {})[src]; return { ...r, source: src, done: stt === "done", notDone: stt !== "done", error: stt === "error", onSubmit: (ev) => this.subscribeDownload(ev, src) }; }),
       isProduct: page === "product",
@@ -3421,6 +3613,10 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       xlDone: this.state.xlStatus === "done",
       xlNotDone: this.state.xlStatus !== "done",
       xlError: this.state.xlStatus === "error",
+      subscribePumpCompare: (e) => this.subscribePumpCompare(e),
+      pcDone: this.state.pcStatus === "done",
+      pcNotDone: this.state.pcStatus !== "done",
+      pcError: this.state.pcStatus === "error",
       nlDone: this.state.nlStatus === "done",
       nlNotDone: this.state.nlStatus !== "done",
       nlGroupsList: (c.nlGroups || []).map(g => {
