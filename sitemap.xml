@@ -2,7 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://lenafilatova.co.uk/</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-05</lastmod>
+  </url>
+  <url>
+    <loc>https://lenafilatova.co.uk/carb-gi-table.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lenafilatova.co.uk/carb-gi-table.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://lenafilatova.co.uk/carb-gi-table-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lenafilatova.co.uk/carb-gi-table.html"/>
+  </url>
+  <url>
+    <loc>https://lenafilatova.co.uk/carb-gi-table-ua.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://lenafilatova.co.uk/carb-gi-table.html"/>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://lenafilatova.co.uk/carb-gi-table-ua.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://lenafilatova.co.uk/carb-gi-table.html"/>
   </url>
   <url>
     <loc>https://lenafilatova.co.uk/blog/type-2-diabetes-research/</loc>
@@ -17,20 +31,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://lenafilatova.co.uk/blog/type-2-diabetes-research/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://lenafilatova.co.uk/ua/blog/type-2-diabetes-research/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lenafilatova.co.uk/blog/type-2-diabetes-research/"/>
-  </url>
-  <url>
-    <loc>https://lenafilatova.co.uk/blog/perimenopause-diabetes-blood-sugar/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lenafilatova.co.uk/blog/perimenopause-diabetes-blood-sugar/"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://lenafilatova.co.uk/ua/blog/perimenopause-diabetes-blood-sugar/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lenafilatova.co.uk/blog/perimenopause-diabetes-blood-sugar/"/>
-  </url>
-  <url>
-    <loc>https://lenafilatova.co.uk/ua/blog/perimenopause-diabetes-blood-sugar/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lenafilatova.co.uk/blog/perimenopause-diabetes-blood-sugar/"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://lenafilatova.co.uk/ua/blog/perimenopause-diabetes-blood-sugar/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lenafilatova.co.uk/blog/perimenopause-diabetes-blood-sugar/"/>
   </url>
   <url>
     <loc>https://lenafilatova.co.uk/blog/collagen-and-skin/</loc>
@@ -59,20 +59,6 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://lenafilatova.co.uk/blog/perimenopause-weight-myths/"/>
     <xhtml:link rel="alternate" hreflang="uk" href="https://lenafilatova.co.uk/ua/blog/perimenopause-weight-myths/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://lenafilatova.co.uk/blog/perimenopause-weight-myths/"/>
-  </url>
-  <url>
-    <loc>https://lenafilatova.co.uk/blog/reading-glucose-patterns/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lenafilatova.co.uk/blog/reading-glucose-patterns/"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://lenafilatova.co.uk/ua/blog/reading-glucose-patterns/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lenafilatova.co.uk/blog/reading-glucose-patterns/"/>
-  </url>
-  <url>
-    <loc>https://lenafilatova.co.uk/ua/blog/reading-glucose-patterns/</loc>
-    <lastmod>2026-07-03</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://lenafilatova.co.uk/blog/reading-glucose-patterns/"/>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://lenafilatova.co.uk/ua/blog/reading-glucose-patterns/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://lenafilatova.co.uk/blog/reading-glucose-patterns/"/>
   </url>
   <url>
     <loc>https://lenafilatova.co.uk/blog/protein-for-women-over-40/</loc>
