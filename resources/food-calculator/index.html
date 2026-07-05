@@ -539,10 +539,10 @@
               </thead>
               <tbody>
                 <sc-for list="{{ pumps.cmpRows }}" as="row" hint-placeholder-count="7">
-                  <tr style="border-bottom: 1px solid #F0E5EE;">
-                    <td style="position: sticky; left: 0; z-index: 1; background: #FBFAFC; padding: 12px 16px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #8A6E86; border-right: 1px solid #EDE0EA; white-space: nowrap;">{{ row.label }}</td>
+                  <tr>
+                    <td style="{{ row.labelStyle }}">{{ row.label }}</td>
                     <sc-for list="{{ row.cells }}" as="cell" hint-placeholder-count="2">
-                      <td style="padding: 12px 16px; font-size: 13px; color: #4A3A46; vertical-align: top;">{{ cell.v }}</td>
+                      <td style="{{ cell.style }}">{{ cell.v }}</td>
                     </sc-for>
                   </tr>
                 </sc-for>
@@ -1476,6 +1476,77 @@ const PUMPS = [
   {s:"p",d:"Luna Patch Pump",m:"Luna Health",t:"tubeless",aid:true,al:"Closed loop (night)",cgm:"iCGM",r:"TBC",rg:["us"],cost:"TBC",eta:"TBC"},
   {s:"p",d:"Kaleido 2 + DBLG2",m:"Diabeloop",t:"tubed",aid:true,al:"DBLG2",cgm:"Dexcom G6/G7",r:"200 u",rg:["eu"],cost:"TBC",eta:"End 2026"}
 ];
+// Detailed spec comparison data (from Lena's 2026 AID spreadsheet). Keyed to the
+// PUMPS device names below; systems not listed here show "—" for these rows.
+// Order of every array: t:slim X2, Tandem Mobi, MiniMed 780G, Dana-i, Ypsopump,
+// Omnipod 5, iLet, twiist, DBLG2+Kaleido.
+const DEEP_ORDER = ["Tandem t:slim X2", "Tandem Mobi", "MiniMed 780G", "Dana-i + Diabeloop", "mylife YpsoPump + CamAPS FX", "Omnipod 5", "iLet Bionic Pancreas", "twiist", "Kaleido 2 + DBLG2"];
+const DEEP_FIELDS = {
+  manufacturer: ["Tandem", "Tandem", "Medtronic", "Sooil", "Ypsomed", "Insulet", "Beta Bionics", "Sequel Med Tech", "Diabeloop / ViCentra"],
+  form: ["Traditional pump", "Smallest tubed pump — no screen; phone-controlled", "Traditional pump", "Traditional pump", "Traditional pump", "Wearable pod (no tubing)", "Dedicated device (no phone needed)", "Traditional pump — Oreo-sized body", "Kaleido patch: compact, waterproof"],
+  infusion: ["Luer-lock (any standard set incl. steel)", "Luer-lock", "Luer-lock", "Proprietary Dana connector (incl. steel)", "Luer-lock", "Integrated (no tubing)", "Proprietary 90° soft or steel", "Luer-lock (Cleo 90 compat.)", "Integrated Kaleido cannula"],
+  steel: ["✅ Yes", "✅ Yes", "✅ Yes", "✅ Yes (key NHS advantage)", "✅ Yes", "❌ No (pod only)", "✅ Yes (steel needle option)", "✅ Yes", "⚠️ Check Kaleido options"],
+  waterproof: ["IPX7 (1 m / 30 min)", "IPX7", "IPX7", "IPX8 (1 m / 60 min)", "IPX8", "IPX8 (pod)", "IPX7", "IPX7", "IP27 (Kaleido)"],
+  age: ["≥2 yrs (T1D); adults T2D", "≥2 yrs (T1D); adults T2D", "≥7 yrs T1D; adults T2D", "≥1 yr (CamAPS label)", "≥1 yr (CamAPS label)", "≥2 yrs T1D; adults T2D", "≥6 yrs T1D", "≥6 yrs T1D", "≥18 yrs (check label)"],
+  algo: ["Control-IQ+", "Control-IQ+", "SmartGuard (SmartAdjust)", "CamAPS FX", "CamAPS FX", "SmartAdjust", "Bionic Pancreas", "Tidepool Loop", "DBLG2"],
+  runsOn: ["On pump", "On pump", "On pump", "Phone (iOS & Android)", "Phone (iOS & Android)", "Phone (iOS & Android) + pod", "On dedicated device (no phone)", "Phone (iOS & Apple Watch)", "Phone (Android; iOS in dev)"],
+  horizon: ["30 min", "30 min", "~5 min (reactive) + prediction", "2.5–4 h", "2.5–4 h", "60 min", "Continuous autonomous learning", "~30–60 min", "~1–2 h (self-learning)"],
+  interval: ["Every 5 min", "Every 5 min", "Every 5 min", "Every 8–12 min", "Every 8–12 min", "Every 5 min", "Every 5 min", "Every 5 min", "Every 5 min"],
+  carb: ["✅ Yes", "✅ Yes", "✅ Yes", "✅ Yes (bolus calc)", "✅ Yes (bolus calc)", "✅ Yes", "❌ No — announce meal size (S/M/L)", "✅ Yes (or preset meals)", "⚠️ Optional (~9% skippable)"],
+  basal: ["✅ Yes", "✅ Yes", "✅ Yes", "✅ Yes", "✅ Yes", "✅ Yes", "❌ No — auto-learns basal", "⚠️ No fixed basal — managed live", "❌ No — adapts automatically"],
+  defTarget: ["6.25 mmol/L (mode-based)", "6.25 mmol/L (mode-based)", "5.5 mmol/L (most aggressive)", "5.8 mmol/L", "5.8 mmol/L", "6.1 mmol/L", "Choose 6.1 / 6.7 / 7.2", "User-set within range", "~6.0 mmol/L (algo-set)"],
+  range: ["Fixed per mode", "Fixed per mode", "5.5 – 7.2 mmol/L", "4.4 – 11.1 mmol/L (widest NHS)", "4.4 – 11.1 mmol/L (widest NHS)", "6.1 mmol/L (limited)", "6.1 / 6.7 / 7.2 only", "4.8 – 10.0 mmol/L (widest)", "~5.5 – 8.0 mmol/L"],
+  flex: ["⭐⭐ Limited", "⭐⭐ Limited", "⭐⭐⭐ Moderate", "⭐⭐⭐⭐⭐ Highest", "⭐⭐⭐⭐⭐ Highest", "⭐⭐ Limited", "⭐⭐ 3 presets only", "⭐⭐⭐⭐⭐ Widest", "⭐⭐⭐ Auto-managed"],
+  sleep: ["✅ Sleep Mode (~5.6–6.7)", "✅ Sleep Mode", "✅ Auto (no lower target)", "✅ Target adjustable lower", "✅ Target adjustable lower", "✅ Activity changes target", "❌ Single autonomous mode", "✅ Override in Loop", "✅ Self-learns overnight"],
+  exercise: ["✅ Exercise Mode (~7.8–8.9, to 24h)", "✅ Exercise Mode", "✅ Temp Target (to 8.3)", "✅ Ease-off +2–3; Boost –1", "✅ Ease-off +2–3; Boost –1", "✅ Activity mode (8.3)", "⚠️ No specific mode", "✅ Override higher via Loop", "⚠️ Limited (update planned)"],
+  pregnancy: ["✅ US: FDA approved (Apr 2026)", "⚠️ Not yet", "✅ US: being added", "✅ CamAPS pregnancy mode", "✅ CamAPS pregnancy mode", "❌ Not indicated", "❌ Not indicated", "❌ Not cleared", "❌ Not cleared"],
+  otherModes: ["Meal bolus auto-correction", "Same as t:slim X2", "Auto basal suspend; Overrides", "Boost / Ease-off control", "Boost / Ease-off control", "Meal Reminder; Snack mode", "Meal announcement only", "Meal presets; Watch bolus", "Optional meal announcement"],
+  phone: ["❌ Pump screen (iOS data app)", "✅ iPhone controller", "❌ Pump + Guardian app", "✅ CamAPS app (iOS & Android)", "✅ CamAPS app (iOS & Android)", "✅ Omnipod app (iOS & Android)", "❌ Pump screen only", "✅ iPhone / Apple Watch", "✅ Android (DBLG2 app)"],
+  watch: ["❌ No", "⚠️ View only", "❌ No", "⚠️ View only", "⚠️ View only", "⚠️ View only", "❌ No", "✅ Full control (first AID)", "❌ No"],
+  remote: ["Dexcom Follow; Tandem Source", "Dexcom Follow; Tandem Source", "CareLink; Guardian Follow", "CamAPS; Nightscout", "CamAPS; Nightscout", "Omnipod app; Dexcom Follow", "Beta Bionics HCP portal", "Tidepool platform", "Diabeloop platform"],
+  diy: ["❌ Closed", "❌ Closed", "❌ Closed", "✅ AndroidAPS, Loop, Trio", "⚠️ Limited AndroidAPS", "❌ Closed", "❌ Closed", "✅ Open-source Tidepool Loop", "❌ Closed"],
+  ukNhs: ["✅ NHS #3 (TA943)", "❌ Not approved", "✅ NHS #4 (TA943)", "✅ NHS #1 (TA943)", "✅ NHS #2 (TA943)", "✅ NHS #5 (TA943)", "❌ US only", "❌ US only", "❌ Not yet (EU 2026)"],
+  usFda: ["✅ Approved", "✅ Approved", "✅ Approved", "❌ Not cleared", "❌ Not cleared", "✅ Approved", "✅ Approved (≥6 yrs)", "✅ Cleared (2024)", "✅ 510(k) Dec 2025"],
+  euCe: ["✅ CE marked", "❌ US only", "✅ CE marked", "✅ CE marked", "✅ CE marked", "✅ CE marked", "❌ US only", "❌ US only", "✅ CE MDR (Aug 2025)"]
+};
+const DEEP = {};
+DEEP_ORDER.forEach((d, i) => { DEEP[d] = {}; Object.keys(DEEP_FIELDS).forEach(f => { DEEP[d][f] = DEEP_FIELDS[f][i]; }); });
+// Row order + bilingual labels for the detailed comparison. Items with `cat` are
+// section headers; items with `key` pull that field out of DEEP.
+const DEEP_ROWS = [
+  { cat: { en: "Basics", ua: "Основне" } },
+  { key: "manufacturer", en: "Manufacturer", ua: "Виробник" },
+  { key: "form", en: "Form factor", ua: "Форм-фактор" },
+  { key: "infusion", en: "Infusion set", ua: "Інфузійний набір" },
+  { key: "steel", en: "Steel cannula", ua: "Сталева канюля" },
+  { key: "waterproof", en: "Waterproof", ua: "Водозахист" },
+  { key: "age", en: "Age indication", ua: "Вік застосування" },
+  { cat: { en: "Algorithm", ua: "Алгоритм" } },
+  { key: "algo", en: "Algorithm", ua: "Алгоритм" },
+  { key: "runsOn", en: "Runs on", ua: "Працює на" },
+  { key: "horizon", en: "Prediction horizon", ua: "Горизонт прогнозу" },
+  { key: "interval", en: "Dosing interval", ua: "Інтервал дозування" },
+  { key: "carb", en: "Carb entry needed", ua: "Потрібні вуглеводи" },
+  { key: "basal", en: "Basal programming", ua: "Програмування базалу" },
+  { cat: { en: "Glucose targets", ua: "Цільова глюкоза" } },
+  { key: "defTarget", en: "Default target", ua: "Ціль за замовч." },
+  { key: "range", en: "Adjustable range", ua: "Діапазон цілі" },
+  { key: "flex", en: "Target flexibility", ua: "Гнучкість цілі" },
+  { cat: { en: "Modes & exercise", ua: "Режими та спорт" } },
+  { key: "sleep", en: "Sleep / overnight", ua: "Нічний режим" },
+  { key: "exercise", en: "Exercise mode", ua: "Режим активності" },
+  { key: "pregnancy", en: "Pregnancy mode", ua: "Режим вагітності" },
+  { key: "otherModes", en: "Other modes", ua: "Інші режими" },
+  { cat: { en: "Usability", ua: "Зручність" } },
+  { key: "phone", en: "Phone control", ua: "Керування з телефона" },
+  { key: "watch", en: "Apple Watch", ua: "Apple Watch" },
+  { key: "remote", en: "Remote monitoring", ua: "Віддалений моніторинг" },
+  { key: "diy", en: "DIY / open-source", ua: "DIY / відкритий код" },
+  { cat: { en: "Approval", ua: "Схвалення" } },
+  { key: "ukNhs", en: "UK / NHS", ua: "Велика Британія / NHS" },
+  { key: "usFda", en: "US / FDA", ua: "США / FDA" },
+  { key: "euCe", en: "EU / CE mark", ua: "ЄС / CE" }
+];
 const PRODSRC = ["/images/glow-up-after-40-nutrition-program.jpg", "/images/effortless-meal-plans-women-over-40.jpg", "/images/personal-nutrition-coaching-perimenopause.jpg"];
 const BLOGSRC = ["/images/type-2-diabetes-research-meal-order.jpg", "/images/blood-sugar-perimenopause-metabolism.jpg", "/images/collagen-supplements-skin-women-over-40.jpg", "/images/perimenopause-weight-gain-myths.jpg", "/images/how-to-read-glucose-patterns-diabetes.jpg", "/images/protein-for-women-over-40.jpg"];
 
@@ -1533,7 +1604,7 @@ const CONTENT = {
       pumpSub: "Every major Automated Insulin Delivery (AID) system and insulin pump, side by side — available now and in the pipeline. AID pairs a pump with a CGM to adjust insulin automatically. Filter by type, AID (closed-loop) and status. Free to browse.",
       colDevice: "Device", colType: "Type", colAid: "AID system", colCgm: "CGM", colReservoir: "Reservoir", colAvail: "Availability", colCost: "Approx. cost", colStatus: "Status",
       colPick: "Pick", pumpSelected: "selected", pumpCompareCta: "Compare selected", pumpClear: "Clear", pumpCompareHint: "Tick one more to compare", pumpCapHint: "Up to 4 at a time",
-      pumpCompareTitle: "Your side-by-side", pumpCompareClose: "Close",
+      pumpCompareTitle: "Your side-by-side", pumpCompareClose: "Close", pumpCatOverview: "Overview",
       pumpCompareEmailTitle: "Email me this comparison", pumpCompareEmailSub: "Get this side-by-side plus the full 2026 spreadsheet — handy to keep or take to your next appointment.", pumpCompareEmailCta: "Email me this comparison",
       fltStatus: "Status", fltType: "Type", fltAid: "AID",
       fAll: "All", fAvail: "Available now", fPipeline: "Pipeline", fTubeless: "Tubeless", fTubed: "Tubed", fClosed: "Closed loop", fOpen: "Open loop",
@@ -2224,7 +2295,7 @@ const CONTENT = {
       pumpSub: "Усі основні системи автоматичної подачі інсуліну (AID) та інсулінові помпи поряд — доступні зараз і в розробці. AID поєднує помпу із CGM, щоб автоматично керувати подачею інсуліну. Фільтруйте за типом, AID (замкнений контур) і статусом. Читайте безкоштовно.",
       colDevice: "Пристрій", colType: "Тип", colAid: "Система AID", colCgm: "CGM", colReservoir: "Резервуар", colAvail: "Доступність", colCost: "Орієнт. ціна", colStatus: "Статус",
       colPick: "Вибір", pumpSelected: "вибрано", pumpCompareCta: "Порівняти вибране", pumpClear: "Очистити", pumpCompareHint: "Позначте ще один для порівняння", pumpCapHint: "До 4 одночасно",
-      pumpCompareTitle: "Ваше порівняння", pumpCompareClose: "Закрити",
+      pumpCompareTitle: "Ваше порівняння", pumpCompareClose: "Закрити", pumpCatOverview: "Огляд",
       pumpCompareEmailTitle: "Надішліть мені це порівняння", pumpCompareEmailSub: "Отримайте це порівняння та повну таблицю на 2026 рік — зручно зберегти чи взяти на прийом до лікаря.", pumpCompareEmailCta: "Надіслати мені це порівняння",
       fltStatus: "Статус", fltType: "Тип", fltAid: "AID",
       fAll: "Усі", fAvail: "Доступні", fPipeline: "У розробці", fTubeless: "Без трубок", fTubed: "З трубкою", fClosed: "Замкнений контур", fOpen: "Відкритий контур",
@@ -3152,17 +3223,28 @@ class Component extends DCLogic {
     const mk = (g, v, label) => ({ label, onClick: () => this.setState({ [g]: v }), style: st[g] === v ? pillActive : pillBase });
     const availStr = p => p.rg.map(code => FLAG[code].l).join(" · ");
     const statusStr = p => p.s === "p" ? (rp.fPipeline + (p.eta ? " · " + p.eta : "")) : rp.fAvail;
-    const cellsOf = fn => selectedPumps.map(p => ({ v: fn(p) }));
     const cmpDevices = selectedPumps.map(p => ({ device: p.d, maker: p.m, isPipe: p.s === "p" }));
+    const dl = lang === "ua" ? "ua" : "en";
+    const catLabelStyle = "position: sticky; left: 0; z-index: 1; background: #F1E6EE; padding: 10px 16px; font-size: 11px; font-weight: 800; letter-spacing: 0.6px; text-transform: uppercase; color: #8A2F5B; border-right: 1px solid #E6D0DF; white-space: nowrap;";
+    const catCellStyle = "background: #F1E6EE; border-bottom: 1px solid #E6D0DF;";
+    const dataLabelStyle = "position: sticky; left: 0; z-index: 1; background: #FBFAFC; padding: 12px 16px; font-size: 11.5px; font-weight: 700; color: #6A5668; border-right: 1px solid #EDE0EA; white-space: nowrap;";
+    const dataCellStyle = "padding: 12px 16px; font-size: 13px; color: #4A3A46; vertical-align: top; border-bottom: 1px solid #F0E5EE;";
+    const dataRow = (label, fn) => ({ label: label, labelStyle: dataLabelStyle, cells: selectedPumps.map(p => ({ v: fn(p), style: dataCellStyle })) });
+    const catRow = (label) => ({ label: label, labelStyle: catLabelStyle, cells: selectedPumps.map(() => ({ v: "", style: catCellStyle })) });
     const cmpRows = [
-      { label: rp.colType, cells: cellsOf(p => TW[p.t]) },
-      { label: rp.colAid, cells: cellsOf(p => p.aid ? p.al : rp.openLoopLabel) },
-      { label: rp.colCgm, cells: cellsOf(p => p.cgm) },
-      { label: rp.colReservoir, cells: cellsOf(p => p.r) },
-      { label: rp.colAvail, cells: cellsOf(availStr) },
-      { label: rp.colStatus, cells: cellsOf(statusStr) },
-      { label: rp.colCost, cells: cellsOf(p => p.cost) }
+      catRow(rp.pumpCatOverview),
+      dataRow(rp.colType, p => TW[p.t]),
+      dataRow(rp.colAid, p => p.aid ? p.al : rp.openLoopLabel),
+      dataRow(rp.colCgm, p => p.cgm),
+      dataRow(rp.colReservoir, p => p.r),
+      dataRow(rp.colAvail, availStr),
+      dataRow(rp.colStatus, statusStr),
+      dataRow(rp.colCost, p => p.cost)
     ];
+    DEEP_ROWS.forEach(r => {
+      if (r.cat) cmpRows.push(catRow(r.cat[dl]));
+      else cmpRows.push(dataRow(r[dl], p => (DEEP[p.d] && DEEP[p.d][r.key] != null) ? DEEP[p.d][r.key] : "—"));
+    });
     return {
       avail, pipe, hasAvail: avail.length > 0, hasPipe: pipe.length > 0, noResults: filtered.length === 0, count: filtered.length,
       hasSel: selCount > 0, selCount: selCount, canCompare: selCount >= 2, notEnough: selCount === 1, atCap: atCap,
