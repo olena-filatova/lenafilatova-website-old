@@ -470,6 +470,19 @@
     </div>
     </sc-if>
 
+    <sc-if value="{{ isResBsi }}" hint-placeholder-val="{{ false }}">
+    <span onClick="{{ backResources }}" style="cursor: pointer; display: inline-block; margin-bottom: 28px; font-size: 14px; font-weight: 600; color: #7A6675;">← {{ rp.backLabel }}</span>
+    <div style="margin-bottom: 8px;">
+      <h1 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-weight: 500; font-size: 40px; letter-spacing: -0.4px;">{{ rp.bsiTitle }}</h1>
+      <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; color: #6A5668; max-width: 640px;">{{ rp.bsiSub }}</p>
+      <div style="margin: 0 0 26px;"><button onClick="{{ saveToHome }}" style="display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid #E1C6D6; background: #FFFFFF; color: #B23A63; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 999px; cursor: pointer;">{{ a2hs.button }}</button></div>
+      <div style="border: 1px solid #EDE0EA; border-radius: 16px; overflow: hidden; background: #F1F8F3; box-shadow: 0 1px 3px rgba(51,27,51,0.04);">
+        <iframe id="bsi-frame" src="{{ bsiSrc }}" title="Blood Sugar Investigator" loading="lazy" style="display: block; width: 100%; height: 900px; border: 0;"></iframe>
+      </div>
+      <p style="margin: 12px 2px 0; font-size: 12.5px; line-height: 1.5; color: #9A8896;">{{ rp.bsiDisclaimer }}</p>
+    </div>
+    </sc-if>
+
     <sc-if value="{{ isResPump }}" hint-placeholder-val="{{ false }}">
     <span onClick="{{ backResources }}" style="cursor: pointer; display: inline-block; margin-bottom: 28px; font-size: 14px; font-weight: 600; color: #7A6675;">← {{ rp.backLabel }}</span>
     <div style="margin-bottom: 24px;">
@@ -1440,6 +1453,13 @@ const CONTENT = {
       cgmCardDesc: "Every major continuous glucose monitor side by side — Abbott, Dexcom, Medtronic and more. Compare wear time, calibration, alerts and AID compatibility.",
       cgmCardCta: "Open the comparison",
       cgmDisclaimer: "Educational comparison only — not medical advice or an endorsement. Cost is approximate and varies by country, insurance and funding status. Availability and pipeline timelines change with regulatory approval. Please discuss your CGM choice with your diabetes care team.",
+      bsiTag: "Interactive",
+      bsiKicker: "Troubleshooter",
+      bsiTitle: "Blood Sugar Investigator",
+      bsiSub: "Blood sugar too high or too low and not sure why? This free step-by-step tool walks you through 40+ possible causes — food, insulin, hormones, illness, stress, sleep, exercise and more — one simple question at a time, then gives clear next steps and a summary you can share with your diabetes team.",
+      bsiCardDesc: "A guided troubleshooter for an unexpected high or low. Answer simple questions and get the most likely cause, what to do, and a summary to share with your diabetes team.",
+      bsiCardCta: "Start the investigation",
+      bsiDisclaimer: "Educational tool only — not medical advice, a diagnosis, or a substitute for your diabetes team. It cannot account for your full medical history or medications. Never change your treatment based on this tool alone. If you feel seriously unwell, seek medical help immediately.",
       carbDisclaimer: "GI values come from published databases and are estimates — they vary with ripeness, cooking method and individual response. For general information only, not medical advice. Please consult your diabetes care team.",
       calcOpenNew: "Not loading? Open the calculator in a new tab",
       calcDisclaimer: "This calculator is for general information only — it is not a medical tool and does not give medical advice. Please consult your doctor or diabetes care team with any questions about your health.",
@@ -2121,6 +2141,13 @@ const CONTENT = {
       cgmCardDesc: "Усі основні монітори глюкози безперервної дії поряд — Abbott, Dexcom, Medtronic та інші. Порівняйте час носіння, калібрування, сповіщення й сумісність з AID.",
       cgmCardCta: "Відкрити порівняння",
       cgmDisclaimer: "Лише освітнє порівняння — не медична порада та не рекомендація. Ціна орієнтовна й залежить від країни, страховки та статусу фінансування. Доступність і терміни для продуктів у розробці змінюються з регуляторним схваленням. Будь ласка, обговоріть вибір CGM зі своєю діабетичною командою.",
+      bsiTag: "Інтерактивний",
+      bsiKicker: "Помічник",
+      bsiTitle: "Дослідник цукру в крові",
+      bsiSub: "Цукор надто високий чи низький, а причина незрозуміла? Цей безкоштовний покроковий інструмент проведе вас через 40+ можливих причин — їжа, інсулін, гормони, хвороба, стрес, сон, навантаження та інше — по одному простому запитанню за раз, а потім дасть чіткі кроки й підсумок, яким можна поділитися з діабетичною командою.",
+      bsiCardDesc: "Покроковий помічник для несподіваного підйому чи гіпо. Дайте відповіді на прості запитання й отримайте найімовірнішу причину, що робити, і підсумок для діабетичної команди.",
+      bsiCardCta: "Почати дослідження",
+      bsiDisclaimer: "Лише освітній інструмент — не медична порада, не діагноз і не заміна вашій діабетичній команді. Він не може врахувати вашу повну історію хвороби чи ліки. Ніколи не змінюйте лікування, спираючись лише на цей інструмент. Якщо почуваєтеся серйозно погано, негайно зверніться по медичну допомогу.",
       carbDisclaimer: "Значення ГІ взято з опублікованих баз даних і є приблизними — вони залежать від стиглості, способу приготування та індивідуальної реакції. Лише для загальної інформації, не медична порада. Звертайтеся до своєї команди з догляду за діабетом.",
       calcOpenNew: "Не завантажується? Відкрийте калькулятор у новій вкладці",
       calcDisclaimer: "Цей калькулятор надано лише для загальної інформації — це не медичний інструмент і він не надає медичних порад. З будь-якими питаннями щодо здоров'я звертайтеся до свого лікаря або команди з догляду за діабетом.",
@@ -2795,7 +2822,7 @@ class Component extends DCLogic {
     }
     this.syncSeo();
     if (typeof window !== "undefined") {
-      this._carbH = (e) => { if (!e || !e.data) return; if (e.data.type === "carbgi-height") { const f = document.getElementById("carb-gi-frame"); if (f && e.data.height) f.style.height = (e.data.height + 2) + "px"; } else if (e.data.type === "cgm-height") { const f = document.getElementById("cgm-frame"); if (f && e.data.height) f.style.height = (e.data.height + 2) + "px"; } };
+      this._carbH = (e) => { if (!e || !e.data) return; if (e.data.type === "carbgi-height") { const f = document.getElementById("carb-gi-frame"); if (f && e.data.height) f.style.height = (e.data.height + 2) + "px"; } else if (e.data.type === "cgm-height") { const f = document.getElementById("cgm-frame"); if (f && e.data.height) f.style.height = (e.data.height + 2) + "px"; } else if (e.data.type === "bsi-height") { const f = document.getElementById("bsi-frame"); if (f && e.data.height) f.style.height = (e.data.height + 2) + "px"; } };
       window.addEventListener("message", this._carbH);
     }
     if (typeof window !== "undefined" && CUSDIS_APP_ID) {
@@ -2855,7 +2882,7 @@ class Component extends DCLogic {
     if (st.page === "blog") return "/blog";
     if (st.page === "product") return "/shop/" + st.pi;
     if (st.page === "home") return "/";
-    if (st.page === "resources") return st.resSub ? ("/resources/" + (st.resSub === "calc" ? "food-calculator" : st.resSub === "exer" ? "exercise-calculator" : st.resSub === "pump" ? "aid-comparison" : st.resSub === "cgm" ? "cgm-comparison" : "carb-gi-table")) : "/resources";
+    if (st.page === "resources") return st.resSub ? ("/resources/" + (st.resSub === "calc" ? "food-calculator" : st.resSub === "exer" ? "exercise-calculator" : st.resSub === "pump" ? "aid-comparison" : st.resSub === "cgm" ? "cgm-comparison" : st.resSub === "bsi" ? "blood-sugar-investigator" : "carb-gi-table")) : "/resources";
     if (["shop", "about", "contact"].indexOf(st.page) >= 0) return "/" + st.page;
     return "/";
   }
@@ -2869,7 +2896,7 @@ class Component extends DCLogic {
       this.setState({ page: "blog" }); return;
     }
     if (parts[0] === "shop" && parts[1]) { const pi = parseInt(parts[1], 10); this.setState({ page: "product", pi: isNaN(pi) ? 0 : pi }); return; }
-    if (parts[0] === "resources") { const m = { "food-calculator": "calc", "exercise-calculator": "exer", "aid-comparison": "pump", "cgm-comparison": "cgm", "carb-gi-table": "carbs" }; this.setState({ page: "resources", resSub: parts[1] ? (m[parts[1]] || null) : null }); return; }
+    if (parts[0] === "resources") { const m = { "food-calculator": "calc", "exercise-calculator": "exer", "aid-comparison": "pump", "cgm-comparison": "cgm", "blood-sugar-investigator": "bsi", "carb-gi-table": "carbs" }; this.setState({ page: "resources", resSub: parts[1] ? (m[parts[1]] || null) : null }); return; }
     if (["shop", "about", "contact"].indexOf(parts[0]) >= 0) { this.setState({ page: parts[0] }); return; }
     this.setState({ page: "home" });
   }
@@ -3424,11 +3451,13 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       isResPump: page === "resources" && this.state.resSub === "pump",
       isResCarb: page === "resources" && this.state.resSub === "carbs",
       isResCgm: page === "resources" && this.state.resSub === "cgm",
+      isResBsi: page === "resources" && this.state.resSub === "bsi",
       resourceCards: [
         { tag: c.resourcesPage.calcTag, kicker: c.resourcesPage.calcKicker, title: c.resourcesPage.calcTitle, desc: c.resourcesPage.calcCardDesc, cta: c.resourcesPage.calcCardCta, bandBg: "#EAF4EC", bandFg: "#2F6B4A", onOpen: () => { this.setState({ page: "resources", resSub: "calc", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
         { tag: c.resourcesPage.exerTag, kicker: c.resourcesPage.exerKicker, title: c.resourcesPage.exerTitle, desc: c.resourcesPage.exerCardDesc, cta: c.resourcesPage.exerCardCta, bandBg: "#FBEEE1", bandFg: "#9A5B22", onOpen: () => { this.setState({ page: "resources", resSub: "exer", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
         { tag: c.resourcesPage.pumpTag, kicker: c.resourcesPage.pumpKicker, title: c.resourcesPage.pumpTitle, desc: c.resourcesPage.pumpCardDesc, cta: c.resourcesPage.pumpCardCta, bandBg: "#F5EAF1", bandFg: "#8A2F5B", onOpen: () => { this.setState({ page: "resources", resSub: "pump", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
         { tag: c.resourcesPage.cgmTag, kicker: c.resourcesPage.cgmKicker, title: c.resourcesPage.cgmTitle, desc: c.resourcesPage.cgmCardDesc, cta: c.resourcesPage.cgmCardCta, bandBg: "#E4F1F0", bandFg: "#1F6B66", onOpen: () => { this.setState({ page: "resources", resSub: "cgm", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
+        { tag: c.resourcesPage.bsiTag, kicker: c.resourcesPage.bsiKicker, title: c.resourcesPage.bsiTitle, desc: c.resourcesPage.bsiCardDesc, cta: c.resourcesPage.bsiCardCta, bandBg: "#FBF0F4", bandFg: "#B23A63", onOpen: () => { this.setState({ page: "resources", resSub: "bsi", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
         { tag: c.resourcesPage.carbTag, kicker: c.resourcesPage.carbKicker, title: c.resourcesPage.carbTitle, desc: c.resourcesPage.carbCardDesc, cta: c.resourcesPage.carbCardCta, bandBg: "#EAF0F6", bandFg: "#2A5B7A", onOpen: () => { this.setState({ page: "resources", resSub: "carbs", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } }
       ],
       rp: c.resourcesPage,
@@ -3436,6 +3465,7 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       saveToHome: () => this.saveToHome(),
       carbSrc: (lang === "ua" ? "/carb-gi-table-ua.html" : "/carb-gi-table.html"),
       cgmSrc: (lang === "ua" ? "/cgm-comparison-ua.html" : "/cgm-comparison.html"),
+      bsiSrc: (lang === "ua" ? "/blood-sugar-investigator-ua.html" : "/blood-sugar-investigator.html"),
       pumps: this.pumpData(lang, c),
       downloadCards: [c.blog.resources.glow, c.blog.resources.supp].map((r, i) => { const src = i === 0 ? "glow-guide" : "supplement-sheet"; const stt = (this.state.dlStatus || {})[src]; return { ...r, source: src, done: stt === "done", notDone: stt !== "done", error: stt === "error", onSubmit: (ev) => this.subscribeDownload(ev, src) }; }),
       isProduct: page === "product",
