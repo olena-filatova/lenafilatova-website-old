@@ -18,8 +18,9 @@
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname));
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)));
 const ORIGIN = 'https://lenafilatova.co.uk';
 const BRAND = 'Lena Filatova';
 const DEF_IMG = '/images/lena-filatova-womens-health-coach-over-40.jpg';
