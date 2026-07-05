@@ -1,0 +1,9 @@
+{
+  "name": "lenafilatova-website",
+  "private": true,
+  "description": "lenafilatova.co.uk — static site (GitHub Pages)",
+  "type": "module",
+  "scripts": {
+    "prerender": "node prerender.mjs"
+  }
+}
