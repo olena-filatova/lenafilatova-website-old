@@ -63,8 +63,14 @@
       [style*="1.05fr 0.95fr"],
       [style*="0.9fr 1.1fr"],
       [style*="1.1fr 0.9fr"],
+      [style*="0.82fr 1.18fr"],
       [style*="236px 1fr"] { grid-template-columns: 1fr !important; }
+      [style*="0.82fr 1.18fr"] { gap: 28px !important; }
       [style*="1.6fr 1fr 1fr 1.1fr"] { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+      /* Tighten the dark CTA / newsletter cards so their content doesn't overflow on phones */
+      [style*="padding: 56px"] { padding: 32px 22px !important; }
+      /* Stop the newsletter intro from sticking once the layout stacks */
+      [style*="position: sticky; top: 40px"] { position: static !important; }
       /* Tighten page gutters */
       [style*="max-width: 1180px"],
       [style*="max-width: 760px"] { padding-inline: 20px !important; }
