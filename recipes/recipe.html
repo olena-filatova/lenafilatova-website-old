@@ -95,6 +95,7 @@
         <ol class="steps" id="steps"></ol>
       </div>
       <div class="section" id="rNutriWrap" style="display:none;">
+        <h2 data-en="Nutrition" data-ua="Поживність">Nutrition</h2>
         <div class="nutri-card"><div class="gl-note" id="rNutri"></div></div>
       </div>
       <div class="section" id="rNoteWrap" style="display:none;">
@@ -177,8 +178,13 @@
       ol.appendChild(li);
     });
     updateProgress();
-    if (R.nutrition) { document.getElementById('rNutriWrap').style.display = ''; document.getElementById('rNutri').innerHTML = '<b>' + esc(R.nutrition[l]) + '</b>'; }
-    else document.getElementById('rNutriWrap').style.display = 'none';
+    if (R.nutrition) {
+      document.getElementById('rNutriWrap').style.display = '';
+      var disc = (l === 'ua')
+        ? 'Значення поживності приблизні — розраховані з інгредієнтів. Будь ласка, перевіряйте страви перед приготуванням, якщо це важливо для вашого раціону.'
+        : 'Nutrition values are estimates, calculated from the ingredients. Please double-check meals before cooking if it matters for your diet.';
+      document.getElementById('rNutri').innerHTML = '<b>' + esc(R.nutrition[l]) + '</b><span style="display:block;margin-top:8px;font-size:12.5px;color:var(--muted);">' + esc(disc) + '</span>';
+    } else document.getElementById('rNutriWrap').style.display = 'none';
     if (R.note) { document.getElementById('rNoteWrap').style.display = ''; document.getElementById('rNote').textContent = R.note[l]; }
     else document.getElementById('rNoteWrap').style.display = 'none';
     var others = recipes.filter(function (x) { return x.slug !== R.slug; }).slice(0, 3);
