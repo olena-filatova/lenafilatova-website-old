@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Low-GI Recipe — Lena Filatova</title>
+<meta name="description" content="A blood-sugar-friendly low-GI recipe from Lena Filatova — with ingredients, method and an add-to-shopping-list option." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="recipes.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="/"><span class="mark">lf</span><span class="name">Lena Filatova</span></a>
+    <div class="header-actions">
+      <div class="lang"><button data-lang="en">EN</button><button data-lang="ua">UA</button></div>
+      <button class="list-btn" id="listBtn" aria-label="Shopping list" title="Shopping list">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 13l2 2 4-4"/></svg>
+        <span class="list-badge" id="listBadge">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <a class="back" href="index.html" data-en="← All Low-GI recipes" data-ua="← Усі рецепти з низьким ГІ">← All Low-GI recipes</a>
+  <div class="eyebrow" data-en="Low-GI Recipes" data-ua="Рецепти з низьким ГІ">Low-GI Recipes</div>
+  <h1 id="rTitle"></h1>
+  <div class="tags" id="rTags"></div>
+
+  <div class="photo hero" id="rPhoto"></div>
+
+  <div class="meta" id="rMeta"></div>
+
+  <div class="notes" id="rWhy" style="margin-bottom:30px;"></div>
+
+  <div class="recipe-grid">
+    <aside class="ing-card">
+      <div class="sec-head"><h2 data-en="Ingredients" data-ua="Інгредієнти">Ingredients</h2></div>
+      <ul class="ingredients" id="ingredients"></ul>
+
+      <div class="add-row">
+        <button class="btn primary full" id="addListBtn"
+          data-add-en="Add to shopping list" data-add-ua="Додати до списку покупок"
+          data-added-en="Added to shopping list" data-added-ua="Додано до списку покупок">
+          <span class="i-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M12 11v6M9 14h6"/></svg></span>
+          <span class="i-check" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+          <span class="lbl">Add to shopping list</span>
+        </button>
+      </div>
+
+      <div class="pf-row">
+        <button class="btn" id="printBtn" data-en="Print recipe" data-ua="Друк рецепта">Print recipe</button>
+        <button class="btn" id="shareToggle" data-en="Share" data-ua="Поділитися">Share</button>
+      </div>
+
+      <div class="share-panel" id="sharePanel">
+        <div class="share-kicker" data-en="Share this recipe" data-ua="Поділитися рецептом">Share this recipe</div>
+        <div class="share-two">
+          <button class="btn" id="shNative" data-en="Share…" data-ua="Поділитися…">Share…</button>
+          <button class="btn" id="shCopy"><span class="lbl" data-en="Copy link" data-ua="Копіювати посилання">Copy link</span></button>
+        </div>
+        <form class="share-form" id="shareForm">
+          <input type="email" id="shareEmail" placeholder="Send recipe to email" data-ph-en="Send recipe to email" data-ph-ua="Надіслати рецепт на пошту">
+          <label class="opt"><input type="checkbox" id="shareOpt" checked><span data-en="Also email me new recipes & news" data-ua="Також надсилати мені нові рецепти й новини">Also email me new recipes &amp; news</span></label>
+          <button type="submit" class="btn primary full" data-en="Send recipe" data-ua="Надіслати рецепт">Send recipe</button>
+          <div class="confirm" id="shareSent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span data-en="Recipe sent — check your inbox" data-ua="Рецепт надіслано — перевірте пошту">Recipe sent — check your inbox</span></div>
+        </form>
+      </div>
+    </aside>
+
+    <div class="recipe-main">
+      <div class="section">
+        <h2 data-en="Method" data-ua="Спосіб приготування">Method</h2>
+        <p class="sub" data-en="Tap a step when it's done." data-ua="Торкніться кроку, коли виконали.">Tap a step when it's done.</p>
+        <div class="progress-wrap"><div class="bar"><i id="barFill"></i></div><span class="pct" id="stepPct"></span></div>
+        <ol class="steps" id="steps"></ol>
+      </div>
+      <div class="section" id="rNutriWrap" style="display:none;">
+        <div class="nutri-card"><div class="gl-note" id="rNutri"></div></div>
+      </div>
+      <div class="section" id="rNoteWrap" style="display:none;">
+        <div class="notes"><h3 data-en="Tip" data-ua="Порада">Tip</h3><p id="rNote"></p></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="suggest section">
+    <h2 data-en="More Low-GI recipes" data-ua="Більше рецептів з низьким ГІ">More Low-GI recipes</h2>
+    <div class="cards" id="rMore"></div>
+  </section>
+
+  <p class="foot-note" data-en="GI figures are estimates for general guidance and are not a substitute for personalised medical or dietary advice." data-ua="Показники ГІ є орієнтовними й не замінюють персональну медичну чи дієтичну консультацію.">GI figures are estimates for general guidance and are not a substitute for personalised medical or dietary advice.</p>
+</div>
+
+<script src="recipes-data.js"></script>
+<script>
+(function () {
+  function L() { return (window.LF && window.LF.lang) || 'en'; }
+  function param(n) { var m = new RegExp('[?&]' + n + '=([^&]+)').exec(location.search); return m ? decodeURIComponent(m[1]) : ''; }
+  var recipes = window.LF_RECIPES || [];
+  var slug = param('r') || (recipes[0] && recipes[0].slug);
+  var R = recipes.filter(function (x) { return x.slug === slug; })[0];
+  if (!R) { document.getElementById('rTitle').textContent = 'Recipe not found'; return; }
+
+  var CAT = { main: { en: 'Main course', ua: 'Основна страва' }, dessert: { en: 'Dessert', ua: 'Десерт' },
+    baking: { en: 'Baking', ua: 'Випічка' }, snack: { en: 'Snack', ua: 'Перекус' },
+    bread: { en: 'Bread', ua: 'Хліб' }, sauce: { en: 'Sauce', ua: 'Соус' } };
+  var DIET = { 'sugar-free': { en: 'Sugar-free', ua: 'Без цукру' }, 'gluten-free': { en: 'Gluten-free', ua: 'Без глютену' },
+    'low-carb': { en: 'Low carb', ua: 'Низьковуглеводне' }, vegetarian: { en: 'Vegetarian', ua: 'Вегетаріанське' },
+    'dairy-free': { en: 'Dairy-free', ua: 'Без молочного' } };
+  function isHeader(s) { return /^—/.test(s); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' })[c]; }); }
+
+  function render() {
+    var l = L();
+    document.title = R.title[l] + ' — Low-GI Recipe — Lena Filatova';
+    document.getElementById('rTitle').textContent = R.title[l];
+
+    // tags: Low GI + category + diet
+    var tg = ['<span class="tag">' + (l === 'ua' ? 'Низький ГІ' : 'Low GI') + '</span>',
+              '<span class="tag">' + esc(CAT[R.cat][l]) + '</span>'];
+    (R.tags || []).forEach(function (t) { if (DIET[t]) tg.push('<span class="tag">' + esc(DIET[t][l]) + '</span>'); });
+    document.getElementById('rTags').innerHTML = tg.join('');
+
+    // photo
+    document.getElementById('rPhoto').innerHTML = '<img src="images/' + R.img + '" alt="' + esc(R.title[l]) + '">';
+
+    // meta
+    var m = R.meta, mh = '';
+    if (m.prep) mh += '<div><span class="k">' + (l === 'ua' ? 'Підготовка' : 'Prep') + '</span><span class="v">' + esc(m.prep[l]) + '</span></div>';
+    if (m.cook) mh += '<div><span class="k">' + (l === 'ua' ? 'Готування' : 'Cook') + '</span><span class="v">' + esc(m.cook[l]) + '</span></div>';
+    if (m.serves) mh += '<div><span class="v">' + esc(m.serves[l]) + '</span></div>';
+    document.getElementById('rMeta').innerHTML = mh;
+
+    // why it's low GI
+    var why = document.getElementById('rWhy');
+    why.innerHTML = '<h3>' + (l === 'ua' ? 'Чому це Low GI' : "Why it's Low GI") + '</h3><p>' + esc(R.why[l]) + '</p>';
+
+    // ingredients
+    var ul = document.getElementById('ingredients'); ul.innerHTML = '';
+    R.ingredients[l].forEach(function (it) {
+      var li = document.createElement('li');
+      if (isHeader(it)) { li.className = 'ing-section'; li.textContent = it.replace(/—/g, '').trim(); }
+      else li.innerHTML = '<label class="check"><input type="checkbox"><span class="box"></span><span class="ing-text">' + esc(it) + '</span></label>';
+      ul.appendChild(li);
+    });
+
+    // method
+    var ol = document.getElementById('steps'); ol.innerHTML = '';
+    R.method[l].forEach(function (st) {
+      var li = document.createElement('li');
+      li.innerHTML = '<span class="num"></span><span class="step-text">' + esc(st) + '</span>';
+      li.addEventListener('click', function () { li.classList.toggle('done'); updateProgress(); });
+      ol.appendChild(li);
+    });
+    updateProgress();
+
+    // nutrition (optional)
+    if (R.nutrition) { document.getElementById('rNutriWrap').style.display = ''; document.getElementById('rNutri').innerHTML = '<b>' + esc(R.nutrition[l]) + '</b>'; }
+    else document.getElementById('rNutriWrap').style.display = 'none';
+
+    // note (optional)
+    if (R.note) { document.getElementById('rNoteWrap').style.display = ''; document.getElementById('rNote').textContent = R.note[l]; }
+    else document.getElementById('rNoteWrap').style.display = 'none';
+
+    // more recipes (3 others)
+    var others = recipes.filter(function (x) { return x.slug !== R.slug; }).slice(0, 3);
+    document.getElementById('rMore').innerHTML = others.map(function (x) {
+      return '<a class="rcard" href="recipe.html?r=' + x.slug + '"><div class="thumb"><img src="images/' + x.img + '" alt=""><span class="mini-gi">' + (l === 'ua' ? 'Низький ГІ' : 'Low GI') + '</span></div>' +
+        '<div class="body"><div class="title">' + esc(x.title[l]) + '</div><div class="cmeta"><span>' + esc(x.meta.serves[l]) + '</span></div></div></a>';
+    }).join('');
+
+    // update placeholder
+    var pe = document.getElementById('shareEmail'); if (pe) pe.placeholder = pe.getAttribute(l === 'ua' ? 'data-ph-ua' : 'data-ph-en');
+  }
+
+  var steps;
+  function updateProgress() {
+    steps = [].slice.call(document.querySelectorAll('#steps li'));
+    var done = steps.filter(function (s) { return s.classList.contains('done'); }).length;
+    document.getElementById('barFill').style.width = (steps.length ? done / steps.length * 100 : 0) + '%';
+    document.getElementById('stepPct').textContent = (L() === 'ua') ? ('Виконано ' + done + ' з ' + steps.length) : (done + ' of ' + steps.length + ' done');
+  }
+
+  document.getElementById('printBtn').addEventListener('click', function () { window.print(); });
+
+  function cleanItems(arr) { return arr.filter(function (s) { return !isHeader(s); }); }
+  window.LF_RECIPE = {
+    id: R.slug, title_en: R.title.en, title_ua: R.title.ua, lead_en: R.why.en, lead_ua: R.why.ua,
+    snapshot: function () {
+      return { id: R.slug, title_en: R.title.en, title_ua: R.title.ua,
+        serves_en: R.meta.serves.en, serves_ua: R.meta.serves.ua,
+        items_en: cleanItems(R.ingredients.en), items_ua: cleanItems(R.ingredients.ua) };
+    }
+  };
+  window.LF_ONLANG = render;
+  render();
+})();
+</script>
+<script src="recipes.js"></script>
+</body>
+</html>

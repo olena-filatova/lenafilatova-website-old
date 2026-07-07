@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Low-GI Recipes — Lena Filatova</title>
+<meta name="description" content="Blood-sugar-friendly low-GI recipes for women 40+ — sugar-free bakes, low-carb mains and desserts, in English and Ukrainian." />
+<link rel="canonical" href="https://lenafilatova.co.uk/recipes/" />
+<meta property="og:title" content="Low-GI Recipes — Lena Filatova" />
+<meta property="og:description" content="Blood-sugar-friendly low-GI recipes — sugar-free bakes, low-carb mains and desserts." />
+<meta property="og:url" content="https://lenafilatova.co.uk/recipes/" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="recipes.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="/"><span class="mark">lf</span><span class="name">Lena Filatova</span></a>
+    <div class="header-actions">
+      <div class="lang"><button data-lang="en">EN</button><button data-lang="ua">UA</button></div>
+      <button class="list-btn" id="listBtn" aria-label="Shopping list" title="Shopping list">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 13l2 2 4-4"/></svg>
+        <span class="list-badge" id="listBadge">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="wrap wide">
+  <div class="eyebrow" data-en="Low-GI Recipes" data-ua="Рецепти з низьким ГІ">Low-GI Recipes</div>
+  <h1 data-en="Low-GI Recipes" data-ua="Рецепти з низьким ГІ">Low-GI Recipes</h1>
+  <p class="lede" data-en="Blood-sugar-friendly recipes for women 40+ — sugar-free bakes, low-carb mains and desserts, in English and Ukrainian. Add any recipe to one combined shopping list." data-ua="Страви, дружні до рівня цукру в крові, для жінок 40+ — випічка без цукру, низьковуглеводні страви й десерти, англійською та українською. Додавайте будь-який рецепт до спільного списку покупок.">Blood-sugar-friendly recipes for women 40+ — sugar-free bakes, low-carb mains and desserts, in English and Ukrainian. Add any recipe to one combined shopping list.</p>
+
+  <div class="filters" id="filters">
+    <div class="filter-row">
+      <span class="filter-label" data-en="Type" data-ua="Тип">Type</span>
+      <div class="chips">
+        <button class="chip" data-group="cat" data-value="main" data-en="Mains" data-ua="Основні">Mains</button>
+        <button class="chip" data-group="cat" data-value="dessert" data-en="Desserts" data-ua="Десерти">Desserts</button>
+        <button class="chip" data-group="cat" data-value="baking" data-en="Baking" data-ua="Випічка">Baking</button>
+        <button class="chip" data-group="cat" data-value="snack" data-en="Snacks" data-ua="Перекуси">Snacks</button>
+        <button class="chip" data-group="cat" data-value="bread" data-en="Bread" data-ua="Хліб">Bread</button>
+        <button class="chip" data-group="cat" data-value="sauce" data-en="Sauces" data-ua="Соуси">Sauces</button>
+      </div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label" data-en="Diet" data-ua="Дієта">Diet</span>
+      <div class="chips">
+        <button class="chip" data-group="diet" data-value="sugar-free" data-en="Sugar-free" data-ua="Без цукру">Sugar-free</button>
+        <button class="chip" data-group="diet" data-value="gluten-free" data-en="Gluten-free" data-ua="Без глютену">Gluten-free</button>
+        <button class="chip" data-group="diet" data-value="low-carb" data-en="Low carb" data-ua="Низьковуглеводне">Low carb</button>
+        <button class="chip" data-group="diet" data-value="vegetarian" data-en="Vegetarian" data-ua="Вегетаріанське">Vegetarian</button>
+        <button class="chip" data-group="diet" data-value="dairy-free" data-en="Dairy-free" data-ua="Без молочного">Dairy-free</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bar2">
+    <div class="count"><b id="countNum">16</b> <span id="countWord">recipes</span></div>
+    <button class="clear" id="clearBtn" data-en="Clear filters" data-ua="Скинути фільтри" disabled>Clear filters</button>
+  </div>
+
+  <div class="cards" id="grid"></div>
+  <div class="empty" id="empty">
+    <h3 data-en="No recipes match those filters" data-ua="Немає рецептів за цими фільтрами">No recipes match those filters</h3>
+    <p data-en="Try removing one to see more." data-ua="Спробуйте прибрати один фільтр.">Try removing one to see more.</p>
+  </div>
+
+  <p class="foot-note" data-en="Recipes adapted from lenafilatova.com. GI notes are for general guidance, not personalised medical or dietary advice." data-ua="Рецепти адаптовано з lenafilatova.com. Примітки щодо ГІ мають загальний характер і не замінюють медичну чи дієтичну консультацію.">Recipes adapted from lenafilatova.com. GI notes are for general guidance, not personalised medical or dietary advice.</p>
+</div>
+
+<script src="recipes-data.js"></script>
+<script>
+(function () {
+  function L() { return (window.LF && window.LF.lang) || 'en'; }
+  var recipes = window.LF_RECIPES || [];
+  var CAT = { main: { en: 'Mains', ua: 'Основні' }, dessert: { en: 'Desserts', ua: 'Десерти' }, baking: { en: 'Baking', ua: 'Випічка' }, snack: { en: 'Snacks', ua: 'Перекуси' }, bread: { en: 'Bread', ua: 'Хліб' }, sauce: { en: 'Sauces', ua: 'Соуси' } };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' })[c]; }); }
+
+  function buildGrid() {
+    var l = L();
+    document.getElementById('grid').innerHTML = recipes.map(function (r) {
+      return '<a class="rcard" href="recipe.html?r=' + r.slug + '" data-cat="' + r.cat + '" data-diet="' + (r.tags || []).join(' ') + '">' +
+        '<div class="thumb"><img src="images/' + r.img + '" alt="' + esc(r.title[l]) + '"><span class="mini-gi">' + (l === 'ua' ? 'Низький ГІ' : 'Low GI') + '</span></div>' +
+        '<div class="body"><div class="title">' + esc(r.title[l]) + '</div>' +
+        '<div class="cmeta"><span>' + esc(CAT[r.cat][l]) + '</span><span>' + esc(r.meta.serves[l]) + '</span></div></div></a>';
+    }).join('');
+    apply();
+  }
+
+  var chips = [].slice.call(document.querySelectorAll('.chip'));
+  var clearBtn = document.getElementById('clearBtn'), empty = document.getElementById('empty');
+  function recipeWord(n) {
+    if (L() === 'en') return n === 1 ? 'recipe' : 'recipes';
+    var a = n % 10, b = n % 100;
+    return n === 0 ? 'рецептів' : (a === 1 && b !== 11) ? 'рецепт' : (a >= 2 && a <= 4 && (b < 12 || b > 14)) ? 'рецепти' : 'рецептів';
+  }
+  function groups() { var g = {}; chips.forEach(function (c) { if (!c.classList.contains('active')) return; var k = c.getAttribute('data-group'); (g[k] = g[k] || []).push(c.getAttribute('data-value')); }); return g; }
+  function apply() {
+    var g = groups(), any = Object.keys(g).length > 0, shown = 0;
+    [].slice.call(document.querySelectorAll('#grid .rcard')).forEach(function (card) {
+      var ok = Object.keys(g).every(function (k) { var have = (card.getAttribute('data-' + k) || '').split(' '); return g[k].some(function (v) { return have.indexOf(v) !== -1; }); });
+      card.classList.toggle('hidden', !ok); if (ok) shown++;
+    });
+    document.getElementById('countNum').textContent = shown;
+    document.getElementById('countWord').textContent = recipeWord(shown);
+    empty.classList.toggle('show', shown === 0);
+    clearBtn.disabled = !any;
+  }
+  chips.forEach(function (c) { c.addEventListener('click', function () { c.classList.toggle('active'); apply(); }); });
+  clearBtn.addEventListener('click', function () { chips.forEach(function (c) { c.classList.remove('active'); }); apply(); });
+
+  window.LF_ONLANG = buildGrid;
+  buildGrid();
+})();
+</script>
+<script src="recipes.js"></script>
+</body>
+</html>
