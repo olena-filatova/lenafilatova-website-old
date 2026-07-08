@@ -120,13 +120,20 @@
   <p class="foot-note" data-en="GI figures are estimates for general guidance and are not a substitute for personalised medical or dietary advice." data-ua="Показники ГІ є орієнтовними й не замінюють персональну медичну чи дієтичну консультацію.">GI figures are estimates for general guidance and are not a substitute for personalised medical or dietary advice.</p>
 </div>
 
+<script>window.__LF_PAGE_SLUG="beef-skewers-wine-sauce";</script>
 <script src="recipes-data.js"></script>
 <script>
 (function () {
   function L() { return (window.LF && window.LF.lang) || 'en'; }
   function param(n) { var m = new RegExp('[?&]' + n + '=([^&]+)').exec(location.search); return m ? decodeURIComponent(m[1]) : ''; }
   var recipes = window.LF_RECIPES || [];
-  var slug = param('r') || "beef-skewers-wine-sauce" || (recipes[0] && recipes[0].slug);
+  // Standalone /recipes/<slug>/ pages set window.__LF_PAGE_SLUG. When this raw
+  // template is opened with ?r=<slug> (an old-style link), forward to the clean URL.
+  if (!window.__LF_PAGE_SLUG) {
+    var _r = param('r');
+    if (_r) { var _lg = param('lang'); location.replace('/recipes/' + _r + '/' + (_lg ? '?lang=' + _lg : '')); return; }
+  }
+  var slug = window.__LF_PAGE_SLUG || param('r') || (recipes[0] && recipes[0].slug);
   var R = recipes.filter(function (x) { return x.slug === slug; })[0];
   if (!R) { document.getElementById('rTitle').textContent = 'Recipe not found'; return; }
 
@@ -197,7 +204,7 @@
     else document.getElementById('rNoteWrap').style.display = 'none';
     var others = recipes.filter(function (x) { return x.slug !== R.slug; }).slice(0, 3);
     document.getElementById('rMore').innerHTML = others.map(function (x) {
-      return '<a class="rcard" href="recipe.html?r=' + x.slug + '"><div class="thumb"><img src="images/' + x.img + '" alt=""><span class="mini-gi">' + (l === 'ua' ? 'Низький ГІ' : 'Low GI') + '</span></div>' +
+      return '<a class="rcard" href="/recipes/' + x.slug + '/"><div class="thumb"><img src="images/' + x.img + '" alt=""><span class="mini-gi">' + (l === 'ua' ? 'Низький ГІ' : 'Low GI') + '</span></div>' +
         '<div class="body"><div class="title">' + esc(x.title[l]) + '</div><div class="cmeta"><span>' + esc(x.meta.serves[l]) + '</span></div></div></a>';
     }).join('');
     var pe = document.getElementById('shareEmail'); if (pe) pe.placeholder = pe.getAttribute(l === 'ua' ? 'data-ph-ua' : 'data-ph-en');
