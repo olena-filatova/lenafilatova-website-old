@@ -255,6 +255,13 @@ ol.steps li.done .step-text { text-decoration: line-through; text-decoration-col
 .empty.show { display: block; }
 .empty h3 { font-family: 'Spectral',serif; color: var(--ink); font-size: 20px; margin-bottom: 6px; }
 
+/* ── Load more ──────────────────────────────────────── */
+.more-wrap { display: none; justify-content: center; margin-top: 30px; }
+.more-wrap.show { display: flex; }
+.more-btn { font-family: inherit; font-size: 15px; font-weight: 600; color: var(--accent); background: var(--card);
+  border: 1px solid var(--rose-border); border-radius: var(--r-pill); padding: 12px 30px; cursor: pointer; transition: all .15s; }
+.more-btn:hover { border-color: var(--accent); background: var(--rose-bg); }
+
 /* ── Shopping-list drawer ───────────────────────────── */
 .scrim { position: fixed; inset: 0; background: rgba(51,27,51,.5); backdrop-filter: blur(3px); z-index: 40; opacity: 0; visibility: hidden; transition: opacity .2s; }
 .scrim.open { opacity: 1; visibility: visible; }

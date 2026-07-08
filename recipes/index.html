@@ -72,6 +72,7 @@
   </div>
 
   <div class="cards" id="grid"></div>
+  <div class="more-wrap" id="moreWrap"><button class="more-btn" id="moreBtn" data-en="Load more" data-ua="Показати ще">Load more</button></div>
   <div class="empty" id="empty">
     <h3 data-en="No recipes match those filters" data-ua="Немає рецептів за цими фільтрами">No recipes match those filters</h3>
     <p data-en="Try removing one to see more." data-ua="Спробуйте прибрати один фільтр.">Try removing one to see more.</p>
@@ -88,11 +89,13 @@
   var CAT = { main: { en: 'Mains', ua: 'Основні' }, dessert: { en: 'Desserts', ua: 'Десерти' }, baking: { en: 'Baking', ua: 'Випічка' }, snack: { en: 'Snacks', ua: 'Перекуси' }, breakfast: { en: 'Breakfast', ua: 'Сніданки' }, bread: { en: 'Bread', ua: 'Хліб' }, sauce: { en: 'Sauces', ua: 'Соуси' } };
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' })[c]; }); }
 
+  var PAGE = 10, shownLimit = PAGE;
+
   function buildGrid() {
     var l = L();
     document.getElementById('grid').innerHTML = recipes.map(function (r) {
       return '<a class="rcard" href="recipe.html?r=' + r.slug + '" data-cat="' + r.cat + '" data-diet="' + (r.tags || []).join(' ') + '">' +
-        '<div class="thumb"><img src="images/' + r.img + '" alt="' + esc(r.title[l]) + '"><span class="mini-gi">' + (l === 'ua' ? 'Низький ГІ' : 'Low GI') + '</span></div>' +
+        '<div class="thumb"><img src="images/' + r.img + '" loading="lazy" decoding="async" alt="' + esc(r.title[l]) + '"></div>' +
         '<div class="body"><div class="title">' + esc(r.title[l]) + '</div>' +
         '<div class="cmeta"><span>' + esc(CAT[r.cat][l]) + '</span><span>' + esc(r.meta.serves[l]) + '</span></div></div></a>';
     }).join('');
@@ -101,6 +104,7 @@
 
   var chips = [].slice.call(document.querySelectorAll('.chip'));
   var clearBtn = document.getElementById('clearBtn'), empty = document.getElementById('empty');
+  var moreWrap = document.getElementById('moreWrap'), moreBtn = document.getElementById('moreBtn');
   function recipeWord(n) {
     if (L() === 'en') return n === 1 ? 'recipe' : 'recipes';
     var a = n % 10, b = n % 100;
@@ -108,18 +112,24 @@
   }
   function groups() { var g = {}; chips.forEach(function (c) { if (!c.classList.contains('active')) return; var k = c.getAttribute('data-group'); (g[k] = g[k] || []).push(c.getAttribute('data-value')); }); return g; }
   function apply() {
-    var g = groups(), any = Object.keys(g).length > 0, shown = 0;
+    var g = groups(), any = Object.keys(g).length > 0, total = 0;
     [].slice.call(document.querySelectorAll('#grid .rcard')).forEach(function (card) {
       var ok = Object.keys(g).every(function (k) { var have = (card.getAttribute('data-' + k) || '').split(' '); return g[k].some(function (v) { return have.indexOf(v) !== -1; }); });
-      card.classList.toggle('hidden', !ok); if (ok) shown++;
+      if (ok) { card.classList.toggle('hidden', total >= shownLimit); total++; }
+      else { card.classList.add('hidden'); }
     });
-    document.getElementById('countNum').textContent = shown;
-    document.getElementById('countWord').textContent = recipeWord(shown);
-    empty.classList.toggle('show', shown === 0);
+    document.getElementById('countNum').textContent = total;
+    document.getElementById('countWord').textContent = recipeWord(total);
+    empty.classList.toggle('show', total === 0);
     clearBtn.disabled = !any;
+    var remaining = total - shownLimit, next = Math.min(PAGE, remaining);
+    moreWrap.classList.toggle('show', remaining > 0);
+    if (remaining > 0) moreBtn.textContent = (L() === 'ua' ? 'Показати ще ' + next : 'Load ' + next + ' more');
   }
-  chips.forEach(function (c) { c.addEventListener('click', function () { c.classList.toggle('active'); apply(); }); });
-  clearBtn.addEventListener('click', function () { chips.forEach(function (c) { c.classList.remove('active'); }); apply(); });
+  function reset() { shownLimit = PAGE; apply(); }
+  chips.forEach(function (c) { c.addEventListener('click', function () { c.classList.toggle('active'); reset(); }); });
+  clearBtn.addEventListener('click', function () { chips.forEach(function (c) { c.classList.remove('active'); }); reset(); });
+  moreBtn.addEventListener('click', function () { shownLimit += PAGE; apply(); });
 
   window.LF_ONLANG = buildGrid;
   buildGrid();
