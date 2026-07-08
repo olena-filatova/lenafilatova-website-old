@@ -1183,5 +1183,155 @@ window.LF_RECIPES = [
     meta: { prep: { en: '10 min', ua: '10 хв' }, cook: { en: 'No cooking', ua: 'Без готування' }, serves: { en: 'Serves 2', ua: '2 порції' } },
     ingredients: { en: ['200 g mozzarella','200 g tomatoes','1 bunch fresh basil','1 tbsp olive oil','1 tbsp balsamic vinegar','1 g sea salt','1 g freshly ground black pepper'], ua: ['200 г моцарели','200 г помідорів','1 пучок свіжого базиліку','1 ст. л. оливкової олії','1 ст. л. бальзамічного оцту','1 г морської солі','1 г свіжомеленого чорного перцю'] },
     method: { en: ['Slice the mozzarella 5–7 mm thick and cut a heart from each slice with a cookie cutter.','Slice the tomatoes to a matching thickness.','Layer the mozzarella, basil and tomato on a plate.','Drizzle with olive oil and balsamic vinegar.','Season with sea salt and freshly ground black pepper.'], ua: ['Наріжте моцарелу завтовшки 5–7 мм і виріжте з кожного скибочки серце формочкою.','Наріжте помідори такої ж товщини.','Викладіть на тарілці шарами моцарелу, базилік і помідори.','Збризніть оливковою олією та бальзамічним оцтом.','Приправте морською сіллю та свіжомеленим чорним перцем.'] }
+  },
+  {
+    slug: 'valentine-heart-cookies', img: '114-valentine-heart-cookies.jpg', cat: 'dessert',
+    tags: ['gluten-free', 'vegetarian', 'dairy-free'],
+    title: { en: 'No-Bake Valentine Heart Cookies', ua: 'Печиво «Серце Валентина» без випікання' },
+    why: { en: 'A raw cookie of nuts, seeds and cocoa with a banana-raspberry cream — no flour, no baking and no refined sugar (just stevia or a little maple). Healthy fats and fibre keep the natural fruit sugar in check.', ua: 'Сире печиво з горіхів, насіння та какао з бананово-малиновим кремом — без борошна, випікання та рафінованого цукру (лише стевія чи трохи кленового сиропу). Корисні жири та клітковина стримують природний цукор фруктів.' },
+    nutrition: { en: 'Per serving (est.): ~260 kcal · Carbs 18 g · Fat 20 g · Protein 6 g', ua: 'На порцію (прибл.): ~260 ккал · Вуглеводи 18 г · Жири 20 г · Білки 6 г' },
+    meta: { prep: { en: '15 min', ua: '15 хв' }, cook: { en: 'Freeze to set', ua: 'Заморозка до застигання' }, serves: { en: 'Serves 2', ua: '2 порції' } },
+    ingredients: { en: ['— COOKIES —','½ cup whole nuts (hazelnuts, almonds or other)','½ cup pumpkin seeds','2 tbsp cocoa powder','2 tbsp carob (or more cocoa)','¼ tsp liquid stevia (or 2–4 tbsp maple syrup)','1 tbsp water (only if using stevia)','2 tsp vanilla extract','0.5 g sea salt','— FILLING —','1 medium-large banana','½ cup raspberries (fresh or frozen)','4–5 tbsp coconut oil'], ua: ['— ПЕЧИВО —','½ склянки цілих горіхів (фундук, мигдаль тощо)','½ склянки гарбузового насіння','2 ст. л. какао-порошку','2 ст. л. ріжкового борошна (або ще какао)','¼ ч. л. рідкої стевії (або 2–4 ст. л. кленового сиропу)','1 ст. л. води (лише зі стевією)','2 ч. л. ванільного екстракту','0,5 г морської солі','— НАЧИНКА —','1 середньо-великий банан','½ склянки малини (свіжої або замороженої)','4–5 ст. л. кокосової олії'] },
+    method: { en: ['Blend the nuts and seeds, then add the cocoa, carob, stevia, water, vanilla and salt to a dough.','Roll out on a board and cut ~12 hearts with a cookie cutter.','Blend all the filling ingredients until creamy, spread on a board and freeze until firm.','Cut the frozen filling into hearts with the same cutter.','Sandwich a filling heart between two cookies. Repeat and serve.'], ua: ['Збийте горіхи та насіння, потім додайте какао, ріжкове борошно, стевію, воду, ваніль і сіль до тіста.','Розкачайте на дошці та виріжте ~12 сердець формочкою.','Збийте всі інгредієнти начинки до кремової маси, розподіліть на дошці та заморозьте до твердості.','Виріжте із замороженої начинки серця тією ж формочкою.','Складіть серце-начинку між двома печивами. Повторіть і подавайте.'] }
+  },
+  {
+    slug: 'frozen-strawberry-yogurt', img: '115-frozen-strawberry-yogurt.jpg', cat: 'dessert',
+    tags: ['sugar-free', 'gluten-free', 'vegetarian'],
+    title: { en: 'Frozen Yogurt Strawberries', ua: 'Заморожена полуниця в йогурті' },
+    why: { en: 'Two-ingredient frozen bites: strawberries dipped in Greek yogurt and frozen, sweetened only with stevia. High in protein, very low in calories and sugar — a guilt-free cold snack.', ua: 'Заморожені шматочки з двох інгредієнтів: полуниця в грецькому йогурті, підсолоджена лише стевією. Багато білка, дуже мало калорій і цукру — легкий холодний перекус.' },
+    nutrition: { en: 'Per serving (est.): ~52 kcal · Carbs 6 g · Fat 2 g · Protein 3 g', ua: 'На порцію (прибл.): ~52 ккал · Вуглеводи 6 г · Жири 2 г · Білки 3 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: 'Freeze', ua: 'Заморозка' }, serves: { en: 'Serves 3', ua: '3 порції' } },
+    ingredients: { en: ['2 handfuls strawberries','1 cup Greek yogurt','1 g stevia'], ua: ['2 жмені полуниці','1 склянка грецького йогурту','1 г стевії'] },
+    method: { en: ['Mix the yogurt with the stevia.','Halve the strawberries.','Dip each strawberry in the yogurt.','Freeze until solid.','Enjoy straight from the freezer.'], ua: ['Змішайте йогурт зі стевією.','Розріжте полуницю навпіл.','Занурте кожну ягоду в йогурт.','Заморозьте до твердості.','Смакуйте просто з морозилки.'] }
+  },
+  {
+    slug: 'chocolate-avocado-pudding', img: '116-chocolate-avocado-pudding.jpg', cat: 'dessert',
+    tags: ['sugar-free', 'gluten-free', 'vegetarian', 'dairy-free'],
+    title: { en: 'No-Bake Chocolate Avocado Pudding', ua: 'Шоколадний пудинг з авокадо (без випікання)' },
+    why: { en: 'A silky chocolate pudding thickened with banana and avocado — no added sugar and no dairy. Avocado and almond butter add healthy fat and fibre that keep the fruit sugar slow and steady.', ua: 'Шовковистий шоколадний пудинг, згущений бананом і авокадо — без доданого цукру та молочних продуктів. Авокадо й мигдалева паста додають корисні жири та клітковину, що сповільнюють фруктовий цукор.' },
+    nutrition: { en: 'Per serving (est.): ~230 kcal · Carbs 26 g · Fat 14 g · Protein 5 g', ua: 'На порцію (прибл.): ~230 ккал · Вуглеводи 26 г · Жири 14 г · Білки 5 г' },
+    meta: { prep: { en: '5 min', ua: '5 хв' }, cook: { en: 'Chill 1 h', ua: 'Охолодження 1 год' }, serves: { en: 'Serves 3', ua: '3 порції' } },
+    ingredients: { en: ['3 bananas','½ medium avocado, pitted','¼ cup almond butter','4–5 tbsp raw cocoa powder','1 tsp vanilla extract','0.5 g sea salt','¼ cup roasted chopped hazelnuts (optional)','1 handful pomegranate seeds (optional)','½ cup whipped cream (optional)'], ua: ['3 банани','½ середнього авокадо, без кісточки','¼ склянки мигдалевої пасти','4–5 ст. л. сирого какао-порошку','1 ч. л. ванільного екстракту','0,5 г морської солі','¼ склянки смаженого рубаного фундука (за бажанням)','1 жменя зерен граната (за бажанням)','½ склянки збитих вершків (за бажанням)'] },
+    method: { en: ['Blend all the pudding ingredients until completely smooth, a few minutes for a silky texture.','Spoon into serving glasses and refrigerate for 1 hour.','Serve with the optional toppings.'], ua: ['Збийте всі інгредієнти пудингу до повної однорідності, кілька хвилин для шовковистості.','Розкладіть по келихах і охолоджуйте 1 годину.','Подавайте з додатковими топінгами за бажанням.'] }
+  },
+  {
+    slug: 'beef-balsamic-tomatoes', img: '117-beef-balsamic-tomatoes.jpg', cat: 'main',
+    tags: ['gluten-free', 'low-carb', 'dairy-free'],
+    title: { en: 'Beef Steak with Balsamic Tomatoes', ua: 'Яловичий стейк з помідорами в бальзаміку' },
+    why: { en: 'Lean beef tenderloin is pure protein with no carbs, and a quick balsamic-tomato reduction adds bright flavour with barely any sugar. A restaurant-style low-GI main in under half an hour.', ua: 'Пісна яловича вирізка — це чистий білок без вуглеводів, а швидкий бальзамічно-томатний соус додає яскравого смаку майже без цукру. Основна страва з низьким ГІ як у ресторані менш ніж за пів години.' },
+    nutrition: { en: 'Per serving (est.): ~320 kcal · Carbs 6 g · Fat 16 g · Protein 36 g', ua: 'На порцію (прибл.): ~320 ккал · Вуглеводи 6 г · Жири 16 г · Білки 36 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '24 min', ua: '24 хв' }, serves: { en: 'Serves 2', ua: '2 порції' } },
+    ingredients: { en: ['2 beef tenderloin steaks (~2 cm thick)','½ cup balsamic vinegar','⅓ cup tomatoes, roughly chopped','2 tsp olive oil','1 tsp fresh thyme','Salt and pepper'], ua: ['2 стейки з яловичої вирізки (~2 см завтовшки)','½ склянки бальзамічного оцту','⅓ склянки помідорів, крупно нарізаних','2 ч. л. оливкової олії','1 ч. л. свіжого чебрецю','Сіль і перець'] },
+    method: { en: ['Bring the balsamic vinegar to the boil in a small pan, then simmer uncovered for about 5 minutes until reduced to ¼ cup. Stir the tomatoes into the hot vinegar.','Trim the steaks and season with salt and pepper. Heat a griddle pan over medium heat.','Cook the steaks to your liking, turning once — about 7–9 minutes for medium.','Plate the steaks, spoon over the tomatoes and scatter with thyme.'], ua: ['Доведіть бальзамічний оцет до кипіння в маленькій каструлі, потім варіть без кришки близько 5 хвилин, доки не залишиться ¼ склянки. Вмішайте помідори в гарячий оцет.','Зачистіть стейки та приправте сіллю й перцем. Розігрійте сковороду-гриль на середньому вогні.','Смажте стейки до бажаної готовності, перевернувши один раз — близько 7–9 хвилин для середньої.','Викладіть стейки, зверху покладіть помідори та посипте чебрецем.'] }
+  },
+  {
+    slug: 'garlic-lemon-shrimp', img: '118-garlic-lemon-shrimp.jpg', cat: 'main',
+    tags: ['gluten-free', 'low-carb', 'dairy-free'],
+    title: { en: 'Garlic & Lemon Prawns for Two', ua: 'Креветки з часником і лимоном на двох' },
+    why: { en: 'Prawns are almost pure protein with next to no carbohydrate, marinated in olive oil, garlic, lemon and white wine. A light, fast dinner that has virtually no effect on blood sugar.', ua: 'Креветки — майже чистий білок з мінімумом вуглеводів, замариновані в оливковій олії, часнику, лимоні та білому вині. Легка швидка вечеря, що майже не впливає на цукор.' },
+    nutrition: { en: 'Per serving (est.): ~113 kcal · Carbs 1 g · Fat 4 g · Protein 17 g', ua: 'На порцію (прибл.): ~113 ккал · Вуглеводи 1 г · Жири 4 г · Білки 17 г' },
+    meta: { prep: { en: '5 min + 1 h marinating', ua: '5 хв + 1 год маринування' }, cook: { en: '6 min', ua: '6 хв' }, serves: { en: 'Serves 2', ua: '2 порції' } },
+    ingredients: { en: ['450 g fresh or frozen prawns (32–40 count)','2 tbsp olive oil','2 tbsp dry white wine','2 cloves garlic, minced','1 tsp lemon zest, finely minced','⅛ tsp salt','⅛ tsp ground red pepper','5 lemon wedges'], ua: ['450 г свіжих або заморожених креветок (32–40 шт/фунт)','2 ст. л. оливкової олії','2 ст. л. сухого білого вина','2 зубчики часнику, подрібнені','1 ч. л. дрібно натертої лимонної цедри','⅛ ч. л. солі','⅛ ч. л. меленого червоного перцю','5 часточок лимона'] },
+    method: { en: ['Mix the olive oil, wine, garlic, lemon zest, salt and red pepper for the marinade.','Thaw the prawns if frozen, peel (leaving tails on), rinse and pat dry. Toss with the marinade in a sealed bag and chill for 1 hour.','Heat a skillet and cook the prawns with the marinade, about 3 minutes each side, until just done.','Transfer to a dish, garnish with parsley and serve with lemon wedges.'], ua: ['Змішайте оливкову олію, вино, часник, лимонну цедру, сіль і червоний перець для маринаду.','Розморозьте креветки за потреби, очистіть (залишивши хвостики), промийте та обсушіть. Перемішайте з маринадом у пакеті та охолоджуйте 1 годину.','Розігрійте сковороду та смажте креветки з маринадом близько 3 хвилин з кожного боку до готовності.','Викладіть на блюдо, прикрасьте петрушкою та подавайте з часточками лимона.'] }
+  },
+  {
+    slug: 'salmon-asparagus-foil', img: '119-salmon-asparagus-foil.jpg', cat: 'main',
+    tags: ['gluten-free', 'low-carb', 'dairy-free'],
+    title: { en: 'Salmon & Asparagus Foil Parcels', ua: 'Лосось зі спаржею у фользі' },
+    why: { en: 'Salmon and asparagus baked together in foil — high in protein and omega-3, very low in carbs. Steaming in the parcel keeps everything moist with just olive oil, garlic and lemon.', ua: 'Лосось і спаржа, запечені разом у фользі — багато білка та омега-3, дуже мало вуглеводів. Приготування у конверті зберігає соковитість лише з оливковою олією, часником і лимоном.' },
+    nutrition: { en: 'Per serving (est.): ~220 kcal · Carbs 5 g · Fat 14 g · Protein 18 g', ua: 'На порцію (прибл.): ~220 ккал · Вуглеводи 5 г · Жири 14 г · Білки 18 г' },
+    meta: { prep: { en: '5 min', ua: '5 хв' }, cook: { en: '30 min', ua: '30 хв' }, serves: { en: 'Serves 4', ua: '4 порції' } },
+    ingredients: { en: ['170 g skinless salmon fillet','450 g asparagus, woody ends trimmed','2½ tbsp olive oil','2 cloves garlic, minced','1 g salt','1 g black pepper','1 lemon, thinly sliced','3 sprigs fresh dill (or thyme, rosemary or parsley)'], ua: ['170 г філе лосося без шкіри','450 г спаржі, з обрізаними жорсткими кінцями','2½ ст. л. оливкової олії','2 зубчики часнику, подрібнені','1 г солі','1 г чорного перцю','1 лимон, тонко нарізаний','3 гілочки свіжого кропу (або чебрецю, розмарину чи петрушки)'] },
+    method: { en: ['Preheat the oven to 200°C. Cut four ~35 cm sheets of foil. Divide the asparagus between them. Mix the oil with the garlic and drizzle 1 tsp over each portion; season.','Season the salmon and set on top of the asparagus. Drizzle each with 1 tsp garlic oil, then top with dill and lemon slices. Fold into sealed parcels.','Bake on a tray for about 25–30 minutes, until the salmon is cooked through. Open and serve warm.'], ua: ['Розігрійте духовку до 200°C. Наріжте чотири аркуші фольги ~35 см. Розкладіть спаржу між ними. Змішайте олію з часником і збризніть по 1 ч. л. на кожну порцію; приправте.','Приправте лосось і викладіть на спаржу. Полийте кожен шматок 1 ч. л. часникової олії, зверху покладіть кріп і скибочки лимона. Загорніть у щільні конверти.','Запікайте на деку близько 25–30 хвилин, доки лосось не буде готовий. Розгорніть і подавайте теплим.'] }
+  },
+  {
+    slug: 'matcha-latte', img: '120-matcha-latte.jpg', cat: 'drink',
+    tags: ['gluten-free', 'vegetarian', 'dairy-free'],
+    title: { en: 'Matcha Latte', ua: 'Латте з матчею' },
+    why: { en: 'Matcha whisked into warm almond milk gives slow-release energy and antioxidants with only a teaspoon of maple. A gentler morning lift than sugary coffee drinks.', ua: 'Матча, збита з теплим мигдалевим молоком, дає повільну енергію та антиоксиданти лише з однією ложкою кленового сиропу. М’якший ранковий заряд, ніж солодкі кавові напої.' },
+    nutrition: { en: 'Per serving (est.): ~132 kcal · Carbs 8 g · Fat 10 g · Protein 3 g', ua: 'На порцію (прибл.): ~132 ккал · Вуглеводи 8 г · Жири 10 г · Білки 3 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '5 min', ua: '5 хв' }, serves: { en: 'Serves 1', ua: '1 порція' } },
+    ingredients: { en: ['1 tbsp matcha powder','1 cup hot almond milk','1 tsp maple syrup (or other sweetener)','1 tsp vanilla extract','1 g cinnamon or nutmeg (optional)'], ua: ['1 ст. л. порошку матча','1 склянка гарячого мигдалевого молока','1 ч. л. кленового сиропу (або іншого підсолоджувача)','1 ч. л. ванільного екстракту','1 г кориці або мускатного горіха (за бажанням)'] },
+    method: { en: ['Whisk the matcha powder into the almond milk until smooth.','Stir in the maple syrup and vanilla.','Sprinkle with cinnamon or nutmeg and serve.'], ua: ['Збийте порошок матча з мигдалевим молоком до однорідності.','Вмішайте кленовий сироп і ваніль.','Посипте корицею чи мускатним горіхом і подавайте.'] }
+  },
+  {
+    slug: 'turmeric-latte', img: '121-turmeric-latte.jpg', cat: 'drink',
+    tags: ['sugar-free', 'gluten-free', 'vegetarian', 'dairy-free'],
+    title: { en: 'Turmeric Latte (Golden Milk)', ua: 'Куркума-латте (золоте молоко)' },
+    why: { en: 'A warming anti-inflammatory drink of turmeric, ginger and cinnamon simmered into coconut milk — no sweetener needed and no sugar at all. Caffeine-free and soothing.', ua: 'Зігрівальний протизапальний напій з куркуми, імбиру та кориці, зварений у кокосовому молоці — без підсолоджувача та цукру. Без кофеїну й заспокійливий.' },
+    nutrition: { en: 'Per serving (est.): ~120 kcal · Carbs 4 g · Fat 11 g · Protein 1 g', ua: 'На порцію (прибл.): ~120 ккал · Вуглеводи 4 г · Жири 11 г · Білки 1 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '20 min', ua: '20 хв' }, serves: { en: 'Serves 2', ua: '2 порції' } },
+    ingredients: { en: ['2 cups water','1 handful grated turmeric root','1 g grated ginger root','2–3 cinnamon sticks','200 g coconut milk'], ua: ['2 склянки води','1 жменя тертого кореня куркуми','1 г тертого кореня імбиру','2–3 палички кориці','200 г кокосового молока'] },
+    method: { en: ['Pour the water into a small pan and set over the heat.','Add the grated turmeric, ginger and cinnamon sticks and simmer gently until the water turns deep orange.','Strain, then stir in the coconut milk (whisk it first for froth).','Alternatively, use turmeric powder stirred straight into warm milk with a pinch of cinnamon to save time.'], ua: ['Влийте воду в маленьку каструлю та поставте на вогонь.','Додайте терту куркуму, імбир і палички кориці та варіть на слабкому вогні, доки вода не стане темно-помаранчевою.','Процідіть, потім вмішайте кокосове молоко (спершу збийте його для піни).','Або, щоб заощадити час, розмішайте порошок куркуми в теплому молоці зі щіпкою кориці.'] }
+  },
+  {
+    slug: 'masala-chai-latte', img: '122-masala-chai-latte.jpg', cat: 'drink',
+    tags: ['gluten-free', 'vegetarian'],
+    title: { en: 'Masala Chai Latte', ua: 'Масала чай-латте' },
+    why: { en: 'A fragrant spiced tea simmered with cardamom, cloves and cinnamon, made with caffeine-free white tea and skimmed milk. The spices add flavour and warmth with any sweetener kept optional.', ua: 'Ароматний пряний чай, зварений з кардамоном, гвоздикою та корицею, на безкофеїновому білому чаї та знежиреному молоці. Прянощі додають смаку й тепла, а підсолоджувач — за бажанням.' },
+    nutrition: { en: 'Per serving (est.): ~60 kcal · Carbs 7 g · Fat 1 g · Protein 3 g', ua: 'На порцію (прибл.): ~60 ккал · Вуглеводи 7 г · Жири 1 г · Білки 3 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '30 min', ua: '30 хв' }, serves: { en: 'Serves 2', ua: '2 порції' } },
+    ingredients: { en: ['700 g water','1 tbsp fennel seeds','1 tsp finely grated ginger root','15 cloves','14 allspice berries','9 green cardamom pods','2 pink peppercorns','4 cinnamon sticks','2 white tea bags (caffeine-free)','½ cup skimmed milk','1 tbsp honey or sweetener (optional)'], ua: ['700 г води','1 ст. л. насіння фенхелю','1 ч. л. дрібно натертого кореня імбиру','15 бутонів гвоздики','14 горошин запашного перцю','9 коробочок зеленого кардамону','2 горошини рожевого перцю','4 палички кориці','2 пакетики білого чаю (без кофеїну)','½ склянки знежиреного молока','1 ст. л. меду або підсолоджувача (за бажанням)'] },
+    method: { en: ['Pour the water into a medium pan, cover and bring to the boil.','Crush the fennel, cloves, allspice, cardamom and pink pepper in a mortar.','Add the crushed spices, cinnamon sticks and ginger and simmer for 20 minutes.','Add the tea bags and steep on low for 4–5 minutes.','Pour in the milk, then strain into a teapot or two cups.','Sweeten with honey to taste if you like.'], ua: ['Влийте воду в каструлю середнього розміру, накрийте та доведіть до кипіння.','Розітріть у ступці фенхель, гвоздику, запашний перець, кардамон і рожевий перець.','Додайте розтерті прянощі, палички кориці та імбир і варіть 20 хвилин.','Додайте пакетики чаю та настоюйте на слабкому вогні 4–5 хвилин.','Влийте молоко, потім процідіть у чайник або дві чашки.','За бажанням підсолодіть медом за смаком.'] }
+  },
+  {
+    slug: 'yerba-mate', img: '123-yerba-mate.jpg', cat: 'drink',
+    tags: ['gluten-free', 'vegetarian', 'dairy-free'],
+    title: { en: 'Yerba Mate with Lemon & Honey', ua: 'Йерба мате з лимоном і медом' },
+    why: { en: 'A gently energising South American tea, brewed and finished with lemon and a teaspoon of honey. Naturally sugar-light and caffeine-moderate — a cleaner pick-me-up.', ua: 'М’яко бадьорливий південноамериканський чай, заварений і доповнений лимоном та ложкою меду. Природно з малою кількістю цукру й помірним кофеїном — чистіший заряд бадьорості.' },
+    nutrition: { en: 'Per serving (est.): ~25 kcal · Carbs 6 g · Fat 0 g · Protein 0 g', ua: 'На порцію (прибл.): ~25 ккал · Вуглеводи 6 г · Жири 0 г · Білки 0 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '5 min steeping', ua: '5 хв настоювання' }, serves: { en: 'Serves 1', ua: '1 порція' } },
+    ingredients: { en: ['1–2 g loose-leaf mate tea','230 g hot water (not boiling)','Juice of 1 lemon','1 tsp honey'], ua: ['1–2 г розсипного чаю мате','230 г гарячої води (не окропу)','Сік 1 лимона','1 ч. л. меду'] },
+    method: { en: ['Brew the tea per the packet instructions in 230 ml hot (not boiling) water.','Let it steep.','Stir in the honey and lemon, and serve.'], ua: ['Заваріть чай за інструкцією на упаковці у 230 мл гарячої (не кип’ячої) води.','Дайте настоятися.','Вмішайте мед і лимон та подавайте.'] }
+  },
+  {
+    slug: 'london-fog', img: '124-london-fog.jpg', cat: 'drink',
+    tags: ['gluten-free', 'vegetarian', 'dairy-free'],
+    title: { en: 'London Fog (Earl Grey Latte)', ua: 'Лондонський туман (латте з бергамотом)' },
+    why: { en: 'Earl Grey steeped and blended with almond milk and vanilla, sweetened with just a teaspoon of honey. A comforting, low-sugar alternative to a café latte.', ua: 'Чай з бергамотом, заварений і збитий із мигдалевим молоком та ваніллю, підсолоджений лише ложкою меду. Затишна альтернатива кавовому латте з малим вмістом цукру.' },
+    nutrition: { en: 'Per serving (est.): ~45 kcal · Carbs 6 g · Fat 2 g · Protein 1 g', ua: 'На порцію (прибл.): ~45 ккал · Вуглеводи 6 г · Жири 2 г · Білки 1 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '7 min', ua: '7 хв' }, serves: { en: 'Serves 2', ua: '2 порції' } },
+    ingredients: { en: ['1–2 g Earl Grey tea','120 g water','230 g almond milk','1 tsp honey','1 vanilla pod (optional)'], ua: ['1–2 г чаю Ерл Грей','120 г води','230 г мигдалевого молока','1 ч. л. меду','1 стручок ванілі (за бажанням)'] },
+    method: { en: ['Steep the tea in the hot water for 5 minutes.','Pour the tea into a blender and blend with the remaining ingredients until frothy.'], ua: ['Заваріть чай у гарячій воді 5 хвилин.','Перелийте чай у блендер і збийте з рештою інгредієнтів до пінистості.'] }
+  },
+  {
+    slug: 'ginger-milk-cocktail', img: '125-ginger-milk-cocktail.jpg', cat: 'drink',
+    tags: ['gluten-free', 'vegetarian'],
+    title: { en: 'Warm Ginger Milk', ua: 'Теплий імбирний коктейль' },
+    why: { en: 'Warm milk blended with ginger, cinnamon and clove and sweetened with stevia or a little coconut sugar. A cosy spiced drink with minimal added sugar.', ua: 'Тепле молоко, збите з імбиром, корицею та гвоздикою, підсолоджене стевією чи невеликою кількістю кокосового цукру. Затишний пряний напій з мінімумом доданого цукру.' },
+    nutrition: { en: 'Per serving (est.): ~120 kcal · Carbs 14 g · Fat 4 g · Protein 8 g', ua: 'На порцію (прибл.): ~120 ккал · Вуглеводи 14 г · Жири 4 г · Білки 8 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '10 min', ua: '10 хв' }, serves: { en: 'Serves 2', ua: '2 порції' } },
+    ingredients: { en: ['500 g low-fat milk','1 tsp cinnamon','¼ tsp ground clove','¼ tsp ground ginger','2 tbsp coconut sugar or stevia (to taste)','10 g whipped cream (optional, to garnish)'], ua: ['500 г нежирного молока','1 ч. л. кориці','¼ ч. л. меленої гвоздики','¼ ч. л. меленого імбиру','2 ст. л. кокосового цукру або стевії (за смаком)','10 г збитих вершків (за бажанням, для прикраси)'] },
+    method: { en: ['Warm the milk, then blend all the ingredients together.','Pour into cups.','Garnish with whipped cream if you like — ready to serve.'], ua: ['Підігрійте молоко, потім збийте всі інгредієнти разом.','Розлийте по чашках.','За бажанням прикрасьте збитими вершками — і напій готовий.'] }
+  },
+  {
+    slug: 'cacao-latte', img: '126-cacao-latte.jpg', cat: 'drink',
+    tags: ['gluten-free', 'vegetarian', 'dairy-free'],
+    title: { en: 'Cacao Latte (Coffee Alternative)', ua: 'Какао-латте (замість кави)' },
+    why: { en: 'Raw cacao made from unroasted beans is a powerful antioxidant. Blended with almond milk, a little honey and a pinch of cayenne, it makes a warming, caffeine-light alternative to coffee.', ua: 'Сире какао з необсмажених бобів — потужний антиоксидант. Збите з мигдалевим молоком, невеликою кількістю меду та щіпкою кайенського перцю, воно стає зігрівальною альтернативою каві з малим вмістом кофеїну.' },
+    nutrition: { en: 'Per serving (est.): ~90 kcal · Carbs 10 g · Fat 5 g · Protein 2 g', ua: 'На порцію (прибл.): ~90 ккал · Вуглеводи 10 г · Жири 5 г · Білки 2 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '10 min', ua: '10 хв' }, serves: { en: 'Serves 1', ua: '1 порція' } },
+    ingredients: { en: ['230 g almond milk','1 tbsp raw cacao','1 tsp honey','½ tsp coconut oil','1 g cayenne pepper','1 g vanilla extract'], ua: ['230 г мигдалевого молока','1 ст. л. сирого какао','1 ч. л. меду','½ ч. л. кокосової олії','1 г кайенського перцю','1 г ванільного екстракту'] },
+    method: { en: ['Combine all the ingredients in a small pan and warm over medium heat, whisking until smooth.','Pour into a mug and enjoy.'], ua: ['З’єднайте всі інгредієнти в маленькій каструлі та підігрійте на середньому вогні, збиваючи до однорідності.','Перелийте в кухоль і смакуйте.'] }
+  },
+  {
+    slug: 'smoothie-popsicles-chia', img: '127-smoothie-popsicles-chia.jpg', cat: 'dessert',
+    tags: ['sugar-free', 'gluten-free', 'vegetarian', 'dairy-free'],
+    title: { en: 'Two-Layer Smoothie Popsicles with Chia', ua: 'Двошарове смузі-ескімо з чіа' },
+    why: { en: 'Layered fruit-and-veg smoothie lollies with chia and flax — no added sugar, just whole fruit, spinach and a date or two. Fibre and seeds slow the fruit sugar and add omega-3.', ua: 'Шарувате фруктово-овочеве смузі-ескімо з чіа та льоном — без доданого цукру, лише цілі фрукти, шпинат і кілька фініків. Клітковина й насіння сповільнюють фруктовий цукор і додають омега-3.' },
+    nutrition: { en: 'Per popsicle (est.): ~90 kcal · Carbs 18 g · Fat 2 g · Protein 2 g', ua: 'На 1 ескімо (прибл.): ~90 ккал · Вуглеводи 18 г · Жири 2 г · Білки 2 г' },
+    meta: { prep: { en: '10 min', ua: '10 хв' }, cook: { en: 'Freeze 2–3 h', ua: 'Заморозка 2–3 год' }, serves: { en: 'Makes 5', ua: '5 штук' } },
+    ingredients: { en: ['— RED LAYER —','1 cup frozen raspberries and redcurrants','¼ cup water','1 tbsp chia seeds','— GREEN LAYER —','1 banana','1 apple','1 orange','1 kiwi','¼ pineapple','2–3 handfuls fresh spinach','2 dried dates or figs','1 passion fruit (optional)','1 tbsp chia seeds','1 tbsp flax seeds','1 tbsp sesame seeds','¾ cup water'], ua: ['— ЧЕРВОНИЙ ШАР —','1 склянка замороженої малини та червоної смородини','¼ склянки води','1 ст. л. насіння чіа','— ЗЕЛЕНИЙ ШАР —','1 банан','1 яблуко','1 апельсин','1 ківі','¼ ананаса','2–3 жмені свіжого шпинату','2 сушені фініки або інжири','1 маракуя (за бажанням)','1 ст. л. насіння чіа','1 ст. л. насіння льону','1 ст. л. кунжуту','¾ склянки води'] },
+    method: { en: ['Make the red layer: blend the frozen raspberries and redcurrants with the water and chia until smooth.','Pour into ice-lolly moulds and freeze for a few minutes while you make the green layer.','Blend all the green-layer ingredients until smooth.','Top up the moulds with the green purée and freeze for at least 2–3 hours.'], ua: ['Приготуйте червоний шар: збийте заморожену малину та червону смородину з водою і чіа до однорідності.','Розлийте по формочках для ескімо та заморозьте на кілька хвилин, поки готуєте зелений шар.','Збийте всі інгредієнти зеленого шару до однорідності.','Долийте у формочки зелене пюре та заморозьте щонайменше на 2–3 години.'] }
+  },
+  {
+    slug: 'lime-cheesecake', img: '128-lime-cheesecake.jpg', cat: 'dessert',
+    tags: ['gluten-free', 'vegetarian', 'dairy-free'],
+    title: { en: 'No-Bake Lime Cheesecake', ua: 'Лаймовий чизкейк без випікання' },
+    why: { en: 'A raw, dairy-free cheesecake on a nut-and-date base, set with coconut oil and sweetened with maple instead of sugar. Nuts and healthy fat make it rich and low-GI, no baking required.', ua: 'Сирий чизкейк без молочних продуктів на горіхово-фініковій основі, застиглий на кокосовій олії та підсолоджений кленовим сиропом замість цукру. Горіхи й корисні жири роблять його насиченим і з низьким ГІ, без випікання.' },
+    nutrition: { en: 'Per serving (est.): ~380 kcal · Carbs 22 g · Fat 31 g · Protein 7 g', ua: 'На порцію (прибл.): ~380 ккал · Вуглеводи 22 г · Жири 31 г · Білки 7 г' },
+    meta: { prep: { en: '15 min', ua: '15 хв' }, cook: { en: 'Freeze 2–3 h', ua: 'Заморозка 2–3 год' }, serves: { en: 'Serves 4', ua: '4 порції' } },
+    ingredients: { en: ['— CRUST —','1 cup raw almonds','4 large dates','2 tbsp coconut oil','⅛ tsp vanilla extract','⅛ tsp Himalayan pink or sea salt','— FILLING —','1½ cups hazelnuts','½ cup almond milk','100 g lime juice','6 tbsp maple syrup','1 tsp vanilla extract','6 tbsp coconut oil'], ua: ['— ОСНОВА —','1 склянка сирого мигдалю','4 великі фініки','2 ст. л. кокосової олії','⅛ ч. л. ванільного екстракту','⅛ ч. л. гімалайської рожевої або морської солі','— НАЧИНКА —','1½ склянки фундука','½ склянки мигдалевого молока','100 г соку лайма','6 ст. л. кленового сиропу','1 ч. л. ванільного екстракту','6 ст. л. кокосової олії'] },
+    method: { en: ['Blend all the crust ingredients together in a food processor.','Press 1–2 tbsp firmly into each muffin-tin mould, filling the base.','Freeze to firm up while you make the filling.','Blend all the filling ingredients until smooth and creamy.','Pour the filling over the crusts and freeze for 2–3 hours until firm.','Let sit 5–10 minutes at room temperature, then turn out. Top with crushed nuts, coconut or lime zest.'], ua: ['Збийте всі інгредієнти основи в кухонному комбайні.','Щільно вкладіть по 1–2 ст. л. у кожну формочку для маффінів, формуючи основу.','Заморозьте для застигання, поки готуєте начинку.','Збийте всі інгредієнти начинки до однорідної кремової маси.','Вилийте начинку на основи та заморозьте на 2–3 години до твердості.','Дайте постояти 5–10 хвилин за кімнатної температури, потім вийміть. Прикрасьте подрібненими горіхами, кокосом або цедрою лайма.'] }
   }
 ];
