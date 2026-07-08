@@ -812,5 +812,65 @@ window.LF_RECIPES = [
     meta: { prep: { en: '5 min', ua: '5 хв' }, cook: { en: '1.5 h set', ua: '1,5 год застигання' }, serves: { en: 'Serves 4', ua: '4 порції' } },
     ingredients: { en: ['¾ cup ground nuts','3 tbsp melted butter','¼ tsp cinnamon','¼ tsp ground nutmeg','1 cup milk','250 g cream cheese (Philadelphia)','30 g thickener','2 handfuls strawberries'], ua: ['¾ склянки мелених горіхів','3 ст. л. розтопленого вершкового масла','¼ ч. л. кориці','¼ ч. л. меленого мускатного горіха','1 склянка молока','250 г вершкового сиру (Філадельфія)','30 г загусника','2 жмені полуниці'] },
     method: { en: ['Mix the ground nuts, melted butter, nutmeg and cinnamon; press into a tin and chill.','Beat the cream cheese at medium speed, gradually adding milk to the consistency you want.','Add the thickener gradually while beating, until dense.','Spread the cheese mixture over the chilled base.','Add sliced strawberries on top; repeat the layering.','Chill the finished dessert for 1 hour.'], ua: ['Змішайте мелені горіхи, розтоплене масло, мускатний горіх і корицю; викладіть у форму та охолодіть.','Збийте вершковий сир на середній швидкості, поступово додаючи молоко до бажаної консистенції.','Поступово додавайте загусник, збиваючи, до щільності.','Викладіть сирну масу на охолоджену основу.','Зверху викладіть нарізану полуницю; повторіть шари.','Охолодіть готовий десерт 1 годину.'] }
+  },
+  {
+    slug: 'strawberry-banana-bake', img: '80-strawberry-banana-bake.jpg', cat: 'breakfast',
+    tags: ['vegetarian'],
+    title: { en: 'Strawberry & Banana Breakfast Bake', ua: 'Полунично-бананова запіканка' },
+    why: { en: 'A wholegrain bread bake with banana, strawberries and an egg custard — protein and fibre for a weekend breakfast, sweetened only by the fruit and a drizzle of honey.', ua: 'Запіканка з цільнозернового хліба з бананом, полуницею та яєчною заливкою — білок і клітковина для сніданку вихідного дня, підсолоджена лише фруктами й краплею меду.' },
+    nutrition: { en: 'Per serving (est.): ~270 kcal · Carbs 35 g · Fat 8 g · Protein 14 g', ua: 'На порцію (прибл.): ~270 ккал · Вуглеводи 35 г · Жири 8 г · Білки 14 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '25 min', ua: '25 хв' }, serves: { en: 'Serves 2', ua: '2 порції' } },
+    ingredients: { en: ['4 slices wholegrain bread','1 banana, grated','6 strawberries (sliced / frozen / dried)','½ cup almond milk','3 eggs','¼ tsp cinnamon','1 g vanilla','10 g honey, to finish'], ua: ['4 скибки цільнозернового хліба','1 банан, натертий','6 полуниць (нарізаних / заморожених / сушених)','½ склянки мигдалевого молока','3 яйця','¼ ч. л. кориці','1 г ваніліну','10 г меду для завершення'] },
+    method: { en: ['Heat the oven to 190°C and lightly grease a dish. Trim the crusts, cube the bread and put it in the dish.','Mix the banana, strawberries, milk, eggs, cinnamon and vanilla. Pour over the bread.','Bake for 20–25 minutes.','Drizzle with honey before serving.'], ua: ['Розігрійте духовку до 190°C і злегка змастіть форму. Зріжте скоринки, наріжте хліб кубиками та викладіть у форму.','Змішайте банан, полуницю, молоко, яйця, корицю та ванілін. Залийте хліб.','Випікайте 20–25 хвилин.','Перед подачею полийте медом.'] }
+  },
+  {
+    slug: 'coconut-chia-pudding-raspberry', img: '81-coconut-chia-pudding-raspberry.jpg', cat: 'breakfast',
+    tags: ['gluten-free', 'vegetarian'],
+    title: { en: 'Coconut Chia Pudding with Raspberry', ua: 'Кокосовий чіа-пудинг з малиновим пюре' },
+    why: { en: 'An overnight chia pudding with coconut milk and yogurt, topped with raspberry purée — fibre, calcium and omega-3 for a steady, no-refined-sugar breakfast.', ua: 'Нічний чіа-пудинг на кокосовому молоці й йогурті з малиновим пюре — клітковина, кальцій та омега-3 для стабільного сніданку без рафінованого цукру.' },
+    nutrition: { en: 'Per serving (est.): ~180 kcal · Carbs 20 g · Fat 8 g · Protein 6 g', ua: 'На порцію (прибл.): ~180 ккал · Вуглеводи 20 г · Жири 8 г · Білки 6 г' },
+    meta: { prep: { en: '5 min + overnight', ua: '5 хв + ніч' }, cook: { en: 'No cook', ua: 'Без готування' }, serves: { en: 'Serves 2', ua: '2 порції' } },
+    ingredients: { en: ['½ cup coconut milk','½ cup low-fat yogurt','1 tbsp honey (+ 2 tbsp for the purée)','2 tbsp chia seeds','1 cup raspberries (fresh or frozen)'], ua: ['½ склянки кокосового молока','½ склянки нежирного йогурту','1 ст. л. меду (+ 2 ст. л. для пюре)','2 ст. л. насіння чіа','1 склянка малини (свіжої або замороженої)'] },
+    method: { en: ['Mix the coconut milk, yogurt, chia seeds and 1 tbsp honey; refrigerate overnight.','Mash the raspberries with 2 tbsp honey to a purée.','Spoon the pudding into glasses and top with the raspberry purée before serving.'], ua: ['Змішайте кокосове молоко, йогурт, насіння чіа та 1 ст. л. меду; поставте в холодильник на ніч.','Розімніть малину з 2 ст. л. меду до пюре.','Розкладіть пудинг по стаканах і прикрасьте малиновим пюре перед подачею.'] }
+  },
+  {
+    slug: 'rye-kulich-ginger-anise', img: '82-rye-kulich-ginger-anise.jpg', cat: 'baking',
+    tags: ['vegetarian', 'dairy-free'],
+    title: { en: 'Rye Easter Kulich with Ginger & Anise', ua: 'Пасхальний кулич на житньому борошні з імбиром та анісом' },
+    why: { en: 'A lighter Easter kulich on coarse rye flour with dried fruit, ginger and anise — wholegrain and yeast-free, sweetened with stevia and the fruit.', ua: 'Легший пасхальний кулич на житньому борошні грубого помелу з сухофруктами, імбиром та анісом — цільнозерновий і бездріжджовий, підсолоджений стевією та фруктами.' },
+    nutrition: { en: 'Per serving (est.): ~370 kcal · Carbs 50 g · Fat 16 g · Protein 6 g', ua: 'На порцію (прибл.): ~370 ккал · Вуглеводи 50 г · Жири 16 г · Білки 6 г' },
+    meta: { prep: { en: '10 min + 1 h soak', ua: '10 хв + 1 год замочування' }, cook: { en: '40 min', ua: '40 хв' }, serves: { en: 'Serves 4', ua: '4 порції' } },
+    ingredients: { en: ['1 cup dried fruit (rinsed, soaked 1 h)','2 cups coarse rye flour','1 tsp baking soda','0.5 g sea salt','125 g unrefined oil','1 heaped tsp stevia','150 g of the fruit soaking water','1½ tbsp ground ginger','1 tbsp flaxseed meal','2 tbsp lemon juice','Anise, to taste'], ua: ['1 склянка сухофруктів (промитих, замочених 1 год)','2 склянки житнього борошна грубого помелу','1 ч. л. соди','0,5 г морської солі','125 г нерафінованої олії','1 ч. л. стевії з горою','150 г води з-під сухофруктів','1½ ст. л. меленого імбиру','1 ст. л. лляного шроту','2 ст. л. лимонного соку','Аніс за смаком'] },
+    method: { en: ['Heat the oven to 165°C and grease the moulds (about 11 cm).','Sift the flour into a bowl; add the anise, salt, soda and ground ginger and mix.','Add the dried fruit (chop the large pieces) and mix well.','Stir the stevia into 150 ml of the reserved fruit water, then add the flaxseed meal and leave to swell.','Pour the swollen flax mixture into the bowl, add the lemon juice and mix gently.','Divide the dough between the moulds.','Bake about 40 minutes, covering with foil for the last 10 minutes.','Turn out and cool; decorate with coconut, dried fruit and honey if you like.'], ua: ['Розігрійте духовку до 165°C і змастіть форми (близько 11 см).','Просійте борошно в миску; додайте аніс, сіль, соду та мелений імбир і перемішайте.','Додайте сухофрукти (великі поріжте) і добре перемішайте.','Розмішайте стевію у 150 мл води з-під фруктів, потім додайте лляний шрот і залиште набухати.','Влийте набухлу лляну суміш у миску, додайте лимонний сік і акуратно перемішайте.','Розподіліть тісто по формах.','Випікайте близько 40 хвилин, накривши фольгою останні 10 хвилин.','Вийміть із форм і охолодіть; за бажанням прикрасьте кокосом, сухофруктами й медом.'] }
+  },
+  {
+    slug: 'rhubarb-cherry-leaf-jam', img: '83-rhubarb-jam.jpg', cat: 'sauce',
+    tags: ['sugar-free', 'vegetarian', 'dairy-free', 'gluten-free'],
+    title: { en: 'Rhubarb Jam with Cherry Leaves', ua: 'Варення з ревеню з вишневими листками' },
+    why: { en: 'A low-calorie rhubarb jam steeped with cherry leaves for aroma and sweetened with stevia — no sugar.', ua: 'Низькокалорійне варення з ревеню, настояне на вишневих листках для аромату та підсолоджене стевією — без цукру.' },
+    nutrition: { en: 'Per serving (est.): ~20 kcal · Carbs 4 g · Fat 0 g · Protein 1 g', ua: 'На порцію (прибл.): ~20 ккал · Вуглеводи 4 г · Жири 0 г · Білки 1 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '30 min + 3 h steep', ua: '30 хв + 3 год настоювання' }, serves: { en: 'Makes ~2 jars', ua: '~2 банки' } },
+    ingredients: { en: ['2 kg prepared rhubarb','100 g cherry leaves','50–60 drops stevia','1 L boiling water'], ua: ['2 кг підготовленого ревеню','100 г вишневих листків','50–60 крапель стевії','1 л окропу'] },
+    method: { en: ['Layer the rhubarb with the cherry leaves.','Cover with boiling water and steep about 3 hours.','Drain (keep the water).','Remove the cherry leaves.','Add a scant cup of the reserved water and cook until soft.','When soft, stir in the stevia and steep 30 minutes.','Pour into sterilised jars.'], ua: ['Викладіть ревінь шарами, чергуючи з вишневими листками.','Залийте окропом і настоюйте близько 3 годин.','Злийте воду (збережіть її).','Приберіть вишневі листки.','Додайте неповну склянку збереженої води та варіть до м’якості.','Коли ревінь розм’якне, вмішайте стевію та настоюйте 30 хвилин.','Розлийте по стерилізованих банках.'] }
+  },
+  {
+    slug: 'rhubarb-orange-jam', img: '83-rhubarb-jam.jpg', cat: 'sauce',
+    tags: ['sugar-free', 'vegetarian', 'dairy-free', 'gluten-free'],
+    title: { en: 'Rhubarb & Orange Jam', ua: 'Варення з ревеню з апельсинами' },
+    why: { en: 'Rhubarb simmered with fresh orange and sweetened with stevia — a bright, no-sugar jam.', ua: 'Ревінь, зварений зі свіжим апельсином і підсолоджений стевією — яскраве варення без цукру.' },
+    nutrition: { en: 'Per serving (est.): ~30 kcal · Carbs 6 g · Fat 0 g · Protein 1 g', ua: 'На порцію (прибл.): ~30 ккал · Вуглеводи 6 г · Жири 0 г · Білки 1 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '28 min', ua: '28 хв' }, serves: { en: 'Makes ~1 jar', ua: '~1 банка' } },
+    ingredients: { en: ['1 kg rhubarb, prepared and chopped','2 oranges','½ cup water','1 tsp stevia'], ua: ['1 кг ревеню, підготовленого й нарізаного','2 апельсини','½ склянки води','1 ч. л. стевії'] },
+    method: { en: ['Chop the oranges finely and put in a pan with the rhubarb.','Add ½ cup water and simmer gently until soft.','Stir in the stevia and mix well.','Pour into sterilised jars.'], ua: ['Дрібно наріжте апельсини та покладіть у каструлю з ревенем.','Додайте ½ склянки води та варіть на слабкому вогні до м’якості.','Вмішайте стевію та добре перемішайте.','Розлийте по стерилізованих банках.'] }
+  },
+  {
+    slug: 'rhubarb-quick-jam', img: '83-rhubarb-jam.jpg', cat: 'sauce',
+    tags: ['sugar-free', 'vegetarian', 'dairy-free', 'gluten-free'],
+    title: { en: 'Quick Baked Rhubarb Jam', ua: 'Варення з ревеню «П’ятихвилинка»' },
+    why: { en: 'A fuss-free rhubarb jam baked in the oven and blended, sharpened with lemon and ginger and sweetened with stevia — no sugar.', ua: 'Просте варення з ревеню, запечене в духовці й збите, з лимоном та імбиром, підсолоджене стевією — без цукру.' },
+    nutrition: { en: 'Per serving (est.): ~25 kcal · Carbs 5 g · Fat 0 g · Protein 1 g', ua: 'На порцію (прибл.): ~25 ккал · Вуглеводи 5 г · Жири 0 г · Білки 1 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '40 min', ua: '40 хв' }, serves: { en: 'Makes ~1 jar', ua: '~1 банка' } },
+    ingredients: { en: ['1 kg prepared rhubarb','½ cup water','1 lemon','0.1 g salt','1 tsp grated ginger','1 g stevia'], ua: ['1 кг підготовленого ревеню','½ склянки води','1 лимон','0,1 г солі','1 ч. л. тертого імбиру','1 г стевії'] },
+    method: { en: ['Put the rhubarb in a baking dish, add the lemon juice, salt and water (add the zest too if you like).','Bake at 180°C for 30–40 minutes.','Add the ginger and blend the mixture.','Sweeten with stevia and mix.'], ua: ['Викладіть ревінь у форму, додайте лимонний сік, сіль і воду (за бажанням додайте цедру).','Запікайте при 180°C 30–40 хвилин.','Додайте імбир і збийте масу блендером.','Підсолодіть стевією та перемішайте.'] }
   }
 ];
