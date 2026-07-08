@@ -652,5 +652,75 @@ window.LF_RECIPES = [
     meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: 'No cook', ua: 'Без готування' }, serves: { en: 'Serves 1', ua: '1 порція' } },
     ingredients: { en: ['1 cup kefir','1 tbsp raw carob','1 tbsp peanut butter','1 tsp flaxseed meal','1 pinch stevia'], ua: ['1 склянка кефіру','1 ст. л. сирого керобу','1 ст. л. арахісової пасти','1 ч. л. лляного шроту','1 щіпка стевії'] },
     method: { en: ['Blend everything until smooth. Carob is sweet, so you need little stevia — none at all if the peanut butter contains honey.'], ua: ['Збийте все в блендері до однорідності. Кероб солодкий, тож стевії потрібно мало — а якщо арахісова паста з медом, зовсім не підсолоджуйте.'] }
+  },
+  {
+    slug: 'parsley-walnut-smoothie', img: '64-parsley-walnut-smoothie.jpg', cat: 'breakfast',
+    tags: ['vegetarian', 'gluten-free'],
+    title: { en: 'Parsley & Walnut Smoothie', ua: 'Смузі з петрушкою та горіхами' },
+    why: { en: 'Banana, parsley, yogurt and walnuts — a sneaky way to get greens in, with protein and healthy fats to balance the fruit.', ua: 'Банан, петрушка, йогурт і волоські горіхи — непомітний спосіб додати зелень, з білком і корисними жирами, що врівноважують фрукти.' },
+    nutrition: { en: 'Per serving (est.): ~230 kcal · Carbs 20 g · Fat 14 g · Protein 8 g', ua: 'На порцію (прибл.): ~230 ккал · Вуглеводи 20 г · Жири 14 г · Білки 8 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: 'No cook', ua: 'Без готування' }, serves: { en: 'Serves 1', ua: '1 порція' } },
+    ingredients: { en: ['1 banana','1 handful parsley','100 g yogurt','1 handful walnuts','1 pinch stevia','1 tsp lemon juice'], ua: ['1 банан','1 жменя петрушки','100 г йогурту','1 жменя волоських горіхів','1 щіпка стевії','1 ч. л. лимонного соку'] },
+    method: { en: ['Blend everything and loosen with a little water if it is too thick.'], ua: ['Збийте все в блендері та розведіть трохи водою, якщо вийшло дуже густо.'] }
+  },
+  {
+    slug: 'spinach-smoothie', img: '65-spinach-smoothie.jpg', cat: 'breakfast',
+    tags: ['sugar-free', 'vegetarian', 'gluten-free', 'low-carb'],
+    title: { en: 'Spinach Smoothie', ua: 'Шпинатний смузі' },
+    why: { en: 'A green kefir smoothie with spinach and flax — protein, iron and omega-3, very low in sugar. A good start to the day.', ua: 'Зелений кефірний смузі зі шпинатом і льоном — білок, залізо й омега-3, дуже мало цукру. Гарний початок дня.' },
+    nutrition: { en: 'Per serving (est.): ~90 kcal · Carbs 6 g · Fat 4 g · Protein 6 g', ua: 'На порцію (прибл.): ~90 ккал · Вуглеводи 6 г · Жири 4 г · Білки 6 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: 'No cook', ua: 'Без готування' }, serves: { en: 'Serves 1', ua: '1 порція' } },
+    ingredients: { en: ['1 handful frozen spinach','100 g kefir','1 pinch stevia','1 tsp lemon juice','1 tsp flax seeds'], ua: ['1 жменя замороженого шпинату','100 г кефіру','1 щіпка стевії','1 ч. л. лимонного соку','1 ч. л. насіння льону'] },
+    method: { en: ['Blend everything until smooth.'], ua: ['Збийте все в блендері до однорідності.'] }
+  },
+  {
+    slug: 'easter-kulich-lavender', img: '66-easter-kulich-lavender.jpg', cat: 'baking',
+    tags: ['sugar-free', 'vegetarian'],
+    title: { en: 'Easter Kulich with Lavender', ua: 'Пасхальний кулич з лавандою' },
+    why: { en: 'A yeast-free Easter kulich with lavender, turmeric and cinnamon — wholegrain and almond flour, sweetened with stevia, with a sunny natural colour from turmeric.', ua: 'Бездріжджовий пасхальний кулич з лавандою, куркумою й корицею — цільнозернове й мигдалеве борошно, підсолоджений стевією, із сонячним природним кольором від куркуми.' },
+    nutrition: { en: 'Per serving (est.): ~250 kcal · Carbs 30 g · Fat 10 g · Protein 10 g', ua: 'На порцію (прибл.): ~250 ккал · Вуглеводи 30 г · Жири 10 г · Білки 10 г' },
+    meta: { prep: { en: '10 min + overnight', ua: '10 хв + ніч' }, cook: { en: '20 min', ua: '20 хв' }, serves: { en: 'Serves 6', ua: '6 порцій' } },
+    ingredients: { en: ['2 cups wholegrain wheat flour','0.25 L water','1 cup almond flour','1 tsp turmeric','1 tsp lavender','½ tsp cinnamon','1 tbsp stevia','1 tsp baking soda','2 tbsp lemon juice'], ua: ['2 склянки цільнозернового пшеничного борошна','0,25 л води','1 склянка мигдалевого борошна','1 ч. л. куркуми','1 ч. л. лаванди','½ ч. л. кориці','1 ст. л. стевії','1 ч. л. соди','2 ст. л. лимонного соку'] },
+    method: { en: ['Mix the flour and water and refrigerate overnight, covered.','Take the dough out and let it warm; mix all the dry ingredients.','Combine the dough with the wet ingredients, quickly adding the soda and lemon juice at the end.','Grease the moulds and fill with the dough.','Bake at 170°C for about 20 minutes; check with a skewer.'], ua: ['Змішайте борошно й воду та поставте в холодильник на ніч під кришкою.','Вийміть тісто, дайте нагрітися; змішайте всі сухі компоненти.','З’єднайте тісто з вологими інгредієнтами, швидко додавши соду й лимонний сік наприкінці.','Змастіть форми олією та розкладіть тісто.','Випікайте при 170°C близько 20 хвилин; перевірте шпажкою.'] }
+  },
+  {
+    slug: 'carrot-crisps-honey-yogurt', img: '67-carrot-crisps-honey-yogurt.jpg', cat: 'snack',
+    tags: ['vegetarian', 'gluten-free'],
+    title: { en: 'Carrot Crisps with Honey-Yogurt Dip', ua: 'Морквяні чипси з медово-йогуртовим соусом' },
+    why: { en: 'Spiced baked carrot ribbons with a honey-yogurt dip — a wholesome snack with fibre and beta-carotene (a little honey in the dip).', ua: 'Пряні запечені морквяні стрічки з медово-йогуртовим соусом — корисний перекус із клітковиною й бета-каротином (трохи меду в соусі).' },
+    nutrition: { en: 'Per serving (est.): ~130 kcal · Carbs 15 g · Fat 6 g · Protein 4 g', ua: 'На порцію (прибл.): ~130 ккал · Вуглеводи 15 г · Жири 6 г · Білки 4 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '~20 min', ua: '~20 хв' }, serves: { en: 'Serves 2', ua: '2 порції' } },
+    ingredients: { en: ['2 large carrots','½ tsp ground cinnamon','¼ tsp ground ginger','1 tbsp olive oil','125 g plain or Greek yogurt','1 tbsp pure honey'], ua: ['2 великі морквини','½ ч. л. меленої кориці','¼ ч. л. меленого імбиру','1 ст. л. оливкової олії','125 г простого або грецького йогурту','1 ст. л. чистого меду'] },
+    method: { en: ['Heat the oven to 205°C.','Wash, peel and dry the carrots; slice into ribbons with a peeler.','Toss with the cinnamon and ginger, spread on a tray and drizzle with oil.','Bake 5 minutes, turn, bake 5 more; leave in the switched-off oven 8 minutes until lightly browned.','Mix the yogurt with honey and serve as a dip.'], ua: ['Розігрійте духовку до 205°C.','Вимийте, почистіть і обсушіть моркву; наріжте стрічками овочечисткою.','Перемішайте з корицею й імбиром, розкладіть на деку та збризніть олією.','Випікайте 5 хвилин, переверніть, ще 5 хвилин; залиште у вимкненій духовці на 8 хвилин до легкого рум’янцю.','Змішайте йогурт із медом і подавайте як соус.'] }
+  },
+  {
+    slug: 'pineapple-chips', img: '68-pineapple-chips.jpg', cat: 'snack',
+    tags: ['vegetarian', 'dairy-free', 'gluten-free'],
+    title: { en: 'Baked Pineapple Chips', ua: 'Чипси з ананаса' },
+    why: { en: 'Thin pineapple slices dried until crisp — no added sugar, just fruit and a little lemon. Naturally high in fruit sugar, so a treat to enjoy in moderation.', ua: 'Тонкі скибочки ананаса, висушені до хрусткості — без доданого цукру, лише фрукт і трохи лимона. Природно багато фруктового цукру, тож ласощі помірно.' },
+    nutrition: { en: 'Per serving (est.): ~120 kcal · Carbs 30 g · Fat 0 g · Protein 1 g', ua: 'На порцію (прибл.): ~120 ккал · Вуглеводи 30 г · Жири 0 г · Білки 1 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '7 h drying', ua: '7 год сушіння' }, serves: { en: 'Serves 2', ua: '2 порції' } },
+    ingredients: { en: ['2 pineapples, peeled, cored and thinly sliced','30 g lemon juice','1 g salt'], ua: ['2 ананаси, очищені, без серцевини, тонко нарізані','30 г лимонного соку','1 г солі'] },
+    method: { en: ['Put the sliced pineapple in a bowl, add the lemon juice and toss.','Arrange on a baking sheet.','Sprinkle with salt.','Bake at 50°C for about 7 hours until crisp.','Remove and cool completely for extra crispness.'], ua: ['Покладіть нарізаний ананас у миску, додайте лимонний сік і струсіть.','Розкладіть на деку.','Посипте сіллю.','Сушіть при 50°C близько 7 годин до хрусткості.','Вийміть і повністю охолодіть для більшої хрусткості.'] }
+  },
+  {
+    slug: 'spiced-apple-chips', img: '69-spiced-apple-chips.jpg', cat: 'snack',
+    tags: ['vegetarian', 'dairy-free', 'gluten-free'],
+    title: { en: 'Spiced Apple Chips', ua: 'Пряні яблучні чипси' },
+    why: { en: 'Thin apple slices baked crisp with cinnamon and nutmeg — no added sugar, a naturally sweet, fibre-rich snack. Best in moderation, as drying concentrates the fruit sugars.', ua: 'Тонкі скибочки яблука, запечені до хрусткості з корицею й мускатним горіхом — без доданого цукру, природно солодкий перекус із клітковиною. Найкраще помірно, бо сушіння концентрує фруктовий цукор.' },
+    nutrition: { en: 'Per serving (est.): ~85 kcal · Carbs 22 g · Fat 0 g · Protein 0 g', ua: 'На порцію (прибл.): ~85 ккал · Вуглеводи 22 г · Жири 0 г · Білки 0 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '2 h', ua: '2 год' }, serves: { en: 'Serves 2', ua: '2 порції' } },
+    ingredients: { en: ['3 apples','1 tsp cinnamon','1 g ground nutmeg'], ua: ['3 яблука','1 ч. л. кориці','1 г меленого мускатного горіха'] },
+    method: { en: ['Heat the oven to 110°C and line trays with parchment.','Slice the apples as thinly as you can and lay out on the trays.','Dust with cinnamon and a little nutmeg.','Bake 1 hour, turn the apples over and bake another hour.','Remove, peel off the parchment and cool.'], ua: ['Розігрійте духовку до 110°C і застеліть деки пергаментом.','Наріжте яблука якомога тонше та розкладіть на деках.','Посипте корицею й невеликою кількістю мускатного горіха.','Випікайте 1 годину, переверніть яблука та випікайте ще годину.','Вийміть, зніміть з пергаменту та охолодіть.'] }
+  },
+  {
+    slug: 'tomato-chips', img: '70-tomato-chips.jpg', cat: 'snack',
+    tags: ['vegetarian', 'dairy-free', 'gluten-free', 'low-carb'],
+    title: { en: 'Dehydrated Tomato Chips', ua: 'Томатні чипси в дегідраторі' },
+    why: { en: 'Tomato rounds dried with salt and basil until crisp — a savoury, low-carb snack packed with flavour.', ua: 'Кружечки помідорів, висушені з сіллю й базиліком до хрусткості — солоний низьковуглеводний перекус із насиченим смаком.' },
+    nutrition: { en: 'Per serving (est.): ~25 kcal · Carbs 5 g · Fat 0 g · Protein 1 g', ua: 'На порцію (прибл.): ~25 ккал · Вуглеводи 5 г · Жири 0 г · Білки 1 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '8–12 h drying', ua: '8–12 год сушіння' }, serves: { en: 'Serves 2', ua: '2 порції' } },
+    ingredients: { en: ['3 tomatoes','1 g sea salt','1 g dried basil'], ua: ['3 помідори','1 г морської солі','1 г сушеного базиліку'] },
+    method: { en: ['Slice the tomatoes into 5–6 mm rounds and arrange on dehydrator trays.','Sprinkle with salt and basil.','Dry for 8–12 hours, or until the chips are crisp.'], ua: ['Наріжте помідори кружечками завтовшки 5–6 мм і розкладіть на піддонах дегідратора.','Посипте сіллю й базиліком.','Сушіть 8–12 годин, доки чипси не стануть хрусткими.'] }
   }
 ];
