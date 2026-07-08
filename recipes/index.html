@@ -45,6 +45,7 @@
     <div class="filter-row">
       <span class="filter-label" data-en="Type" data-ua="Тип">Type</span>
       <div class="chips">
+        <button class="chip" data-group="cat" data-value="breakfast" data-en="Breakfast" data-ua="Сніданки">Breakfast</button>
         <button class="chip" data-group="cat" data-value="main" data-en="Mains" data-ua="Основні">Mains</button>
         <button class="chip" data-group="cat" data-value="dessert" data-en="Desserts" data-ua="Десерти">Desserts</button>
         <button class="chip" data-group="cat" data-value="baking" data-en="Baking" data-ua="Випічка">Baking</button>
@@ -84,7 +85,7 @@
 (function () {
   function L() { return (window.LF && window.LF.lang) || 'en'; }
   var recipes = window.LF_RECIPES || [];
-  var CAT = { main: { en: 'Mains', ua: 'Основні' }, dessert: { en: 'Desserts', ua: 'Десерти' }, baking: { en: 'Baking', ua: 'Випічка' }, snack: { en: 'Snacks', ua: 'Перекуси' }, bread: { en: 'Bread', ua: 'Хліб' }, sauce: { en: 'Sauces', ua: 'Соуси' } };
+  var CAT = { main: { en: 'Mains', ua: 'Основні' }, dessert: { en: 'Desserts', ua: 'Десерти' }, baking: { en: 'Baking', ua: 'Випічка' }, snack: { en: 'Snacks', ua: 'Перекуси' }, breakfast: { en: 'Breakfast', ua: 'Сніданки' }, bread: { en: 'Bread', ua: 'Хліб' }, sauce: { en: 'Sauces', ua: 'Соуси' } };
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' })[c]; }); }
 
   function buildGrid() {
