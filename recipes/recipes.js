@@ -8,7 +8,12 @@
    ============================================================ */
 (function () {
   var LS_LANG = 'lf_lang', LS_LIST = 'lf_shopping_list', LS_CHK = 'lf_shopping_checked';
-  var lang = (localStorage.getItem(LS_LANG) === 'ua') ? 'ua' : 'en';
+  // Honour a ?lang=ua|en URL param (used by redirects from the old lenafilatova.com
+  // recipe pages so Russian/Ukrainian-speaking visitors land on the UA version) and
+  // persist it so the rest of the site follows.
+  var urlLang = (location.search.match(/[?&]lang=(ua|en)/) || [])[1];
+  if (urlLang) { try { localStorage.setItem(LS_LANG, urlLang); } catch (e) {} }
+  var lang = ((urlLang || localStorage.getItem(LS_LANG)) === 'ua') ? 'ua' : 'en';
 
   var STR = {
     en: {
