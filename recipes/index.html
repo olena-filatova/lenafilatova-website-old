@@ -89,7 +89,15 @@
   var CAT = { main: { en: 'Mains', ua: 'Основні' }, dessert: { en: 'Desserts', ua: 'Десерти' }, baking: { en: 'Baking', ua: 'Випічка' }, snack: { en: 'Snacks', ua: 'Перекуси' }, breakfast: { en: 'Breakfast', ua: 'Сніданки' }, bread: { en: 'Bread', ua: 'Хліб' }, sauce: { en: 'Sauces', ua: 'Соуси' } };
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' })[c]; }); }
 
-  var PAGE = 10, shownLimit = PAGE;
+  var batchesShown = 1;
+  // Show whole rows only, so no ragged partial row. Batch = (rows × columns),
+  // where columns is however many actually fit at the current width.
+  function perRow() {
+    var cols = getComputedStyle(document.getElementById('grid')).gridTemplateColumns;
+    var n = (cols || '').split(' ').filter(Boolean).length;
+    return n > 0 ? n : 1;
+  }
+  function batchSize() { var c = perRow(); var rows = c >= 3 ? 3 : (c === 2 ? 4 : 6); return c * rows; }
 
   function buildGrid() {
     var l = L();
@@ -113,23 +121,25 @@
   function groups() { var g = {}; chips.forEach(function (c) { if (!c.classList.contains('active')) return; var k = c.getAttribute('data-group'); (g[k] = g[k] || []).push(c.getAttribute('data-value')); }); return g; }
   function apply() {
     var g = groups(), any = Object.keys(g).length > 0, total = 0;
+    var step = batchSize(), limit = step * batchesShown;
     [].slice.call(document.querySelectorAll('#grid .rcard')).forEach(function (card) {
       var ok = Object.keys(g).every(function (k) { var have = (card.getAttribute('data-' + k) || '').split(' '); return g[k].some(function (v) { return have.indexOf(v) !== -1; }); });
-      if (ok) { card.classList.toggle('hidden', total >= shownLimit); total++; }
+      if (ok) { card.classList.toggle('hidden', total >= limit); total++; }
       else { card.classList.add('hidden'); }
     });
     document.getElementById('countNum').textContent = total;
     document.getElementById('countWord').textContent = recipeWord(total);
     empty.classList.toggle('show', total === 0);
     clearBtn.disabled = !any;
-    var remaining = total - shownLimit, next = Math.min(PAGE, remaining);
+    var remaining = total - limit, next = Math.min(step, remaining);
     moreWrap.classList.toggle('show', remaining > 0);
     if (remaining > 0) moreBtn.textContent = (L() === 'ua' ? 'Показати ще ' + next : 'Load ' + next + ' more');
   }
-  function reset() { shownLimit = PAGE; apply(); }
+  function reset() { batchesShown = 1; apply(); }
   chips.forEach(function (c) { c.addEventListener('click', function () { c.classList.toggle('active'); reset(); }); });
   clearBtn.addEventListener('click', function () { chips.forEach(function (c) { c.classList.remove('active'); }); reset(); });
-  moreBtn.addEventListener('click', function () { shownLimit += PAGE; apply(); });
+  moreBtn.addEventListener('click', function () { batchesShown++; apply(); });
+  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(apply, 150); });
 
   window.LF_ONLANG = buildGrid;
   buildGrid();
