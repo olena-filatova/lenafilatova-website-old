@@ -82,10 +82,11 @@ function pageFor(R) {
     `<meta name="description" content="${esc(desc)}" />`);
   // pre-fill the H1 for crawlers / no-CLS (JS re-sets it to the active language)
   html = html.replace('<h1 id="rTitle"></h1>', `<h1 id="rTitle">${esc(R.title.en)}</h1>`);
-  // bake the slug (no ?r= on a clean URL)
+  // bake the slug (standalone page has no ?r=; window.__LF_PAGE_SLUG also
+  // tells recipe.html's script this is a real page, not a ?r= link to forward)
   html = html.replace(
-    "var slug = param('r') || (recipes[0] && recipes[0].slug);",
-    `var slug = param('r') || ${JSON.stringify(R.slug)} || (recipes[0] && recipes[0].slug);`);
+    '<script src="recipes-data.js"></script>',
+    `<script>window.__LF_PAGE_SLUG=${JSON.stringify(R.slug)};</script>\n<script src="recipes-data.js"></script>`);
   return html;
 }
 

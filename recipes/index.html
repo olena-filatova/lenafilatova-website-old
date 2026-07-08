@@ -103,7 +103,7 @@
   function buildGrid() {
     var l = L();
     document.getElementById('grid').innerHTML = recipes.map(function (r) {
-      return '<a class="rcard" href="recipe.html?r=' + r.slug + '" data-cat="' + r.cat + '" data-diet="' + (r.tags || []).join(' ') + '">' +
+      return '<a class="rcard" href="/recipes/' + r.slug + '/" data-cat="' + r.cat + '" data-diet="' + (r.tags || []).join(' ') + '">' +
         '<div class="thumb"><img src="images/' + r.img + '" loading="lazy" decoding="async" alt="' + esc(r.title[l]) + '"></div>' +
         '<div class="body"><div class="title">' + esc(r.title[l]) + '</div>' +
         '<div class="cmeta"><span>' + esc(CAT[r.cat][l]) + '</span><span>' + esc(r.meta.serves[l]) + '</span></div></div></a>';
