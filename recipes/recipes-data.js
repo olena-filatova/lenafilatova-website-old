@@ -572,5 +572,85 @@ window.LF_RECIPES = [
     meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '3 h freezing', ua: '3 год заморозки' }, serves: { en: 'Serves 2', ua: '2 порції' } },
     ingredients: { en: ['3–4 ripe bananas','⅓ cup pecans','1 g cinnamon'], ua: ['3–4 стиглі банани','⅓ склянки горіхів пекан','1 г кориці'] },
     method: { en: ['Slice the bananas into rounds and freeze for 3 hours.','Blend the frozen slices until glossy and smooth.','Chop the pecans.','Scoop into dishes, dust with cinnamon and top with the pecans.'], ua: ['Наріжте банани кільцями та заморозьте на 3 години.','Збийте заморожені кільця до глянцевої однорідної маси.','Порубайте пекан.','Викладіть ложкою в тарілочки, посипте корицею та прикрасьте горіхами.'] }
+  },
+  {
+    slug: 'raw-brownies', img: '56-raw-brownies.jpg', cat: 'dessert',
+    tags: ['vegetarian', 'dairy-free', 'gluten-free'],
+    title: { en: 'Raw Brownies', ua: 'Сирі брауні' },
+    why: { en: 'No-bake walnut, date and cacao brownies — whole-food ingredients with fibre and healthy fats. Sweetened entirely by dates, so best in small squares.', ua: 'Брауні без випікання з волоських горіхів, фініків і какао — натуральні продукти з клітковиною й корисними жирами. Підсолоджені лише фініками, тож найкраще маленькими шматочками.' },
+    nutrition: { en: 'Per square (est.): ~150 kcal · Carbs 15 g · Fat 9 g · Protein 3 g', ua: 'На 1 квадратик (прибл.): ~150 ккал · Вуглеводи 15 г · Жири 9 г · Білки 3 г' },
+    meta: { prep: { en: '10 min', ua: '10 хв' }, cook: { en: 'Chill', ua: 'Охолодження' }, serves: { en: 'Makes ~12', ua: '~12 штук' } },
+    ingredients: { en: ['2 cups walnuts','2½ cups pitted dates','1 cup raw cacao or carob','1 cup chopped almonds','1 tbsp sea salt'], ua: ['2 склянки волоських горіхів','2½ склянки фініків без кісточок','1 склянка сирого какао або керобу','1 склянка рубленого мигдалю','1 ст. л. морської солі'] },
+    method: { en: ['Blend the walnuts to a fine crumb on high.','Add the cacao and salt and blend again.','Keep blending and add the dates one at a time until you have a smooth, dense mass.','Transfer to a bowl and mix in the chopped almonds.','Press into a flat container and put under a weight in the fridge or freezer.','Cut the chilled brownies into squares and dust with cacao or carob.'], ua: ['Збийте волоські горіхи в дрібну крихту на високих обертах.','Додайте какао й сіль і збийте знову.','Продовжуючи збивати, додавайте фініки по одному до однорідної щільної маси.','Перекладіть у миску та вмішайте рублений мигдаль.','Викладіть у пласку форму та поставте під прес у холодильник чи морозилку.','Наріжте охолоджені брауні квадратиками та посипте какао або керобом.'] }
+  },
+  {
+    slug: 'raw-chocolate-mousse', img: '57-raw-chocolate-mousse.jpg', cat: 'dessert',
+    tags: ['vegetarian', 'dairy-free', 'gluten-free'],
+    title: { en: 'Raw Chocolate Mousse', ua: 'Шоколадний мус' },
+    why: { en: 'A blend-and-chill mousse of banana, avocado, dates and carob — creamy and no-bake, with fibre and healthy fats. Dates make it naturally sweet.', ua: 'Мус «збий і охолоди» з банана, авокадо, фініків і керобу — кремовий, без випікання, з клітковиною й корисними жирами. Фініки роблять його природно солодким.' },
+    nutrition: { en: 'Per serving (est.): ~180 kcal · Carbs 30 g · Fat 7 g · Protein 2 g', ua: 'На порцію (прибл.): ~180 ккал · Вуглеводи 30 г · Жири 7 г · Білки 2 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '30 min freezing', ua: '30 хв заморозки' }, serves: { en: 'Serves 3', ua: '3 порції' } },
+    ingredients: { en: ['6 pitted dates','2 very ripe bananas','1 very ripe avocado','2 tbsp carob','1 handful frozen berries, to decorate'], ua: ['6 фініків без кісточок','2 дуже стиглі банани','1 дуже стигле авокадо','2 ст. л. керобу','1 жменя заморожених ягід для прикраси'] },
+    method: { en: ['Soak the dates in warm water for 5 minutes.','Blend all the ingredients into a smooth paste.','Freeze for 30 minutes. Serve topped with frozen berries.'], ua: ['Замочіть фініки в теплій воді на 5 хвилин.','Збийте всі інгредієнти в блендері до однорідної пасти.','Заморозьте на 30 хвилин. Подавайте, прикрасивши замороженими ягодами.'] }
+  },
+  {
+    slug: 'chocolate-prune-dessert', img: '58-chocolate-prune-dessert.jpg', cat: 'dessert',
+    tags: ['vegetarian'],
+    title: { en: 'Chocolate, Prune & Cottage Cheese Dessert', ua: 'Шоколадний десерт з чорносливом і сиром' },
+    why: { en: "A no-bake 'anything-in-the-cupboard' dessert — wholegrain bread soaked in carob, layered with a nutty cottage-cheese cream and prunes. Protein-rich, sweetened only by the prunes and stevia.", ua: 'Десерт без випікання «з того, що є вдома» — цільнозерновий хліб, просочений керобом, з горіховим сирним кремом і чорносливом. Багатий на білок, підсолоджений лише чорносливом і стевією.' },
+    nutrition: { en: 'Per serving (est.): ~280 kcal · Carbs 30 g · Fat 12 g · Protein 15 g', ua: 'На порцію (прибл.): ~280 ккал · Вуглеводи 30 г · Жири 12 г · Білки 15 г' },
+    meta: { prep: { en: '10 min', ua: '10 хв' }, cook: { en: 'No bake', ua: 'Без випікання' }, serves: { en: 'Serves 2', ua: '2 порції' } },
+    ingredients: { en: ['80 g wholegrain yeast-free bread','8–10 prunes','150 g low-fat cottage cheese','A few tbsp low-fat cheese or curd mass','½–1 cup almond milk','1 tsp powdered stevia','70 g nut butter','A few tbsp raw carob','A little water'], ua: ['80 г цільнозернового бездріжджового хліба','8–10 чорносливин','150 г нежирного сиру','Кілька ст. л. нежирного сиру або сиркової маси','½–1 склянка мигдалевого молока','1 ч. л. порошкової стевії','70 г горіхової пасти','Кілька ст. л. сирого керобу','Трохи води'] },
+    method: { en: ['Cut 4 slices of bread and trim the crusts.','Dissolve the carob in water to a rich solution.','Dip each slice fully.','Lay on a plate.','Blend the cottage cheese with the stevia and nut butter.','Add a little curd mass for softness if needed.','Blend the prunes with a little water.','Spread a thick layer of the nut-cheese cream on the bread.','Add a layer of prunes.','Dust with carob through a sieve, and serve.'], ua: ['Наріжте 4 скибки хліба та зріжте скоринки.','Розведіть кероб у воді до насиченого розчину.','Обмакніть кожну скибку повністю.','Викладіть на тарілку.','Збийте сир зі стевією та горіховою пастою.','За потреби додайте трохи сиркової маси для ніжності.','Збийте чорнослив із невеликою кількістю води.','Викладіть на хліб товстий шар горіхово-сирного крему.','Додайте шар чорносливу.','Посипте керобом через ситечко та подавайте.'] }
+  },
+  {
+    slug: 'berry-smoothie', img: '59-berry-smoothie.jpg', cat: 'breakfast',
+    tags: ['vegetarian', 'gluten-free'],
+    title: { en: 'Berry Smoothie', ua: 'Ягідний смузі' },
+    why: { en: 'A quick berry-and-yogurt smoothie with flax for protein, fibre and omega-3 — the yogurt and flax slow the fruit sugars.', ua: 'Швидкий ягідно-йогуртовий смузі з льоном для білка, клітковини й омега-3 — йогурт і льон сповільнюють фруктовий цукор.' },
+    nutrition: { en: 'Per serving (est.): ~125 kcal · Carbs 12 g · Fat 4 g · Protein 14 g', ua: 'На порцію (прибл.): ~125 ккал · Вуглеводи 12 г · Жири 4 г · Білки 14 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: 'No cook', ua: 'Без готування' }, serves: { en: 'Serves 1', ua: '1 порція' } },
+    ingredients: { en: ['100 g berry purée','100 g yogurt','20 g flaxseed meal'], ua: ['100 г ягідного пюре','100 г йогурту','20 г лляного шроту'] },
+    method: { en: ['Blend everything until smooth. Enjoy!'], ua: ['Збийте все в блендері до однорідності. Смачного!'] }
+  },
+  {
+    slug: 'grapefruit-parsley-smoothie', img: '60-grapefruit-parsley-smoothie.jpg', cat: 'breakfast',
+    tags: ['sugar-free', 'vegetarian', 'dairy-free', 'gluten-free'],
+    title: { en: 'Grapefruit & Parsley Smoothie', ua: 'Грейпфрутовий смузі з петрушкою' },
+    why: { en: 'A light, cleansing smoothie of grapefruit and parsley with flax — vitamin C and fibre, with barely any sugar.', ua: 'Легкий очищувальний смузі з грейпфрута й петрушки з льоном — вітамін C і клітковина, майже без цукру.' },
+    nutrition: { en: 'Per serving (est.): ~70 kcal · Carbs 10 g · Fat 3 g · Protein 3 g', ua: 'На порцію (прибл.): ~70 ккал · Вуглеводи 10 г · Жири 3 г · Білки 3 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: 'No cook', ua: 'Без готування' }, serves: { en: 'Serves 2', ua: '2 порції' } },
+    ingredients: { en: ['1 grapefruit (with pulp)','20 g parsley','20 g flaxseed meal','½ cup water','1 pinch stevia'], ua: ['1 грейпфрут (з м’якоттю)','20 г петрушки','20 г лляного шроту','½ склянки води','1 щіпка стевії'] },
+    method: { en: ['Blend everything until smooth.'], ua: ['Збийте все в блендері до однорідності.'] }
+  },
+  {
+    slug: 'apple-celery-smoothie', img: '61-apple-celery-smoothie.jpg', cat: 'breakfast',
+    tags: ['vegetarian', 'dairy-free', 'gluten-free', 'low-carb'],
+    title: { en: 'Apple & Celery Smoothie', ua: 'Смузі з яблуком і селерою' },
+    why: { en: 'A simple low-calorie apple-and-celery drink with lemon — fresh, hydrating and very light on carbs.', ua: 'Простий низькокалорійний напій з яблука й селери з лимоном — свіжий, зволожувальний і дуже легкий за вуглеводами.' },
+    nutrition: { en: 'Per serving (est.): ~30 kcal · Carbs 7 g · Fat 0 g · Protein 0 g', ua: 'На порцію (прибл.): ~30 ккал · Вуглеводи 7 г · Жири 0 г · Білки 0 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: 'No cook', ua: 'Без готування' }, serves: { en: 'Serves 1', ua: '1 порція' } },
+    ingredients: { en: ['1 apple','1 celery stick','1 tbsp lemon juice','½ cup water'], ua: ['1 яблуко','1 стебло селери','1 ст. л. лимонного соку','½ склянки води'] },
+    method: { en: ['Blend everything until smooth. Enjoy!'], ua: ['Збийте все в блендері до однорідності. Смачного!'] }
+  },
+  {
+    slug: 'carrot-smoothie', img: '62-carrot-smoothie.jpg', cat: 'breakfast',
+    tags: ['vegetarian', 'dairy-free', 'gluten-free'],
+    title: { en: 'Carrot Smoothie', ua: 'Морквяний смузі' },
+    why: { en: 'Carrot juice, apple and flax — a light breakfast or afternoon drink with fibre and beta-carotene.', ua: 'Морквяний сік, яблуко й льон — легкий сніданок або полуденок із клітковиною й бета-каротином.' },
+    nutrition: { en: 'Per serving (est.): ~55 kcal · Carbs 11 g · Fat 1 g · Protein 1 g', ua: 'На порцію (прибл.): ~55 ккал · Вуглеводи 11 г · Жири 1 г · Білки 1 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: 'No cook', ua: 'Без готування' }, serves: { en: 'Serves 1', ua: '1 порція' } },
+    ingredients: { en: ['100 g carrot juice','1 tbsp flax seeds','1 apple','½ cup water','1 pinch stevia'], ua: ['100 г морквяного соку','1 ст. л. насіння льону','1 яблуко','½ склянки води','1 щіпка стевії'] },
+    method: { en: ['Blend everything until smooth.'], ua: ['Збийте все в блендері до однорідності.'] }
+  },
+  {
+    slug: 'chocolate-nut-smoothie', img: '63-chocolate-nut-smoothie.jpg', cat: 'breakfast',
+    tags: ['sugar-free', 'vegetarian', 'gluten-free'],
+    title: { en: 'Chocolate-Nut Smoothie', ua: 'Шоколадно-горіховий смузі' },
+    why: { en: 'A kefir smoothie with peanut butter and carob — a chocolatey drink with protein and no added sugar (carob is naturally sweet).', ua: 'Кефірний смузі з арахісовою пастою й керобом — шоколадний напій із білком і без доданого цукру (кероб солодкий сам по собі).' },
+    nutrition: { en: 'Per serving (est.): ~220 kcal · Carbs 14 g · Fat 12 g · Protein 12 g', ua: 'На порцію (прибл.): ~220 ккал · Вуглеводи 14 г · Жири 12 г · Білки 12 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: 'No cook', ua: 'Без готування' }, serves: { en: 'Serves 1', ua: '1 порція' } },
+    ingredients: { en: ['1 cup kefir','1 tbsp raw carob','1 tbsp peanut butter','1 tsp flaxseed meal','1 pinch stevia'], ua: ['1 склянка кефіру','1 ст. л. сирого керобу','1 ст. л. арахісової пасти','1 ч. л. лляного шроту','1 щіпка стевії'] },
+    method: { en: ['Blend everything until smooth. Carob is sweet, so you need little stevia — none at all if the peanut butter contains honey.'], ua: ['Збийте все в блендері до однорідності. Кероб солодкий, тож стевії потрібно мало — а якщо арахісова паста з медом, зовсім не підсолоджуйте.'] }
   }
 ];
