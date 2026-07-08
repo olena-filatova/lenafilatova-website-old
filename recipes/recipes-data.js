@@ -722,5 +722,95 @@ window.LF_RECIPES = [
     meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '8–12 h drying', ua: '8–12 год сушіння' }, serves: { en: 'Serves 2', ua: '2 порції' } },
     ingredients: { en: ['3 tomatoes','1 g sea salt','1 g dried basil'], ua: ['3 помідори','1 г морської солі','1 г сушеного базиліку'] },
     method: { en: ['Slice the tomatoes into 5–6 mm rounds and arrange on dehydrator trays.','Sprinkle with salt and basil.','Dry for 8–12 hours, or until the chips are crisp.'], ua: ['Наріжте помідори кружечками завтовшки 5–6 мм і розкладіть на піддонах дегідратора.','Посипте сіллю й базиліком.','Сушіть 8–12 годин, доки чипси не стануть хрусткими.'] }
+  },
+  {
+    slug: 'banana-chips', img: '71-banana-chips.jpg', cat: 'snack',
+    tags: ['vegetarian', 'dairy-free', 'gluten-free'],
+    title: { en: 'Baked Banana Chips', ua: 'Бананові чипси' },
+    why: { en: 'Thin banana slices dried crisp with a squeeze of lemon — no added sugar, a wholesome alternative to crisps. Naturally sweet, so enjoy in moderation.', ua: 'Тонкі скибочки банана, висушені до хрусткості з лимоном — без доданого цукру, корисна заміна чипсам. Природно солодкі, тож помірно.' },
+    nutrition: { en: 'Per serving (est.): ~180 kcal · Carbs 45 g · Fat 1 g · Protein 2 g', ua: 'На порцію (прибл.): ~180 ккал · Вуглеводи 45 г · Жири 1 г · Білки 2 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '2–3 h', ua: '2–3 год' }, serves: { en: 'Serves 1', ua: '1 порція' } },
+    ingredients: { en: ['2–3 bananas','1 tbsp lemon juice'], ua: ['2–3 банани','1 ст. л. лимонного соку'] },
+    method: { en: ['Heat the oven to 110°C and line trays with parchment. Slice the bananas thinly (about 3 mm), spread out and sprinkle with lemon juice.','Bake 2–3 hours until fully dried; after 90 minutes peel them off the parchment for better airflow.','Cool 30–60 minutes — they crisp up as they cool (return for 15–20 minutes if needed).'], ua: ['Розігрійте духовку до 110°C і застеліть деки пергаментом. Наріжте банани тонко (близько 3 мм), розкладіть і збризніть лимонним соком.','Сушіть 2–3 години до повного висихання; через 90 хвилин відділіть від пергаменту для кращої циркуляції повітря.','Охолодіть 30–60 хвилин — хрусткими стануть після охолодження (за потреби поверніть на 15–20 хвилин).'] }
+  },
+  {
+    slug: 'orange-chocolate-truffles', img: '72-orange-chocolate-truffles.png', cat: 'dessert',
+    tags: ['vegetarian', 'dairy-free', 'gluten-free'],
+    title: { en: 'Orange-Chocolate Truffles', ua: 'Апельсиново-шоколадні трюфелі' },
+    why: { en: 'Cocoa-butter and cacao truffles with orange, set firm in the fridge — sweetened with a little honey, no refined sugar and dairy-free.', ua: 'Трюфелі з какао-масла й какао з апельсином, що застигають у холодильнику — підсолоджені трохи медом, без рафінованого цукру й без молочного.' },
+    nutrition: { en: 'Per truffle (est.): ~110 kcal · Carbs 6 g · Fat 10 g · Protein 1 g', ua: 'На 1 трюфель (прибл.): ~110 ккал · Вуглеводи 6 г · Жири 10 г · Білки 1 г' },
+    meta: { prep: { en: '10 min', ua: '10 хв' }, cook: { en: '1 h chill', ua: '1 год охолодження' }, serves: { en: 'Makes ~12', ua: '~12 штук' } },
+    ingredients: { en: ['— FILLING —','3 tbsp cocoa butter, chopped','¼ cup honey','2 tbsp liquid coconut oil','2 tbsp solid coconut oil','¾ cup cocoa or carob','½ tsp vanilla extract','2 tbsp orange juice (no pulp)','1 tsp orange zest','0.5 g sea salt','— GLAZE —','½ cup cocoa butter','¼ cup cocoa or carob','2 tbsp honey'], ua: ['— НАЧИНКА —','3 ст. л. какао-масла, порубаного','¼ склянки меду','2 ст. л. рідкої кокосової олії','2 ст. л. твердої кокосової олії','¾ склянки какао або керобу','½ ч. л. ванільного екстракту','2 ст. л. апельсинового соку (без м’якоті)','1 ч. л. апельсинової цедри','0,5 г морської солі','— ГЛАЗУР —','½ склянки какао-масла','¼ склянки какао або керобу','2 ст. л. меду'] },
+    method: { en: ['Melt the cocoa butter over a water bath, stirring 1–2 minutes (do not fully melt).','Mix the melted butter with coconut oil and honey and whisk.','With a mixer, blend the mass with the cocoa, coconut oil, vanilla, juice, zest and salt until smooth.','Transfer to a bowl and chill for 45 minutes.','Form balls with a spoon, place on parchment and chill 10–15 minutes.','For the glaze, melt the cocoa butter over a water bath.','After 1–2 minutes take it off, add the honey and cocoa and whisk briskly.','Dip each ball into the glaze using a toothpick for even coverage.','Sprinkle with orange zest and leave 5–10 minutes at room temperature before chilling.'], ua: ['Розтопіть какао-масло на водяній бані, помішуючи 1–2 хвилини (не розтоплюйте повністю).','Змішайте розтоплене масло з кокосовою олією та медом і збийте.','Міксером збийте масу з какао, кокосовою олією, ваніллю, соком, цедрою та сіллю до гладкості.','Перекладіть у миску та охолодіть 45 хвилин.','Ложкою формуйте кульки, викладайте на пергамент і охолоджуйте 10–15 хвилин.','Для глазурі розтопіть какао-масло на водяній бані.','Через 1–2 хвилини зніміть, додайте мед і какао та енергійно збийте.','Обмакуйте кульки в глазур зубочисткою для рівномірного покриття.','Посипте апельсиновою цедрою та залиште 5–10 хвилин за кімнатної температури перед охолодженням.'] }
+  },
+  {
+    slug: 'nut-quinoa-pancakes', img: '73-nut-quinoa-pancakes.jpg', cat: 'breakfast',
+    tags: ['gluten-free', 'vegetarian'],
+    title: { en: 'Nut Flour & Quinoa Pancakes', ua: 'Млинці з горіхового борошна та кіноа' },
+    why: { en: 'Protein-rich pancakes from cooked quinoa and nut flour — gluten-free, filling and low-GI, with just a little honey.', ua: 'Багаті на білок млинці з відвареної кіноа й горіхового борошна — без глютену, ситні й з низьким ГІ, лише з невеликою кількістю меду.' },
+    nutrition: { en: 'Per serving (est.): ~90 kcal · Carbs 8 g · Fat 5 g · Protein 4 g', ua: 'На порцію (прибл.): ~90 ккал · Вуглеводи 8 г · Жири 5 г · Білки 4 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '20 min', ua: '20 хв' }, serves: { en: 'Makes ~6', ua: '~6 штук' } },
+    ingredients: { en: ['1 cup cooked white quinoa (about 130 g)','50–55 g nut flour','4 tbsp coconut oil','2 egg whites','½–1 cup almond milk','4 tsp oat flour (thickener)','2 tbsp honey','1 tsp vanilla extract','½ tsp salt'], ua: ['1 склянка відвареної білої кіноа (близько 130 г)','50–55 г горіхового борошна','4 ст. л. кокосової олії','2 яєчні білки','½–1 склянка мигдалевого молока','4 ч. л. вівсяного борошна (загусник)','2 ст. л. меду','1 ч. л. ванільного екстракту','½ ч. л. солі'] },
+    method: { en: ['Put all the ingredients in a blender and blend until smooth.','Heat a pan and grease it lightly (a pastry brush helps control the amount).','Pour about ¼ cup of batter per pancake. Cook until golden underneath, then flip.'], ua: ['Помістіть усі інгредієнти в блендер і збийте до однорідності.','Розігрійте сковороду та злегка змастіть (кулінарний пензлик допоможе контролювати кількість).','Виливайте приблизно ¼ склянки тіста на млинець. Готуйте до рум’яності знизу, потім переверніть.'] }
+  },
+  {
+    slug: 'chewy-gummies', img: '74-chewy-gummies.jpg', cat: 'snack',
+    tags: ['sugar-free', 'dairy-free', 'gluten-free'],
+    title: { en: 'Chewy Lemon Gummies (Sugar-free)', ua: 'Жувальні цукерки без цукру' },
+    why: { en: 'Homemade gummies from lemon juice, gelatine and stevia — a fun, protein-rich, no-sugar sweet for kids and adults.', ua: 'Домашні жувальні цукерки з лимонного соку, желатину й стевії — весела, багата на білок солодкість без цукру для дітей і дорослих.' },
+    nutrition: { en: 'Per serving (est.): ~10 kcal · Carbs 1 g · Fat 0 g · Protein 2 g', ua: 'На порцію (прибл.): ~10 ккал · Вуглеводи 1 г · Жири 0 г · Білки 2 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: 'Chill', ua: 'Охолодження' }, serves: { en: 'Makes 30–40', ua: '30–40 штук' } },
+    ingredients: { en: ['½ cup fresh lemon (or lime) juice','3 tbsp gelatine','30–40 drops liquid stevia'], ua: ['½ склянки свіжого лимонного (або лаймового) соку','3 ст. л. желатину','30–40 крапель рідкої стевії'] },
+    method: { en: ['Whisk all the ingredients in a pot.','Heat on low until the mixture becomes uniform.','Pour into moulds.','Cool (refrigerate or freeze to speed it up).','Once firm, remove from the moulds and store in an airtight container in the fridge for about two weeks.'], ua: ['Збийте всі інгредієнти в каструлі.','Прогрійте на слабкому вогні до однорідності.','Розлийте у формочки.','Охолодіть (у холодильнику або морозилці для швидкості).','Коли застигне, вийміть із формочок і зберігайте в герметичному контейнері в холодильнику близько двох тижнів.'] }
+  },
+  {
+    slug: 'chocolate-coconut-nests', img: '75-chocolate-coconut-nests.jpg', cat: 'dessert',
+    tags: ['sugar-free', 'vegetarian', 'dairy-free', 'gluten-free'],
+    title: { en: 'Chocolate-Coconut Easter Nests', ua: 'Шоколадно-кокосові гнізда' },
+    why: { en: "No-bake coconut-and-cacao nests with an almond 'egg' — a cute Easter treat, sweetened with stevia or a little honey, no refined sugar.", ua: 'Кокосово-какаові гнізда без випікання з мигдалевим «яйцем» — милі великодні ласощі, підсолоджені стевією або трохи медом, без рафінованого цукру.' },
+    nutrition: { en: 'Per nest (est.): ~70 kcal · Carbs 2 g · Fat 7 g · Protein 1 g', ua: 'На 1 гніздо (прибл.): ~70 ккал · Вуглеводи 2 г · Жири 7 г · Білки 1 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '1 h chill', ua: '1 год охолодження' }, serves: { en: 'Makes ~20', ua: '~20 штук' } },
+    ingredients: { en: ['½ cup coconut flakes','½ cup coconut oil (or peanut)','2 tbsp cacao or carob','20 drops liquid stevia or 2 tbsp honey',"1 handful almonds or quail eggs (as the 'eggs')"], ua: ['½ склянки кокосової стружки','½ склянки кокосової олії (або арахісової)','2 ст. л. какао або керобу','20 крапель рідкої стевії або 2 ст. л. меду','1 жменя мигдалю або перепелиних яєць (як «яйця»)'] },
+    method: { en: ['Melt the coconut oil in a heavy-bottomed pan.','Take off the heat and add the sweetener and cacao/carob.','Stir in the coconut flakes.','Roll 2 tbsp of the mix into a ball and shape into a nest.','Press an almond into the centre.','Chill in the fridge for 1 hour.'], ua: ['Розтопіть кокосову олію в каструлі з товстим дном.','Зніміть з вогню, додайте підсолоджувач і какао/кероб.','Вмішайте кокосову стружку.','Скачайте 2 ст. л. суміші в кульку та надайте форму гнізда.','Вдавіть мигдалину в центр.','Охолодіть у холодильнику 1 годину.'] }
+  },
+  {
+    slug: 'caramel-apples', img: '76-caramel-apples.jpg', cat: 'dessert',
+    tags: ['vegetarian', 'dairy-free', 'gluten-free'],
+    title: { en: 'Caramel Apples', ua: 'Яблука в карамелі' },
+    why: { en: "Whole apples on sticks dipped in a maple-syrup caramel — a festive treat. This one is genuinely high in sugar from the syrup, so it's an occasional indulgence rather than an everyday low-GI recipe.", ua: 'Цілі яблука на паличках у карамелі з кленового сиропу — святкові ласощі. Через сироп воно справді солодке, тож це радше рідкісна насолода, ніж щоденний рецепт з низьким ГІ.' },
+    nutrition: { en: 'Per apple (est.): ~320 kcal · Carbs 55 g · Fat 12 g · Protein 1 g', ua: 'На 1 яблуко (прибл.): ~320 ккал · Вуглеводи 55 г · Жири 12 г · Білки 1 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: '39 min', ua: '39 хв' }, serves: { en: 'Serves 5', ua: '5 порцій' } },
+    ingredients: { en: ['6 medium apples','6 wooden sticks or skewers','1 handful sprinkles / coating','⅔ cup sunflower oil','1 cup maple syrup (or honey)','0.5 g sea salt'], ua: ['6 середніх яблук','6 дерев’яних паличок або шпажок','1 жменя обсипки','⅔ склянки соняшникової олії','1 склянка кленового сиропу (або меду)','0,5 г морської солі'] },
+    method: { en: ['Mix the syrup, oil and salt and bring to the boil; simmer 5 minutes, stirring.','Cool for 2 minutes.','Line a tray with parchment.','Push a skewer through each apple through the stem.','Dip in the caramel and roll in the toppings.','Place on the parchment and chill.'], ua: ['Змішайте сироп, олію та сіль і доведіть до кипіння; варіть 5 хвилин, помішуючи.','Остудіть 2 хвилини.','Застеліть деко пергаментом.','Проштрикніть кожне яблуко шпажкою через хвостик.','Обмакніть у карамель і обкачайте в обсипці.','Викладіть на пергамент і охолодіть.'] }
+  },
+  {
+    slug: 'marshmallow-zefir', img: '77-marshmallow-zefir.jpg', cat: 'dessert',
+    tags: ['gluten-free', 'dairy-free'],
+    title: { en: 'Homemade Marshmallow (No Refined Sugar)', ua: 'Домашній зефір без цукру' },
+    why: { en: 'A fluffy homemade marshmallow whipped from gelatine, honey and stevia — no refined sugar, and high in protein from the gelatine. Decorate with coconut, cocoa or nuts.', ua: 'Пухкий домашній зефір, збитий із желатину, меду й стевії — без рафінованого цукру й багатий на білок із желатину. Прикрасьте кокосом, какао чи горіхами.' },
+    nutrition: { en: 'Per piece (est.): ~40 kcal · Carbs 8 g · Fat 0 g · Protein 2 g', ua: 'На 1 штуку (прибл.): ~40 ккал · Вуглеводи 8 г · Жири 0 г · Білки 2 г' },
+    meta: { prep: { en: '10 min', ua: '10 хв' }, cook: { en: '6 h set', ua: '6 год застигання' }, serves: { en: 'Makes ~16', ua: '~16 штук' } },
+    ingredients: { en: ['2 tbsp gelatine','½ cup cold water','0.3 tsp stevia','½ cup hot water','½ cup honey','1 g vanilla'], ua: ['2 ст. л. желатину','½ склянки холодної води','0,3 ч. л. стевії','½ склянки гарячої води','½ склянки меду','1 г ваніліну'] },
+    method: { en: ['Put the gelatine in a bowl, cover with the cold water and leave at least 5 minutes.','In a pan, mix the sweeteners with the hot water and bring to the boil.','Gradually pour the hot liquid into the gelatine, stirring constantly, and add the vanilla.','Whip on high until the foam holds a vertical peak.','Pour into a greased or cling-film-lined mould.','Chill and cut into pieces (6–24 hours, or speed up in the freezer).','Decorate with coconut, cocoa or nuts and store in an airtight container.'], ua: ['Висипте желатин у миску, залийте холодною водою та залиште щонайменше на 5 хвилин.','У каструлі змішайте підсолоджувачі з гарячою водою та доведіть до кипіння.','Поступово вливайте гарячу рідину в желатин, постійно помішуючи, і додайте ваніль.','Збивайте на високих обертах, доки піна не триматиме вертикальний пік.','Вилийте у змащену або застелену плівкою форму.','Охолодіть і наріжте (6–24 години або пришвидшіть у морозилці).','Прикрасьте кокосом, какао чи горіхами та зберігайте в герметичному контейнері.'] }
+  },
+  {
+    slug: 'lemon-coconut-balls', img: '78-lemon-coconut-balls.jpg', cat: 'snack',
+    tags: ['vegetarian', 'dairy-free', 'gluten-free'],
+    title: { en: 'Lemon-Coconut Balls', ua: 'Ніжні лимонно-кокосові кульки' },
+    why: { en: 'No-bake coconut-and-almond balls with fresh lemon — bright, whole-food bites sweetened with a little honey.', ua: 'Кокосово-мигдалеві кульки без випікання зі свіжим лимоном — яскраві натуральні цукерки, підсолоджені трохи медом.' },
+    nutrition: { en: 'Per ball (est.): ~110 kcal · Carbs 6 g · Fat 9 g · Protein 2 g', ua: 'На 1 кульку (прибл.): ~110 ккал · Вуглеводи 6 г · Жири 9 г · Білки 2 г' },
+    meta: { prep: { en: '3 min', ua: '3 хв' }, cook: { en: 'Chill', ua: 'Охолодження' }, serves: { en: 'Makes ~10', ua: '~10 штук' } },
+    ingredients: { en: ['2 cups coconut flakes','½ cup coconut flakes (to coat)','½ cup almonds','2–3 tbsp honey','2 tbsp coconut oil (or peanut)','Zest and juice of 1 lemon'], ua: ['2 склянки кокосової стружки','½ склянки кокосової стружки (для обвалювання)','½ склянки мигдалю','2–3 ст. л. меду','2 ст. л. кокосової олії (або арахісової)','Цедра й сік 1 лимона'] },
+    method: { en: ['Blend all the ingredients in a blender for about 1 minute.','Roll the mass into balls of the size you like.','Roll them in coconut flakes.','Place on a flat plate and chill until firmer.'], ua: ['Збийте всі інгредієнти в блендері близько 1 хвилини.','Скачайте масу в кульки бажаного розміру.','Обкачайте в кокосовій стружці.','Викладіть на пласку тарілку та охолодіть до затвердіння.'] }
+  },
+  {
+    slug: 'strawberry-cream-cheesecake', img: '79-strawberry-cream-cheesecake.jpg', cat: 'dessert',
+    tags: ['vegetarian', 'gluten-free'],
+    title: { en: 'Strawberry Cream-Cheese Cheesecake (no-bake)', ua: 'Полуничний вершковий чізкейк' },
+    why: { en: 'A no-bake cheesecake on a spiced nut base with a cream-cheese filling and fresh strawberries — gluten-free, with the strawberries providing the sweetness.', ua: 'Чізкейк без випікання на пряній горіховій основі з вершковим сиром і свіжою полуницею — без глютену, а солодкість дає полуниця.' },
+    nutrition: { en: 'Per serving (est.): ~260 kcal · Carbs 12 g · Fat 20 g · Protein 6 g', ua: 'На порцію (прибл.): ~260 ккал · Вуглеводи 12 г · Жири 20 г · Білки 6 г' },
+    meta: { prep: { en: '5 min', ua: '5 хв' }, cook: { en: '1.5 h set', ua: '1,5 год застигання' }, serves: { en: 'Serves 4', ua: '4 порції' } },
+    ingredients: { en: ['¾ cup ground nuts','3 tbsp melted butter','¼ tsp cinnamon','¼ tsp ground nutmeg','1 cup milk','250 g cream cheese (Philadelphia)','30 g thickener','2 handfuls strawberries'], ua: ['¾ склянки мелених горіхів','3 ст. л. розтопленого вершкового масла','¼ ч. л. кориці','¼ ч. л. меленого мускатного горіха','1 склянка молока','250 г вершкового сиру (Філадельфія)','30 г загусника','2 жмені полуниці'] },
+    method: { en: ['Mix the ground nuts, melted butter, nutmeg and cinnamon; press into a tin and chill.','Beat the cream cheese at medium speed, gradually adding milk to the consistency you want.','Add the thickener gradually while beating, until dense.','Spread the cheese mixture over the chilled base.','Add sliced strawberries on top; repeat the layering.','Chill the finished dessert for 1 hour.'], ua: ['Змішайте мелені горіхи, розтоплене масло, мускатний горіх і корицю; викладіть у форму та охолодіть.','Збийте вершковий сир на середній швидкості, поступово додаючи молоко до бажаної консистенції.','Поступово додавайте загусник, збиваючи, до щільності.','Викладіть сирну масу на охолоджену основу.','Зверху викладіть нарізану полуницю; повторіть шари.','Охолодіть готовий десерт 1 годину.'] }
   }
 ];
