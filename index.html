@@ -85,6 +85,8 @@
   <script defer src="https://calculator.lenafilatova.co.uk/widget.js"></script>
   <!-- Exercise Calculator: inline widget. Mounts into <div data-exercise-calculator></div> wherever it appears. -->
   <script defer src="https://calculator.lenafilatova.co.uk/exercise-widget.js"></script>
+  <!-- Insulin Pump Doses Calculator: inline widget. Mounts into <div data-pump-calculator></div> wherever it appears. -->
+  <script defer src="https://calculator.lenafilatova.co.uk/pump-widget.js"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://lenafilatova.co.uk/#organization","name":"Lena Filatova","url":"https://lenafilatova.co.uk/","logo":"https://lenafilatova.co.uk/images/lena-filatova-womens-health-coach-over-40.jpg","sameAs":["https://www.instagram.com/lena.filatova/","https://www.facebook.com/lenafilatovablog","https://www.threads.com/@lena.filatova"]},{"@type":"WebSite","@id":"https://lenafilatova.co.uk/#website","url":"https://lenafilatova.co.uk/","name":"Lena Filatova","inLanguage":"en","publisher":{"@id":"https://lenafilatova.co.uk/#organization"}},{"@type":"Person","@id":"https://lenafilatova.co.uk/#lena","name":"Lena Filatova","url":"https://lenafilatova.co.uk/","image":"https://lenafilatova.co.uk/images/lena-filatova-womens-health-coach-over-40.jpg","description":"Writer and coach on evidence-based women's health after 40 — diabetes, insulin resistance and perimenopause. Living with type 1 diabetes for over two decades.","knowsAbout":["Type 1 diabetes","Perimenopause","Insulin resistance","Women's health after 40","Nutrition"],"sameAs":["https://www.instagram.com/lena.filatova/","https://www.facebook.com/lenafilatovablog","https://www.threads.com/@lena.filatova"]}]}</script>
   <link rel="preload" as="image" href="/images/lena-filatova-womens-health-coach-over-40.jpg" fetchpriority="high">
   <style>
@@ -487,6 +489,20 @@
       </div>
       <p style="margin: 14px 2px 0; font-size: 13.5px; color: #7A6675;"><a href="https://calculator.lenafilatova.co.uk" target="_blank" rel="noopener" style="color: #B23A63; font-weight: 600; text-decoration: none;">{{ rp.exerOpenNew }} →</a></p>
       <p style="margin: 12px 2px 0; font-size: 12.5px; line-height: 1.5; color: #9A8896;">{{ rp.exerDisclaimer }}</p>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isResPumpDoses }}" hint-placeholder-val="{{ false }}">
+    <span onClick="{{ backResources }}" style="cursor: pointer; display: inline-block; margin-bottom: 28px; font-size: 14px; font-weight: 600; color: #7A6675;">← {{ rp.backLabel }}</span>
+    <div style="margin-bottom: 8px;">
+      <h1 style="margin: 0 0 10px; font-family: 'Spectral', serif; font-weight: 500; font-size: 40px; letter-spacing: -0.4px;">{{ rp.pdoseTitle }}</h1>
+      <p style="margin: 0 0 18px; font-size: 17px; line-height: 1.55; color: #6A5668; max-width: 640px;">{{ rp.pdoseSub }}</p>
+      <div style="margin: 0 0 26px;"><button onClick="{{ saveToHome }}" style="display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid #E1C6D6; background: #FFFFFF; color: #B23A63; font-family: 'Manrope', sans-serif; font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 999px; cursor: pointer;">{{ a2hs.button }}</button></div>
+      <div style="border: 1px solid #EDE0EA; border-radius: 16px; overflow: hidden; background: #FFFFFF; box-shadow: 0 1px 3px rgba(51,27,51,0.04);">
+        <div data-pump-calculator></div>
+      </div>
+      <p style="margin: 14px 2px 0; font-size: 13.5px; color: #7A6675;"><a href="https://calculator.lenafilatova.co.uk/pump-calculator" target="_blank" rel="noopener" style="color: #B23A63; font-weight: 600; text-decoration: none;">{{ rp.pdoseOpenNew }} →</a></p>
+      <p style="margin: 12px 2px 0; font-size: 12.5px; line-height: 1.5; color: #9A8896;">{{ rp.pdoseDisclaimer }}</p>
     </div>
     </sc-if>
 
@@ -1619,6 +1635,14 @@ const CONTENT = {
       exerCardCta: "Open the calculator",
       exerOpenNew: "Not loading? Open the calculator in a new tab",
       exerDisclaimer: "This calculator is for general information only — it is not a medical tool and does not give medical advice. Please consult your doctor or diabetes care team with any questions about your health.",
+      pdoseTag: "Interactive tool",
+      pdoseKicker: "Insulin pump starting doses",
+      pdoseTitle: "Insulin pump starting-dose calculator",
+      pdoseSub: "Estimate starting pump settings — basal rate, carb ratio and correction factor — when switching from pens or starting a pump for the first time. Adjusts for age and activity level. Built for Type 1 diabetes. No sign-up needed.",
+      pdoseCardDesc: "Estimate starting pump settings — basal, carb ratio and correction factor — when moving from pens or starting out. Adjusts for age and activity level.",
+      pdoseCardCta: "Open the calculator",
+      pdoseOpenNew: "Not loading? Open the calculator in a new tab",
+      pdoseDisclaimer: "These are approximate starting estimates only — not medical advice. Never start or change insulin pump settings without your doctor or diabetes care team.",
       carbTag: "Interactive table",
       carbKicker: "Carbs & GI",
       carbTitle: "Carbohydrate & glycaemic index table",
@@ -2315,6 +2339,14 @@ const CONTENT = {
       exerCardCta: "Відкрити калькулятор",
       exerOpenNew: "Не завантажується? Відкрийте калькулятор у новій вкладці",
       exerDisclaimer: "Цей калькулятор надано лише для загальної інформації — це не медичний інструмент і він не надає медичних порад. З будь-якими питаннями щодо здоров'я звертайтеся до свого лікаря або команди з догляду за діабетом.",
+      pdoseTag: "Інтерактивний інструмент",
+      pdoseKicker: "Стартові дози інсулінової помпи",
+      pdoseTitle: "Калькулятор стартових доз інсулінової помпи",
+      pdoseSub: "Оцініть стартові налаштування помпи — базальну швидкість, вуглеводний коефіцієнт і фактор корекції — під час переходу зі шприц-ручок або на початку використання помпи. Враховує вік та рівень активності. Створено для діабету 1 типу. Реєстрація не потрібна.",
+      pdoseCardDesc: "Оцініть стартові налаштування помпи — базал, вуглеводний коефіцієнт і фактор корекції — під час переходу зі шприц-ручок або на початку. Враховує вік та активність.",
+      pdoseCardCta: "Відкрити калькулятор",
+      pdoseOpenNew: "Не завантажується? Відкрийте калькулятор у новій вкладці",
+      pdoseDisclaimer: "Це лише приблизні стартові оцінки, а не медична порада. Ніколи не починайте та не змінюйте налаштування інсулінової помпи без консультації з лікарем або командою з догляду за діабетом.",
       carbTag: "Інтерактивна таблиця",
       carbKicker: "Вуглеводи та ГІ",
       carbTitle: "Таблиця вуглеводів і глікемічного індексу",
@@ -3085,7 +3117,7 @@ class Component extends DCLogic {
     if (st.page === "blog") return "/blog";
     if (st.page === "product") return "/shop/" + st.pi;
     if (st.page === "home") return "/";
-    if (st.page === "resources") return st.resSub ? ("/resources/" + (st.resSub === "calc" ? "food-calculator" : st.resSub === "exer" ? "exercise-calculator" : st.resSub === "pump" ? "aid-comparison" : st.resSub === "cgm" ? "cgm-comparison" : st.resSub === "bsi" ? "blood-sugar-investigator" : "carb-gi-table")) : "/resources";
+    if (st.page === "resources") return st.resSub ? ("/resources/" + (st.resSub === "calc" ? "food-calculator" : st.resSub === "exer" ? "exercise-calculator" : st.resSub === "pdose" ? "insulin-pump-doses" : st.resSub === "pump" ? "aid-comparison" : st.resSub === "cgm" ? "cgm-comparison" : st.resSub === "bsi" ? "blood-sugar-investigator" : "carb-gi-table")) : "/resources";
     if (["shop", "about", "contact"].indexOf(st.page) >= 0) return "/" + st.page;
     return "/";
   }
@@ -3099,7 +3131,7 @@ class Component extends DCLogic {
       this.setState({ page: "blog" }); return;
     }
     if (parts[0] === "shop" && parts[1]) { const pi = parseInt(parts[1], 10); this.setState({ page: "product", pi: isNaN(pi) ? 0 : pi }); return; }
-    if (parts[0] === "resources") { const m = { "food-calculator": "calc", "exercise-calculator": "exer", "aid-comparison": "pump", "cgm-comparison": "cgm", "blood-sugar-investigator": "bsi", "carb-gi-table": "carbs" }; this.setState({ page: "resources", resSub: parts[1] ? (m[parts[1]] || null) : null }); return; }
+    if (parts[0] === "resources") { const m = { "food-calculator": "calc", "exercise-calculator": "exer", "insulin-pump-doses": "pdose", "aid-comparison": "pump", "cgm-comparison": "cgm", "blood-sugar-investigator": "bsi", "carb-gi-table": "carbs" }; this.setState({ page: "resources", resSub: parts[1] ? (m[parts[1]] || null) : null }); return; }
     if (["shop", "about", "contact"].indexOf(parts[0]) >= 0) { this.setState({ page: parts[0] }); return; }
     this.setState({ page: "home" });
   }
@@ -3179,6 +3211,7 @@ class Component extends DCLogic {
         const rp = c.resourcesPage, sub = this.state.resSub;
         if (sub === "calc") { t = rp.calcTitle + " — " + brand; desc = rp.calcCardDesc || rp.intro || DEF_DESC; }
         else if (sub === "exer") { t = rp.exerTitle + " — " + brand; desc = rp.exerCardDesc || rp.intro || DEF_DESC; }
+        else if (sub === "pdose") { t = rp.pdoseTitle + " — " + brand; desc = rp.pdoseCardDesc || rp.intro || DEF_DESC; }
         else if (sub === "pump") { t = rp.pumpTitle; desc = rp.pumpCardDesc || rp.intro || DEF_DESC; }
         else if (sub === "carbs") { t = rp.carbTitle + " — " + brand; desc = rp.carbCardDesc || rp.intro || DEF_DESC; }
         else { t = rp.title + " — " + brand; desc = rp.intro || DEF_DESC; }
@@ -3710,6 +3743,7 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       isResLanding: page === "resources" && !this.state.resSub,
       isResCalc: page === "resources" && this.state.resSub === "calc",
       isResExer: page === "resources" && this.state.resSub === "exer",
+      isResPumpDoses: page === "resources" && this.state.resSub === "pdose",
       isResPump: page === "resources" && this.state.resSub === "pump",
       isResCarb: page === "resources" && this.state.resSub === "carbs",
       isResCgm: page === "resources" && this.state.resSub === "cgm",
@@ -3717,6 +3751,7 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       resourceCards: [
         { tag: c.resourcesPage.calcTag, kicker: c.resourcesPage.calcKicker, title: c.resourcesPage.calcTitle, desc: c.resourcesPage.calcCardDesc, cta: c.resourcesPage.calcCardCta, bandBg: "#EAF4EC", bandFg: "#2F6B4A", onOpen: () => { this.setState({ page: "resources", resSub: "calc", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
         { tag: c.resourcesPage.exerTag, kicker: c.resourcesPage.exerKicker, title: c.resourcesPage.exerTitle, desc: c.resourcesPage.exerCardDesc, cta: c.resourcesPage.exerCardCta, bandBg: "#FBEEE1", bandFg: "#9A5B22", onOpen: () => { this.setState({ page: "resources", resSub: "exer", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
+        { tag: c.resourcesPage.pdoseTag, kicker: c.resourcesPage.pdoseKicker, title: c.resourcesPage.pdoseTitle, desc: c.resourcesPage.pdoseCardDesc, cta: c.resourcesPage.pdoseCardCta, bandBg: "#EDEBF6", bandFg: "#5B4B8A", onOpen: () => { this.setState({ page: "resources", resSub: "pdose", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
         { tag: c.resourcesPage.pumpTag, kicker: c.resourcesPage.pumpKicker, title: c.resourcesPage.pumpTitle, desc: c.resourcesPage.pumpCardDesc, cta: c.resourcesPage.pumpCardCta, bandBg: "#F5EAF1", bandFg: "#8A2F5B", onOpen: () => { this.setState({ page: "resources", resSub: "pump", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
         { tag: c.resourcesPage.cgmTag, kicker: c.resourcesPage.cgmKicker, title: c.resourcesPage.cgmTitle, desc: c.resourcesPage.cgmCardDesc, cta: c.resourcesPage.cgmCardCta, bandBg: "#E4F1F0", bandFg: "#1F6B66", onOpen: () => { this.setState({ page: "resources", resSub: "cgm", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
         { tag: c.resourcesPage.bsiTag, kicker: c.resourcesPage.bsiKicker, title: c.resourcesPage.bsiTitle, desc: c.resourcesPage.bsiCardDesc, cta: c.resourcesPage.bsiCardCta, bandBg: "#FBF0F4", bandFg: "#B23A63", onOpen: () => { this.setState({ page: "resources", resSub: "bsi", menuOpen: false }); if (typeof window !== "undefined") window.scrollTo(0, 0); } },
