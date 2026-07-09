@@ -187,8 +187,8 @@
     if (R.nutrition) {
       document.getElementById('rNutriWrap').style.display = '';
       var disc = (l === 'ua')
-        ? 'Значення поживності приблизні — розраховані з інгредієнтів. Будь ласка, перевіряйте страви перед приготуванням, якщо це важливо для вашого раціону.'
-        : 'Nutrition values are estimates, calculated from the ingredients. Please double-check meals before cooking if it matters for your diet.';
+        ? 'Значення поживності та глікемічного індексу (ГІ) приблизні — розраховані з інгредієнтів. Будь ласка, перевіряйте страви перед приготуванням, якщо це важливо для вашого раціону.'
+        : 'Nutrition and glycaemic index (GI) values are estimates, calculated from the ingredients. Please double-check meals before cooking if it matters for your diet.';
       document.getElementById('rNutri').innerHTML = '<b>' + esc(R.nutrition[l]) + '</b><span style="display:block;margin-top:8px;font-size:12.5px;color:var(--muted);">' + esc(disc) + '</span>';
     } else document.getElementById('rNutriWrap').style.display = 'none';
     if (R.note) { document.getElementById('rNoteWrap').style.display = ''; document.getElementById('rNote').textContent = R.note[l]; }
@@ -207,6 +207,11 @@
     if (m.prep) mh += '<div><span class="k">' + (l === 'ua' ? 'Підготовка' : 'Prep') + '</span><span class="v">' + esc(m.prep[l]) + '</span></div>';
     if (m.cook) mh += '<div><span class="k">' + (l === 'ua' ? 'Готування' : 'Cook') + '</span><span class="v">' + esc(m.cook[l]) + '</span></div>';
     if (m.serves) mh += '<div><span class="v">' + esc(scaleText(m.serves[l], f)) + '</span></div>';
+    if (typeof R.gi === 'number') {
+      var gb = R.gi <= 55 ? (l === 'ua' ? 'Низький' : 'Low') : R.gi <= 69 ? (l === 'ua' ? 'Середній' : 'Medium') : (l === 'ua' ? 'Високий' : 'High');
+      var gc = R.gi <= 55 ? 'var(--green)' : R.gi <= 69 ? 'var(--amber)' : 'var(--accent)';
+      mh += '<div><span class="k">' + (l === 'ua' ? 'ГІ' : 'GI') + '</span><span class="v">~' + R.gi + ' <span style="font-size:13px;font-weight:600;color:' + gc + ';">· ' + gb + '</span></span></div>';
+    }
     document.getElementById('rMeta').innerHTML = mh;
     var ul = document.getElementById('ingredients'); ul.innerHTML = '';
     R.ingredients[l].forEach(function (it) {
