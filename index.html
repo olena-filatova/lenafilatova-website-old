@@ -266,6 +266,26 @@
       </div>
     </section>
 
+    <section style="max-width: 1180px; margin: 0 auto; padding: 84px 32px;">
+      <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 44px; flex-wrap: wrap;">
+        <div>
+          <h2 style="margin: 0 0 8px; font-family: 'Spectral', serif; font-weight: 500; font-size: 40px; letter-spacing: -0.4px;">{{ c.recipesTitle }}</h2>
+          <p style="margin: 0; font-size: 16px; color: #7A6675; max-width: 560px;">{{ c.recipesSub }}</p>
+        </div>
+        <span onClick="{{ goRecipesHub }}" style="cursor: pointer; color: #331B33; font-size: 15px; font-weight: 600; border-bottom: 1.5px solid #B23A63; padding-bottom: 2px; white-space: nowrap;">{{ c.recipesAll }}</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px;">
+        <sc-for list="{{ homeRecipes }}" as="r" hint-placeholder-count="4">
+          <div onClick="{{ r.onOpen }}" style="cursor: pointer; display: flex; flex-direction: column;">
+            <img src="{{ r.img }}" alt="{{ r.title }}" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; margin-bottom: 18px; display: block;" />
+            <span style="font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #B23A63; margin-bottom: 10px;">{{ r.cat }}</span>
+            <h3 style="margin: 0 0 14px; font-family: 'Spectral', serif; font-size: 21px; font-weight: 500; line-height: 1.3; text-wrap: pretty; flex: 1;">{{ r.title }}</h3>
+            <span style="font-size: 14px; font-weight: 600; color: #331B33;">{{ c.recipesCta }} →</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
     <sc-if value="{{ showShop }}" hint-placeholder-val="{{ false }}">
     <section style="max-width: 1180px; margin: 0 auto; padding: 84px 32px;">
       <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 44px; flex-wrap: wrap;">
@@ -1819,6 +1839,11 @@ const CONTENT = {
     shopAll: "View all products",
     blogTitle: "From the blog",
     blogAll: "All articles",
+    recipesTitle: "Reader-favourite recipes",
+    recipesSub: "The most-loved low-GI recipes from my kitchen — no sugar, no white flour.",
+    recipesAll: "All recipes",
+    recipesCta: "View recipe",
+    recipeCats: { main: "Main", snack: "Snack", sauce: "Sauce", dessert: "Dessert", baking: "Baking", bread: "Bread" },
     testimonialsTitle: "What women say",
     testimonialsSub: "Real words from women who've worked with me.",
     testimonials: [
@@ -2510,6 +2535,11 @@ const CONTENT = {
     shopAll: "Усі продукти",
     blogTitle: "З блогу",
     blogAll: "Усі статті",
+    recipesTitle: "Улюблені рецепти читачів",
+    recipesSub: "Найпопулярніші рецепти з низьким ГІ з моєї кухні — без цукру та білого борошна.",
+    recipesAll: "Усі рецепти",
+    recipesCta: "Дивитися рецепт",
+    recipeCats: { main: "Основне", snack: "Перекус", sauce: "Соус", dessert: "Десерт", baking: "Випічка", bread: "Хліб" },
     testimonialsTitle: "Що кажуть жінки",
     testimonialsSub: "Справжні слова жінок, які працювали зі мною.",
     testimonials: [
@@ -3593,6 +3623,18 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       products,
       articles: allArticles,
       homeArticles: allArticles.slice(0, 3),
+      homeRecipes: [
+        { slug: "zucchini-spaghetti-salmon", img: "93-zucchini-spaghetti-salmon.jpg", cat: "main", t: { en: "Zucchini Spaghetti with Salmon", ua: "Спагеті з кабачка з лососем" } },
+        { slug: "almond-pecan-cookies", img: "05-almond-pecan-cookies.jpeg", cat: "snack", t: { en: "Almond & Pecan Cookies", ua: "Мигдалево-пеканове печиво" } },
+        { slug: "avocado-mayonnaise", img: "11-avocado-mayonnaise.jpg", cat: "sauce", t: { en: "Avocado Mayonnaise", ua: "Майонез з авокадо" } },
+        { slug: "birthday-cake-sugar-free", img: "19-birthday-cake-sugar-free.jpg", cat: "dessert", t: { en: "Sugar-free Birthday Cake", ua: "Святковий торт без цукру" } }
+      ].map(r => ({
+        img: "/recipes/images/" + r.img,
+        cat: (c.recipeCats && c.recipeCats[r.cat]) || r.cat,
+        title: r.t[lang] || r.t.en,
+        onOpen: () => { try { localStorage.setItem("lf_lang", lang); } catch (e) {} window.location.href = "/recipes/" + r.slug + "/?lang=" + lang; }
+      })),
+      goRecipesHub: () => { try { localStorage.setItem("lf_lang", lang); } catch (e) {} window.location.href = "/recipes/?lang=" + lang; },
       testimonials: c.testimonials,
       featured,
       gridArticles: allArticles.filter((a, i) => i !== 1),
