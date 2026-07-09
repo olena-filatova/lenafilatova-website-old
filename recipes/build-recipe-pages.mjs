@@ -4,8 +4,9 @@
 // slug + per-recipe SEO <head> (title, description, canonical, Open Graph, JSON-LD Recipe).
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const HERE = path.dirname(new URL(import.meta.url).pathname);       // .../recipes
+const HERE = path.dirname(fileURLToPath(import.meta.url));          // .../recipes (decodes %20 in paths with spaces)
 const SITE = 'https://lenafilatova.co.uk';
 
 // --- load recipe data (recipes-data.js sets window.LF_RECIPES) ---
