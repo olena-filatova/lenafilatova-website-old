@@ -303,6 +303,16 @@ ol.steps li.done .step-text { text-decoration: line-through; text-decoration-col
 .clear-all { display: block; width: 100%; text-align: center; font-family: inherit; font-size: 12.5px; font-weight: 600;
   color: var(--muted); background: none; border: 0; cursor: pointer; padding: 8px; }
 .clear-all:hover { color: var(--accent); }
+.clear-confirm { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding: 10px 12px; margin-top: 4px; background: var(--rose-bg); border: 1px solid var(--rose-border); border-radius: 12px; }
+.clear-confirm .clear-q { font-size: 13px; font-weight: 600; color: var(--ink); }
+.clear-confirm .clear-btns { display: flex; gap: 8px; }
+.clear-confirm button { font-family: inherit; font-size: 12.5px; font-weight: 600; cursor: pointer;
+  border-radius: 999px; padding: 7px 16px; border: 1px solid transparent; }
+.clear-confirm .clear-no { background: var(--card); color: var(--ink-2); border-color: var(--rose-border); }
+.clear-confirm .clear-no:hover { border-color: var(--muted); }
+.clear-confirm .clear-yes { background: var(--accent); color: #fff; }
+.clear-confirm .clear-yes:hover { background: var(--accent-dark); }
 .cart-email { display: none; background: var(--card); border: 1px solid var(--rose-border); border-radius: 14px; padding: 16px; margin-bottom: 12px; }
 .cart-email.open { display: block; }
 
