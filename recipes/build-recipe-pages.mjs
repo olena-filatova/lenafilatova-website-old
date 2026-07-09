@@ -19,6 +19,9 @@ const CAT = { main:'Main course', dessert:'Dessert', baking:'Baking', snack:'Sna
   breakfast:'Breakfast', bread:'Bread', sauce:'Sauce', drink:'Drink' };
 const DIET = { 'sugar-free':'Sugar-free','gluten-free':'Gluten-free','low-carb':'Low carb',
   vegetarian:'Vegetarian','dairy-free':'Dairy-free' };
+// schema.org RestrictedDiet values (only the ones with a real enum match).
+// Every recipe on this site is blood-sugar-friendly, so DiabeticDiet always applies.
+const DIET_SCHEMA = { 'gluten-free':'GlutenFreeDiet', vegetarian:'VegetarianDiet' };
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const isHeader = s => /^—/.test(s);
@@ -32,7 +35,37 @@ function parseDur(t) {
   const n = parseInt(m[1], 10);
   return /min|хв/i.test(m[2]) ? `PT${n}M` : `PT${n}H`;
 }
-function kcal(t) { const m = String(t || '').match(/(\d+)\s*kcal/i); return m ? `${m[1]} calories` : null; }
+// total minutes in a duration string ("2 hours (incl. marinating)" -> 120, "20 min" -> 20)
+function toMinutes(t) {
+  if (!t) return 0;
+  const s = String(t);
+  const h = s.match(/(\d+)\s*(hour|hours|hr|год)/i);
+  const m = s.match(/(\d+)\s*(min|хв)/i);
+  return (h ? parseInt(h[1], 10) * 60 : 0) + (m ? parseInt(m[1], 10) : 0);
+}
+function isoDuration(mins) {
+  if (!mins) return null;
+  const h = Math.floor(mins / 60), m = mins % 60;
+  return 'PT' + (h ? `${h}H` : '') + (m ? `${m}M` : '');
+}
+// "Per serving (est.): ~600 kcal · Carbs 14 g · Fat 42 g · Protein 45 g"
+function parseNutrition(t) {
+  const s = String(t || '');
+  const num = (re) => { const m = s.match(re); return m ? m[1] : null; };
+  const n = {
+    calories: num(/([\d.]+)\s*kcal/i),
+    carbs: num(/carbs?\s*([\d.]+)\s*g/i),
+    fat: num(/fat\s*([\d.]+)\s*g/i),
+    protein: num(/protein\s*([\d.]+)\s*g/i),
+  };
+  if (!n.calories && !n.carbs) return null;
+  const out = { '@type': 'NutritionInformation' };
+  if (n.calories) out.calories = `${n.calories} calories`;
+  if (n.carbs) out.carbohydrateContent = `${n.carbs} g`;
+  if (n.fat) out.fatContent = `${n.fat} g`;
+  if (n.protein) out.proteinContent = `${n.protein} g`;
+  return out;
+}
 
 const template = fs.readFileSync(path.join(HERE, 'recipe.html'), 'utf8');
 
@@ -52,8 +85,14 @@ function buildJsonLd(R) {
   const pt = parseDur(R.meta?.prep?.en), ct = parseDur(R.meta?.cook?.en);
   if (pt) ld.prepTime = pt;
   if (ct) ld.cookTime = ct;
-  const cal = kcal(R.nutrition?.en);
-  if (cal) ld.nutrition = { '@type': 'NutritionInformation', calories: cal };
+  const total = isoDuration(toMinutes(R.meta?.prep?.en) + toMinutes(R.meta?.cook?.en));
+  if (total) ld.totalTime = total;
+  const nutrition = parseNutrition(R.nutrition?.en);
+  if (nutrition) ld.nutrition = nutrition;
+  // every recipe here is designed to be blood-sugar-friendly
+  const diets = ['https://schema.org/DiabeticDiet',
+    ...(R.tags || []).map(t => DIET_SCHEMA[t]).filter(Boolean).map(d => `https://schema.org/${d}`)];
+  ld.suitableForDiet = diets;
   return JSON.stringify(ld);
 }
 
