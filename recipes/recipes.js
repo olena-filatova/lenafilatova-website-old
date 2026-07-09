@@ -24,6 +24,7 @@
       empty: 'Your shopping list is empty. Browse recipes and add them to build one combined list.',
       serves: function (n) { return 'Serves ' + n; },
       remove: 'Remove', clearAll: 'Clear list', email: 'Email', save: 'Save', print: 'Print',
+      clearConfirm: 'Clear the whole list?', clearYes: 'Clear', clearCancel: 'Cancel',
       sendList: 'Send list', yourEmail: 'Your email address',
       optIn: 'Send me more recipes and information',
       listSent: 'List sent — check your inbox', subject: 'Shopping list',
@@ -49,6 +50,7 @@
       empty: 'Ваш список покупок порожній. Переглядайте рецепти й додавайте їх, щоб зібрати спільний список.',
       serves: function (n) { return 'На ' + n + ' порц.'; },
       remove: 'Прибрати', clearAll: 'Очистити список', email: 'Ел. пошта', save: 'Зберегти', print: 'Друк',
+      clearConfirm: 'Очистити весь список?', clearYes: 'Очистити', clearCancel: 'Скасувати',
       sendList: 'Надіслати список', yourEmail: 'Ваша електронна адреса',
       optIn: 'Надсилати мені більше рецептів та інформації',
       listSent: 'Список надіслано — перевірте пошту', subject: 'Список покупок',
@@ -287,7 +289,18 @@
     body.querySelectorAll('[data-chk]').forEach(function (c) {
       c.addEventListener('change', function () { chk[c.getAttribute('data-chk')] = c.checked; persist(LS_CHK, chk); });
     });
-    foot.querySelector('#lfClearAll').addEventListener('click', clearAll);
+    foot.querySelector('#lfClearAll').addEventListener('click', function () {
+      var btn = foot.querySelector('#lfClearAll');
+      var box = document.createElement('div');
+      box.className = 'clear-confirm';
+      box.innerHTML = '<span class="clear-q">' + esc(S().clearConfirm) + '</span>' +
+        '<div class="clear-btns">' +
+        '<button type="button" class="clear-no" id="lfClearNo">' + esc(S().clearCancel) + '</button>' +
+        '<button type="button" class="clear-yes" id="lfClearYes">' + esc(S().clearYes) + '</button></div>';
+      btn.replaceWith(box);
+      box.querySelector('#lfClearNo').addEventListener('click', renderDrawer);   // restore the normal button
+      box.querySelector('#lfClearYes').addEventListener('click', clearAll);
+    });
     foot.querySelector('#lfEmailBtn').addEventListener('click', function () { foot.querySelector('#lfEmailBox').classList.toggle('open'); });
     foot.querySelector('#lfSendList').addEventListener('click', emailList);
     foot.querySelector('#lfSaveBtn').addEventListener('click', saveListAction);
