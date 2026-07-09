@@ -98,7 +98,7 @@ function buildJsonLd(R) {
 
 function pageFor(R) {
   const url = `${SITE}/recipes/${R.slug}/`;
-  const title = `${R.title.en} — Low-GI Recipe — Lena Filatova`;
+  const title = `${R.title.en} — Low-GI Recipe`;
   const desc = clip(R.why.en, 155);
   const img = `${SITE}/recipes/images/${R.img}`;
   const head = [

@@ -29,8 +29,8 @@ const DEF_IMG = '/images/lena-filatova-womens-health-coach-over-40.jpg';
 // written as <dir>/index.html). Home (index.html) is handled separately below.
 const ROUTES = [
   { dir: 'about', path: '/about',
-    title: `About ${BRAND} — women's health writer & coach living with type 1 diabetes`,
-    desc: `Meet Lena Filatova — evidence-based writer and coach on women's health after 40, living with type 1 diabetes for over two decades. Diabetes, insulin resistance and perimenopause.` },
+    title: `About ${BRAND} — writer & coach with type 1 diabetes`,
+    desc: `Meet Lena Filatova — evidence-based writer and coach on women's health after 40, living with type 1 diabetes for over two decades.` },
   { dir: 'shop', path: '/shop',
     title: `Digital products — ${BRAND}`,
     desc: `Guides, meal plans and 1:1 coaching designed for women over 40 — evidence-based support for nutrition, perimenopause and blood sugar.` },
@@ -47,7 +47,7 @@ const ROUTES = [
     title: `Exercise & blood sugar calculator — ${BRAND}`,
     desc: `A free calculator that estimates how different types of exercise are likely to affect your blood sugar — practical guidance for women's health after 40.` },
   { dir: 'resources/aid-comparison', path: '/resources/aid-comparison',
-    title: `AID (Automated Insulin Delivery) system comparison 2026 — ${BRAND}`,
+    title: `AID (Automated Insulin Delivery) system comparison (2026)`,
     desc: `A clear 2026 comparison of automated insulin delivery (AID) systems and insulin pumps, for people managing type 1 diabetes.` },
 ];
 
@@ -115,7 +115,7 @@ for (const r of ROUTES) {
 {
   const head = seoHead({
     title: `Lena Filatova — Evidence-based women's health after 40`,
-    desc: `Evidence-based women's health after 40 — clear, practical guidance on diabetes, insulin resistance and perimenopause, plus a free newsletter and journal from Lena Filatova.`,
+    desc: `Evidence-based women's health after 40 — clear, practical guidance on diabetes, insulin resistance and perimenopause, plus a free newsletter.`,
     canonical: ORIGIN + '/',
   });
   const home = shell.replace(ANCHOR, `${head}\n${ANCHOR}`);
