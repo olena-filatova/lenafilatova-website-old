@@ -83,7 +83,7 @@ function buildJsonLd(R) {
   const ld = {
     '@context': 'https://schema.org/', '@type': 'Recipe',
     name: R.title.en,
-    image: [`${SITE}/recipes/images/${R.img}`],
+    image: (R.imgs && R.imgs.length ? R.imgs : [R.img]).map(f => `${SITE}/recipes/images/${f}`),
     author: { '@type': 'Person', name: 'Lena Filatova' },
     description: clip(R.why.en, 300),
     recipeCategory: CAT[R.cat] || R.cat,

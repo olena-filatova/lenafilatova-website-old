@@ -96,6 +96,28 @@ h1 { font-family: 'Spectral', Georgia, serif; font-weight: 600; font-size: clamp
 .photo .slot { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 13.5px; padding: 20px; }
 .photo .slot svg { width: 30px; height: 30px; opacity: .7; }
 
+/* ---- photo slider (recipes with several photos) ---- */
+.photo.slider { display: block; position: relative; height: clamp(240px, 46vw, 360px); }
+.slider-track { display: flex; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory;
+  scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.slider-track::-webkit-scrollbar { display: none; }
+.slider-track img { min-width: 100%; width: 100%; height: 100%; object-fit: cover; scroll-snap-align: center; }
+.slider-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px;
+  border-radius: 50%; border: 0; background: rgba(255,255,255,.85); color: var(--accent-dark);
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,.18); transition: background .15s, opacity .15s; z-index: 2; }
+.slider-nav:hover { background: #fff; }
+.slider-nav svg { width: 20px; height: 20px; }
+.slider-nav.prev { left: 12px; }
+.slider-nav.next { right: 12px; }
+.slider-nav:disabled { opacity: .35; cursor: default; }
+.slider-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 7px; z-index: 2; }
+.slider-dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 50%; cursor: pointer;
+  background: rgba(255,255,255,.6); box-shadow: 0 0 0 1px rgba(0,0,0,.1); transition: all .2s; }
+.slider-dots button.on { background: #fff; width: 22px; border-radius: 4px; }
+@media (hover: none) { .slider-nav { display: none; } }   /* touch: swipe + dots only */
+
 /* ── Meta strip (light, inline) ─────────────────────── */
 .meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 26px; margin: 6px 0 34px; }
 .meta > div { display: flex; align-items: baseline; gap: 8px; }
