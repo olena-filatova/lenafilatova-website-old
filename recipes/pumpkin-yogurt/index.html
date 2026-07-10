@@ -8,7 +8,7 @@
 <meta property="og:description" content="A two-minute, protein-rich breakfast: plain low-fat yogurt stirred with pumpkin purée and vanilla, no sugar. The protein and fibre keep you full and blood…">
 <meta property="og:image" content="https://lenafilatova.co.uk/recipes/images/97-pumpkin-yogurt.jpg">
 <meta property="og:url" content="https://lenafilatova.co.uk/recipes/pumpkin-yogurt/">
-<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Recipe","name":"Healthy Pumpkin Yogurt","image":["https://lenafilatova.co.uk/recipes/images/97-pumpkin-yogurt.jpg"],"author":{"@type":"Person","name":"Lena Filatova"},"description":"A two-minute, protein-rich breakfast: plain low-fat yogurt stirred with pumpkin purée and vanilla, no sugar. The protein and fibre keep you full and blood sugar steady through the morning.","recipeCategory":"Breakfast","keywords":"low GI, Breakfast, Sugar-free, Gluten-free, Vegetarian","recipeYield":"Serves 1","recipeIngredient":["250 g plain low-fat yogurt","2 tbsp pumpkin purée","½ tsp vanilla powder"],"recipeInstructions":[{"@type":"HowToStep","text":"Stir all the ingredients together until smooth."},{"@type":"HowToStep","text":"Serve with muesli or cooked oats, millet or amaranth."}],"prepTime":"PT2M","totalTime":"PT2M","nutrition":{"@type":"NutritionInformation","calories":"180 calories","carbohydrateContent":"18 g","fatContent":"4 g","proteinContent":"15 g"},"suitableForDiet":["https://schema.org/DiabeticDiet","https://schema.org/GlutenFreeDiet","https://schema.org/VegetarianDiet"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Recipe","name":"Healthy Pumpkin Yogurt","image":["https://lenafilatova.co.uk/recipes/images/97-pumpkin-yogurt.jpg"],"author":{"@type":"Person","name":"Lena Filatova"},"description":"A two-minute, protein-rich breakfast: plain low-fat yogurt stirred with pumpkin purée and vanilla, no sugar. The protein and fibre keep you full and blood sugar steady through the morning.","recipeCategory":"Breakfast","keywords":"low GI, Breakfast, Sugar-free, Gluten-free, Vegetarian","recipeYield":"Serves 1","recipeIngredient":["250 g plain low-fat yogurt","2 tbsp pumpkin purée","½ tsp vanilla powder"],"recipeInstructions":[{"@type":"HowToStep","name":"Stir all the ingredients together until smooth","text":"Stir all the ingredients together until smooth.","url":"https://lenafilatova.co.uk/recipes/pumpkin-yogurt/#step-1"},{"@type":"HowToStep","name":"Serve with muesli or cooked oats, millet or amaranth","text":"Serve with muesli or cooked oats, millet or amaranth.","url":"https://lenafilatova.co.uk/recipes/pumpkin-yogurt/#step-2"}],"prepTime":"PT2M","totalTime":"PT2M","nutrition":{"@type":"NutritionInformation","calories":"180 calories","carbohydrateContent":"18 g","fatContent":"4 g","proteinContent":"15 g"},"suitableForDiet":["https://schema.org/DiabeticDiet","https://schema.org/GlutenFreeDiet","https://schema.org/VegetarianDiet"]}</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Healthy Pumpkin Yogurt — Low-GI Recipe</title>
@@ -186,8 +186,9 @@
     document.getElementById('rPhoto').innerHTML = '<img src="images/' + R.img + '" alt="' + esc(R.title[l]) + '">';
     document.getElementById('rWhy').innerHTML = '<h3>' + (l === 'ua' ? 'Чому це Low GI' : "Why it's Low GI") + '</h3><p>' + esc(R.why[l]) + '</p>';
     var ol = document.getElementById('steps'); ol.innerHTML = '';
-    R.method[l].forEach(function (st) {
+    R.method[l].forEach(function (st, i) {
       var li = document.createElement('li');
+      li.id = 'step-' + (i + 1);   // matches the HowToStep url in the JSON-LD
       li.innerHTML = '<span class="num"></span><span class="step-text">' + esc(st) + '</span>';
       li.addEventListener('click', function () { li.classList.toggle('done'); updateProgress(); });
       ol.appendChild(li);

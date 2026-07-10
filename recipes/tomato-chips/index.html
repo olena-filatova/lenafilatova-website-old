@@ -8,7 +8,7 @@
 <meta property="og:description" content="Tomato rounds dried with salt and basil until crisp — a savoury, low-carb snack packed with flavour.">
 <meta property="og:image" content="https://lenafilatova.co.uk/recipes/images/70-tomato-chips.jpg">
 <meta property="og:url" content="https://lenafilatova.co.uk/recipes/tomato-chips/">
-<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Recipe","name":"Dehydrated Tomato Chips","image":["https://lenafilatova.co.uk/recipes/images/70-tomato-chips.jpg"],"author":{"@type":"Person","name":"Lena Filatova"},"description":"Tomato rounds dried with salt and basil until crisp — a savoury, low-carb snack packed with flavour.","recipeCategory":"Snack","keywords":"low GI, Snack, Vegetarian, Dairy-free, Gluten-free, Low carb","recipeYield":"Serves 2","recipeIngredient":["3 tomatoes","1 g sea salt","1 g dried basil"],"recipeInstructions":[{"@type":"HowToStep","text":"Slice the tomatoes into 5–6 mm rounds and arrange on dehydrator trays."},{"@type":"HowToStep","text":"Sprinkle with salt and basil."},{"@type":"HowToStep","text":"Dry for 8–12 hours, or until the chips are crisp."}],"prepTime":"PT3M","totalTime":"PT3M","nutrition":{"@type":"NutritionInformation","calories":"25 calories","carbohydrateContent":"5 g","fatContent":"0 g","proteinContent":"1 g"},"suitableForDiet":["https://schema.org/DiabeticDiet","https://schema.org/VegetarianDiet","https://schema.org/GlutenFreeDiet"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Recipe","name":"Dehydrated Tomato Chips","image":["https://lenafilatova.co.uk/recipes/images/70-tomato-chips.jpg"],"author":{"@type":"Person","name":"Lena Filatova"},"description":"Tomato rounds dried with salt and basil until crisp — a savoury, low-carb snack packed with flavour.","recipeCategory":"Snack","keywords":"low GI, Snack, Vegetarian, Dairy-free, Gluten-free, Low carb","recipeYield":"Serves 2","recipeIngredient":["3 tomatoes","1 g sea salt","1 g dried basil"],"recipeInstructions":[{"@type":"HowToStep","name":"Slice the tomatoes into 5–6 mm rounds and arrange on dehydr…","text":"Slice the tomatoes into 5–6 mm rounds and arrange on dehydrator trays.","url":"https://lenafilatova.co.uk/recipes/tomato-chips/#step-1"},{"@type":"HowToStep","name":"Sprinkle with salt and basil","text":"Sprinkle with salt and basil.","url":"https://lenafilatova.co.uk/recipes/tomato-chips/#step-2"},{"@type":"HowToStep","name":"Dry for 8–12 hours, or until the chips are crisp","text":"Dry for 8–12 hours, or until the chips are crisp.","url":"https://lenafilatova.co.uk/recipes/tomato-chips/#step-3"}],"prepTime":"PT3M","totalTime":"PT3M","nutrition":{"@type":"NutritionInformation","calories":"25 calories","carbohydrateContent":"5 g","fatContent":"0 g","proteinContent":"1 g"},"suitableForDiet":["https://schema.org/DiabeticDiet","https://schema.org/VegetarianDiet","https://schema.org/GlutenFreeDiet"]}</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Dehydrated Tomato Chips — Low-GI Recipe</title>
@@ -186,8 +186,9 @@
     document.getElementById('rPhoto').innerHTML = '<img src="images/' + R.img + '" alt="' + esc(R.title[l]) + '">';
     document.getElementById('rWhy').innerHTML = '<h3>' + (l === 'ua' ? 'Чому це Low GI' : "Why it's Low GI") + '</h3><p>' + esc(R.why[l]) + '</p>';
     var ol = document.getElementById('steps'); ol.innerHTML = '';
-    R.method[l].forEach(function (st) {
+    R.method[l].forEach(function (st, i) {
       var li = document.createElement('li');
+      li.id = 'step-' + (i + 1);   // matches the HowToStep url in the JSON-LD
       li.innerHTML = '<span class="num"></span><span class="step-text">' + esc(st) + '</span>';
       li.addEventListener('click', function () { li.classList.toggle('done'); updateProgress(); });
       ol.appendChild(li);
