@@ -29,6 +29,12 @@ const STATIC = [
   { path: '/blog/collagen-and-skin/', uaPath: '/ua/blog/collagen-and-skin/', lastmod: '2026-07-03' },
   { path: '/blog/perimenopause-weight-myths/', uaPath: '/ua/blog/perimenopause-weight-myths/', lastmod: '2026-07-04' },
   { path: '/blog/protein-for-women-over-40/', uaPath: '/ua/blog/protein-for-women-over-40/', lastmod: '2026-07-04' },
+  { path: '/blog/natural-sweeteners/', uaPath: '/ua/blog/natural-sweeteners/', lastmod: '2026-07-09' },
+  { path: '/blog/hrt-prescriptions-doubling/', uaPath: '/ua/blog/hrt-prescriptions-doubling/', lastmod: '2026-07-10' },
+  { path: '/blog/islet-transplant-insulin-independence/', uaPath: '/ua/blog/islet-transplant-insulin-independence/', lastmod: '2026-07-10' },
+  { path: '/blog/carb-quality-healthy-aging/', uaPath: '/ua/blog/carb-quality-healthy-aging/', lastmod: '2026-07-10' },
+  { path: '/blog/menopause-skin-oestrogen/', uaPath: '/ua/blog/menopause-skin-oestrogen/', lastmod: '2026-07-10' },
+  { path: '/blog/glp1-drugs-less-movement/', uaPath: '/ua/blog/glp1-drugs-less-movement/', lastmod: '2026-07-10' },
 ];
 
 // --- recipes ---
