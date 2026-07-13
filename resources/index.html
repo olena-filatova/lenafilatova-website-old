@@ -168,6 +168,31 @@
       header [style*="padding: 18px 32px"] { gap: 8px !important; }
     }
     #cusdis_thread iframe { min-height: 300px; }
+    /* Wide tables: pin the identifying column(s) during horizontal scroll.
+       Tables must use border-collapse: separate — Safari can't stick cells in a collapsed table. */
+    .pump-tbl tbody td { border-bottom: 1px solid #F0E5EE; }
+    .pump-tbl th:nth-child(-n+2), .pump-tbl tbody td:nth-child(-n+2) {
+      position: -webkit-sticky; position: sticky; z-index: 1;
+      background: #FFFFFF; background-clip: padding-box;
+    }
+    .pump-tbl th:first-child, .pump-tbl tbody td:first-child {
+      left: 0; width: 44px; min-width: 44px; max-width: 44px;
+      padding-left: 4px !important; padding-right: 4px !important;
+    }
+    .pump-tbl th:nth-child(2), .pump-tbl tbody td:nth-child(2) { left: 44px; border-right: 1px solid #EDE0EA; }
+    .pump-tbl thead th:nth-child(-n+2) { z-index: 3 !important; background: #331B33; }
+    .pump-tbl thead th:first-child { font-size: 9px !important; letter-spacing: 0.3px !important; }
+    .pump-tbl tr.pump-row-pipe td:nth-child(-n+2) { background: #FCFAFC; }
+    .pump-tbl tbody td[colspan] { position: static !important; width: auto !important; min-width: 0 !important; max-width: none !important; }
+    .blog-tbl th:first-child, .blog-tbl td:first-child {
+      position: -webkit-sticky; position: sticky; left: 0; z-index: 1; background: #FFFFFF;
+    }
+    .blog-tbl thead th:first-child { background: #331B33; }
+    @media (max-width: 640px) {
+      .pump-tbl th:nth-child(2), .pump-tbl tbody td:nth-child(2) { max-width: 34vw; }
+      .pump-tbl tbody td:nth-child(2) div { white-space: normal !important; }
+      .blog-tbl th:first-child, .blog-tbl td:first-child { max-width: 40vw; white-space: normal !important; }
+    }
   </style>
 </helmet>
 
@@ -596,10 +621,10 @@
             <button onClick="{{ pumps.onCloseCompare }}" style="border: 1px solid #E1C6D6; background: #FFF; color: #7A6675; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; padding: 7px 15px; border-radius: 999px; cursor: pointer; white-space: nowrap;">{{ rp.pumpCompareClose }} ✕</button>
           </div>
           <div style="overflow: auto; -webkit-overflow-scrolling: touch;">
-            <table style="width: 100%; border-collapse: collapse; font-family: 'Manrope', sans-serif;">
+            <table style="width: 100%; border-collapse: separate; border-spacing: 0; font-family: 'Manrope', sans-serif;">
               <thead>
                 <tr>
-                  <th style="position: sticky; left: 0; z-index: 2; background: #331B33; min-width: 148px;"></th>
+                  <th style="position: -webkit-sticky; position: sticky; left: 0; z-index: 2; background: #331B33; min-width: 148px;"></th>
                   <sc-for list="{{ pumps.cmpDevices }}" as="cd" hint-placeholder-count="2">
                     <th style="text-align: left; padding: 13px 16px; background: #331B33; min-width: 190px; vertical-align: bottom;"><div style="font-family: 'Spectral', serif; font-size: 15px; font-weight: 600; color: #FFFFFF; line-height: 1.2;">{{ cd.device }}</div><div style="font-size: 11.5px; color: #C9A9C0; margin-top: 2px;">{{ cd.maker }}</div></th>
                   </sc-for>
@@ -640,7 +665,7 @@
       <p class="pump-swipe" style="margin: 0 0 12px; font-size: 12.5px; font-weight: 600; color: #B23A63;">{{ rp.pumpSwipe }}</p>
       <div style="border: 1px solid #EDE0EA; border-radius: 14px; overflow: hidden; background: #FFFFFF; transform: translateZ(0);">
         <div style="overflow: auto; max-height: 640px; -webkit-overflow-scrolling: touch;">
-        <table style="width: 100%; border-collapse: collapse; font-family: 'Manrope', sans-serif; min-width: 940px;">
+        <table class="pump-tbl" style="width: 100%; border-collapse: separate; border-spacing: 0; font-family: 'Manrope', sans-serif; min-width: 940px;">
           <thead>
             <tr style="background: #331B33;">
               <th style="text-align: center; padding: 13px 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #E8D6E3; white-space: nowrap; position: sticky; top: 0; z-index: 2; background: #331B33;">{{ rp.colPick }}</th>
@@ -655,7 +680,7 @@
           </thead>
           <tbody>
             <sc-for list="{{ pumps.avail }}" as="pm" hint-placeholder-count="6">
-              <tr style="border-bottom: 1px solid #F0E5EE;">
+              <tr class="pump-row" style="border-bottom: 1px solid #F0E5EE;">
                 <td style="padding: 14px 10px; vertical-align: top; text-align: center;"><span onClick="{{ pm.onToggle }}" style="{{ pm.selBoxStyle }}"><sc-if value="{{ pm.selected }}" hint-placeholder-val="{{ false }}">✓</sc-if></span></td>
                 <td style="padding: 14px 16px; vertical-align: top;"><div style="font-family: 'Spectral', serif; font-size: 15.5px; font-weight: 600; color: #331B33; white-space: nowrap;">{{ pm.device }}</div><div style="font-size: 11.5px; color: #9A8896; margin-top: 1px;">{{ pm.maker }}</div></td>
                 <td style="padding: 14px 16px; vertical-align: top;"><span style="{{ pm.typeStyle }}">{{ pm.typeLabel }}</span></td>
@@ -670,7 +695,7 @@
               <tr><td colspan="8" style="padding: 9px 16px; background: #F6F0F5; font-size: 11px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #8A6E86; border-top: 1px solid #EAD3E1;">{{ rp.pipelineHeader }}</td></tr>
             </sc-if>
             <sc-for list="{{ pumps.pipe }}" as="pm" hint-placeholder-count="0">
-              <tr style="border-bottom: 1px solid #F0E5EE; background: #FCFAFC;">
+              <tr class="pump-row pump-row-pipe" style="border-bottom: 1px solid #F0E5EE; background: #FCFAFC;">
                 <td style="padding: 14px 10px; vertical-align: top; text-align: center;"><span onClick="{{ pm.onToggle }}" style="{{ pm.selBoxStyle }}"><sc-if value="{{ pm.selected }}" hint-placeholder-val="{{ false }}">✓</sc-if></span></td>
                 <td style="padding: 14px 16px; vertical-align: top;"><div style="font-family: 'Spectral', serif; font-size: 15.5px; font-weight: 600; color: #331B33; white-space: nowrap;">{{ pm.device }}</div><div style="font-size: 11.5px; color: #9A8896; margin-top: 1px;">{{ pm.maker }}</div><sc-if value="{{ pm.hasEta }}" hint-placeholder-val="{{ false }}"><div style="display: inline-block; margin-top: 5px; padding: 2px 8px; border-radius: 999px; background: #FBF0D8; color: #9A6A18; font-size: 10.5px; font-weight: 700; white-space: nowrap;">⏳ {{ pm.eta }}</div></sc-if></td>
                 <td style="padding: 14px 16px; vertical-align: top;"><span style="{{ pm.typeStyle }}">{{ pm.typeLabel }}</span></td>
@@ -933,7 +958,7 @@
           <sc-if value="{{ b.isTable }}" hint-placeholder-val="{{ false }}">
             <div style="border: 1px solid #EDE0EA; border-radius: 12px; overflow: hidden; margin: 6px 0;">
               <div style="overflow-x: auto;">
-                <table style="width: 100%; border-collapse: collapse; font-family: 'Manrope', sans-serif; font-size: 14.5px;">
+                <table class="blog-tbl" style="width: 100%; border-collapse: separate; border-spacing: 0; font-family: 'Manrope', sans-serif; font-size: 14.5px;">
                   <thead>
                     <tr style="background: #331B33;">
                       <sc-for list="{{ b.head }}" as="hd" hint-placeholder-count="3"><th style="text-align: left; padding: 11px 15px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.4px; color: #E8D6E3; white-space: nowrap;">{{ hd }}</th></sc-for>
@@ -942,7 +967,7 @@
                   <tbody>
                     <sc-for list="{{ b.rows }}" as="row" hint-placeholder-count="4">
                       <tr style="border-bottom: 1px solid #F0E5EE;">
-                        <sc-for list="{{ row }}" as="cell" hint-placeholder-count="3"><td style="padding: 11px 15px; color: #4A3A46; line-height: 1.5; vertical-align: top;">{{ cell }}</td></sc-for>
+                        <sc-for list="{{ row }}" as="cell" hint-placeholder-count="3"><td style="padding: 11px 15px; color: #4A3A46; line-height: 1.5; vertical-align: top; border-bottom: 1px solid #F0E5EE;">{{ cell }}</td></sc-for>
                       </tr>
                     </sc-for>
                   </tbody>
