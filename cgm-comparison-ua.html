@@ -175,9 +175,10 @@ body {
   border-radius: var(--radius);
   -webkit-overflow-scrolling: touch;
 }
-table { width: 100%; border-collapse: collapse; min-width: 860px; }
+table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 860px; } /* separate: Safari can't stick cells in a collapsed table */
 
 thead th {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 5;
@@ -201,8 +202,9 @@ thead th:hover { color: var(--text); }
 thead th.no-sort { cursor: default; }
 thead th.no-sort:hover { color: var(--muted); }
 
-tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
-tbody tr:last-child { border-bottom: none; }
+tbody tr { transition: background 0.1s; }
+tbody td { border-bottom: 1px solid var(--border); }
+tbody tr:last-child td { border-bottom: none; }
 tbody tr:hover { background: var(--hover); }
 tbody tr.pipeline-row { background: #fffef5; }
 tbody tr.pipeline-row:hover { background: #fffbea; }
@@ -223,21 +225,21 @@ td { padding: 0.55rem 0.7rem; font-size: 0.82rem; vertical-align: middle; }
 thead th:first-child {
   left: 0;
   z-index: 6;
-  box-shadow: inset -1px 0 0 var(--border), inset 0 -1.5px 0 var(--border);
+  border-right: 1px solid var(--border);
 }
 tbody td:first-child {
+  position: -webkit-sticky;
   position: sticky;
   left: 0;
   z-index: 1;
   background: #fff;
-  box-shadow: inset -1px 0 0 var(--border), inset 0 -1px 0 var(--border);
+  border-right: 1px solid var(--border);
 }
-tbody tr:last-child td:first-child { box-shadow: inset -1px 0 0 var(--border); }
 tbody tr:hover td:first-child { background: var(--hover); }
 tbody tr.pipeline-row td:first-child { background: #fffef5; }
 tbody tr.pipeline-row:hover td:first-child { background: #fffbea; }
-tbody tr.section-header td { position: static; box-shadow: none; }
-.section-label { position: sticky; left: 0.85rem; display: inline-block; }
+tbody tr.section-header td { position: static; border-right: none; }
+.section-label { position: -webkit-sticky; position: sticky; left: 0.85rem; display: inline-block; }
 
 /* Sensor cell */
 .sensor-name { font-weight: 600; font-size: 0.88rem; display: block; line-height: 1.3; }
