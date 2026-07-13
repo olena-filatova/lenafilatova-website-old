@@ -292,6 +292,22 @@ td:nth-child(3),
 td:nth-child(4),
 td:nth-child(5) { text-align: center; }
 
+/* Sticky first column — keeps the food name visible while scrolling sideways */
+thead th:first-child {
+  left: 0;
+  z-index: 3;
+  box-shadow: inset -1px 0 0 var(--border), inset 0 -1.5px 0 var(--border);
+}
+tbody td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: #fff;
+  box-shadow: inset -1px 0 0 var(--border), inset 0 -1px 0 var(--border);
+}
+tbody tr:last-child td:first-child { box-shadow: inset -1px 0 0 var(--border); }
+tbody tr:hover td:first-child { background: var(--hover); }
+
 /* Food name cell */
 .food-name { font-weight: 500; }
 
@@ -358,6 +374,15 @@ td:nth-child(5) { text-align: center; }
 @media (max-width: 640px) {
   .filter-label { display: none; }
   .count-bar { flex-direction: column; align-items: flex-start; }
+  thead th:first-child,
+  tbody td:first-child {
+    width: 42vw;
+    min-width: 42vw;
+    max-width: 42vw;
+    white-space: normal;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+  }
 }
 </style>
 </head>
