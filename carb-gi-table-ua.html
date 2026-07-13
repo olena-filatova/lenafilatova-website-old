@@ -244,11 +244,13 @@ h1 {
 
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate; /* Safari can't stick cells in a collapsed table */
+  border-spacing: 0;
   min-width: 620px;
 }
 
 thead th {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 2;
@@ -275,11 +277,9 @@ thead th.sorted-asc::after  { content: " ↑"; opacity: 0.6; }
 thead th.sorted-desc::after { content: " ↓"; opacity: 0.6; }
 thead th:hover { color: var(--text); }
 
-tbody tr {
-  border-bottom: 1px solid var(--border);
-  transition: background 0.1s;
-}
-tbody tr:last-child { border-bottom: none; }
+tbody tr { transition: background 0.1s; }
+tbody td { border-bottom: 1px solid var(--border); }
+tbody tr:last-child td { border-bottom: none; }
 tbody tr:hover { background: var(--hover); }
 
 td {
@@ -296,16 +296,16 @@ td:nth-child(5) { text-align: center; }
 thead th:first-child {
   left: 0;
   z-index: 3;
-  box-shadow: inset -1px 0 0 var(--border), inset 0 -1.5px 0 var(--border);
+  border-right: 1px solid var(--border);
 }
 tbody td:first-child {
+  position: -webkit-sticky;
   position: sticky;
   left: 0;
   z-index: 1;
   background: #fff;
-  box-shadow: inset -1px 0 0 var(--border), inset 0 -1px 0 var(--border);
+  border-right: 1px solid var(--border);
 }
-tbody tr:last-child td:first-child { box-shadow: inset -1px 0 0 var(--border); }
 tbody tr:hover td:first-child { background: var(--hover); }
 
 /* Food name cell */
