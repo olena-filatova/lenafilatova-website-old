@@ -219,6 +219,26 @@ tbody tr.section-header td {
 
 td { padding: 0.55rem 0.7rem; font-size: 0.82rem; vertical-align: middle; }
 
+/* Sticky first column — keeps the sensor name visible while scrolling sideways */
+thead th:first-child {
+  left: 0;
+  z-index: 6;
+  box-shadow: inset -1px 0 0 var(--border), inset 0 -1.5px 0 var(--border);
+}
+tbody td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: #fff;
+  box-shadow: inset -1px 0 0 var(--border), inset 0 -1px 0 var(--border);
+}
+tbody tr:last-child td:first-child { box-shadow: inset -1px 0 0 var(--border); }
+tbody tr:hover td:first-child { background: var(--hover); }
+tbody tr.pipeline-row td:first-child { background: #fffef5; }
+tbody tr.pipeline-row:hover td:first-child { background: #fffbea; }
+tbody tr.section-header td { position: static; box-shadow: none; }
+.section-label { position: sticky; left: 0.85rem; display: inline-block; }
+
 /* Sensor cell */
 .sensor-name { font-weight: 600; font-size: 0.88rem; display: block; line-height: 1.3; }
 .sensor-note {
@@ -320,6 +340,13 @@ td { padding: 0.55rem 0.7rem; font-size: 0.82rem; vertical-align: middle; }
 @media (max-width: 640px) {
   .filter-label { display: none; }
   .count-bar { flex-direction: column; align-items: flex-start; }
+  thead th:first-child,
+  tbody td:first-child {
+    width: 40vw;
+    min-width: 40vw;
+    max-width: 40vw;
+    white-space: normal;
+  }
 }
 </style>
 </head>
@@ -856,7 +883,7 @@ function render() {
 
     rows.forEach(s => {
       if (s.status === "pipeline" && !pipelineHeaderDone) {
-        html += `<tr class="section-header"><td colspan="11">⏳ Pipeline — Coming 2026–2027</td></tr>`;
+        html += `<tr class="section-header"><td colspan="11"><span class="section-label">⏳ Pipeline — Coming 2026–2027</span></td></tr>`;
         pipelineHeaderDone = true;
       }
 
