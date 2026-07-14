@@ -16,6 +16,8 @@ Content is hydrated/rendered client-side by `support.js`.
 > old snapshot for a day and none of the merged fixes reached visitors. Restored in
 > PR #57. If the live site ever seems to ignore merged changes, check `CNAME` exists
 > on `main` and Settings → Pages shows the custom domain, before debugging anything else.
+> The DNS TXT record `_github-pages-challenge-olena-filatova` at Namecheap (added
+> 14 Jul 2026) keeps the domain verified for this GitHub account — never remove it.
 
 ## Embedded Metabolic Food Calculator (inline widget, not an iframe)
 The calculator is a **separate app** in repo `olena-filatova/helsico`, served at
