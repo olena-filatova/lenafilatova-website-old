@@ -58,7 +58,7 @@
       <li><a href="/blog/carb-quality-healthy-aging/">The carbs you choose in midlife shape how you age, a 32-year study finds</a></li>
       <li><a href="/blog/menopause-skin-oestrogen/">Why skin changes so fast at menopause — and what hormone therapy can and can't do</a></li>
       <li><a href="/blog/glp1-drugs-less-movement/">People on GLP-1 weight-loss drugs moved less, not more, a Fitbit study finds</a></li>
-      <li><a href="/carb-gi-table.html">Carbohydrate &amp; glycaemic index table</a></li>
+      <li><a href="/carb-gi-table">Carbohydrate &amp; glycaemic index table</a></li>
     </ul>
     <p>Ukrainian versions are available under <a href="/ua/blog/type-2-diabetes-research/">/ua/blog/</a>.</p>
   </div>
@@ -620,7 +620,7 @@
             <span style="font-family: 'Spectral', serif; font-size: 19px; font-weight: 600; color: #331B33;">{{ rp.pumpCompareTitle }}</span>
             <button onClick="{{ pumps.onCloseCompare }}" style="border: 1px solid #E1C6D6; background: #FFF; color: #7A6675; font-family: 'Manrope', sans-serif; font-size: 13px; font-weight: 600; padding: 7px 15px; border-radius: 999px; cursor: pointer; white-space: nowrap;">{{ rp.pumpCompareClose }} ✕</button>
           </div>
-          <div style="overflow: auto; -webkit-overflow-scrolling: touch;">
+          <div style="overflow: auto;">
             <table style="width: 100%; border-collapse: separate; border-spacing: 0; font-family: 'Manrope', sans-serif;">
               <thead>
                 <tr>
@@ -664,7 +664,7 @@
       </sc-if>
       <p class="pump-swipe" style="margin: 0 0 12px; font-size: 12.5px; font-weight: 600; color: #B23A63;">{{ rp.pumpSwipe }}</p>
       <div style="border: 1px solid #EDE0EA; border-radius: 14px; overflow: hidden; background: #FFFFFF; transform: translateZ(0);">
-        <div style="overflow: auto; max-height: 640px; -webkit-overflow-scrolling: touch;">
+        <div style="overflow: auto; max-height: 640px;">
         <table class="pump-tbl" style="width: 100%; border-collapse: separate; border-spacing: 0; font-family: 'Manrope', sans-serif; min-width: 940px;">
           <thead>
             <tr style="background: #331B33;">
@@ -3806,9 +3806,9 @@ const blogImgBig = (src) => ({ aspectRatio: "4 / 3", borderRadius: "14px", backg
       rp: c.resourcesPage,
       a2hs: c.a2hs,
       saveToHome: () => this.saveToHome(),
-      carbSrc: (lang === "ua" ? "/carb-gi-table-ua.html" : "/carb-gi-table.html"),
-      cgmSrc: (lang === "ua" ? "/cgm-comparison-ua.html" : "/cgm-comparison.html"),
-      bsiSrc: (lang === "ua" ? "/blood-sugar-investigator-ua.html" : "/blood-sugar-investigator.html"),
+      carbSrc: (lang === "ua" ? "/carb-gi-table-ua" : "/carb-gi-table"),
+      cgmSrc: (lang === "ua" ? "/cgm-comparison-ua" : "/cgm-comparison"),
+      bsiSrc: (lang === "ua" ? "/blood-sugar-investigator-ua" : "/blood-sugar-investigator"),
       pumps: this.pumpData(lang, c),
       downloadCards: [c.blog.resources.glow, c.blog.resources.supp].map((r, i) => { const src = i === 0 ? "glow-guide" : "supplement-sheet"; const stt = (this.state.dlStatus || {})[src]; return { ...r, source: src, done: stt === "done", notDone: stt !== "done", error: stt === "error", onSubmit: (ev) => this.subscribeDownload(ev, src) }; }),
       isProduct: page === "product",
