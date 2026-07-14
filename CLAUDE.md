@@ -1,23 +1,16 @@
-# Project notes — lenafilatova.co.uk (repo: `olena-filatova/lenafilatova-website`)
+# Project notes — RETIRED repo (`olena-filatova/lenafilatova-website`)
 
-Static website for Lena Filatova (evidence-based women's health). Built with the
-**Divhunt** visual builder — note the `<x-dc>` wrapper, `<helmet>` head block,
-`support.js` runtime, and template syntax (`{{ }}`, `<sc-if>`, `<sc-for>`).
-Content is hydrated/rendered client-side by `support.js`.
-
-- **Hosting:** GitHub Pages (see `CNAME` → `lenafilatova.co.uk`). Apex is canonical;
-  `www` redirects to it. DNS is managed at **Namecheap**.
-- **Deploy:** merge to `main` → GitHub Pages rebuilds (allow a minute or two + CDN cache).
-- `index.html` is the single large page (~440 KB); EN content plus `ua/` for Ukrainian.
-
-> ⚠️ **NEVER delete the `CNAME` file or touch the repo's Pages custom-domain setting.**
-> On 13 Jul 2026 the file was deleted (via the GitHub UI/API — likely an automated
-> cleanup); Pages kept "deploying" but lenafilatova.co.uk silently served a frozen
-> old snapshot for a day and none of the merged fixes reached visitors. Restored in
-> PR #57. If the live site ever seems to ignore merged changes, check `CNAME` exists
-> on `main` and Settings → Pages shows the custom domain, before debugging anything else.
-> The DNS TXT record `_github-pages-challenge-olena-filatova` at Namecheap (added
-> 14 Jul 2026) keeps the domain verified for this GitHub account — never remove it.
+> 🛑 **THIS REPO IS RETIRED — do not make website changes here.**
+> The live site for `lenafilatova.co.uk` is the **Astro rebuild** in
+> **`olena-filatova/lenafilatova-astro-preview`** (cutover executed 13 Jul 2026;
+> see that repo's `CUTOVER.md` and `CLAUDE.md`). ALL fixes, content and features
+> go to that repo. Deploys from this repo only reach
+> `olena-filatova.github.io/lenafilatova-website/` — visitors never see them.
+> This repo must NOT contain a `CNAME` file and its Pages custom domain must
+> stay unset, otherwise it can steal the domain back from the live site.
+> Kept for history and as the source the Astro site was ported from (Divhunt
+> builder: `<x-dc>` wrapper, `{{ }}` / `<sc-if>` / `<sc-for>` templates,
+> client-side rendering via `support.js`).
 
 ## Embedded Metabolic Food Calculator (inline widget, not an iframe)
 The calculator is a **separate app** in repo `olena-filatova/helsico`, served at
