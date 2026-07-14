@@ -1,11 +1,14 @@
-# Project notes — RETIRED repo (`olena-filatova/lenafilatova-website`)
+# Project notes — RETIRED repo (`olena-filatova/lenafilatova-website-old`)
+
+Renamed from `lenafilatova-website` on 14 Jul 2026.
 
 > 🛑 **THIS REPO IS RETIRED — do not make website changes here.**
 > The live site for `lenafilatova.co.uk` is the **Astro rebuild** in
-> **`olena-filatova/lenafilatova-astro-preview`** (cutover executed 13 Jul 2026;
+> **`olena-filatova/lenafilatova-website`** (the Astro rebuild, formerly
+> `lenafilatova-astro-preview`; cutover executed 13 Jul 2026;
 > see that repo's `CUTOVER.md` and `CLAUDE.md`). ALL fixes, content and features
 > go to that repo. Deploys from this repo only reach
-> `olena-filatova.github.io/lenafilatova-website/` — visitors never see them.
+> `olena-filatova.github.io/lenafilatova-website-old/` — visitors never see them.
 > This repo must NOT contain a `CNAME` file and its Pages custom domain must
 > stay unset, otherwise it can steal the domain back from the live site.
 > Kept for history and as the source the Astro site was ported from (Divhunt
