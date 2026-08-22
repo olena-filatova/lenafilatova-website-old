@@ -8,7 +8,7 @@
 <meta property="og:description" content="Made the night before — oats, chia and grated carrot with cinnamon give slow-release carbs, fibre and omega-3 for a breakfast that keeps energy and blood…">
 <meta property="og:image" content="https://lenafilatova.co.uk/recipes/images/22-carrot-cake-overnight-oats.jpg">
 <meta property="og:url" content="https://lenafilatova.co.uk/recipes/carrot-cake-overnight-oats/">
-<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Recipe","name":"Carrot Cake Overnight Oats","image":["https://lenafilatova.co.uk/recipes/images/22-carrot-cake-overnight-oats.jpg"],"author":{"@type":"Person","name":"Lena Filatova"},"description":"Made the night before — oats, chia and grated carrot with cinnamon give slow-release carbs, fibre and omega-3 for a breakfast that keeps energy and blood sugar steady.","recipeCategory":"Breakfast","keywords":"low GI, Breakfast, Sugar-free, Vegetarian","recipeYield":"Serves 3","recipeIngredient":["450 g Greek yogurt","2 carrots, peeled and grated","5 tbsp chia seeds","3 tsp ground cinnamon","½ cup rolled oats (coarse)","1 handful blueberries","1 tsp stevia","1 pinch vanilla"],"recipeInstructions":[{"@type":"HowToStep","text":"Mix all the ingredients together and refrigerate overnight."},{"@type":"HowToStep","text":"Before serving, add any berries you like and spoon into a jar or glass."}],"prepTime":"PT10M","totalTime":"PT10M","nutrition":{"@type":"NutritionInformation","calories":"260 calories","carbohydrateContent":"29 g","fatContent":"8 g","proteinContent":"19 g"},"suitableForDiet":["https://schema.org/DiabeticDiet","https://schema.org/VegetarianDiet"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Recipe","name":"Carrot Cake Overnight Oats","image":["https://lenafilatova.co.uk/recipes/images/22-carrot-cake-overnight-oats.jpg"],"author":{"@type":"Person","name":"Lena Filatova"},"description":"Made the night before — oats, chia and grated carrot with cinnamon give slow-release carbs, fibre and omega-3 for a breakfast that keeps energy and blood sugar steady.","recipeCategory":"Breakfast","keywords":"low GI, Breakfast, Sugar-free, Vegetarian","recipeYield":"Serves 3","recipeIngredient":["450 g Greek yogurt","2 carrots, peeled and grated","5 tbsp chia seeds","3 tsp ground cinnamon","½ cup rolled oats (coarse)","1 handful blueberries","1 tsp stevia","1 pinch vanilla"],"recipeInstructions":[{"@type":"HowToStep","name":"Mix all the ingredients together and refrigerate overnight","text":"Mix all the ingredients together and refrigerate overnight.","url":"https://lenafilatova.co.uk/recipes/carrot-cake-overnight-oats/#step-1"},{"@type":"HowToStep","name":"Before serving, add any berries you like and spoon into a j…","text":"Before serving, add any berries you like and spoon into a jar or glass.","url":"https://lenafilatova.co.uk/recipes/carrot-cake-overnight-oats/#step-2"}],"prepTime":"PT10M","totalTime":"PT10M","nutrition":{"@type":"NutritionInformation","calories":"260 calories","carbohydrateContent":"29 g","fatContent":"8 g","proteinContent":"19 g"},"suitableForDiet":["https://schema.org/DiabeticDiet","https://schema.org/VegetarianDiet"]}</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Carrot Cake Overnight Oats — Low-GI Recipe</title>
@@ -175,6 +175,54 @@
   var base = baseServes(), mult = 1;         // scale in whole batches so amounts stay clean
   function factor() { return mult; }
 
+  /* hero photo — single image, or a swipeable slider when R.imgs has several */
+  function renderPhoto(l) {
+    var photo = document.getElementById('rPhoto');
+    var imgs = (R.imgs && R.imgs.length) ? R.imgs : [R.img];
+    if (imgs.length < 2) {
+      photo.className = 'photo hero';
+      photo.innerHTML = '<img src="images/' + imgs[0] + '" alt="' + esc(R.title[l]) + '">';
+      return;
+    }
+    var arrow = function (d) {
+      return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="' +
+        (d === 'prev' ? 'M15 18l-6-6 6-6' : 'M9 6l6 6-6 6') + '"/></svg>';
+    };
+    var of = (l === 'ua' ? ' з ' : ' of ');
+    var slides = imgs.map(function (src, i) {
+      return '<img src="images/' + src + '" alt="' + esc(R.title[l]) + ' (' + (i + 1) + of + imgs.length + ')"' +
+        (i ? ' loading="lazy"' : '') + ' decoding="async">';
+    }).join('');
+    var dots = imgs.map(function (_, i) {
+      return '<button type="button" aria-label="' + (l === 'ua' ? 'Фото ' : 'Photo ') + (i + 1) + '"' + (i === 0 ? ' class="on"' : '') + '></button>';
+    }).join('');
+    photo.className = 'photo slider';
+    photo.innerHTML = '<div class="slider-track" id="slTrack">' + slides + '</div>' +
+      '<button type="button" class="slider-nav prev" id="slPrev" aria-label="' + (l === 'ua' ? 'Попереднє фото' : 'Previous photo') + '" disabled>' + arrow('prev') + '</button>' +
+      '<button type="button" class="slider-nav next" id="slNext" aria-label="' + (l === 'ua' ? 'Наступне фото' : 'Next photo') + '">' + arrow('next') + '</button>' +
+      '<div class="slider-dots" id="slDots">' + dots + '</div>';
+    initSlider(imgs.length);
+  }
+
+  function initSlider(n) {
+    var track = document.getElementById('slTrack');
+    var prev = document.getElementById('slPrev'), next = document.getElementById('slNext');
+    var dots = [].slice.call(document.querySelectorAll('#slDots button'));
+    var cur = 0, t;
+    function sync() {
+      prev.disabled = cur <= 0; next.disabled = cur >= n - 1;
+      dots.forEach(function (d, i) { d.classList.toggle('on', i === cur); });
+    }
+    function go(i) { cur = Math.max(0, Math.min(n - 1, i)); track.scrollTo({ left: track.clientWidth * cur, behavior: 'smooth' }); sync(); }
+    prev.addEventListener('click', function () { go(cur - 1); });
+    next.addEventListener('click', function () { go(cur + 1); });
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+    track.addEventListener('scroll', function () {   // keep dots/arrows in sync with swipes
+      clearTimeout(t);
+      t = setTimeout(function () { cur = Math.round(track.scrollLeft / track.clientWidth); sync(); }, 90);
+    });
+  }
+
   /* things that don't change with servings */
   function renderStatic() {
     var l = L();
@@ -183,11 +231,12 @@
     var tg = ['<span class="tag">' + (l === 'ua' ? 'Низький ГІ' : 'Low GI') + '</span>', '<span class="tag">' + esc(CAT[R.cat][l]) + '</span>'];
     (R.tags || []).forEach(function (t) { if (DIET[t]) tg.push('<span class="tag">' + esc(DIET[t][l]) + '</span>'); });
     document.getElementById('rTags').innerHTML = tg.join('');
-    document.getElementById('rPhoto').innerHTML = '<img src="images/' + R.img + '" alt="' + esc(R.title[l]) + '">';
+    renderPhoto(l);
     document.getElementById('rWhy').innerHTML = '<h3>' + (l === 'ua' ? 'Чому це Low GI' : "Why it's Low GI") + '</h3><p>' + esc(R.why[l]) + '</p>';
     var ol = document.getElementById('steps'); ol.innerHTML = '';
-    R.method[l].forEach(function (st) {
+    R.method[l].forEach(function (st, i) {
       var li = document.createElement('li');
+      li.id = 'step-' + (i + 1);   // matches the HowToStep url in the JSON-LD
       li.innerHTML = '<span class="num"></span><span class="step-text">' + esc(st) + '</span>';
       li.addEventListener('click', function () { li.classList.toggle('done'); updateProgress(); });
       ol.appendChild(li);

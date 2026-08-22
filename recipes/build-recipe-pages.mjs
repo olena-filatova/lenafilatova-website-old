@@ -26,6 +26,15 @@ const DIET_SCHEMA = { 'gluten-free':'GlutenFreeDiet', vegetarian:'VegetarianDiet
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const isHeader = s => /^—/.test(s);
 const clip = (s, n) => { s = String(s).replace(/\s+/g,' ').trim(); return s.length > n ? s.slice(0, n-1).trimEnd() + '…' : s; };
+// Short label for a HowToStep: text before a leading "…:" ("Make the marinade: …"),
+// else the first sentence (periods inside numbers like "1.5" don't count), clipped.
+function stepName(text) {
+  const s = String(text).replace(/\s+/g, ' ').trim();
+  const colon = s.indexOf(':');
+  if (colon > 0 && colon <= 60) return s.slice(0, colon).trim();
+  const m = s.match(/^(.+?[.!?])(?=\s|$)/);
+  return clip((m ? m[1] : s).replace(/[.!?]+$/, ''), 60);
+}
 
 // "20 min" -> PT20M ; "2 hours" -> PT2H ; best-effort, else null
 function parseDur(t) {
@@ -70,17 +79,20 @@ function parseNutrition(t) {
 const template = fs.readFileSync(path.join(HERE, 'recipe.html'), 'utf8');
 
 function buildJsonLd(R) {
+  const url = `${SITE}/recipes/${R.slug}/`;
   const ld = {
     '@context': 'https://schema.org/', '@type': 'Recipe',
     name: R.title.en,
-    image: [`${SITE}/recipes/images/${R.img}`],
+    image: (R.imgs && R.imgs.length ? R.imgs : [R.img]).map(f => `${SITE}/recipes/images/${f}`),
     author: { '@type': 'Person', name: 'Lena Filatova' },
     description: clip(R.why.en, 300),
     recipeCategory: CAT[R.cat] || R.cat,
     keywords: ['low GI', CAT[R.cat] || R.cat, ...(R.tags || []).map(t => DIET[t] || t)].join(', '),
     recipeYield: R.meta?.serves?.en,
     recipeIngredient: (R.ingredients.en || []).filter(s => !isHeader(s)),
-    recipeInstructions: (R.method.en || []).map(s => ({ '@type': 'HowToStep', text: s })),
+    recipeInstructions: (R.method.en || []).map((s, i) => ({
+      '@type': 'HowToStep', name: stepName(s), text: s, url: `${url}#step-${i + 1}`,
+    })),
   };
   const pt = parseDur(R.meta?.prep?.en), ct = parseDur(R.meta?.cook?.en);
   if (pt) ld.prepTime = pt;

@@ -8,7 +8,7 @@
 <meta property="og:description" content="No-bake walnut, date and cacao brownies — whole-food ingredients with fibre and healthy fats. Sweetened entirely by dates, so best in small squares.">
 <meta property="og:image" content="https://lenafilatova.co.uk/recipes/images/56-raw-brownies.jpg">
 <meta property="og:url" content="https://lenafilatova.co.uk/recipes/raw-brownies/">
-<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Recipe","name":"Raw Brownies","image":["https://lenafilatova.co.uk/recipes/images/56-raw-brownies.jpg"],"author":{"@type":"Person","name":"Lena Filatova"},"description":"No-bake walnut, date and cacao brownies — whole-food ingredients with fibre and healthy fats. Sweetened entirely by dates, so best in small squares.","recipeCategory":"Dessert","keywords":"low GI, Dessert, Vegetarian, Dairy-free, Gluten-free","recipeYield":"Makes ~12","recipeIngredient":["2 cups walnuts","2½ cups pitted dates","1 cup raw cacao or carob","1 cup chopped almonds","1 tbsp sea salt"],"recipeInstructions":[{"@type":"HowToStep","text":"Blend the walnuts to a fine crumb on high."},{"@type":"HowToStep","text":"Add the cacao and salt and blend again."},{"@type":"HowToStep","text":"Keep blending and add the dates one at a time until you have a smooth, dense mass."},{"@type":"HowToStep","text":"Transfer to a bowl and mix in the chopped almonds."},{"@type":"HowToStep","text":"Press into a flat container and put under a weight in the fridge or freezer."},{"@type":"HowToStep","text":"Cut the chilled brownies into squares and dust with cacao or carob."}],"prepTime":"PT10M","totalTime":"PT10M","nutrition":{"@type":"NutritionInformation","calories":"150 calories","carbohydrateContent":"15 g","fatContent":"9 g","proteinContent":"3 g"},"suitableForDiet":["https://schema.org/DiabeticDiet","https://schema.org/VegetarianDiet","https://schema.org/GlutenFreeDiet"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Recipe","name":"Raw Brownies","image":["https://lenafilatova.co.uk/recipes/images/56-raw-brownies.jpg"],"author":{"@type":"Person","name":"Lena Filatova"},"description":"No-bake walnut, date and cacao brownies — whole-food ingredients with fibre and healthy fats. Sweetened entirely by dates, so best in small squares.","recipeCategory":"Dessert","keywords":"low GI, Dessert, Vegetarian, Dairy-free, Gluten-free","recipeYield":"Makes ~12","recipeIngredient":["2 cups walnuts","2½ cups pitted dates","1 cup raw cacao or carob","1 cup chopped almonds","1 tbsp sea salt"],"recipeInstructions":[{"@type":"HowToStep","name":"Blend the walnuts to a fine crumb on high","text":"Blend the walnuts to a fine crumb on high.","url":"https://lenafilatova.co.uk/recipes/raw-brownies/#step-1"},{"@type":"HowToStep","name":"Add the cacao and salt and blend again","text":"Add the cacao and salt and blend again.","url":"https://lenafilatova.co.uk/recipes/raw-brownies/#step-2"},{"@type":"HowToStep","name":"Keep blending and add the dates one at a time until you hav…","text":"Keep blending and add the dates one at a time until you have a smooth, dense mass.","url":"https://lenafilatova.co.uk/recipes/raw-brownies/#step-3"},{"@type":"HowToStep","name":"Transfer to a bowl and mix in the chopped almonds","text":"Transfer to a bowl and mix in the chopped almonds.","url":"https://lenafilatova.co.uk/recipes/raw-brownies/#step-4"},{"@type":"HowToStep","name":"Press into a flat container and put under a weight in the f…","text":"Press into a flat container and put under a weight in the fridge or freezer.","url":"https://lenafilatova.co.uk/recipes/raw-brownies/#step-5"},{"@type":"HowToStep","name":"Cut the chilled brownies into squares and dust with cacao o…","text":"Cut the chilled brownies into squares and dust with cacao or carob.","url":"https://lenafilatova.co.uk/recipes/raw-brownies/#step-6"}],"prepTime":"PT10M","totalTime":"PT10M","nutrition":{"@type":"NutritionInformation","calories":"150 calories","carbohydrateContent":"15 g","fatContent":"9 g","proteinContent":"3 g"},"suitableForDiet":["https://schema.org/DiabeticDiet","https://schema.org/VegetarianDiet","https://schema.org/GlutenFreeDiet"]}</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Raw Brownies — Low-GI Recipe</title>
@@ -175,6 +175,54 @@
   var base = baseServes(), mult = 1;         // scale in whole batches so amounts stay clean
   function factor() { return mult; }
 
+  /* hero photo — single image, or a swipeable slider when R.imgs has several */
+  function renderPhoto(l) {
+    var photo = document.getElementById('rPhoto');
+    var imgs = (R.imgs && R.imgs.length) ? R.imgs : [R.img];
+    if (imgs.length < 2) {
+      photo.className = 'photo hero';
+      photo.innerHTML = '<img src="images/' + imgs[0] + '" alt="' + esc(R.title[l]) + '">';
+      return;
+    }
+    var arrow = function (d) {
+      return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="' +
+        (d === 'prev' ? 'M15 18l-6-6 6-6' : 'M9 6l6 6-6 6') + '"/></svg>';
+    };
+    var of = (l === 'ua' ? ' з ' : ' of ');
+    var slides = imgs.map(function (src, i) {
+      return '<img src="images/' + src + '" alt="' + esc(R.title[l]) + ' (' + (i + 1) + of + imgs.length + ')"' +
+        (i ? ' loading="lazy"' : '') + ' decoding="async">';
+    }).join('');
+    var dots = imgs.map(function (_, i) {
+      return '<button type="button" aria-label="' + (l === 'ua' ? 'Фото ' : 'Photo ') + (i + 1) + '"' + (i === 0 ? ' class="on"' : '') + '></button>';
+    }).join('');
+    photo.className = 'photo slider';
+    photo.innerHTML = '<div class="slider-track" id="slTrack">' + slides + '</div>' +
+      '<button type="button" class="slider-nav prev" id="slPrev" aria-label="' + (l === 'ua' ? 'Попереднє фото' : 'Previous photo') + '" disabled>' + arrow('prev') + '</button>' +
+      '<button type="button" class="slider-nav next" id="slNext" aria-label="' + (l === 'ua' ? 'Наступне фото' : 'Next photo') + '">' + arrow('next') + '</button>' +
+      '<div class="slider-dots" id="slDots">' + dots + '</div>';
+    initSlider(imgs.length);
+  }
+
+  function initSlider(n) {
+    var track = document.getElementById('slTrack');
+    var prev = document.getElementById('slPrev'), next = document.getElementById('slNext');
+    var dots = [].slice.call(document.querySelectorAll('#slDots button'));
+    var cur = 0, t;
+    function sync() {
+      prev.disabled = cur <= 0; next.disabled = cur >= n - 1;
+      dots.forEach(function (d, i) { d.classList.toggle('on', i === cur); });
+    }
+    function go(i) { cur = Math.max(0, Math.min(n - 1, i)); track.scrollTo({ left: track.clientWidth * cur, behavior: 'smooth' }); sync(); }
+    prev.addEventListener('click', function () { go(cur - 1); });
+    next.addEventListener('click', function () { go(cur + 1); });
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+    track.addEventListener('scroll', function () {   // keep dots/arrows in sync with swipes
+      clearTimeout(t);
+      t = setTimeout(function () { cur = Math.round(track.scrollLeft / track.clientWidth); sync(); }, 90);
+    });
+  }
+
   /* things that don't change with servings */
   function renderStatic() {
     var l = L();
@@ -183,11 +231,12 @@
     var tg = ['<span class="tag">' + (l === 'ua' ? 'Низький ГІ' : 'Low GI') + '</span>', '<span class="tag">' + esc(CAT[R.cat][l]) + '</span>'];
     (R.tags || []).forEach(function (t) { if (DIET[t]) tg.push('<span class="tag">' + esc(DIET[t][l]) + '</span>'); });
     document.getElementById('rTags').innerHTML = tg.join('');
-    document.getElementById('rPhoto').innerHTML = '<img src="images/' + R.img + '" alt="' + esc(R.title[l]) + '">';
+    renderPhoto(l);
     document.getElementById('rWhy').innerHTML = '<h3>' + (l === 'ua' ? 'Чому це Low GI' : "Why it's Low GI") + '</h3><p>' + esc(R.why[l]) + '</p>';
     var ol = document.getElementById('steps'); ol.innerHTML = '';
-    R.method[l].forEach(function (st) {
+    R.method[l].forEach(function (st, i) {
       var li = document.createElement('li');
+      li.id = 'step-' + (i + 1);   // matches the HowToStep url in the JSON-LD
       li.innerHTML = '<span class="num"></span><span class="step-text">' + esc(st) + '</span>';
       li.addEventListener('click', function () { li.classList.toggle('done'); updateProgress(); });
       ol.appendChild(li);

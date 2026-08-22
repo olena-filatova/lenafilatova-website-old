@@ -8,7 +8,7 @@
 <meta property="og:description" content="A coconut-and-flax crust with a homemade blueberry curd, sweetened only with erythritol — low in carbs and gentle on blood sugar.">
 <meta property="og:image" content="https://lenafilatova.co.uk/recipes/images/29-blueberry-curd-tart.jpg">
 <meta property="og:url" content="https://lenafilatova.co.uk/recipes/blueberry-curd-tart/">
-<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Recipe","name":"Low-carb Blueberry Curd Tart","image":["https://lenafilatova.co.uk/recipes/images/29-blueberry-curd-tart.jpg"],"author":{"@type":"Person","name":"Lena Filatova"},"description":"A coconut-and-flax crust with a homemade blueberry curd, sweetened only with erythritol — low in carbs and gentle on blood sugar.","recipeCategory":"Dessert","keywords":"low GI, Dessert, Sugar-free, Gluten-free, Low carb, Vegetarian","recipeYield":"Serves 3","recipeIngredient":["¼ cup coconut flour","¼ cup erythritol","¼ cup flaxseed flour","3 egg whites","30 g coconut oil","3 egg yolks","40 g erythritol","1 pinch vanilla","1 handful blueberries"],"recipeInstructions":[{"@type":"HowToStep","text":"Mix the crust ingredients. Heat the oven to 180°C and grease a 20 cm tin."},{"@type":"HowToStep","text":"Press the dough over the base with a border, prick with a fork and bake about 15 minutes until set."},{"@type":"HowToStep","text":"Blend the blueberries to a purée."},{"@type":"HowToStep","text":"Mix with the egg yolks, erythritol and vanilla, and heat gently, stirring constantly, until thickened. Cool in the freezer."},{"@type":"HowToStep","text":"Cool the baked tart and carefully remove it. Fill with the curd, top with berries and chill until set."}],"prepTime":"PT5M","cookTime":"PT48M","totalTime":"PT53M","nutrition":{"@type":"NutritionInformation","calories":"190 calories","carbohydrateContent":"3 g","fatContent":"17 g","proteinContent":"6 g"},"suitableForDiet":["https://schema.org/DiabeticDiet","https://schema.org/GlutenFreeDiet","https://schema.org/VegetarianDiet"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Recipe","name":"Low-carb Blueberry Curd Tart","image":["https://lenafilatova.co.uk/recipes/images/29-blueberry-curd-tart.jpg"],"author":{"@type":"Person","name":"Lena Filatova"},"description":"A coconut-and-flax crust with a homemade blueberry curd, sweetened only with erythritol — low in carbs and gentle on blood sugar.","recipeCategory":"Dessert","keywords":"low GI, Dessert, Sugar-free, Gluten-free, Low carb, Vegetarian","recipeYield":"Serves 3","recipeIngredient":["¼ cup coconut flour","¼ cup erythritol","¼ cup flaxseed flour","3 egg whites","30 g coconut oil","3 egg yolks","40 g erythritol","1 pinch vanilla","1 handful blueberries"],"recipeInstructions":[{"@type":"HowToStep","name":"Mix the crust ingredients","text":"Mix the crust ingredients. Heat the oven to 180°C and grease a 20 cm tin.","url":"https://lenafilatova.co.uk/recipes/blueberry-curd-tart/#step-1"},{"@type":"HowToStep","name":"Press the dough over the base with a border, prick with a f…","text":"Press the dough over the base with a border, prick with a fork and bake about 15 minutes until set.","url":"https://lenafilatova.co.uk/recipes/blueberry-curd-tart/#step-2"},{"@type":"HowToStep","name":"Blend the blueberries to a purée","text":"Blend the blueberries to a purée.","url":"https://lenafilatova.co.uk/recipes/blueberry-curd-tart/#step-3"},{"@type":"HowToStep","name":"Mix with the egg yolks, erythritol and vanilla, and heat ge…","text":"Mix with the egg yolks, erythritol and vanilla, and heat gently, stirring constantly, until thickened. Cool in the freezer.","url":"https://lenafilatova.co.uk/recipes/blueberry-curd-tart/#step-4"},{"@type":"HowToStep","name":"Cool the baked tart and carefully remove it","text":"Cool the baked tart and carefully remove it. Fill with the curd, top with berries and chill until set.","url":"https://lenafilatova.co.uk/recipes/blueberry-curd-tart/#step-5"}],"prepTime":"PT5M","cookTime":"PT48M","totalTime":"PT53M","nutrition":{"@type":"NutritionInformation","calories":"190 calories","carbohydrateContent":"3 g","fatContent":"17 g","proteinContent":"6 g"},"suitableForDiet":["https://schema.org/DiabeticDiet","https://schema.org/GlutenFreeDiet","https://schema.org/VegetarianDiet"]}</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Low-carb Blueberry Curd Tart — Low-GI Recipe</title>
@@ -175,6 +175,54 @@
   var base = baseServes(), mult = 1;         // scale in whole batches so amounts stay clean
   function factor() { return mult; }
 
+  /* hero photo — single image, or a swipeable slider when R.imgs has several */
+  function renderPhoto(l) {
+    var photo = document.getElementById('rPhoto');
+    var imgs = (R.imgs && R.imgs.length) ? R.imgs : [R.img];
+    if (imgs.length < 2) {
+      photo.className = 'photo hero';
+      photo.innerHTML = '<img src="images/' + imgs[0] + '" alt="' + esc(R.title[l]) + '">';
+      return;
+    }
+    var arrow = function (d) {
+      return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="' +
+        (d === 'prev' ? 'M15 18l-6-6 6-6' : 'M9 6l6 6-6 6') + '"/></svg>';
+    };
+    var of = (l === 'ua' ? ' з ' : ' of ');
+    var slides = imgs.map(function (src, i) {
+      return '<img src="images/' + src + '" alt="' + esc(R.title[l]) + ' (' + (i + 1) + of + imgs.length + ')"' +
+        (i ? ' loading="lazy"' : '') + ' decoding="async">';
+    }).join('');
+    var dots = imgs.map(function (_, i) {
+      return '<button type="button" aria-label="' + (l === 'ua' ? 'Фото ' : 'Photo ') + (i + 1) + '"' + (i === 0 ? ' class="on"' : '') + '></button>';
+    }).join('');
+    photo.className = 'photo slider';
+    photo.innerHTML = '<div class="slider-track" id="slTrack">' + slides + '</div>' +
+      '<button type="button" class="slider-nav prev" id="slPrev" aria-label="' + (l === 'ua' ? 'Попереднє фото' : 'Previous photo') + '" disabled>' + arrow('prev') + '</button>' +
+      '<button type="button" class="slider-nav next" id="slNext" aria-label="' + (l === 'ua' ? 'Наступне фото' : 'Next photo') + '">' + arrow('next') + '</button>' +
+      '<div class="slider-dots" id="slDots">' + dots + '</div>';
+    initSlider(imgs.length);
+  }
+
+  function initSlider(n) {
+    var track = document.getElementById('slTrack');
+    var prev = document.getElementById('slPrev'), next = document.getElementById('slNext');
+    var dots = [].slice.call(document.querySelectorAll('#slDots button'));
+    var cur = 0, t;
+    function sync() {
+      prev.disabled = cur <= 0; next.disabled = cur >= n - 1;
+      dots.forEach(function (d, i) { d.classList.toggle('on', i === cur); });
+    }
+    function go(i) { cur = Math.max(0, Math.min(n - 1, i)); track.scrollTo({ left: track.clientWidth * cur, behavior: 'smooth' }); sync(); }
+    prev.addEventListener('click', function () { go(cur - 1); });
+    next.addEventListener('click', function () { go(cur + 1); });
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+    track.addEventListener('scroll', function () {   // keep dots/arrows in sync with swipes
+      clearTimeout(t);
+      t = setTimeout(function () { cur = Math.round(track.scrollLeft / track.clientWidth); sync(); }, 90);
+    });
+  }
+
   /* things that don't change with servings */
   function renderStatic() {
     var l = L();
@@ -183,11 +231,12 @@
     var tg = ['<span class="tag">' + (l === 'ua' ? 'Низький ГІ' : 'Low GI') + '</span>', '<span class="tag">' + esc(CAT[R.cat][l]) + '</span>'];
     (R.tags || []).forEach(function (t) { if (DIET[t]) tg.push('<span class="tag">' + esc(DIET[t][l]) + '</span>'); });
     document.getElementById('rTags').innerHTML = tg.join('');
-    document.getElementById('rPhoto').innerHTML = '<img src="images/' + R.img + '" alt="' + esc(R.title[l]) + '">';
+    renderPhoto(l);
     document.getElementById('rWhy').innerHTML = '<h3>' + (l === 'ua' ? 'Чому це Low GI' : "Why it's Low GI") + '</h3><p>' + esc(R.why[l]) + '</p>';
     var ol = document.getElementById('steps'); ol.innerHTML = '';
-    R.method[l].forEach(function (st) {
+    R.method[l].forEach(function (st, i) {
       var li = document.createElement('li');
+      li.id = 'step-' + (i + 1);   // matches the HowToStep url in the JSON-LD
       li.innerHTML = '<span class="num"></span><span class="step-text">' + esc(st) + '</span>';
       li.addEventListener('click', function () { li.classList.toggle('done'); updateProgress(); });
       ol.appendChild(li);

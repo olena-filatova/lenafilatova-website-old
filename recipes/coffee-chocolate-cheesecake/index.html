@@ -8,7 +8,7 @@
 <meta property="og:description" content="A chilled quark cheesecake set with gelatine on a banana-granola base — high in protein, no refined sugar, with carob and coffee for a mocha note.">
 <meta property="og:image" content="https://lenafilatova.co.uk/recipes/images/42-coffee-chocolate-cheesecake.jpg">
 <meta property="og:url" content="https://lenafilatova.co.uk/recipes/coffee-chocolate-cheesecake/">
-<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Recipe","name":"No-bake Coffee-Chocolate Cheesecake","image":["https://lenafilatova.co.uk/recipes/images/42-coffee-chocolate-cheesecake.jpg"],"author":{"@type":"Person","name":"Lena Filatova"},"description":"A chilled quark cheesecake set with gelatine on a banana-granola base — high in protein, no refined sugar, with carob and coffee for a mocha note.","recipeCategory":"Dessert","keywords":"low GI, Dessert, Sugar-free, Vegetarian","recipeYield":"Serves 5","recipeIngredient":["½ cup granola or muesli (oven-baked, no oil/honey)","½ banana (or more)","300 g quark (curd cheese)","10 g gelatine","1 tbsp powdered stevia (or to taste)","30–60 ml espresso","2 tsp coconut oil","2 tsp carob","½ tsp stevia","1 handful fresh cherries"],"recipeInstructions":[{"@type":"HowToStep","text":"Soak the gelatine in a little water."},{"@type":"HowToStep","text":"Mash the banana, mix with the granola, press into the base of a tin and chill."},{"@type":"HowToStep","text":"Warm the gelatine (microwave) and stir until fully dissolved."},{"@type":"HowToStep","text":"Blend the quark, sweetener, coffee, vanilla and gelatine until smooth."},{"@type":"HowToStep","text":"Set aside part of the mixture and blend with carob until smooth."},{"@type":"HowToStep","text":"Swirl the two together for a marble effect."},{"@type":"HowToStep","text":"Spread over the base and chill."},{"@type":"HowToStep","text":"For the glaze, mix the coconut oil, carob and stevia and pour over the set cheesecake (after 1–2 hours chilling)."},{"@type":"HowToStep","text":"Use a springform tin; run a knife round the inside and let it set firm in the fridge."}],"prepTime":"PT3M","cookTime":"PT33M","totalTime":"PT36M","nutrition":{"@type":"NutritionInformation","calories":"130 calories","carbohydrateContent":"13 g","fatContent":"3 g","proteinContent":"12 g"},"suitableForDiet":["https://schema.org/DiabeticDiet","https://schema.org/VegetarianDiet"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Recipe","name":"No-bake Coffee-Chocolate Cheesecake","image":["https://lenafilatova.co.uk/recipes/images/42-coffee-chocolate-cheesecake.jpg"],"author":{"@type":"Person","name":"Lena Filatova"},"description":"A chilled quark cheesecake set with gelatine on a banana-granola base — high in protein, no refined sugar, with carob and coffee for a mocha note.","recipeCategory":"Dessert","keywords":"low GI, Dessert, Sugar-free, Vegetarian","recipeYield":"Serves 5","recipeIngredient":["½ cup granola or muesli (oven-baked, no oil/honey)","½ banana (or more)","300 g quark (curd cheese)","10 g gelatine","1 tbsp powdered stevia (or to taste)","30–60 ml espresso","2 tsp coconut oil","2 tsp carob","½ tsp stevia","1 handful fresh cherries"],"recipeInstructions":[{"@type":"HowToStep","name":"Soak the gelatine in a little water","text":"Soak the gelatine in a little water.","url":"https://lenafilatova.co.uk/recipes/coffee-chocolate-cheesecake/#step-1"},{"@type":"HowToStep","name":"Mash the banana, mix with the granola, press into the base…","text":"Mash the banana, mix with the granola, press into the base of a tin and chill.","url":"https://lenafilatova.co.uk/recipes/coffee-chocolate-cheesecake/#step-2"},{"@type":"HowToStep","name":"Warm the gelatine (microwave) and stir until fully dissolved","text":"Warm the gelatine (microwave) and stir until fully dissolved.","url":"https://lenafilatova.co.uk/recipes/coffee-chocolate-cheesecake/#step-3"},{"@type":"HowToStep","name":"Blend the quark, sweetener, coffee, vanilla and gelatine un…","text":"Blend the quark, sweetener, coffee, vanilla and gelatine until smooth.","url":"https://lenafilatova.co.uk/recipes/coffee-chocolate-cheesecake/#step-4"},{"@type":"HowToStep","name":"Set aside part of the mixture and blend with carob until sm…","text":"Set aside part of the mixture and blend with carob until smooth.","url":"https://lenafilatova.co.uk/recipes/coffee-chocolate-cheesecake/#step-5"},{"@type":"HowToStep","name":"Swirl the two together for a marble effect","text":"Swirl the two together for a marble effect.","url":"https://lenafilatova.co.uk/recipes/coffee-chocolate-cheesecake/#step-6"},{"@type":"HowToStep","name":"Spread over the base and chill","text":"Spread over the base and chill.","url":"https://lenafilatova.co.uk/recipes/coffee-chocolate-cheesecake/#step-7"},{"@type":"HowToStep","name":"For the glaze, mix the coconut oil, carob and stevia and po…","text":"For the glaze, mix the coconut oil, carob and stevia and pour over the set cheesecake (after 1–2 hours chilling).","url":"https://lenafilatova.co.uk/recipes/coffee-chocolate-cheesecake/#step-8"},{"@type":"HowToStep","name":"Use a springform tin; run a knife round the inside and let…","text":"Use a springform tin; run a knife round the inside and let it set firm in the fridge.","url":"https://lenafilatova.co.uk/recipes/coffee-chocolate-cheesecake/#step-9"}],"prepTime":"PT3M","cookTime":"PT33M","totalTime":"PT36M","nutrition":{"@type":"NutritionInformation","calories":"130 calories","carbohydrateContent":"13 g","fatContent":"3 g","proteinContent":"12 g"},"suitableForDiet":["https://schema.org/DiabeticDiet","https://schema.org/VegetarianDiet"]}</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>No-bake Coffee-Chocolate Cheesecake — Low-GI Recipe</title>
@@ -175,6 +175,54 @@
   var base = baseServes(), mult = 1;         // scale in whole batches so amounts stay clean
   function factor() { return mult; }
 
+  /* hero photo — single image, or a swipeable slider when R.imgs has several */
+  function renderPhoto(l) {
+    var photo = document.getElementById('rPhoto');
+    var imgs = (R.imgs && R.imgs.length) ? R.imgs : [R.img];
+    if (imgs.length < 2) {
+      photo.className = 'photo hero';
+      photo.innerHTML = '<img src="images/' + imgs[0] + '" alt="' + esc(R.title[l]) + '">';
+      return;
+    }
+    var arrow = function (d) {
+      return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="' +
+        (d === 'prev' ? 'M15 18l-6-6 6-6' : 'M9 6l6 6-6 6') + '"/></svg>';
+    };
+    var of = (l === 'ua' ? ' з ' : ' of ');
+    var slides = imgs.map(function (src, i) {
+      return '<img src="images/' + src + '" alt="' + esc(R.title[l]) + ' (' + (i + 1) + of + imgs.length + ')"' +
+        (i ? ' loading="lazy"' : '') + ' decoding="async">';
+    }).join('');
+    var dots = imgs.map(function (_, i) {
+      return '<button type="button" aria-label="' + (l === 'ua' ? 'Фото ' : 'Photo ') + (i + 1) + '"' + (i === 0 ? ' class="on"' : '') + '></button>';
+    }).join('');
+    photo.className = 'photo slider';
+    photo.innerHTML = '<div class="slider-track" id="slTrack">' + slides + '</div>' +
+      '<button type="button" class="slider-nav prev" id="slPrev" aria-label="' + (l === 'ua' ? 'Попереднє фото' : 'Previous photo') + '" disabled>' + arrow('prev') + '</button>' +
+      '<button type="button" class="slider-nav next" id="slNext" aria-label="' + (l === 'ua' ? 'Наступне фото' : 'Next photo') + '">' + arrow('next') + '</button>' +
+      '<div class="slider-dots" id="slDots">' + dots + '</div>';
+    initSlider(imgs.length);
+  }
+
+  function initSlider(n) {
+    var track = document.getElementById('slTrack');
+    var prev = document.getElementById('slPrev'), next = document.getElementById('slNext');
+    var dots = [].slice.call(document.querySelectorAll('#slDots button'));
+    var cur = 0, t;
+    function sync() {
+      prev.disabled = cur <= 0; next.disabled = cur >= n - 1;
+      dots.forEach(function (d, i) { d.classList.toggle('on', i === cur); });
+    }
+    function go(i) { cur = Math.max(0, Math.min(n - 1, i)); track.scrollTo({ left: track.clientWidth * cur, behavior: 'smooth' }); sync(); }
+    prev.addEventListener('click', function () { go(cur - 1); });
+    next.addEventListener('click', function () { go(cur + 1); });
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+    track.addEventListener('scroll', function () {   // keep dots/arrows in sync with swipes
+      clearTimeout(t);
+      t = setTimeout(function () { cur = Math.round(track.scrollLeft / track.clientWidth); sync(); }, 90);
+    });
+  }
+
   /* things that don't change with servings */
   function renderStatic() {
     var l = L();
@@ -183,11 +231,12 @@
     var tg = ['<span class="tag">' + (l === 'ua' ? 'Низький ГІ' : 'Low GI') + '</span>', '<span class="tag">' + esc(CAT[R.cat][l]) + '</span>'];
     (R.tags || []).forEach(function (t) { if (DIET[t]) tg.push('<span class="tag">' + esc(DIET[t][l]) + '</span>'); });
     document.getElementById('rTags').innerHTML = tg.join('');
-    document.getElementById('rPhoto').innerHTML = '<img src="images/' + R.img + '" alt="' + esc(R.title[l]) + '">';
+    renderPhoto(l);
     document.getElementById('rWhy').innerHTML = '<h3>' + (l === 'ua' ? 'Чому це Low GI' : "Why it's Low GI") + '</h3><p>' + esc(R.why[l]) + '</p>';
     var ol = document.getElementById('steps'); ol.innerHTML = '';
-    R.method[l].forEach(function (st) {
+    R.method[l].forEach(function (st, i) {
       var li = document.createElement('li');
+      li.id = 'step-' + (i + 1);   // matches the HowToStep url in the JSON-LD
       li.innerHTML = '<span class="num"></span><span class="step-text">' + esc(st) + '</span>';
       li.addEventListener('click', function () { li.classList.toggle('done'); updateProgress(); });
       ol.appendChild(li);

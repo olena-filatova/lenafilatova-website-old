@@ -8,7 +8,7 @@
 <meta property="og:description" content="Little sandwich cookies with a coffee-coconut cream, sweetened mostly with stevia and no dairy. Oat and wholegrain flour give a lower GI than the sponge f…">
 <meta property="og:image" content="https://lenafilatova.co.uk/recipes/images/109-tiramisu-cookies.jpg">
 <meta property="og:url" content="https://lenafilatova.co.uk/recipes/tiramisu-cookies/">
-<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Recipe","name":"Tiramisu Cookies","image":["https://lenafilatova.co.uk/recipes/images/109-tiramisu-cookies.jpg"],"author":{"@type":"Person","name":"Lena Filatova"},"description":"Little sandwich cookies with a coffee-coconut cream, sweetened mostly with stevia and no dairy. Oat and wholegrain flour give a lower GI than the sponge fingers of a classic tiramisu.","recipeCategory":"Baking","keywords":"low GI, Baking, Vegetarian, Dairy-free","recipeYield":"Makes ~8","recipeIngredient":["½ cup oat flour","30 g ground raw cashew","2 tbsp wholegrain flour","¾ tsp baking powder","1½ tbsp canola oil","1½ tbsp warm water","1 tsp flax seeds","1 g salt","½ tsp vinegar","1 tbsp rum","½ tsp vanilla extract","4 tsp stevia","1 tbsp maple syrup","1½ tbsp coconut cream","2 tsp coconut oil","2½ tsp cornstarch","1 tsp instant coffee","2 tsp rum or amaretto"],"recipeInstructions":[{"@type":"HowToStep","text":"Mix all the liquid cookie ingredients with the flax seeds and rest for 2 minutes."},{"@type":"HowToStep","text":"Mix the dry ingredients separately, then combine into a soft dough and chill for 5 minutes."},{"@type":"HowToStep","text":"Roll into balls, flatten on parchment and bake at 175°C for 12–14 minutes until golden. Cool completely."},{"@type":"HowToStep","text":"For the cream, mix all the cream ingredients and heat gently in a bain-marie until smooth."},{"@type":"HowToStep","text":"Pipe cream between two cookies and dust with cocoa."},{"@type":"HowToStep","text":"Store in an airtight container at room temperature for 2–3 days."}],"prepTime":"PT15M","cookTime":"PT14M","totalTime":"PT29M","nutrition":{"@type":"NutritionInformation","calories":"120 calories","carbohydrateContent":"12 g","fatContent":"7 g","proteinContent":"3 g"},"suitableForDiet":["https://schema.org/DiabeticDiet","https://schema.org/VegetarianDiet"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Recipe","name":"Tiramisu Cookies","image":["https://lenafilatova.co.uk/recipes/images/109-tiramisu-cookies.jpg"],"author":{"@type":"Person","name":"Lena Filatova"},"description":"Little sandwich cookies with a coffee-coconut cream, sweetened mostly with stevia and no dairy. Oat and wholegrain flour give a lower GI than the sponge fingers of a classic tiramisu.","recipeCategory":"Baking","keywords":"low GI, Baking, Vegetarian, Dairy-free","recipeYield":"Makes ~8","recipeIngredient":["½ cup oat flour","30 g ground raw cashew","2 tbsp wholegrain flour","¾ tsp baking powder","1½ tbsp canola oil","1½ tbsp warm water","1 tsp flax seeds","1 g salt","½ tsp vinegar","1 tbsp rum","½ tsp vanilla extract","4 tsp stevia","1 tbsp maple syrup","1½ tbsp coconut cream","2 tsp coconut oil","2½ tsp cornstarch","1 tsp instant coffee","2 tsp rum or amaretto"],"recipeInstructions":[{"@type":"HowToStep","name":"Mix all the liquid cookie ingredients with the flax seeds a…","text":"Mix all the liquid cookie ingredients with the flax seeds and rest for 2 minutes.","url":"https://lenafilatova.co.uk/recipes/tiramisu-cookies/#step-1"},{"@type":"HowToStep","name":"Mix the dry ingredients separately, then combine into a sof…","text":"Mix the dry ingredients separately, then combine into a soft dough and chill for 5 minutes.","url":"https://lenafilatova.co.uk/recipes/tiramisu-cookies/#step-2"},{"@type":"HowToStep","name":"Roll into balls, flatten on parchment and bake at 175°C for…","text":"Roll into balls, flatten on parchment and bake at 175°C for 12–14 minutes until golden. Cool completely.","url":"https://lenafilatova.co.uk/recipes/tiramisu-cookies/#step-3"},{"@type":"HowToStep","name":"For the cream, mix all the cream ingredients and heat gentl…","text":"For the cream, mix all the cream ingredients and heat gently in a bain-marie until smooth.","url":"https://lenafilatova.co.uk/recipes/tiramisu-cookies/#step-4"},{"@type":"HowToStep","name":"Pipe cream between two cookies and dust with cocoa","text":"Pipe cream between two cookies and dust with cocoa.","url":"https://lenafilatova.co.uk/recipes/tiramisu-cookies/#step-5"},{"@type":"HowToStep","name":"Store in an airtight container at room temperature for 2–3…","text":"Store in an airtight container at room temperature for 2–3 days.","url":"https://lenafilatova.co.uk/recipes/tiramisu-cookies/#step-6"}],"prepTime":"PT15M","cookTime":"PT14M","totalTime":"PT29M","nutrition":{"@type":"NutritionInformation","calories":"120 calories","carbohydrateContent":"12 g","fatContent":"7 g","proteinContent":"3 g"},"suitableForDiet":["https://schema.org/DiabeticDiet","https://schema.org/VegetarianDiet"]}</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Tiramisu Cookies — Low-GI Recipe</title>
@@ -175,6 +175,54 @@
   var base = baseServes(), mult = 1;         // scale in whole batches so amounts stay clean
   function factor() { return mult; }
 
+  /* hero photo — single image, or a swipeable slider when R.imgs has several */
+  function renderPhoto(l) {
+    var photo = document.getElementById('rPhoto');
+    var imgs = (R.imgs && R.imgs.length) ? R.imgs : [R.img];
+    if (imgs.length < 2) {
+      photo.className = 'photo hero';
+      photo.innerHTML = '<img src="images/' + imgs[0] + '" alt="' + esc(R.title[l]) + '">';
+      return;
+    }
+    var arrow = function (d) {
+      return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="' +
+        (d === 'prev' ? 'M15 18l-6-6 6-6' : 'M9 6l6 6-6 6') + '"/></svg>';
+    };
+    var of = (l === 'ua' ? ' з ' : ' of ');
+    var slides = imgs.map(function (src, i) {
+      return '<img src="images/' + src + '" alt="' + esc(R.title[l]) + ' (' + (i + 1) + of + imgs.length + ')"' +
+        (i ? ' loading="lazy"' : '') + ' decoding="async">';
+    }).join('');
+    var dots = imgs.map(function (_, i) {
+      return '<button type="button" aria-label="' + (l === 'ua' ? 'Фото ' : 'Photo ') + (i + 1) + '"' + (i === 0 ? ' class="on"' : '') + '></button>';
+    }).join('');
+    photo.className = 'photo slider';
+    photo.innerHTML = '<div class="slider-track" id="slTrack">' + slides + '</div>' +
+      '<button type="button" class="slider-nav prev" id="slPrev" aria-label="' + (l === 'ua' ? 'Попереднє фото' : 'Previous photo') + '" disabled>' + arrow('prev') + '</button>' +
+      '<button type="button" class="slider-nav next" id="slNext" aria-label="' + (l === 'ua' ? 'Наступне фото' : 'Next photo') + '">' + arrow('next') + '</button>' +
+      '<div class="slider-dots" id="slDots">' + dots + '</div>';
+    initSlider(imgs.length);
+  }
+
+  function initSlider(n) {
+    var track = document.getElementById('slTrack');
+    var prev = document.getElementById('slPrev'), next = document.getElementById('slNext');
+    var dots = [].slice.call(document.querySelectorAll('#slDots button'));
+    var cur = 0, t;
+    function sync() {
+      prev.disabled = cur <= 0; next.disabled = cur >= n - 1;
+      dots.forEach(function (d, i) { d.classList.toggle('on', i === cur); });
+    }
+    function go(i) { cur = Math.max(0, Math.min(n - 1, i)); track.scrollTo({ left: track.clientWidth * cur, behavior: 'smooth' }); sync(); }
+    prev.addEventListener('click', function () { go(cur - 1); });
+    next.addEventListener('click', function () { go(cur + 1); });
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+    track.addEventListener('scroll', function () {   // keep dots/arrows in sync with swipes
+      clearTimeout(t);
+      t = setTimeout(function () { cur = Math.round(track.scrollLeft / track.clientWidth); sync(); }, 90);
+    });
+  }
+
   /* things that don't change with servings */
   function renderStatic() {
     var l = L();
@@ -183,11 +231,12 @@
     var tg = ['<span class="tag">' + (l === 'ua' ? 'Низький ГІ' : 'Low GI') + '</span>', '<span class="tag">' + esc(CAT[R.cat][l]) + '</span>'];
     (R.tags || []).forEach(function (t) { if (DIET[t]) tg.push('<span class="tag">' + esc(DIET[t][l]) + '</span>'); });
     document.getElementById('rTags').innerHTML = tg.join('');
-    document.getElementById('rPhoto').innerHTML = '<img src="images/' + R.img + '" alt="' + esc(R.title[l]) + '">';
+    renderPhoto(l);
     document.getElementById('rWhy').innerHTML = '<h3>' + (l === 'ua' ? 'Чому це Low GI' : "Why it's Low GI") + '</h3><p>' + esc(R.why[l]) + '</p>';
     var ol = document.getElementById('steps'); ol.innerHTML = '';
-    R.method[l].forEach(function (st) {
+    R.method[l].forEach(function (st, i) {
       var li = document.createElement('li');
+      li.id = 'step-' + (i + 1);   // matches the HowToStep url in the JSON-LD
       li.innerHTML = '<span class="num"></span><span class="step-text">' + esc(st) + '</span>';
       li.addEventListener('click', function () { li.classList.toggle('done'); updateProgress(); });
       ol.appendChild(li);

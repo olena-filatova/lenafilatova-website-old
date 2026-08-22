@@ -8,7 +8,7 @@
 <meta property="og:description" content="Blended cashews, dates and dried strawberry rolled into soft no-bake bites — a whole-food sweet. Naturally high in fruit sugar, so best in small amounts.">
 <meta property="og:image" content="https://lenafilatova.co.uk/recipes/images/53-strawberry-bites.jpg">
 <meta property="og:url" content="https://lenafilatova.co.uk/recipes/strawberry-bites/">
-<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Recipe","name":"Soft Strawberry Bites","image":["https://lenafilatova.co.uk/recipes/images/53-strawberry-bites.jpg"],"author":{"@type":"Person","name":"Lena Filatova"},"description":"Blended cashews, dates and dried strawberry rolled into soft no-bake bites — a whole-food sweet. Naturally high in fruit sugar, so best in small amounts.","recipeCategory":"Snack","keywords":"low GI, Snack, Vegetarian, Dairy-free, Gluten-free","recipeYield":"Makes ~8","recipeIngredient":["1 cup raw cashews","6 pitted dates","½ cup dried strawberries","½ vanilla pod (seeds scraped)","1 pinch sea salt"],"recipeInstructions":[{"@type":"HowToStep","text":"Blend the cashews to a fine crumb (leave some larger pieces if you like)."},{"@type":"HowToStep","text":"Add the dates, salt and vanilla and blend to a sticky dough."},{"@type":"HowToStep","text":"Add the strawberries and blend well."},{"@type":"HowToStep","text":"Roll into balls."}],"prepTime":"PT3M","totalTime":"PT3M","nutrition":{"@type":"NutritionInformation","calories":"200 calories","carbohydrateContent":"24 g","fatContent":"11 g","proteinContent":"5 g"},"suitableForDiet":["https://schema.org/DiabeticDiet","https://schema.org/VegetarianDiet","https://schema.org/GlutenFreeDiet"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Recipe","name":"Soft Strawberry Bites","image":["https://lenafilatova.co.uk/recipes/images/53-strawberry-bites.jpg"],"author":{"@type":"Person","name":"Lena Filatova"},"description":"Blended cashews, dates and dried strawberry rolled into soft no-bake bites — a whole-food sweet. Naturally high in fruit sugar, so best in small amounts.","recipeCategory":"Snack","keywords":"low GI, Snack, Vegetarian, Dairy-free, Gluten-free","recipeYield":"Makes ~8","recipeIngredient":["1 cup raw cashews","6 pitted dates","½ cup dried strawberries","½ vanilla pod (seeds scraped)","1 pinch sea salt"],"recipeInstructions":[{"@type":"HowToStep","name":"Blend the cashews to a fine crumb (leave some larger pieces…","text":"Blend the cashews to a fine crumb (leave some larger pieces if you like).","url":"https://lenafilatova.co.uk/recipes/strawberry-bites/#step-1"},{"@type":"HowToStep","name":"Add the dates, salt and vanilla and blend to a sticky dough","text":"Add the dates, salt and vanilla and blend to a sticky dough.","url":"https://lenafilatova.co.uk/recipes/strawberry-bites/#step-2"},{"@type":"HowToStep","name":"Add the strawberries and blend well","text":"Add the strawberries and blend well.","url":"https://lenafilatova.co.uk/recipes/strawberry-bites/#step-3"},{"@type":"HowToStep","name":"Roll into balls","text":"Roll into balls.","url":"https://lenafilatova.co.uk/recipes/strawberry-bites/#step-4"}],"prepTime":"PT3M","totalTime":"PT3M","nutrition":{"@type":"NutritionInformation","calories":"200 calories","carbohydrateContent":"24 g","fatContent":"11 g","proteinContent":"5 g"},"suitableForDiet":["https://schema.org/DiabeticDiet","https://schema.org/VegetarianDiet","https://schema.org/GlutenFreeDiet"]}</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Soft Strawberry Bites — Low-GI Recipe</title>
@@ -175,6 +175,54 @@
   var base = baseServes(), mult = 1;         // scale in whole batches so amounts stay clean
   function factor() { return mult; }
 
+  /* hero photo — single image, or a swipeable slider when R.imgs has several */
+  function renderPhoto(l) {
+    var photo = document.getElementById('rPhoto');
+    var imgs = (R.imgs && R.imgs.length) ? R.imgs : [R.img];
+    if (imgs.length < 2) {
+      photo.className = 'photo hero';
+      photo.innerHTML = '<img src="images/' + imgs[0] + '" alt="' + esc(R.title[l]) + '">';
+      return;
+    }
+    var arrow = function (d) {
+      return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="' +
+        (d === 'prev' ? 'M15 18l-6-6 6-6' : 'M9 6l6 6-6 6') + '"/></svg>';
+    };
+    var of = (l === 'ua' ? ' з ' : ' of ');
+    var slides = imgs.map(function (src, i) {
+      return '<img src="images/' + src + '" alt="' + esc(R.title[l]) + ' (' + (i + 1) + of + imgs.length + ')"' +
+        (i ? ' loading="lazy"' : '') + ' decoding="async">';
+    }).join('');
+    var dots = imgs.map(function (_, i) {
+      return '<button type="button" aria-label="' + (l === 'ua' ? 'Фото ' : 'Photo ') + (i + 1) + '"' + (i === 0 ? ' class="on"' : '') + '></button>';
+    }).join('');
+    photo.className = 'photo slider';
+    photo.innerHTML = '<div class="slider-track" id="slTrack">' + slides + '</div>' +
+      '<button type="button" class="slider-nav prev" id="slPrev" aria-label="' + (l === 'ua' ? 'Попереднє фото' : 'Previous photo') + '" disabled>' + arrow('prev') + '</button>' +
+      '<button type="button" class="slider-nav next" id="slNext" aria-label="' + (l === 'ua' ? 'Наступне фото' : 'Next photo') + '">' + arrow('next') + '</button>' +
+      '<div class="slider-dots" id="slDots">' + dots + '</div>';
+    initSlider(imgs.length);
+  }
+
+  function initSlider(n) {
+    var track = document.getElementById('slTrack');
+    var prev = document.getElementById('slPrev'), next = document.getElementById('slNext');
+    var dots = [].slice.call(document.querySelectorAll('#slDots button'));
+    var cur = 0, t;
+    function sync() {
+      prev.disabled = cur <= 0; next.disabled = cur >= n - 1;
+      dots.forEach(function (d, i) { d.classList.toggle('on', i === cur); });
+    }
+    function go(i) { cur = Math.max(0, Math.min(n - 1, i)); track.scrollTo({ left: track.clientWidth * cur, behavior: 'smooth' }); sync(); }
+    prev.addEventListener('click', function () { go(cur - 1); });
+    next.addEventListener('click', function () { go(cur + 1); });
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+    track.addEventListener('scroll', function () {   // keep dots/arrows in sync with swipes
+      clearTimeout(t);
+      t = setTimeout(function () { cur = Math.round(track.scrollLeft / track.clientWidth); sync(); }, 90);
+    });
+  }
+
   /* things that don't change with servings */
   function renderStatic() {
     var l = L();
@@ -183,11 +231,12 @@
     var tg = ['<span class="tag">' + (l === 'ua' ? 'Низький ГІ' : 'Low GI') + '</span>', '<span class="tag">' + esc(CAT[R.cat][l]) + '</span>'];
     (R.tags || []).forEach(function (t) { if (DIET[t]) tg.push('<span class="tag">' + esc(DIET[t][l]) + '</span>'); });
     document.getElementById('rTags').innerHTML = tg.join('');
-    document.getElementById('rPhoto').innerHTML = '<img src="images/' + R.img + '" alt="' + esc(R.title[l]) + '">';
+    renderPhoto(l);
     document.getElementById('rWhy').innerHTML = '<h3>' + (l === 'ua' ? 'Чому це Low GI' : "Why it's Low GI") + '</h3><p>' + esc(R.why[l]) + '</p>';
     var ol = document.getElementById('steps'); ol.innerHTML = '';
-    R.method[l].forEach(function (st) {
+    R.method[l].forEach(function (st, i) {
       var li = document.createElement('li');
+      li.id = 'step-' + (i + 1);   // matches the HowToStep url in the JSON-LD
       li.innerHTML = '<span class="num"></span><span class="step-text">' + esc(st) + '</span>';
       li.addEventListener('click', function () { li.classList.toggle('done'); updateProgress(); });
       ol.appendChild(li);
